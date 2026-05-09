@@ -17,7 +17,9 @@ namespace Gerenciadores {
 		void desenharEnte(Ente *pE);
 		//void criarPlanoFundo();
 		bool janelaAberta() const;
+		void limparTela();
 		void fecharJanela();
+		void mostrarTela();
 		std::optional<sf::Event> atualizaEvento();
 
 		//. . .

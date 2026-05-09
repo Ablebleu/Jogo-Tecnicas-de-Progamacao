@@ -117,6 +117,9 @@
     <ClCompile Include="Chefao.cpp">
       <Filter>Entidades\Personagens\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Cenario.cpp">
+      <Filter>Entidades\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
@@ -169,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="Chefao.h">
       <Filter>Entidades\Personagens\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Cenario.h">
+      <Filter>Entidades\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

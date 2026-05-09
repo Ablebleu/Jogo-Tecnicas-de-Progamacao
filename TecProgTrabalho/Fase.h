@@ -7,18 +7,18 @@
 
 class Fase : public Ente {
 protected:
-	//ListaEntidades lista_ents;
+	ListaEntidades lista_ents;
 	Gerenciadores::Gerenciador_Colisões* GC;
 	void criarInimFaceis();
 	void criarPlataformas();
 	virtual void criarInimgos() = 0;
 	virtual void criarObstaculo() = 0;
-	void criarCenario();
+	virtual void criarCenario() = 0;
 public:
 	//int ...;
 	Fase();
 	virtual ~Fase();
 	//void ...();
-	virtual void executar() = 0;
+	virtual void executar();
 };
 #endif  

@@ -8,7 +8,7 @@ protected:
 	int id;
 	static int cont_id;
 	static Gerenciadores::Gerenciador_Grafico* pGG;
-	//*Figura pFig;
+	sf::Sprite *pSprite;
 
 	//. . .
 
@@ -17,6 +17,7 @@ public:
 	virtual ~Ente();
 	virtual void executar() = 0;
 	void desenhar();
+	sf::Sprite* getSprite() const;
 	void static setGG(Gerenciadores::Gerenciador_Grafico* pG);
 
 	//. . .

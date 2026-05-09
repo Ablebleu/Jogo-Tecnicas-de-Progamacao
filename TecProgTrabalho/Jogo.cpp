@@ -1,13 +1,33 @@
 #include "Jogo.h"
 #include <iostream>
 
-Jogo::Jogo() : GG(NULL), GE(NULL) { 
+Jogo::Jogo() : pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE(NULL) { 
 
 	GG = new Gerenciadores::Gerenciador_Grafico;
-	if (!GG) std::cerr << "Erro ao criar Gerenciador Grafico" << std::endl;
+	if (!GG) {
+		std::cerr << "Erro ao criar Gerenciador Grafico" << std::endl;
+		return;
+	}
 
 	GE = new Gerenciadores::Gerenciador_Eventos(GG);
-	if (!GE) std::cerr << "Erro ao criar Gerenciador Eventos" << std::endl;
+	if (!GE) {
+		std::cerr << "Erro ao criar Gerenciador Eventos" << std::endl;
+		return;
+	}
+
+	pJog1 = new Jogador;
+	if (!pJog1) {
+		std::cerr << "Erro ao criar Jogador" << std::endl;
+		return;
+	}
+
+	fase1 = new Fase_Primeira;
+	if (!fase1) {
+		std::cerr << "Erro ao criar Fase" << std::endl;
+		return;
+	}
+
+	faseAtual = static_cast<Fase*>(fase1);
 
 	/*Adicionar Menu depois*/ 
 	executar(); 
@@ -16,6 +36,8 @@ Jogo::Jogo() : GG(NULL), GE(NULL) {
 Jogo::~Jogo() {
 	if (GG) delete GG;
 	if (GE) delete GE;
+	if (pJog1) delete pJog1;
+	if (fase1) delete fase1;
 }
 
 /*Loop principal do jogo.
@@ -25,6 +47,12 @@ Jogo::~Jogo() {
 void Jogo::executar() {
 	while(GG->janelaAberta()) {
 		GE->executar();
+		GG->limparTela();
+		/*Essa função vai ser mudada no futuro,
+		fazendo a classe perder essa responsabilidade
+		mas por enquanto estará para testes */
+		faseAtual->executar();
+		GG->mostrarTela();
 	}
 }
 

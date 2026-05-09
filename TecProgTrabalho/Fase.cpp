@@ -1,14 +1,10 @@
 #include "Fase.h"
 
-Fase::Fase(): Ente() {
+Fase::Fase(): Ente(), GC(NULL) {
 
 }
 
 Fase::~Fase() {
-
-}
-
-void Fase::executar() {
 
 }
 
@@ -26,5 +22,9 @@ void Fase::criarPlataformas() {
 
 void Fase::criarCenario() {
 
+}
+
+void Fase::executar() {
+	lista_ents.desenhar();
 }
 

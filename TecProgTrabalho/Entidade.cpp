@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade() {
+Entidade::Entidade(): Ente(), x(0), y(0) {
 
 }
 

@@ -1,6 +1,6 @@
 #include "Jogador.h"
 
-Jogador::Jogador() {
+Jogador::Jogador(): pontos(0) {
 
 }
 

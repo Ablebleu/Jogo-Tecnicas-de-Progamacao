@@ -5,11 +5,18 @@
 #include "Gerenciador_Eventos.h"
 #include "Jogador.h"
 
+//Retirar depois
+#include "Fase Primeira.h"
+
 class Jogo {
 private:
-	Jogador pJog1;
+
+	Jogador *pJog1;
+	Fase_Primeira* fase1;
+	Fase* faseAtual;
 	Gerenciadores::Gerenciador_Grafico* GG;
 	Gerenciadores::Gerenciador_Eventos* GE;
+
 public:
 	//int ...;
 	Jogo();

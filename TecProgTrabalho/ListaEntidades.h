@@ -5,15 +5,16 @@
 #include "Entidade.h"
 
 class ListaEntidades {
+private:
+	Lista<Entidade*> LEs;
+	//int ...;
 public:
 	ListaEntidades();
 	~ListaEntidades();
 	void incluir(Entidade *pE);
-	void percorrer();
+	void desenhar();
+	//void percorrer();
 	//void ...();
-private:
-	Lista<Entidade> LEs;
-	//int ...;
 };
 
 #endif  
