@@ -11,17 +11,18 @@ public:
 	class Elemento {
 	private:
 		Elemento<TE>* pProx;
-		TE* pinfo;
+		TE pinfo;
 	public:
 		Elemento() { pProx = nullptr; pinfo = nullptr; }
 		~Elemento() {
 			pProx = nullptr;
+			//Mudar no futuro para as classes que deram new deletar
 			if (pinfo) delete pinfo;
 			pinfo = nullptr;
 		}
-		void incluir(TE* p) { pinfo = p; }
+		void incluir(TE p) { pinfo = p; }
 		void setProx(Elemento<TE>* pE) { pProx = pE; }
-		TE *getInfo() const { return pinfo; }
+		TE getInfo() const { return pinfo; }
 		Elemento<TE>* getProximo() const { return pProx; }
 	};
 
@@ -34,7 +35,7 @@ public:
 
 	Lista();
 	~Lista();
-	void incluir(TL *p);
+	void incluir(TL p);
 	void limpar();
 	Elemento<TL> *getPrimeiro() const;
 	//void ...();
@@ -61,7 +62,7 @@ void Lista<TL>::limpar() {
 }
 
 template <class TL>
-void Lista<TL>::incluir(TL *p) {
+void Lista<TL>::incluir(TL p) {
 	if (p) {
 		//std::cout << "z";
 		Elemento<TL>* pNovo = new Elemento<TL>;
