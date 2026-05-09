@@ -16,8 +16,6 @@ void Fase::executar() {
 
 }*/
 
-virtual void Fase::executar();
-
 void Fase::criarInimFaceis() {
 
 }

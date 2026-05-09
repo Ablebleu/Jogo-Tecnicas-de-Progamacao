@@ -18,6 +18,10 @@ Jogo::~Jogo() {
 	if (GE) delete GE;
 }
 
+/*Loop principal do jogo.
+* Eventos são tratados em Gerenciador_Eventos
+* O jogo é atualizado em Gerenciador_Grafico.
+*/
 void Jogo::executar() {
 	while(GG->janelaAberta()) {
 		GE->executar();

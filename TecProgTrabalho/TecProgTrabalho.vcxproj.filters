@@ -1,46 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Arquivos de Origem">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Arquivos de Cabeçalho">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Arquivos de Recurso">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Fases">
       <UniqueIdentifier>{340767f9-3f25-4c88-8694-ed48c4091c61}</UniqueIdentifier>
     </Filter>
     <Filter Include="Gerenciadores">
       <UniqueIdentifier>{4e844b2a-a729-41f8-be79-930714bfdb7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Gerenciadores\Headers">
-      <UniqueIdentifier>{d7082618-0efd-4bf4-b0e7-667e193fda58}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Gerenciadores\Source">
       <UniqueIdentifier>{6f0540c6-d10c-4a4f-b59c-3923a3ffafdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Listas">
+      <UniqueIdentifier>{2436d684-5b7e-45ab-9f93-c8abac2daebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Listas\Header">
+      <UniqueIdentifier>{ec972c05-05ed-4d10-a673-faa9aa5b98de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gerenciadores\Header">
+      <UniqueIdentifier>{d7082618-0efd-4bf4-b0e7-667e193fda58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Listas\Source">
+      <UniqueIdentifier>{0f3fdae7-7381-4b2c-845f-443e2dd24f0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fases\Header">
+      <UniqueIdentifier>{3062e241-d730-4455-87a3-047f87fedadc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fases\Source">
+      <UniqueIdentifier>{51708867-d306-4d0d-85fa-83f13b277baf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Entidades\Header">
+      <UniqueIdentifier>{6b2bbed3-7d43-4f56-960e-c0e2425103d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Obstáculos">
+      <UniqueIdentifier>{49b325eb-9e78-40b6-8fcc-98d8c1b0025a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Personagens">
+      <UniqueIdentifier>{7ca24216-d4c7-4208-91c5-c9211a6edc88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Obstáculos\Source">
+      <UniqueIdentifier>{e3bde6cf-e2fd-4774-9424-808526869365}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Obstáculos\Header">
+      <UniqueIdentifier>{c727f3cf-d819-4b7f-a820-a187ee8eeb34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Personagens\Source">
+      <UniqueIdentifier>{7a072900-973f-4d42-99a4-374740d32bbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Personagens\Header">
+      <UniqueIdentifier>{72a79f31-ca8b-4d3b-8e97-3820f4c01dbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Source">
+      <UniqueIdentifier>{f907cfc0-b5fc-447e-b54b-ce971b0b9f23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Ente.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Jogo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Fase Primeira.cpp">
-      <Filter>Fases</Filter>
-    </ClCompile>
-    <ClCompile Include="Fase.cpp">
-      <Filter>Fases</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Gerenciador_Colisões.cpp">
       <Filter>Gerenciadores\Source</Filter>
@@ -51,28 +84,91 @@
     <ClCompile Include="Gerenciador_Eventos.cpp">
       <Filter>Gerenciadores\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ListaEntidades.cpp">
+      <Filter>Listas\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase Primeira.cpp">
+      <Filter>Fases\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase.cpp">
+      <Filter>Fases\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Entidade.cpp">
+      <Filter>Entidades\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Projetil.cpp">
+      <Filter>Entidades\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Personagem.cpp">
+      <Filter>Entidades\Personagens\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Jogador.cpp">
+      <Filter>Entidades\Personagens\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigo.cpp">
+      <Filter>Entidades\Personagens\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Inim_Facil.cpp">
+      <Filter>Entidades\Personagens\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Inim_Medio.cpp">
+      <Filter>Entidades\Personagens\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Chefao.cpp">
+      <Filter>Entidades\Personagens\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Jogo.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Fase.h">
-      <Filter>Fases</Filter>
-    </ClInclude>
-    <ClInclude Include="Fase Primeira.h">
-      <Filter>Fases</Filter>
+      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Gerenciador_Colisões.h">
-      <Filter>Gerenciadores\Headers</Filter>
+      <Filter>Gerenciadores\Header</Filter>
     </ClInclude>
     <ClInclude Include="Gerenciador_Eventos.h">
-      <Filter>Gerenciadores\Headers</Filter>
+      <Filter>Gerenciadores\Header</Filter>
     </ClInclude>
     <ClInclude Include="Gerenciador_Grafico.h">
-      <Filter>Gerenciadores\Headers</Filter>
+      <Filter>Gerenciadores\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Lista.h">
+      <Filter>Listas\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaEntidades.h">
+      <Filter>Listas\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase Primeira.h">
+      <Filter>Fases\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase.h">
+      <Filter>Fases\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidade.h">
+      <Filter>Entidades\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Projetil.h">
+      <Filter>Entidades\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Personagem.h">
+      <Filter>Entidades\Personagens\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Jogador.h">
+      <Filter>Entidades\Personagens\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inimigo.h">
+      <Filter>Entidades\Personagens\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inim_Facil.h">
+      <Filter>Entidades\Personagens\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inim_Medio.h">
+      <Filter>Entidades\Personagens\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Chefao.h">
+      <Filter>Entidades\Personagens\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -18,7 +18,7 @@ namespace Gerenciadores {
 		//void criarPlanoFundo();
 		bool janelaAberta() const;
 		void fecharJanela();
-		const bool pollEvento(sf::Event& evento);
+		std::optional<sf::Event> atualizaEvento();
 
 		//. . .
 

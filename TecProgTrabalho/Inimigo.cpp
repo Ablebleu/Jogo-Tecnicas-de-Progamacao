@@ -12,35 +12,10 @@
 
 #include "Inimigo.h"
 
-void Inimigo::...() {
+/*void Inimigo::...() {
 
-}
+}*/
 
 void Inimigo::salvarDataBuffer() {
 
 }
-
-virtual void = 0 Inimigo::executar() {
-
-}
-
-virtual void = 0 Inimigo::salvar() {
-
-}
-
-virtual void = 0 Inimigo::mover() {
-
-}
-
-virtual void = 0 Inimigo::executar() {
-
-}
-
-virtual void = 0 Inimigo::salvar() {
-
-}
-
-virtual void = 0 Inimigo::executar() {
-
-}
-

@@ -2,7 +2,9 @@
 #include "Ente.h"
 using namespace Gerenciadores;
 
-Gerenciador_Grafico::Gerenciador_Grafico(): janela(sf::VideoMode({400, 400}), "Jogo") {}
+Gerenciador_Grafico::Gerenciador_Grafico(): janela(sf::VideoMode({1600, 900}), "Jogo++") {
+	Ente::setGG(this);
+}
 
 Gerenciador_Grafico::~Gerenciador_Grafico() {
 
@@ -18,9 +20,11 @@ bool Gerenciador_Grafico::janelaAberta() const {
 void Gerenciador_Grafico::fecharJanela() {
 	janela.close();
 }
-bool Gerenciador_Grafico::pollEvento(sf::Event& evento) {
-	return janela.pollEvent(evento);
+
+std::optional<sf::Event> Gerenciador_Grafico::atualizaEvento() {
+	return janela.pollEvent();
 }
+
 /*void Gerenciador_Grafico::...() {
 
 }*/

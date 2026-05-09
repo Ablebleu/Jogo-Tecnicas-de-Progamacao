@@ -1,15 +1,15 @@
 #include "Gerenciador_Colisões.h"
 using namespace Gerenciadores;
 
-void Gerenciador_Colisões::incluirInimigo(*Inimigo pi) {
+void Gerenciador_Colisões::incluirInimigo(Inimigo *pi) {
 
 }
 
-void Gerenciador_Colisões::incluirObstcaulo(*Obstaculo po) {
+void Gerenciador_Colisões::incluirObstaculo(Obstaculo *po) {
 
 }
 
-void Gerenciador_Colisões::incluirProjetil(*Projetil pj) {
+void Gerenciador_Colisões::incluirProjetil(Projetil *pj) {
 
 }
 
@@ -21,8 +21,9 @@ void Gerenciador_Colisões::executar() {
 
 }*/
 
-const bool Gerenciador_Colisões::verificarColisao(*Entidade pe1, *Entidade pe2) const {
-	//Intersecção entre hitbox de pe1 e pe2
+const bool Gerenciador_Colisões::verificarColisao(Entidade *pe1, Entidade *pe2) const {
+	//Intersecção entre hitbox de pe1 e pe2 => return true;
+	return false;
 }
 
 void Gerenciador_Colisões::tratarColisoesJogsObstacs() {

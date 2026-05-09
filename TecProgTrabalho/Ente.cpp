@@ -1,9 +1,11 @@
 #include <iostream>
 #include "Ente.h"
 
-Ente::Ente() {
+Ente::Ente(): id(cont_id++) {
 
 }
+int Ente::cont_id(0);
+Gerenciadores::Gerenciador_Grafico* Ente::pGG = nullptr;
 
 Ente::~Ente() {
 

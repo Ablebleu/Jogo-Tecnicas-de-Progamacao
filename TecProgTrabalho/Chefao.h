@@ -16,21 +16,15 @@
 #include "Inimigo.h"
 
 class Chefao : public Inimigo {
-public:
-	void executar();
-	void ...();
-	virtual void = 0 executar();
-	virtual void = o danificar(*Jogador p);
-	virtual void = 0 salva();
-	virtual void = 0 executar();
-	virtual void = 0 salvar();
-	virtual void = 0 mover();
-	virtual void = 0 executar();
-	virtual void = 0 salvar();
-	virtual void = 0 executar();
 private:
-	int ...;
+	//int ...;
 	short int forca;
+public:
+	//void ...();
+	void salvar();
+	void executar();
+	void danificar(Jogador* p);
+	void mover();
 };
 
 #endif  //_CHEFAO_H

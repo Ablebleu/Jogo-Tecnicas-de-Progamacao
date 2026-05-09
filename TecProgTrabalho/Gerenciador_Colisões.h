@@ -6,37 +6,37 @@
 
 using namespace std;
 
-/*
-Na vdd esse deve ter include de todos os próximos:
-*/
 class Inimigo;
 class Obstaculo;
 class Projetil;
 class Jogador;
+class Entidade;
 
 namespace Gerenciadores {
-	class Gerenciador_Colisões {
-	public:
-		void incluirInimigo(*Inimigo pi);
-		void incluirObstcaulo(*Obstaculo po);
-		void incluirProjetil(*Projetil pj);
-		void executar();
-
-		//. . .
-
+	class Gerenciador_Colisões{
 	private:
-		vector<*Inimigo> LIs;
-		list<*Obstaculo> LOs;
-		set<*Projetil> LPs;
-		*Jogador pJog1;
-		*Jogador pJog2;
+
+		vector<Inimigo*> LIs;
+		list<Obstaculo*> LOs;
+		set<Projetil*> LPs;
+		Jogador* pJog1;
+		Jogador* pJog2;
 
 		//. . .
 
-		const bool verificarColisao(*Entidade pe1, *Entidade pe2) const;
+		const bool verificarColisao(Entidade* pe1, Entidade* pe2) const;
 		void tratarColisoesJogsObstacs();
 		void tratarColisoesJogsInimgs();
 		void tratarColisoesJogsProjeteis();
+
+	public:
+
+		void incluirInimigo(Inimigo *pi);
+		void incluirObstaculo(Obstaculo *po);
+		void incluirProjetil(Projetil *pj);
+		void executar();
+
+		//. . .
 	};
 }
-#endif  //_GERENCIADOR_COLISõES_H
+#endif 
