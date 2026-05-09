@@ -13,10 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fases">
+      <UniqueIdentifier>{340767f9-3f25-4c88-8694-ed48c4091c61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gerenciadores">
+      <UniqueIdentifier>{4e844b2a-a729-41f8-be79-930714bfdb7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gerenciadores\Headers">
+      <UniqueIdentifier>{d7082618-0efd-4bf4-b0e7-667e193fda58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gerenciadores\Source">
+      <UniqueIdentifier>{6f0540c6-d10c-4a4f-b59c-3923a3ffafdc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Ente.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Jogo.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase Primeira.cpp">
+      <Filter>Fases</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase.cpp">
+      <Filter>Fases</Filter>
+    </ClCompile>
+    <ClCompile Include="Gerenciador_Colisões.cpp">
+      <Filter>Gerenciadores\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gerenciador_Grafico.cpp">
+      <Filter>Gerenciadores\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gerenciador_Eventos.cpp">
+      <Filter>Gerenciadores\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ente.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Jogo.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase.h">
+      <Filter>Fases</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase Primeira.h">
+      <Filter>Fases</Filter>
+    </ClInclude>
+    <ClInclude Include="Gerenciador_Colisões.h">
+      <Filter>Gerenciadores\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Gerenciador_Eventos.h">
+      <Filter>Gerenciadores\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Gerenciador_Grafico.h">
+      <Filter>Gerenciadores\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
