@@ -24,7 +24,11 @@ void Fase::criarCenario() {
 
 }
 
-void Fase::executar() {
+void Fase::executar(float dt) {
+	lista_ents.mover(dt);
+}
+
+void Fase::desenhar() {
 	lista_ents.desenhar();
 }
 

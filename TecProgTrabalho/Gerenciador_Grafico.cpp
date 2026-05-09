@@ -37,6 +37,10 @@ void Gerenciador_Grafico::mostrarTela() {
 	janela.display();
 }
 
+float Gerenciador_Grafico::atualizarTempo() {
+	return relogio.restart().asSeconds();
+}
+
 std::optional<sf::Event> Gerenciador_Grafico::atualizaEvento() {
 	return janela.pollEvent();
 }

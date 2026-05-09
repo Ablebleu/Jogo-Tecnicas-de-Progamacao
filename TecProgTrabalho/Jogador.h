@@ -12,9 +12,9 @@ public:
 	Jogador();
 	~Jogador();
 	void colidir(Inimigo* pIn);
-	void executar();
+	void executar(float dt);
 	void salvar();
-	void mover();
+	void mover(float dt);
 	//. . .
 };
 

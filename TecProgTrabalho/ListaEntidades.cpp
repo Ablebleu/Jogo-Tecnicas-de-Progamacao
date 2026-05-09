@@ -15,12 +15,16 @@ void ListaEntidades::incluir(Entidade *pE) {
 
 void ListaEntidades::desenhar() {
 	Lista<Entidade*>::Elemento<Entidade*> *it = LEs.getPrimeiro();
-	//std::cout << "d";
-	//std::cout << "e"
 	while(it!=NULL) {
 		if(it->getInfo()) it->getInfo()->desenhar();
 		it = it->getProximo();
-		//std::cout << "c";
+	}
+}
+void ListaEntidades::mover(float dt) {
+	Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
+	while (it != NULL) {
+		if (it->getInfo()) it->getInfo()->mover(dt);
+		it = it->getProximo();
 	}
 }
 

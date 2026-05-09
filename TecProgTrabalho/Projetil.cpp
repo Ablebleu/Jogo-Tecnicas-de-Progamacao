@@ -12,10 +12,13 @@ Projetil::~Projetil() {
 
 }*/
 
-void Projetil::executar() {
+void Projetil::executar(float dt) {
 
 }
 
 void Projetil::salvar() {
 
+}
+
+void Projetil::mover(float dt) {
 }

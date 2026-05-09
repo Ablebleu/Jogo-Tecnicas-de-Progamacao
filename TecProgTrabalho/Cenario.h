@@ -7,11 +7,11 @@ class Cenario : public Entidade {
 private:
 	sf::Texture textura;
 public:
-	Cenario(const char* caminho, float px, float py, float vx = 0, float vy = 0);
+	Cenario(const char* caminho, sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0), sf::Vector2f t = sf::Vector2f(1, 1));
 	~Cenario();
-	void executar();
+	void executar(float dt);
 	void salvar();
-	void mover();
+	void mover(float dt);
 	//void ...();
 };
 #endif

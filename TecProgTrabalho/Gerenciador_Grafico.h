@@ -8,6 +8,7 @@ namespace Gerenciadores {
 	class Gerenciador_Grafico {
 	private:
 		sf::RenderWindow janela;
+		sf::Clock relogio;
 		//BiblioGrafica obj;
 		//. . .
 
@@ -20,6 +21,7 @@ namespace Gerenciadores {
 		void limparTela();
 		void fecharJanela();
 		void mostrarTela();
+		float atualizarTempo();
 		std::optional<sf::Event> atualizaEvento();
 
 		//. . .

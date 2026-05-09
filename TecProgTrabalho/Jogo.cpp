@@ -1,7 +1,7 @@
 #include "Jogo.h"
 #include <iostream>
 
-Jogo::Jogo() : pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE(NULL) { 
+Jogo::Jogo() : fps(120), pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE(NULL) { 
 
 	GG = new Gerenciadores::Gerenciador_Grafico;
 	if (!GG) {
@@ -45,13 +45,22 @@ Jogo::~Jogo() {
 * O jogo é atualizado em Gerenciador_Grafico.
 */
 void Jogo::executar() {
+	float tempo_acumulado = 0.0f;
+	float dt = 1.0f / fps;
 	while(GG->janelaAberta()) {
-		GE->executar();
+		float tempoFrame = GG->atualizarTempo();
+		tempo_acumulado += tempoFrame;
+		while (tempo_acumulado >= dt) {
+			GE->executar();
+
+			/*Essa função vai ser mudada no futuro,
+			fazendo a classe perder essa responsabilidade
+			mas por enquanto estará para testes */
+			faseAtual->executar(dt);
+			tempo_acumulado -= dt;
+		}
 		GG->limparTela();
-		/*Essa função vai ser mudada no futuro,
-		fazendo a classe perder essa responsabilidade
-		mas por enquanto estará para testes */
-		faseAtual->executar();
+		faseAtual->desenhar();
 		GG->mostrarTela();
 	}
 }

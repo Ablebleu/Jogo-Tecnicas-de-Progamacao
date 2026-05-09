@@ -1,6 +1,7 @@
 #include "Entidade.h"
 
-Entidade::Entidade(): Ente(), x(0), y(0) {
+Entidade::Entidade(sf::Vector2f p, sf::Vector2f v): 
+	Ente(), pos(p), vel(v), tam(1, 1) {
 
 }
 

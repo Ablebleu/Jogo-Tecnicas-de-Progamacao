@@ -11,6 +11,7 @@
 class Jogo {
 private:
 
+	int fps;
 	Jogador *pJog1;
 	Fase_Primeira* fase1;
 	Fase* faseAtual;

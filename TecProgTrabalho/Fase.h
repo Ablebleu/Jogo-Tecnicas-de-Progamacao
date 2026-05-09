@@ -11,7 +11,7 @@ protected:
 	Gerenciadores::Gerenciador_Colisões* GC;
 	void criarInimFaceis();
 	void criarPlataformas();
-	virtual void criarInimgos() = 0;
+	virtual void criarInimigos() = 0;
 	virtual void criarObstaculo() = 0;
 	virtual void criarCenario() = 0;
 public:
@@ -19,6 +19,7 @@ public:
 	Fase();
 	virtual ~Fase();
 	//void ...();
-	virtual void executar();
+	virtual void executar(float dt);
+	void desenhar();
 };
 #endif  

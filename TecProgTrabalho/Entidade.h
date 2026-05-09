@@ -5,17 +5,18 @@
 
 class Entidade : public Ente {
 protected:
-	int x;
-	int y;
+	sf::Vector2f pos;
+	sf::Vector2f vel;
+	sf::Vector2f tam;
 	//int ...;
 	//ostream buffer;
 	void salvarDataBuffer();
 public:
-	Entidade();
+	Entidade(sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0));
 	virtual  ~Entidade();
-	virtual void executar() = 0;
+	virtual void executar(float dt) = 0;
 	virtual void salvar() = 0;
-	virtual void mover() = 0;
+	virtual void mover(float dt) = 0;
 	//void ...();
 };
 

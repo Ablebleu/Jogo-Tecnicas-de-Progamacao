@@ -8,13 +8,13 @@ void Inim_Facil::salvar() {
 
 }
 
-void Inim_Facil::executar() {
+void Inim_Facil::executar(float dt) {
 
 }
 
 void Inim_Facil::danificar(Jogador *p) {
 
 }
-void Inim_Facil::mover() {
+void Inim_Facil::mover(float dt) {
 
 }

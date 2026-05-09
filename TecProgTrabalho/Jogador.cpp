@@ -12,7 +12,7 @@ void Jogador::colidir(Inimigo* pIn) {
 
 }
 
-void Jogador::executar() {
+void Jogador::executar(float dt) {
 
 }
 
@@ -20,6 +20,6 @@ void Jogador::salvar() {
 
 }
 
-void Jogador::mover() {
+void Jogador::mover(float dt) {
 
 }

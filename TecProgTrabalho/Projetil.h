@@ -8,8 +8,9 @@ public:
 	Projetil();
 	~Projetil();
 	//void ...();
-	void executar();
+	void executar(float dt);
 	void salvar();
+	void mover(float dt);
 protected:
 	//int . . .;
 	bool ativo;

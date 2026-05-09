@@ -1,5 +1,5 @@
-#ifndef _FASE PRIMEIRA_H
-#define _FASE PRIMEIRA_H
+#ifndef _FASE_PRIMEIRA_H
+#define _FASE_PRIMEIRA_H
 
 #include "Fase.h"
 
@@ -7,7 +7,7 @@ class Fase_Primeira: public Fase {
 protected:
 	void criarInimMedios();
 	void criarObstMedios();
-	void criarInimgos();
+	void criarInimigos();
 	void criarObstaculo();
 	void criarCenario();
 private:
@@ -17,7 +17,7 @@ public:
 	//void ...();
 	Fase_Primeira();
 	~Fase_Primeira();
-	virtual void executar();
+	void executar(float dt);
 };
 
 #endif 
