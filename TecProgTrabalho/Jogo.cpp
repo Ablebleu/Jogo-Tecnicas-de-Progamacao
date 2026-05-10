@@ -14,7 +14,7 @@ Jogo::Jogo() : fps(120), pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE
 		std::cerr << "Erro ao criar Gerenciador Eventos" << std::endl;
 		return;
 	}
-
+	
 	pJog1 = new Jogador;
 	if (!pJog1) {
 		std::cerr << "Erro ao criar Jogador" << std::endl;
@@ -27,6 +27,8 @@ Jogo::Jogo() : fps(120), pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE
 		return;
 	}
 
+	fase1->incluirEntidade(static_cast<Entidade*>(pJog1));
+
 	faseAtual = static_cast<Fase*>(fase1);
 
 	/*Adicionar Menu depois*/ 
@@ -36,7 +38,10 @@ Jogo::Jogo() : fps(120), pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE
 Jogo::~Jogo() {
 	if (GG) delete GG;
 	if (GE) delete GE;
-	if (pJog1) delete pJog1;
+	if (pJog1) {
+		faseAtual->removerEntidade(pJog1->getId());
+		delete pJog1;
+	}
 	if (fase1) delete fase1;
 }
 
@@ -59,6 +64,7 @@ void Jogo::executar() {
 			faseAtual->executar(dt);
 			tempo_acumulado -= dt;
 		}
+		std::cout << "Tempo acumulado: " << tempo_acumulado << " segundos" << std::endl;
 		GG->limparTela();
 		faseAtual->desenhar();
 		GG->mostrarTela();

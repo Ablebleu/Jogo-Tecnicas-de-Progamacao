@@ -3,10 +3,15 @@
 
 #include "Personagem.h"
 
+//Fazer setTeclas depois para permitir 2 jogadores
 class Inimigo;
 class Jogador : public Personagem {
 protected:
 	int pontos;
+	sf::Keyboard::Key tecla_cima;
+	sf::Keyboard::Key tecla_baixo;
+	sf::Keyboard::Key tecla_esquerda;
+	sf::Keyboard::Key tecla_direita;
 	//int ...;
 public:
 	Jogador();

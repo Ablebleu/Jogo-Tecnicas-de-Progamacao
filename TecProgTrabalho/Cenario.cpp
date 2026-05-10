@@ -11,7 +11,7 @@ Cenario::Cenario(const char* caminho, sf::Vector2f p, sf::Vector2f v, sf::Vector
 	pSprite = new sf::Sprite(textura);
 	tam = size;
 	pSprite->setScale(tam);
-	pSprite->setPosition(p);
+	pSprite->setPosition(pos);
 }
 
 Cenario::~Cenario() {
@@ -19,7 +19,7 @@ Cenario::~Cenario() {
 }
 
 void Cenario::executar(float dt) {
-
+	mover(dt);
 }
 
 void Cenario::salvar() {

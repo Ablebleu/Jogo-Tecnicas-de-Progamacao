@@ -5,7 +5,6 @@
 
 class Cenario : public Entidade {
 private:
-	sf::Texture textura;
 public:
 	Cenario(const char* caminho, sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0), sf::Vector2f t = sf::Vector2f(1, 1));
 	~Cenario();

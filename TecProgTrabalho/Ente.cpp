@@ -29,6 +29,10 @@ void Ente::setGG(Gerenciadores::Gerenciador_Grafico* pG) {
 	else std::cerr << "Erro ao setar Gerenciador Grafico em Ente" << std::endl;
 }
 
+const int Ente::getId() const {
+	return id;
+}
+
 /*void Ente::. . .() {
 
 }*/

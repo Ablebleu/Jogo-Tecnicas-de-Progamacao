@@ -20,6 +20,8 @@ public:
 	virtual ~Fase();
 	//void ...();
 	virtual void executar(float dt);
+	void incluirEntidade(Entidade* pE);
 	void desenhar();
+	void removerEntidade(int id);
 };
 #endif  

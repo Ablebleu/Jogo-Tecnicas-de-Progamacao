@@ -1,7 +1,6 @@
-//
 #include "Personagem.h"
 
-Personagem::Personagem() {
+Personagem::Personagem(): num_vidas(10), Entidade() {
 
 }
 

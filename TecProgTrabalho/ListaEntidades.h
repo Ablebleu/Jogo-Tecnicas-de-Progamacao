@@ -14,6 +14,7 @@ public:
 	void incluir(Entidade *pE);
 	void desenhar();
 	void mover(float dt);
+	void remover(int id);
 	//void percorrer();
 	//void ...();
 };

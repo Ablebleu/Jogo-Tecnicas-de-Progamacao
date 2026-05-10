@@ -9,6 +9,7 @@ protected:
 	static int cont_id;
 	static Gerenciadores::Gerenciador_Grafico* pGG;
 	sf::Sprite *pSprite;
+	sf::Texture textura;
 
 	//. . .
 
@@ -19,6 +20,7 @@ public:
 	void desenhar();
 	sf::Sprite* getSprite() const;
 	void static setGG(Gerenciadores::Gerenciador_Grafico* pG);
+	const int getId() const;
 
 	//. . .
 
