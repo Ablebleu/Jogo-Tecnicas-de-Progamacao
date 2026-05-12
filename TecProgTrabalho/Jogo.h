@@ -13,6 +13,7 @@ private:
 
 	int fps;
 	Jogador *pJog1;
+	Jogador* pJog2;
 	Fase_Primeira* fase1;
 	Fase* faseAtual;
 	Gerenciadores::Gerenciador_Grafico* GG;

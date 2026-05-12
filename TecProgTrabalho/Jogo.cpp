@@ -1,7 +1,8 @@
 #include "Jogo.h"
 #include <iostream>
+#include <SFML/Graphics.hpp>
 
-Jogo::Jogo() : fps(120), pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE(NULL) { 
+Jogo::Jogo() : fps(120), pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE(NULL) {
 
 	GG = new Gerenciadores::Gerenciador_Grafico;
 	if (!GG) {
@@ -21,6 +22,13 @@ Jogo::Jogo() : fps(120), pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE
 		return;
 	}
 
+	pJog2 = new Jogador;
+	if (!pJog1) {
+		std::cerr << "Erro ao criar Jogador" << std::endl;
+		return;
+	}
+	pJog2->setTeclas(sf::Keyboard::Key::Up, sf::Keyboard::Key::Down, sf::Keyboard::Key::Left, sf::Keyboard::Key::Right);
+
 	fase1 = new Fase_Primeira;
 	if (!fase1) {
 		std::cerr << "Erro ao criar Fase" << std::endl;
@@ -28,6 +36,7 @@ Jogo::Jogo() : fps(120), pJog1(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE
 	}
 
 	fase1->incluirEntidade(static_cast<Entidade*>(pJog1));
+	fase1->incluirEntidade(static_cast<Entidade*>(pJog2));
 
 	faseAtual = static_cast<Fase*>(fase1);
 
@@ -64,7 +73,7 @@ void Jogo::executar() {
 			faseAtual->executar(dt);
 			tempo_acumulado -= dt;
 		}
-		std::cout << "Tempo acumulado: " << tempo_acumulado << " segundos" << std::endl;
+		//std::cout << "Tempo acumulado: " << tempo_acumulado << " segundos" << std::endl;
 		GG->limparTela();
 		faseAtual->desenhar();
 		GG->mostrarTela();

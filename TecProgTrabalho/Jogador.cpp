@@ -11,8 +11,9 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	pos.y = 500.0f;
 	vel.y = -500.0f;
 	vel.x = -500.0f;
+	tam = 7.0f;
 	pSprite = new sf::Sprite(textura);
-	pSprite->setScale(tam*7.0f);
+	pSprite->setScale(sf::Vector2f(1.0f,1.0f)*tam);
 	pSprite->setPosition(pos);
 }
 
@@ -44,4 +45,11 @@ void Jogador::salvar() {
 }
 
 void Jogador::mover(float dt) {
+}
+
+void Jogador::setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir) {
+	tecla_cima = cima;
+	tecla_baixo = baixo;
+	tecla_esquerda = esq;
+	tecla_direita = dir;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Cenario.h"
 
-Cenario::Cenario(const char* caminho, sf::Vector2f p, sf::Vector2f v, sf::Vector2f size):
+Cenario::Cenario(const char* caminho, sf::Vector2f p, sf::Vector2f v, float size):
 	Entidade(p, v) {
 	if (caminho) {
 		if (!textura.loadFromFile(caminho)) {
@@ -10,7 +10,7 @@ Cenario::Cenario(const char* caminho, sf::Vector2f p, sf::Vector2f v, sf::Vector
 	}
 	pSprite = new sf::Sprite(textura);
 	tam = size;
-	pSprite->setScale(tam);
+	pSprite->setScale(sf::Vector2f(1.0f, 1.0f)*tam);
 	pSprite->setPosition(pos);
 }
 

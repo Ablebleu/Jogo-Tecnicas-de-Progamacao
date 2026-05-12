@@ -20,6 +20,7 @@ public:
 	void executar(float dt);
 	void salvar();
 	void mover(float dt);
+	void setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir);
 	//. . .
 };
 
