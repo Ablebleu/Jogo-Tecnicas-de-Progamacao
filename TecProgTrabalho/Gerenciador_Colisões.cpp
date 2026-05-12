@@ -1,40 +1,40 @@
 #include "Gerenciador_Colisões.h"
 using namespace Gerenciadores;
 
-void Gerenciador_Colisões::incluirInimigo(Inimigo *pi) {
+void Gerenciador_Colisoes::incluirInimigo(Inimigo *pi) {
 
 }
 
-void Gerenciador_Colisões::incluirObstaculo(Obstaculo *po) {
+void Gerenciador_Colisoes::incluirObstaculo(Obstaculo *po) {
 
 }
 
-void Gerenciador_Colisões::incluirProjetil(Projetil *pj) {
+void Gerenciador_Colisoes::incluirProjetil(Projetil *pj) {
 
 }
 
-void Gerenciador_Colisões::executar() {
+void Gerenciador_Colisoes::executar() {
 
 }
 
-/*void Gerenciador_Colisões::...() {
+/*void Gerenciador_Colisoes::...() {
 
 }*/
 
-const bool Gerenciador_Colisões::verificarColisao(Entidade *pe1, Entidade *pe2) const {
+const bool Gerenciador_Colisoes::verificarColisao(Entidade *pe1, Entidade *pe2) const {
 	//Intersecção entre hitbox de pe1 e pe2 => return true;
 	return false;
 }
 
-void Gerenciador_Colisões::tratarColisoesJogsObstacs() {
+void Gerenciador_Colisoes::tratarColisoesJogsObstacs() {
 
 }
 
-void Gerenciador_Colisões::tratarColisoesJogsInimgs() {
+void Gerenciador_Colisoes::tratarColisoesJogsInimgs() {
 
 }
 
-void Gerenciador_Colisões::tratarColisoesJogsProjeteis() {
+void Gerenciador_Colisoes::tratarColisoesJogsProjeteis() {
 
 }
 

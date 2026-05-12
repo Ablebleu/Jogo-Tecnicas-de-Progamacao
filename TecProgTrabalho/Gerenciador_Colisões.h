@@ -1,5 +1,5 @@
-#ifndef _GERENCIADOR_COLISõES_H
-#define _GERENCIADOR_COLISõES_H
+#ifndef _GERENCIADOR_COLISOES_H
+#define _GERENCIADOR_COLISOES_H
 #include <vector>
 #include <list>
 #include <set>
@@ -13,7 +13,7 @@ class Jogador;
 class Entidade;
 
 namespace Gerenciadores {
-	class Gerenciador_Colisões{
+	class Gerenciador_Colisoes{
 	private:
 
 		vector<Inimigo*> LIs;
@@ -21,8 +21,6 @@ namespace Gerenciadores {
 		set<Projetil*> LPs;
 		Jogador* pJog1;
 		Jogador* pJog2;
-
-		//. . .
 
 		const bool verificarColisao(Entidade* pe1, Entidade* pe2) const;
 		void tratarColisoesJogsObstacs();

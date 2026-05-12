@@ -18,6 +18,7 @@ private:
 	Fase* faseAtual;
 	Gerenciadores::Gerenciador_Grafico* GG;
 	Gerenciadores::Gerenciador_Eventos* GE;
+	Gerenciadores::Gerenciador_Colisoes*GC;
 
 public:
 	//int ...;

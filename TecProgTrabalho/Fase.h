@@ -8,7 +8,7 @@
 class Fase : public Ente {
 protected:
 	ListaEntidades lista_ents;
-	Gerenciadores::Gerenciador_Colisões* GC;
+	Gerenciadores::Gerenciador_Colisoes* GC;
 	void criarInimFaceis();
 	void criarPlataformas();
 	virtual void criarInimigos() = 0;
@@ -20,8 +20,9 @@ public:
 	virtual ~Fase();
 	//void ...();
 	virtual void executar(float dt);
-	void incluirEntidade(Entidade* pE);
+	void incluirJogador(Jogador* pE);
 	void desenhar();
 	void removerEntidade(int id);
+	void incluirGerenciador(Gerenciadores::Gerenciador_Colisoes *pG);
 };
 #endif  

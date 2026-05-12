@@ -12,7 +12,7 @@ void Gerenciador_Eventos::setGG(Gerenciador_Grafico* GG) { pGG = GG; }
 void Gerenciador_Eventos::executar() {
 	if(!pGG) {
 		std::cerr << "Gerenciador Grafico nao setado em Gerenciador Eventos" << std::endl;
-		return;
+		exit(1);
 	}
 	while (const std::optional<sf::Event> evento = pGG->atualizaEvento()){
 		if (evento->is<sf::Event::Closed>()) {
