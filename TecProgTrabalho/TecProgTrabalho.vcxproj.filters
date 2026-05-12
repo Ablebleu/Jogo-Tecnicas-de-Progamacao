@@ -120,6 +120,12 @@
     <ClCompile Include="Cenario.cpp">
       <Filter>Entidades\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Obstaculo.cpp">
+      <Filter>Entidades\Obstáculos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Plataforma.cpp">
+      <Filter>Entidades\Obstáculos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
@@ -175,6 +181,12 @@
     </ClInclude>
     <ClInclude Include="Cenario.h">
       <Filter>Entidades\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculo.h">
+      <Filter>Entidades\Obstáculos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Plataforma.h">
+      <Filter>Entidades\Obstáculos\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

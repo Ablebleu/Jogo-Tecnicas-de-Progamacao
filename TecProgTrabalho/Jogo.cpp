@@ -43,7 +43,6 @@ Jogo::Jogo() : fps(120), pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL),
 	/*Adicionar Menu depois*/ 
 	executar(); 
 }
-
 Jogo::~Jogo() {
 	if (GG) delete GG;
 	if (GE) delete GE;

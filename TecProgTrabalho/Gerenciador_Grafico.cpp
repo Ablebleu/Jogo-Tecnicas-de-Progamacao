@@ -26,7 +26,7 @@ bool Gerenciador_Grafico::janelaAberta() const {
 }
 
 void Gerenciador_Grafico::limparTela() {
-	janela.clear();
+	janela.clear(sf::Color::Black);
 }
 
 void Gerenciador_Grafico::fecharJanela() {

@@ -16,7 +16,7 @@ void Ente::desenhar() {
 	//std::cout << "b";
 }
 
-sf::Sprite* Ente::getSprite() const {
+const sf::Sprite* Ente::getSprite() {
 	if(pSprite) return pSprite;
 	else {
 		std::cerr << "Erro ao acessar Sprite em Ente" << std::endl;

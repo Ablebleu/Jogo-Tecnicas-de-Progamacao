@@ -25,6 +25,14 @@ void Jogador::colidir(Inimigo* pIn) {
 }
 
 void Jogador::executar(float dt) {
+	mover(dt);
+}
+
+void Jogador::salvar() {
+
+}
+
+void Jogador::mover(float dt) {
 	if (sf::Keyboard::isKeyPressed(tecla_cima)) {
 		pos.y += vel.y * dt;
 	}
@@ -38,13 +46,6 @@ void Jogador::executar(float dt) {
 		pos.x -= vel.x * dt;
 	}
 	pSprite->setPosition(pos);
-}
-
-void Jogador::salvar() {
-
-}
-
-void Jogador::mover(float dt) {
 }
 
 void Jogador::setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir) {
