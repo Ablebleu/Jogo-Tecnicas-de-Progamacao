@@ -14,9 +14,12 @@ protected:
 public:
 	Entidade(sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0));
 	virtual  ~Entidade();
+	virtual const sf::FloatRect getCorpo(); //Faz Hitbox
 	virtual void executar(float dt) = 0;
 	virtual void salvar() = 0;
 	virtual void mover(float dt) = 0;
+	const sf::Vector2f getPos() const;
+	void setPos(sf::Vector2f p);
 	//void ...();
 };
 

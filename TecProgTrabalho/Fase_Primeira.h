@@ -2,20 +2,21 @@
 #define _FASE_PRIMEIRA_H
 
 #include "Fase.h"
+#include <list>
 
 class Fase_Primeira: public Fase {
+private:
+	//int ...;
+	//const int maxInimMedios;
 protected:
 	void criarInimMedios();
 	void criarObstMedios();
 	void criarInimigos();
 	void criarObstaculo();
 	void criarCenario();
-private:
-	//int ...;
-	//const int maxInimMedios;
 public:
 	//void ...();
-	Fase_Primeira();
+	Fase_Primeira(Gerenciadores::Gerenciador_Colisoes *pG = NULL);
 	~Fase_Primeira();
 	void executar(float dt);
 };

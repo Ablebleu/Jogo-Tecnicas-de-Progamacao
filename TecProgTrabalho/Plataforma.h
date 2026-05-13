@@ -5,15 +5,14 @@
 
 class Plataforma : public Obstaculo {
 private:
-	//int ...;
-	sf::Vector2f prop; //Proporções
+	sf::Vector2f prop; //Proporções -> substituir altura e largura
 public:
-	Plataforma();
+	Plataforma(sf::Texture *textura);
 	~Plataforma();
-	void executar();
+	void executar(float dt);
+	void mover(float dt);
 	virtual void salvar();
 	void obstaculizar(Jogador* p);
-	//void ...();
 };
 
 #endif 

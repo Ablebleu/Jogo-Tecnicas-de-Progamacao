@@ -6,11 +6,11 @@
 #include "Jogador.h"
 
 //Retirar depois
-#include "Fase Primeira.h"
+#include "Fase_Primeira.h"
 
 class Jogo {
 private:
-
+	
 	int fps;
 	Jogador *pJog1;
 	Jogador* pJog2;

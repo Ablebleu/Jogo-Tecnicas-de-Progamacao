@@ -35,7 +35,7 @@ Jogo::Jogo() : fps(120), pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL),
 	}
 	pJog2->setTeclas(sf::Keyboard::Key::Up, sf::Keyboard::Key::Down, sf::Keyboard::Key::Left, sf::Keyboard::Key::Right);
 
-	fase1 = new Fase_Primeira;
+	fase1 = new Fase_Primeira(GC);
 	if (!fase1) {
 		std::cerr << "Erro ao criar Fase" << std::endl;
 		exit(1);
@@ -43,6 +43,7 @@ Jogo::Jogo() : fps(120), pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL),
 
 	fase1->incluirJogador(pJog1);
 	fase1->incluirJogador(pJog2);
+	GC->setJogadores(pJog1, pJog2 );
 
 	faseAtual = static_cast<Fase*>(fase1);
 

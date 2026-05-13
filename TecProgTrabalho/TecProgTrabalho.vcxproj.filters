@@ -87,7 +87,7 @@
     <ClCompile Include="ListaEntidades.cpp">
       <Filter>Listas\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Fase Primeira.cpp">
+    <ClCompile Include="Fase_Primeira.cpp">
       <Filter>Fases\Source</Filter>
     </ClCompile>
     <ClCompile Include="Fase.cpp">
@@ -108,9 +108,6 @@
     <ClCompile Include="Inimigo.cpp">
       <Filter>Entidades\Personagens\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Inim_Facil.cpp">
-      <Filter>Entidades\Personagens\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Inim_Medio.cpp">
       <Filter>Entidades\Personagens\Source</Filter>
     </ClCompile>
@@ -125,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="Plataforma.cpp">
       <Filter>Entidades\Obstáculos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Inim_Facil.cpp">
+      <Filter>Entidades\Personagens\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +149,7 @@
     <ClInclude Include="ListaEntidades.h">
       <Filter>Listas\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Fase Primeira.h">
+    <ClInclude Include="Fase_Primeira.h">
       <Filter>Fases\Header</Filter>
     </ClInclude>
     <ClInclude Include="Fase.h">

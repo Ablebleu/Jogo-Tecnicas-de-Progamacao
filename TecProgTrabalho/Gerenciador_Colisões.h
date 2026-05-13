@@ -28,11 +28,13 @@ namespace Gerenciadores {
 		void tratarColisoesJogsProjeteis();
 
 	public:
-
+		Gerenciador_Colisoes();
+		~Gerenciador_Colisoes();
 		void incluirInimigo(Inimigo *pi);
 		void incluirObstaculo(Obstaculo *po);
 		void incluirProjetil(Projetil *pj);
 		void executar();
+		void setJogadores(Jogador *p1, Jogador *p2);
 
 		//. . .
 	};
