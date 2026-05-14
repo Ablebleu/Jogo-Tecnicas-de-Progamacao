@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Entidade.h"
 
 Entidade::Entidade(sf::Vector2f p, sf::Vector2f v): 
@@ -25,4 +26,10 @@ void Entidade::setPos(sf::Vector2f p) {
 
 const sf::Vector2f Entidade::getPos() const {
 	return pos;
+}
+
+void Entidade::desenhar() {
+	if (pSprite) {
+		pGG->desenharEnte(this);
+	}
 }

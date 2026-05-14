@@ -1,8 +1,10 @@
 #include "Estado_Menu.h"
 #include <iostream>
 
-Estado_Menu::Estado_Menu() : pMenu(NULL) {}
-Estado_Menu::~Estado_Menu() {}
+Estado_Menu::Estado_Menu(Menus::Menu* pM) : Estado(), pMenu(pM) {}
+Estado_Menu::~Estado_Menu() {
+	if (pMenu) delete pMenu;
+}
 
 void Estado_Menu::executar(){
 	if (pMenu) pMenu->executar();

@@ -53,6 +53,6 @@ void Fase::removerEntidade(int id) {
 
 void Fase::incluirGerenciador(Gerenciadores::Gerenciador_Colisoes *pG) {
 	if(pG) GC = pG;
-	else cerr << "GC não incluido na fase." << endl;
+	else cerr /* << "GC não incluido na fase."*/ << endl;
 }
 

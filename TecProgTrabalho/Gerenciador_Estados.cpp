@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Gerenciador_Estados.h"
 #include "Estado_Menu.h"
+#include "Menu_Inicial.h"
 #include "Gerenciador_Estados.h"
 using Gerenciadores::Gerenciador_Estados;
 
@@ -39,14 +40,17 @@ void Gerenciador_Estados::removerEstado() {
 }
 
 void Gerenciador_Estados::criarMenu() {
-	/*
-	MenuInicial* pMenu = new MenuInicial;
+	Menus::Menu_Inicial* pMenu = new Menus::Menu_Inicial;
 	if (!pMenu){
-		std::cout << "Erro ao criar Menu" << std::endl;
+		std::cout << "Erro ao criar pMenu" << std::endl;
 		exit(1);
 	}
-	Erradasso
-	*/
+	Estado_Menu* eMenu = new Estado_Menu(pMenu);
+	if (!pMenu) {
+		std::cout << "Erro ao criar eMenu" << std::endl;
+		exit(1);
+	}
+	incluirEstado(static_cast<Estado *>(eMenu));
 }
 
 void Gerenciador_Estados::executar() {

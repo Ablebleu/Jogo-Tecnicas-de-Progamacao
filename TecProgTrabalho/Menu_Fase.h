@@ -6,10 +6,8 @@
 class Fase;
 namespace Menus {
 	class Menu_Fase : public Menu {
-	private:
-		Fase *pFase;
 	public:
-		Menu_Fase(int n = 1);
+		Menu_Fase();
 		~Menu_Fase();
 
 		//Fazer segunda versão depois que aceita de fora
@@ -18,6 +16,9 @@ namespace Menus {
 
 		void executar();
 		void desenhar();
+
+		void criarBotoes();
+		void selecionarAcao(int i = -1);
 	};
 }
 #endif 

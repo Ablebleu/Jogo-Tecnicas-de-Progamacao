@@ -8,7 +8,7 @@ class Estado_Menu : public Estado {
 private:
     Menus::Menu* pMenu;
 public:
-    Estado_Menu();
+    Estado_Menu(Menus::Menu* pM = NULL);
     ~Estado_Menu();
 
     void executar();

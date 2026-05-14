@@ -3,9 +3,11 @@
 
 #include "Ente.h"
 
-class Gerenciador_Estados;
+namespace Gerenciadores { class Gerenciador_Estados; }
+
 class Estado: public Ente {
-    static Gerenciador_Estados* pGE;
+private:
+    static Gerenciadores::Gerenciador_Estados* pGE;
 public:
     Estado() {}
     virtual ~Estado() {}
@@ -13,6 +15,8 @@ public:
     virtual void executar() = 0;
     virtual void desenhar() = 0;
 
-    static void setGE(Gerenciador_Estados* p);
+    static void incluirEstado();
+    static void setGE(Gerenciadores::Gerenciador_Estados* p);
+    static Gerenciadores::Gerenciador_Estados* getGE() { return pGE; }
 };
 #endif

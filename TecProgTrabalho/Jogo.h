@@ -3,6 +3,7 @@
 
 #include "Gerenciador_Grafico.h"
 #include "Gerenciador_Eventos.h"
+#include "Gerenciador_Estados.h"
 #include "Jogador.h"
 
 //Retirar depois
@@ -19,6 +20,7 @@ private:
 	Gerenciadores::Gerenciador_Grafico* GG;
 	Gerenciadores::Gerenciador_Eventos* GE;
 	Gerenciadores::Gerenciador_Colisoes*GC;
+	Gerenciadores::Gerenciador_Estados* GEs;
 
 public:
 	//int ...;

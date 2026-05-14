@@ -4,8 +4,6 @@
 #include <stack>
 using std::stack;
 
-#include "Ente.h"
-
 class Estado;
 namespace Gerenciadores {
 	class Gerenciador_Estados {
@@ -25,4 +23,3 @@ namespace Gerenciadores {
 }
 
 #endif
-
