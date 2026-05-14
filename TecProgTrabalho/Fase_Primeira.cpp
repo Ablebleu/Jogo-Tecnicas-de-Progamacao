@@ -5,19 +5,24 @@
 
 }*/
 Fase_Primeira::Fase_Primeira(Gerenciadores::Gerenciador_Colisoes* pG): Fase(pG) {
-	criarCenario();
-	criarObstaculo();
-	//criarInimMedios();
-	//criarObstMedios();
-	//criarInimgos();
+	//No futuro esse criar não vai estar aqui ou vai estar diferente para o caso de salvamento
+	criar();
 }
 
 Fase_Primeira::~Fase_Primeira() {
 
 }
 
-void Fase_Primeira::executar(float dt) {
-	Fase::executar(dt);
+void Fase_Primeira::executar() {
+	Fase::executar();
+}
+
+void Fase_Primeira::criar() {
+	criarCenario();
+	criarObstaculo();
+	//criarInimMedios();
+	//criarObstMedios();
+	//criarInimgos();
 }
 
 void Fase_Primeira::criarInimMedios() {
@@ -44,7 +49,7 @@ void Fase_Primeira::criarObstaculo() {
 	}
 }
 void Fase_Primeira::criarCenario() {
-	Cenario* pBackground = new Cenario("assets/sprites/Background-fase-1/blue-with-stars.png", 
+	/*Cenario* pBackground = new Cenario("assets/sprites/Background-fase-1/blue-with-stars.png",
 		sf::Vector2f(0.0f, 0.0f), sf::Vector2f(0.0f, 0.0f), 6.0f);
 	if (pBackground)lista_ents.incluir(static_cast<Entidade*>(pBackground));
 	Cenario* pPlanetaG = new Cenario("assets/sprites/Background-fase-1/prop-planet-big.png",
@@ -61,5 +66,5 @@ void Fase_Primeira::criarCenario() {
 	if (Astro1b)lista_ents.incluir(static_cast<Entidade*>(Astro1b));
 	Cenario* Astro2 = new Cenario("assets/sprites/Background-fase-1/asteroid-2.png",
 		sf::Vector2f(400.0f, 650.0f), sf::Vector2f(-10.0f, -0.1f), 6.0f);
-	if (Astro2)lista_ents.incluir(static_cast<Entidade*>(Astro2));
+	if (Astro2)lista_ents.incluir(static_cast<Entidade*>(Astro2*/
 }

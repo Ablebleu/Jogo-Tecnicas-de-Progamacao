@@ -64,6 +64,24 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Estado">
+      <UniqueIdentifier>{deea2126-ee5e-495e-a10b-4da6f7df9db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Estado\Header">
+      <UniqueIdentifier>{0e83710e-41c1-4ed9-a7e8-3d764d1fd3fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Estado\Source">
+      <UniqueIdentifier>{fd227c16-47d0-47ec-9e0a-76c6a93dff33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menus">
+      <UniqueIdentifier>{f6240e09-caf5-49b5-b6c0-6e656c137850}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menus\Header">
+      <UniqueIdentifier>{21fcfe8f-fdf6-416f-a324-392d33f80734}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menus\Source">
+      <UniqueIdentifier>{8a0d3cc2-17e0-4a2e-9cc0-2c9cea0d4c5b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -126,6 +144,27 @@
     <ClCompile Include="Inim_Facil.cpp">
       <Filter>Entidades\Personagens\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Estado.cpp">
+      <Filter>Estado\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Estado_Fase.cpp">
+      <Filter>Estado\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Estado_Menu.cpp">
+      <Filter>Estado\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gerenciador_Estados.cpp">
+      <Filter>Gerenciadores\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Menus\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Fase.cpp">
+      <Filter>Menus\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Inicial.cpp">
+      <Filter>Menus\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
@@ -187,6 +226,27 @@
     </ClInclude>
     <ClInclude Include="Plataforma.h">
       <Filter>Entidades\Obstáculos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Estado.h">
+      <Filter>Estado\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Estado_Fase.h">
+      <Filter>Estado\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Estado_Menu.h">
+      <Filter>Estado\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Gerenciador_Estados.h">
+      <Filter>Gerenciadores\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Menus\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Inicial.h">
+      <Filter>Menus\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Fase.h">
+      <Filter>Menus\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

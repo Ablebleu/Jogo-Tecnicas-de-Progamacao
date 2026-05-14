@@ -81,7 +81,7 @@ void Jogo::executar() {
 			/*Essa função vai ser mudada no futuro,
 			fazendo a classe perder essa responsabilidade
 			mas por enquanto estará para testes */
-			faseAtual->executar(dt);
+			faseAtual->executar();
 			tempo_acumulado -= dt;
 		}
 		//std::cout << "Tempo acumulado: " << tempo_acumulado << " segundos" << std::endl;

@@ -33,8 +33,8 @@ void Fase::criarCenario() {
 
 }
 
-void Fase::executar(float dt) {
-	lista_ents.mover(dt);
+void Fase::executar() {
+	lista_ents.mover();
 	if(GC) GC->executar();
 	else cerr << "Nenhuma GC para ser executada" << endl;
 }

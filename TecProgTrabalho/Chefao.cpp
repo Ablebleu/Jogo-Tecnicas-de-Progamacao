@@ -8,7 +8,7 @@ void Chefao::salvar() {
 
 }
 
-void Chefao::executar(float dt) {
+void Chefao::executar() {
 
 }
 
@@ -16,6 +16,6 @@ void Chefao::danificar(Jogador *p) {
 
 }
 
-void Chefao::mover(float dt) {
+void Chefao::mover() {
 
 }

@@ -8,7 +8,7 @@ void Inim_Medio::salvar() {
 
 }
 
-void Inim_Medio::executar(float dt) {
+void Inim_Medio::executar() {
 
 }
 
@@ -16,6 +16,6 @@ void Inim_Medio::danificar(Jogador *p) {
 
 }
 
-void Inim_Medio::mover(float dt) {
+void Inim_Medio::mover() {
 
 }

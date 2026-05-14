@@ -5,6 +5,8 @@
 using namespace Gerenciadores;
 
 Gerenciador_Grafico::Gerenciador_Grafico(): janela(sf::VideoMode({1600, 900}), "Jogo++") {
+	janela.setFramerateLimit(60);
+	limparTela();
 	Ente::setGG(this);
 }
 

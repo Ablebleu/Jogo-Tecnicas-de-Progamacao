@@ -12,7 +12,7 @@ public:
 	Obstaculo();
 	~Obstaculo();
 	void salvarDataBuffer();
-	virtual void executar(float dt) = 0;
+	virtual void executar() = 0;
 	virtual void salvar() = 0;
 	virtual void obstaculizar(Jogador *p) = 0;
 };

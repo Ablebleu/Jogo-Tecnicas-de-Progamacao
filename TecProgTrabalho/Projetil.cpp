@@ -12,7 +12,7 @@ Projetil::~Projetil() {
 
 }*/
 
-void Projetil::executar(float dt) {
+void Projetil::executar() {
 
 }
 
@@ -20,5 +20,5 @@ void Projetil::salvar() {
 
 }
 
-void Projetil::mover(float dt) {
+void Projetil::mover() {
 }

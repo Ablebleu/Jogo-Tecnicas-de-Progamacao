@@ -12,6 +12,7 @@ protected:
 	Gerenciadores::Gerenciador_Colisoes* GC;
 	void criarInimFaceis();
 	void criarPlataformas();
+	virtual void criar() = 0;
 	virtual void criarInimigos() = 0;
 	virtual void criarObstaculo() = 0;
 	virtual void criarCenario() = 0;
@@ -20,7 +21,7 @@ public:
 	Fase(Gerenciadores::Gerenciador_Colisoes* pG = NULL);
 	virtual ~Fase();
 	//void ...();
-	virtual void executar(float dt);
+	virtual void executar();
 	void incluirJogador(Jogador* pE);
 	void desenhar();
 	void removerEntidade(int id);

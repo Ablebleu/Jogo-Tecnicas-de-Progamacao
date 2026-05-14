@@ -16,8 +16,7 @@ protected:
 public:
 	Ente();
 	virtual ~Ente();
-	virtual void executar(float dt) = 0;
-	void desenhar();
+	virtual void executar() = 0;
 	const sf::Sprite* getSprite();
 	void static setGG(Gerenciadores::Gerenciador_Grafico* pG);
 	const int getId() const;

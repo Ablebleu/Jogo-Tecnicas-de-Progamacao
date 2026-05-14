@@ -17,9 +17,9 @@ public:
 	Jogador();
 	~Jogador();
 	void colidir(Inimigo* pIn);
-	void executar(float dt);
+	void executar();
 	void salvar();
-	void mover(float dt);
+	void mover();
 	void setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir);
 	//. . .
 };

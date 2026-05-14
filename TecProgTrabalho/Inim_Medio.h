@@ -10,9 +10,9 @@ private:
 public:
 	//void ...();
 	void salvar();
-	void executar(float dt);
+	void executar();
 	void danificar(Jogador *p);
-	void mover(float dt);
+	void mover();
 };
 
 #endif  //_INIM_MEDIO_H

@@ -18,16 +18,16 @@ Cenario::~Cenario() {
 
 }
 
-void Cenario::executar(float dt) {
-	mover(dt);
+void Cenario::executar() {
+	mover();
 }
 
 void Cenario::salvar() {
 
 }
 
-void Cenario::mover(float dt) {
-	pos += vel*dt;
+void Cenario::mover() {
+	pos += vel;
 	if (pos.x > 1700) pos.x = -100;
 	if (pos.x < -500) pos.x = 1700;
 	if (pos.y > 1000) pos.y = -100;

@@ -12,11 +12,11 @@ Plataforma::~Plataforma() {
 
 }
 
-void Plataforma::executar(float dt) {
+void Plataforma::executar() {
 
 }
 
-void Plataforma::mover(float dt) {
+void Plataforma::mover() {
 
 }
 

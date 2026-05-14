@@ -9,6 +9,7 @@ private:
 	//int ...;
 	//const int maxInimMedios;
 protected:
+	void criar();
 	void criarInimMedios();
 	void criarObstMedios();
 	void criarInimigos();
@@ -18,7 +19,7 @@ public:
 	//void ...();
 	Fase_Primeira(Gerenciadores::Gerenciador_Colisoes *pG = NULL);
 	~Fase_Primeira();
-	void executar(float dt);
+	void executar();
 };
 
 #endif 

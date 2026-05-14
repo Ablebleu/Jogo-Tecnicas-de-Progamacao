@@ -8,9 +8,9 @@ private:
 public:
 	Cenario(const char* caminho, sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0), float size = 1.0f);
 	~Cenario();
-	void executar(float dt);
+	void executar();
 	void salvar();
-	void mover(float dt);
+	void mover();
 	//void ...();
 };
 #endif

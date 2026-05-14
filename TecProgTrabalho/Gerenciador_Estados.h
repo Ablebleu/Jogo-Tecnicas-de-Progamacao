@@ -4,8 +4,10 @@
 #include <stack>
 using std::stack;
 
+#include "Ente.h"
+
+class Estado;
 namespace Gerenciadores {
-	class Estado;
 	class Gerenciador_Estados {
 	private:
 		stack<Estado*> pilhaEstados;
@@ -15,6 +17,8 @@ namespace Gerenciadores {
 		void incluirEstado(Estado* pE);
 		void removerEstado(int qtd);
 		void removerEstado();
+		void criarMenu();
+		void executar();
 		void desenhar();
 	};
 

@@ -20,10 +20,10 @@ void ListaEntidades::desenhar() {
 		it = it->getProximo();
 	}
 }
-void ListaEntidades::mover(float dt) {
+void ListaEntidades::mover() {
 	Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
 	while (it != NULL) {
-		if (it->getInfo()) it->getInfo()->executar(dt);
+		if (it->getInfo()) it->getInfo()->executar();
 		it = it->getProximo();
 	}
 }

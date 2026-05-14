@@ -9,8 +9,8 @@ private:
 public:
 	Plataforma(sf::Texture *textura);
 	~Plataforma();
-	void executar(float dt);
-	void mover(float dt);
+	void executar();
+	void mover();
 	virtual void salvar();
 	void obstaculizar(Jogador* p);
 };

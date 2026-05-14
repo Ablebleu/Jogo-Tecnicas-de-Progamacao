@@ -11,11 +11,6 @@ Ente::~Ente() {
 	if (pSprite) delete pSprite;
 }
 
-void Ente::desenhar() {
-	pGG->desenharEnte(this);
-	//std::cout << "b";
-}
-
 const sf::Sprite* Ente::getSprite() {
 	if(pSprite) return pSprite;
 	else {

@@ -13,7 +13,7 @@ public:
 	~ListaEntidades();
 	void incluir(Entidade *pE);
 	void desenhar();
-	void mover(float dt);
+	void mover();
 	void remover(int id);
 	//void percorrer();
 	//void ...();
