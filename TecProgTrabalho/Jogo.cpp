@@ -2,17 +2,17 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-Jogo::Jogo() : fps(120), pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GG(NULL), GE(NULL), GC(NULL), GEs(NULL) {
+Gerenciador::Gerenciador_Grafico* Jogo::GG = Gerenciador::Gerenciador_Grafico::getGerenciador_Grafico();
+Gerenciador::Gerenciador_Evento* Jogo::GE = Gerenciador::Gerenciador_Evento::getGerenciador_Evento();
 
-	GG = new Gerenciadores::Gerenciador_Grafico;
+Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GC(NULL), GEs(NULL) {
+
 	if (!GG) {
-		std::cerr << "Erro ao criar Gerenciador Grafico" << std::endl;
+		std::cerr << "Erro na criação do Gerador Gráfico" << std::endl;
 		exit(1);
 	}
-
-	GE = new Gerenciadores::Gerenciador_Eventos(GG);
 	if (!GE) {
-		std::cerr << "Erro ao criar Gerenciador Eventos" << std::endl;
+		std::cerr << "Erro na criação do Gerador Eventos" << std::endl;
 		exit(1);
 	}
 
@@ -57,8 +57,8 @@ Jogo::Jogo() : fps(120), pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL),
 	executar(); 
 }
 Jogo::~Jogo() {
-	if (GG) delete GG;
-	if (GE) delete GE;
+	Gerenciador::Gerenciador_Grafico::deletar();
+	Gerenciador::Gerenciador_Evento::deletar();
 	if (GC) delete GC;
 	if (pJog1) {
 		faseAtual->removerEntidade(pJog1->getId());

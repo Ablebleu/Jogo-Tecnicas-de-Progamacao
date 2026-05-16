@@ -1,17 +1,19 @@
-#ifndef _GERENCIADOR_EVENTOS_H
-#define _GERENCIADOR_EVENTOS_H
+#ifndef _GERENCIADOR_EVENTO_H
+#define _GERENCIADOR_EVENTO_H
 
-namespace Gerenciadores {
+namespace Gerenciador {
 	class Gerenciador_Grafico;
-	class Gerenciador_Eventos {
+	class Gerenciador_Evento {
 	private:
 		Gerenciador_Grafico* pGG;
-		//. . .
+
+		static Gerenciador_Evento* pEvento;
+		Gerenciador_Evento();
 	public:
-		Gerenciador_Eventos(Gerenciador_Grafico* GG = nullptr);
-		~Gerenciador_Eventos();
-		void setGG(Gerenciador_Grafico* GG);
 		void executar();
+		~Gerenciador_Evento();
+		static Gerenciador_Evento* getGerenciador_Evento();
+		static void deletar();
 	};
 }
 

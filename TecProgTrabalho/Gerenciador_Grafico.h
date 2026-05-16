@@ -1,31 +1,34 @@
 #ifndef _GERENCIADOR_GRAFICO_H
 #define _GERENCIADOR_GRAFICO_H
 
-#include <SFML/Graphics.hpp>
+#include "Gerenciador_Camera.h"
 
-class Ente;
-namespace Gerenciadores {
+namespace Gerenciador {
 	class Gerenciador_Grafico {
 	private:
-		sf::RenderWindow janela;
+		sf::RenderWindow* janela;
 		sf::Clock relogio;
+		//Camera camera;
 		//BiblioGrafica obj;
 		//. . .
-
-	public:
+		static Gerenciador_Grafico* pGrafico;
 		Gerenciador_Grafico();
+	public:
 		~Gerenciador_Grafico();
-		void desenharEnte(Ente *pE);
-		//void criarPlanoFundo();
 		bool janelaAberta() const;
 		void limparTela();
 		void fecharJanela();
+		void resetarRelogio();
 		void mostrarTela();
 		float atualizarTempo();
+		sf::Texture carregarTextura(const char* caminho);
+		void desenhaElemento(sf::RectangleShape corpo); 
+		void desenharDrawable(const sf::Drawable);
+		void atualizarView(const sf::Vector2f pos);
+		void atualizarView(const sf::Vector2f pos, sf::Vector2f tam);
 		std::optional<sf::Event> atualizaEvento();
-
-		//. . .
-
+		static Gerenciador_Grafico* getGerenciador_Grafico();
+		static void deletar();
 	};
 }
 #endif

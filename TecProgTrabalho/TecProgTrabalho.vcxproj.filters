@@ -248,5 +248,8 @@
     <ClInclude Include="Menu_Fase.h">
       <Filter>Menus\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Gerenciador_Camera.h">
+      <Filter>Gerenciadores\Header</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
