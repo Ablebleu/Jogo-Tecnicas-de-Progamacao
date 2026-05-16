@@ -13,10 +13,10 @@ namespace Gerenciador {
 
         void ajustarLimite(); // aplica limites à view
     public:
-        Gerenciador_Camera(const sf::Vector2f tamJanela = sf::Vector2f(800.f, 600.f));
+        Gerenciador_Camera(const sf::Vector2f tamJanela = sf::Vector2f(1200.f, 875.f));
         ~Gerenciador_Camera();
         sf::View getCamera() const;
-        void resetar(sf::Vector2f posCenter);
+        void resetar();
         void atualizar(sf::Vector2f pos);
         void setLimiteCamera(sf::FloatRect limiteCamera);
     };

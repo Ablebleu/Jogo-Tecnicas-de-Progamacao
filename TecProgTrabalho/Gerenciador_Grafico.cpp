@@ -3,7 +3,7 @@
 
 Gerenciador::Gerenciador_Grafico* Gerenciador::Gerenciador_Grafico::pGrafico = nullptr;
 namespace Gerenciador {
-	Gerenciador_Grafico::Gerenciador_Grafico() : janela(new sf::RenderWindow(sf::VideoMode({ 800, 600 }), "Jogo++")),
+	Gerenciador_Grafico::Gerenciador_Grafico() : janela(new sf::RenderWindow(sf::VideoMode({ 1200, 675 }), "Jogo++")),
 		camera(sf::Vector2f(800.f, 600.f)), relogio() {
 		if (!janela) {
 			std::cerr << "Erro na criação da janela" << std::endl;

@@ -17,22 +17,18 @@ namespace Gerenciador {
         return camera;
     }
 
-    // Deve garantir que limiteObjeto esteja dentro de limiteCamera
-    void Gerenciador_Camera::ajustarLimite() {
-
-    }
-
-    void Gerenciador_Camera::resetar(sf::Vector2f posCenter) {
-
+    void Gerenciador_Camera::resetar() {
+		tamJanela = sf::Vector2f(1200.f, 875.f);
+        camera = sf::View(sf::FloatRect(sf::Vector2f(0.f, 0.f), sf::Vector2f(tamJanela.x, tamJanela.y)));
+		limiteCamera = sf::FloatRect(sf::Vector2f(0.f, 0.f), sf::Vector2f(tamJanela.x, tamJanela.y));
     }
 
     void Gerenciador_Camera::atualizar(sf::Vector2f pos) {
         camera.setCenter(pos);
-        resetar(pos);
+		camera = sf::View(sf::FloatRect(pos - tamJanela * 0.5f, tamJanela));
     }
 
     void Gerenciador_Camera::setLimiteCamera(sf::FloatRect limite) {
         limiteCamera = limite;
-        ajustarLimite();
     }
 }

@@ -87,7 +87,7 @@ namespace Menus {
 		}
 		if (seletor != lbotoes.end()) (*seletor)->setSelected(true);
 
-		sf::Vector2f posInicial = sf::Vector2f(600.f, 200.f);
+		sf::Vector2f posInicial = sf::Vector2f(1000.f, 200.f);
 		float deltaY = 64.f;
 		int i = 0;
 		for (list<Menus::Menu::Botao*>::iterator it = lbotoes.begin(); it != lbotoes.end(); it++, i++) {
