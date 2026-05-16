@@ -5,13 +5,13 @@ Ente::Ente(): id(cont_id++), pSprite(NULL) {
 
 }
 int Ente::cont_id(0);
-Gerenciadores::Gerenciador_Grafico* Ente::pGG = nullptr;
+Gerenciador::Gerenciador_Grafico* Ente::pGG = nullptr;
 
 Ente::~Ente() {
 	if (pSprite) delete pSprite;
 }
 
-const sf::Sprite* Ente::getSprite() {
+sf::Sprite* Ente::getSprite() {
 	if(pSprite) return pSprite;
 	else {
 		std::cerr << "Erro ao acessar Sprite em Ente" << std::endl;
@@ -19,7 +19,7 @@ const sf::Sprite* Ente::getSprite() {
 	}
 }
 
-void Ente::setGG(Gerenciadores::Gerenciador_Grafico* pG) {
+void Ente::setGG(Gerenciador::Gerenciador_Grafico* pG) {
 	if (pG) pGG = pG;
 	else std::cerr << "Erro ao setar Gerenciador Grafico em Ente" << std::endl;
 }

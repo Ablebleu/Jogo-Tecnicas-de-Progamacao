@@ -3,20 +3,20 @@
 
 #include "Ente.h"
 
-namespace Gerenciadores { class Gerenciador_Estados; }
+namespace Gerenciador { class Gerenciador_Estados; }
 
 class Estado: public Ente {
 private:
-    static Gerenciadores::Gerenciador_Estados* pGE;
+    static Gerenciador::Gerenciador_Estados* pGE;
 public:
-    Estado() {}
-    virtual ~Estado() {}
+    Estado();
+    virtual ~Estado();
 
     virtual void executar() = 0;
     virtual void desenhar() = 0;
 
-    static void incluirEstado();
-    static void setGE(Gerenciadores::Gerenciador_Estados* p);
-    static Gerenciadores::Gerenciador_Estados* getGE() { return pGE; }
+    void incluirEstado();
+    static void setGE(Gerenciador::Gerenciador_Estados* p);
+    static Gerenciador::Gerenciador_Estados* getGE() { return pGE; }
 };
 #endif

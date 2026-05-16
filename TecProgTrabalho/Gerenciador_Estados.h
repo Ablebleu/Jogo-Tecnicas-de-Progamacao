@@ -5,7 +5,7 @@
 using std::stack;
 
 class Estado;
-namespace Gerenciadores {
+namespace Gerenciador {
 	class Gerenciador_Estados {
 	private:
 		stack<Estado*> pilhaEstados;

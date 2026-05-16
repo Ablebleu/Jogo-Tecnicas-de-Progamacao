@@ -12,7 +12,7 @@ class Projetil;
 class Jogador;
 class Entidade;
 
-namespace Gerenciadores {
+namespace Gerenciador {
 	class Gerenciador_Colisoes{
 	private:
 

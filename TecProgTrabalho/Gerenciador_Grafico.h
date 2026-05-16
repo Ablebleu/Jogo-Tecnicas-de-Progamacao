@@ -3,14 +3,15 @@
 
 #include "Gerenciador_Camera.h"
 
+class Ente;
+
 namespace Gerenciador {
 	class Gerenciador_Grafico {
 	private:
 		sf::RenderWindow* janela;
 		sf::Clock relogio;
-		//Camera camera;
-		//BiblioGrafica obj;
-		//. . .
+		Gerenciador_Camera camera;
+
 		static Gerenciador_Grafico* pGrafico;
 		Gerenciador_Grafico();
 	public:
@@ -22,10 +23,10 @@ namespace Gerenciador {
 		void mostrarTela();
 		float atualizarTempo();
 		sf::Texture carregarTextura(const char* caminho);
-		void desenhaElemento(sf::RectangleShape corpo); 
-		void desenharDrawable(const sf::Drawable);
+		void desenhaElemento(sf::RectangleShape corpo);
+		void desenharDrawable(sf::Drawable* drawable);
+		void desenharEnte(Ente* pE);
 		void atualizarView(const sf::Vector2f pos);
-		void atualizarView(const sf::Vector2f pos, sf::Vector2f tam);
 		std::optional<sf::Event> atualizaEvento();
 		static Gerenciador_Grafico* getGerenciador_Grafico();
 		static void deletar();

@@ -4,7 +4,7 @@
 #include "Menu_Inicial.h"
 #include "Gerenciador_Estados.h"
 
-namespace Gerenciadores {
+namespace Gerenciador {
 	Gerenciador_Estados::Gerenciador_Estados() : pilhaEstados() {
 		while (!pilhaEstados.empty()) {
 			pilhaEstados.pop();

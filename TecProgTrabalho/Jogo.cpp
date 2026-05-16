@@ -16,13 +16,13 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GC(NULL),
 		exit(1);
 	}
 
-	GC = new Gerenciadores::Gerenciador_Colisoes;
+	GC = new Gerenciador::Gerenciador_Colisoes;
 	if (!GC) {
 		std::cerr << "Erro ao criar Gerenciador Eventos" << std::endl;
 		exit(1);
 	}
 
-	GEs = new Gerenciadores::Gerenciador_Estados;
+	GEs = new Gerenciador::Gerenciador_Estados;
 	if (!GEs) {
 		std::cerr << "Erro ao criar Gerenciador Estados" << std::endl;
 		exit(1);

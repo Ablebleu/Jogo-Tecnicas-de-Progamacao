@@ -6,7 +6,6 @@ namespace Gerenciador {
 	class Gerenciador_Evento {
 	private:
 		Gerenciador_Grafico* pGG;
-
 		static Gerenciador_Evento* pEvento;
 		Gerenciador_Evento();
 	public:

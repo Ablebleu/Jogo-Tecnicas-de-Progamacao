@@ -1,65 +1,10 @@
 #include "Gerenciador_Grafico.h"
 #include "Ente.h"
-#include <iostream>
-
-using namespace Gerenciadores;
-
-Gerenciador_Grafico::Gerenciador_Grafico(): janela(sf::VideoMode({1600, 900}), "Jogo++") {
-	janela.setFramerateLimit(60);
-	limparTela();
-	Ente::setGG(this);
-}
-
-Gerenciador_Grafico::~Gerenciador_Grafico() {
-
-}
-
-void Gerenciador_Grafico::desenharEnte(Ente *pE) {
-	if (!pE) {
-		std::cerr << "Erro ao desenhar Ente: ponteiro nulo" << std::endl;
-		return;
-	}
-	//std::cout << "a";
-	janela.draw(*(pE->getSprite()));
-}
-
-void Gerenciador_Grafico::desenharDrawable(const sf::Drawable& drawable) {
-	janela.draw(drawable);
-}
-
-bool Gerenciador_Grafico::janelaAberta() const {
-	return janela.isOpen();
-}
-
-void Gerenciador_Grafico::limparTela() {
-	janela.clear(sf::Color::Black);
-}
-
-void Gerenciador_Grafico::fecharJanela() {
-	janela.close();
-}
-
-void Gerenciador_Grafico::mostrarTela() {
-	janela.display();
-}
-
-float Gerenciador_Grafico::atualizarTempo() {
-	return relogio.restart().asSeconds();
-}
-
-std::optional<sf::Event> Gerenciador_Grafico::atualizaEvento() {
-	return janela.pollEvent();
-}
-
-/*void Gerenciador_Grafico::...() {
-
-}*/#include "Gerenciador_Grafico.h"
-#include "Ente.h"
 
 Gerenciador::Gerenciador_Grafico* Gerenciador::Gerenciador_Grafico::pGrafico = nullptr;
 namespace Gerenciador {
 	Gerenciador_Grafico::Gerenciador_Grafico() : janela(new sf::RenderWindow(sf::VideoMode({ 800, 600 }), "Jogo++")),
-		camera(sf::Vector2f(800, 600)), relogio() {
+		camera(sf::Vector2f(800.f, 600.f)), relogio() {
 		if (!janela) {
 			std::cerr << "Erro na criação da janela" << std::endl;
 			exit(1);
@@ -90,6 +35,10 @@ namespace Gerenciador {
 		janela->display();
 	}
 
+	void Gerenciador_Grafico::resetarRelogio() {
+		relogio.restart();
+	}
+
 	float Gerenciador_Grafico::atualizarTempo() {
 		return relogio.restart().asSeconds();
 	}
@@ -97,21 +46,33 @@ namespace Gerenciador {
 	sf::Texture Gerenciador_Grafico::carregarTextura(const char* caminho) {
 		sf::Texture textura;
 		if (!textura.loadFromFile(caminho)) {
-			std::cout << "textura não carregada" << caminho << std::endl;
-			exit(1);
+			std::cout << "Textura: " << caminho << " não carregada" << std::endl;
 		}
 		return textura;
 	}
+
 	void Gerenciador_Grafico::desenhaElemento(sf::RectangleShape corpo) {
+		if (janela) janela->draw(corpo);
 	}
 
-	void Gerenciador_Grafico::atualizarView(const sf::Vector2f pos) {
-		//camera.atualizar(pos);
-		//janela.setView(camera.getCamera());
+	void Gerenciador_Grafico::desenharDrawable(sf::Drawable* drawable) {
+		if (!drawable) return;
+		if (janela) janela->draw(*drawable);
 	}
-	void Gerenciador_Grafico::atualizarView(const sf::Vector2f pos, sf::Vector2f tam) {
-		//view.atualizar(pos, tam);
-		//janela->setView(camera.getCamera());
+
+	void Gerenciador_Grafico::desenharEnte(Ente* pE) {
+		if (!pE) {
+			std::cerr << "Erro ao desenhar Ente: ponteiro nulo" << std::endl;
+			return;
+		}
+		//std::cout << "a";
+		sf::Sprite* s = pE->getSprite();
+		if (s && janela) janela->draw(*s);
+	}
+
+	void Gerenciador_Grafico::atualizarView(sf::Vector2f pos) {
+		camera.atualizar(pos);
+		if (janela) janela->setView(camera.getCamera());
 	}
 
 	std::optional<sf::Event> Gerenciador_Grafico::atualizaEvento() {

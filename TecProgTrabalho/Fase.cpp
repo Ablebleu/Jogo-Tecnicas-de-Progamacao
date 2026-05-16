@@ -1,7 +1,7 @@
 #include "Fase.h"
 #include "Jogador.h"
 
-Fase::Fase(Gerenciadores::Gerenciador_Colisoes* pG): Ente(), GC(NULL), ltext() {
+Fase::Fase(Gerenciador::Gerenciador_Colisoes* pG): Ente(), GC(NULL), ltext() {
 	incluirGerenciador(pG);
 	ltext.clear();
 }
@@ -51,7 +51,7 @@ void Fase::removerEntidade(int id) {
 	lista_ents.remover(id);
 }
 
-void Fase::incluirGerenciador(Gerenciadores::Gerenciador_Colisoes *pG) {
+void Fase::incluirGerenciador(Gerenciador::Gerenciador_Colisoes *pG) {
 	if(pG) GC = pG;
 	else cerr /* << "GC não incluido na fase."*/ << endl;
 }

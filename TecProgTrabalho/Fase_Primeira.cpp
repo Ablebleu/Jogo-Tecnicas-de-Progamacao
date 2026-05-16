@@ -1,10 +1,9 @@
 #include "Fase_Primeira.h"
 #include "Plataforma.h"
-#include "Cenario.h"
 /*void Fase Primeira::...() {
 
 }*/
-Fase_Primeira::Fase_Primeira(Gerenciadores::Gerenciador_Colisoes* pG): Fase(pG) {
+Fase_Primeira::Fase_Primeira(Gerenciador::Gerenciador_Colisoes* pG): Fase(pG) {
 	//No futuro esse criar não vai estar aqui ou vai estar diferente para o caso de salvamento
 	criar();
 }

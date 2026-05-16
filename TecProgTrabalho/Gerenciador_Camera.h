@@ -1,5 +1,5 @@
-#ifndef _CAMERA_H
-#define _CAMERA_H
+#ifndef _GERENCIADOR_CAMERA_H
+#define _GERENCIADOR_CAMERA_H
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -8,20 +8,17 @@ namespace Gerenciador {
     class Gerenciador_Camera {
     private:
         sf::View camera;
-        sf::IntRect limiteCamera;
-        sf::IntRect limiteObjeto;
+        sf::FloatRect limiteCamera;
         sf::Vector2f tamJanela;
 
-        void ajustarLimite();
+        void ajustarLimite(); // aplica limites à view
     public:
-        Gerenciador_Camera(const sf::Vector2f tamJanela);
+        Gerenciador_Camera(const sf::Vector2f tamJanela = sf::Vector2f(800.f, 600.f));
         ~Gerenciador_Camera();
         sf::View getCamera() const;
-        void setLimiteCamera(const sf::IntRect limiteCamera);
-        void resetar(const sf::Vector2f posCenter);
-        void atualizar(const sf::Vector2f pos);
-        void atualizar(const sf::Vector2f pos, sf::Vector2f tam);
+        void resetar(sf::Vector2f posCenter);
+        void atualizar(sf::Vector2f pos);
+        void setLimiteCamera(sf::FloatRect limiteCamera);
     };
-
 }
 #endif

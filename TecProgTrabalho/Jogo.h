@@ -19,8 +19,8 @@ private:
 	Fase* faseAtual; 
 	static Gerenciador::Gerenciador_Grafico* GG;
 	static Gerenciador::Gerenciador_Evento* GE;
-	Gerenciadores::Gerenciador_Colisoes*GC;
-	Gerenciadores::Gerenciador_Estados* GEs;
+	Gerenciador::Gerenciador_Colisoes*GC;
+	Gerenciador::Gerenciador_Estados* GEs;
 
 public:
 	//int ...;

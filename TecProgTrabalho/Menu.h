@@ -1,4 +1,3 @@
-cpp Menu.h
 #ifndef _MENU_H
 #define _MENU_H
 
@@ -15,16 +14,15 @@ namespace Menus {
 		private:
 			std::string texto;
 			int numBotao;
-			sf::Text txt;
+			sf::Text text;
 			sf::RectangleShape bg;
 		public:
 			Botao(std::string t = "", int i = -1);
-			void executar() {}
 			int getNum() const { return numBotao; }
 			void setPosition(sf::Vector2f pos);
 			void setSelected(bool s);
-			const sf::Text& getText() const { return txt; }
-			const sf::RectangleShape& getBg() const { return bg; }
+			sf::Text& getText() { return text; }
+			sf::RectangleShape& getBg() { return bg; }
 		};
 
 		list<Botao*> lbotoes;

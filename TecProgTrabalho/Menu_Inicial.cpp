@@ -18,12 +18,15 @@ void Menu_Inicial::executar() {
 }
 
 void Menu_Inicial::desenhar() {
-
+	Menu::desenhar();
 }
 
 void Menu_Inicial::criarBotoes() {
 	adicionaBotao("Novo Jogo", 1);
 	adicionaBotao("Continuar", 2);
+	adicionaBotao("Teste1", 2);
+	adicionaBotao("Teste2", 2);
+	adicionaBotao("Teste3", 2);
 }
 
 void Menu_Inicial::selecionarAcao(int i) {

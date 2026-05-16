@@ -6,8 +6,9 @@ namespace Menus {
 
 	Menu::Menu() : Ente(), lbotoes(), seletor(lbotoes.begin()) {
 		if (s_menuFont.getInfo().family.empty()) {
-			if (!s_menuFont.loadFromFile("assets/fonts/arialCE.ttf")) {
-				std::cerr << "Aviso: falha ao carregar fonte assets/arial.ttf. Texto pode não aparecer." << std::endl;
+			if (!s_menuFont.openFromFile("assets/fonts/arialCE.ttf")) {
+				std::cerr << "Erro ao carregar fonte assets/fonts/arialCE.ttf." << std::endl;
+				exit(1);
 			}
 		}
 		lbotoes.clear();
@@ -22,48 +23,43 @@ namespace Menus {
 		lbotoes.clear();
 	}
 
-	Menu::Botao::Botao(std::string t, int i) : texto(t), numBotao(i), txt(), bg() {
-		txt.setString(texto);
-		txt.setFont(s_menuFont);
-		txt.setCharacterSize(36);
-		txt.setFillColor(sf::Color::White);
-		// tamanho provisório; será ajustado quando setPosition for chamado
+	Menu::Botao::Botao(std::string t, int i) : texto(t), numBotao(i), text(s_menuFont), bg() {
+		text.setString(texto);
+		text.setCharacterSize(36);
+		text.setFillColor(sf::Color::White);
 		bg.setSize(sf::Vector2f(200.f, 48.f));
 		bg.setFillColor(sf::Color::Transparent);
 		bg.setOutlineThickness(0.f);
 	}
 
-	void Menu::Botao::setPosition(const sf::Vector2f& pos) {
-		// ajusta texto e fundo
-		txt.setPosition(pos.x + 10.f, pos.y + 6.f);
-		// bg width deve cobrir o texto
-		auto bounds = txt.getLocalBounds();
-		bg.setSize(sf::Vector2f(bounds.width + 20.f, bounds.height + 12.f));
+	void Menu::Botao::setPosition(sf::Vector2f pos) {
+		text.setPosition(sf::Vector2f(pos.x + 10.f, pos.y));
+
+		sf::FloatRect limites = text.getLocalBounds();
+		bg.setSize(sf::Vector2f(limites.size.x  + 20.f, limites.size.y + 12.f));
 		bg.setPosition(pos);
 	}
 
 	void Menu::Botao::setSelected(bool s) {
 		if (s) {
 			bg.setFillColor(sf::Color(40, 40, 120, 200));
-			txt.setFillColor(sf::Color::Yellow);
+			text.setFillColor(sf::Color::Yellow);
 		}
 		else {
 			bg.setFillColor(sf::Color::Transparent);
-			txt.setFillColor(sf::Color::White);
+			text.setFillColor(sf::Color::White);
 		}
 	}
 
 	void Menu::executar() {
 		if (!lbotoes.empty()) {
-			// navegação simples por teclas (melhor usar eventos e debounce)
+			//Navegaação simples para depois mudar no gerenciador de eventos
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)) {
-				// avança seletor (wrap)
 				if (seletor == lbotoes.end()) seletor = lbotoes.begin();
 				++seletor;
 				if (seletor == lbotoes.end()) seletor = lbotoes.begin();
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)) {
-				// recua seletor (wrap)
 				if (seletor == lbotoes.begin()) {
 					seletor = lbotoes.end();
 					--seletor;
@@ -82,24 +78,23 @@ namespace Menus {
 	}
 
 	void Menu::desenhar() {
-		// desenhar botões através do Gerenciador_Grafico
-		if (lbotoes.empty()) return;
-		// definir seleção visual
-		for (auto it = lbotoes.begin(); it != lbotoes.end(); ++it) {
+		if (lbotoes.empty()) {
+			std::cerr << "Erro: Nenhum botão" << std::endl;
+			exit(1);
+		}
+		for (std::list<Menus::Menu::Botao*>::iterator it = lbotoes.begin(); it != lbotoes.end(); it++) {
 			(*it)->setSelected(false);
 		}
 		if (seletor != lbotoes.end()) (*seletor)->setSelected(true);
 
-		// desenhar em pilha (menu centralizado)
-		float startX = 600.f;
-		float startY = 200.f;
-		float offsetY = 64.f;
-		int idx = 0;
-		for (auto it = lbotoes.begin(); it != lbotoes.end(); ++it, ++idx) {
-			auto pos = sf::Vector2f(startX, startY + idx * offsetY);
+		sf::Vector2f posInicial = sf::Vector2f(600.f, 200.f);
+		float deltaY = 64.f;
+		int i = 0;
+		for (list<Menus::Menu::Botao*>::iterator it = lbotoes.begin(); it != lbotoes.end(); it++, i++) {
+			sf::Vector2f pos = sf::Vector2f(posInicial.x, posInicial.y + i*deltaY);
 			(*it)->setPosition(pos);
-			Ente::pGG->desenharDrawable((*it)->getBg());
-			Ente::pGG->desenharDrawable((*it)->getText());
+			Ente::pGG->desenharDrawable(&(*it)->getBg());
+			Ente::pGG->desenharDrawable(&(*it)->getText());
 		}
 	}
 

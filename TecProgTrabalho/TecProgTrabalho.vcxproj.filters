@@ -132,9 +132,6 @@
     <ClCompile Include="Chefao.cpp">
       <Filter>Entidades\Personagens\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Cenario.cpp">
-      <Filter>Entidades\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Obstaculo.cpp">
       <Filter>Entidades\Obstáculos\Source</Filter>
     </ClCompile>
@@ -164,6 +161,9 @@
     </ClCompile>
     <ClCompile Include="Menu_Inicial.cpp">
       <Filter>Menus\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Gerenciador_Camera.cpp">
+      <Filter>Gerenciadores\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,9 +217,6 @@
     </ClInclude>
     <ClInclude Include="Chefao.h">
       <Filter>Entidades\Personagens\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Cenario.h">
-      <Filter>Entidades\Header</Filter>
     </ClInclude>
     <ClInclude Include="Obstaculo.h">
       <Filter>Entidades\Obstáculos\Header</Filter>

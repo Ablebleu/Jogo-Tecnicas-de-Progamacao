@@ -1,5 +1,6 @@
-#include "Gerenciador_Evento.h"
+#include "Gerenciador_Eventos.h"
 #include "Gerenciador_Grafico.h"
+#include <iostream>
 
 Gerenciador::Gerenciador_Evento* Gerenciador::Gerenciador_Evento::pEvento = nullptr;
 namespace Gerenciador {

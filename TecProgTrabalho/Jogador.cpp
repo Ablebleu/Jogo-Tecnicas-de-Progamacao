@@ -11,9 +11,8 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	pos.y = 500.0f;
 	vel.y = -5.0f;
 	vel.x = -5.0f;
-	tam = 7.0f;
 	pSprite = new sf::Sprite(textura);
-	pSprite->setScale(sf::Vector2f(1.0f,1.0f)*tam);
+	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
 }
 

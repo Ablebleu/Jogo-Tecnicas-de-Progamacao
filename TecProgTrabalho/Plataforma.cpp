@@ -4,7 +4,6 @@
 
 Plataforma::Plataforma(sf::Texture *textura): prop(sf::Vector2(2.0f, 2.0f)) {
 	pSprite = new sf::Sprite(*textura);
-	pSprite->setScale(sf::Vector2f(1.0f, 1.0f) * tam);
 	pSprite->setPosition(pos);
 }
 
