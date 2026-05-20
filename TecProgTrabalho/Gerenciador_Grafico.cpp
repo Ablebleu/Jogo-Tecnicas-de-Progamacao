@@ -52,23 +52,28 @@ namespace Gerenciador {
 		return textura;
 	}
 
-	void Gerenciador_Grafico::desenhaElemento(sf::RectangleShape corpo) {
-		if (janela) janela->draw(corpo);
-	}
-
-	void Gerenciador_Grafico::desenharDrawable(sf::Drawable* drawable) {
-		if (!drawable) return;
-		if (janela) janela->draw(*drawable);
-	}
-
-	void Gerenciador_Grafico::desenharEnte(Ente* pE) {
-		if (!pE) {
-			std::cerr << "Erro ao desenhar Ente: ponteiro nulo" << std::endl;
-			return;
+	void Gerenciador_Grafico::desenhar(sf::RectangleShape* corpo) {
+		if (!corpo) return;
+		if (janela) {
+			//std::cout << "Desenhando corpo" << std::endl;
+			janela->draw(*corpo);
 		}
-		//std::cout << "a";
-		sf::Sprite* s = pE->getSprite();
-		if (s && janela) janela->draw(*s);
+	}
+
+	void Gerenciador_Grafico::desenhar(sf::Sprite* sprite) {
+		if (!sprite) return;
+		if (janela) {
+			//std::cout << "Desenhando sprite" << std::endl;
+			janela->draw(*sprite);
+		}
+	}
+
+	void Gerenciador_Grafico::desenhar(sf::Drawable* drawable) {
+		if (!drawable) return;
+		if (janela) {
+			//std::cout << "Desenhando drawable" << std::endl;
+			janela->draw(*drawable);
+		}
 	}
 
 	void Gerenciador_Grafico::atualizarView(sf::Vector2f pos) {

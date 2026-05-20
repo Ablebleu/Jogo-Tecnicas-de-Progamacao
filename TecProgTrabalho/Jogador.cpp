@@ -14,9 +14,12 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	pSprite = new sf::Sprite(textura);
 	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
+	std::cout << "Criando jogador: " << getId() << std::endl;
+
 }
 
 Jogador::~Jogador() {
+	std::cout << "Deletando jogador: " << getId() << std::endl;
 
 }
 

@@ -23,9 +23,9 @@ namespace Gerenciador {
 		void mostrarTela();
 		float atualizarTempo();
 		sf::Texture carregarTextura(const char* caminho);
-		void desenhaElemento(sf::RectangleShape corpo);
-		void desenharDrawable(sf::Drawable* drawable);
-		void desenharEnte(Ente* pE);
+		void desenhar(sf::RectangleShape* corpo);
+		void desenhar(sf::Sprite* sprite);
+		void desenhar(sf::Drawable* drawable);
 		void atualizarView(const sf::Vector2f pos);
 		std::optional<sf::Event> atualizaEvento();
 		static Gerenciador_Grafico* getGerenciador_Grafico();

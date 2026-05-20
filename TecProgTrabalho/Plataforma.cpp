@@ -5,10 +5,11 @@
 Plataforma::Plataforma(sf::Texture *textura): prop(sf::Vector2(2.0f, 2.0f)) {
 	pSprite = new sf::Sprite(*textura);
 	pSprite->setPosition(pos);
+    std::cout << "Criando plataforma: " << getId() << std::endl;
 }
 
 Plataforma::~Plataforma() {
-
+    std::cout << "Deletando plataforma: " << getId() << std::endl;
 }
 
 void Plataforma::executar() {

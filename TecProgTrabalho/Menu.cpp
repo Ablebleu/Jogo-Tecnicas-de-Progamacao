@@ -93,8 +93,8 @@ namespace Menus {
 		for (list<Menus::Menu::Botao*>::iterator it = lbotoes.begin(); it != lbotoes.end(); it++, i++) {
 			sf::Vector2f pos = sf::Vector2f(posInicial.x, posInicial.y + i*deltaY);
 			(*it)->setPosition(pos);
-			Ente::pGG->desenharDrawable(&(*it)->getBg());
-			Ente::pGG->desenharDrawable(&(*it)->getText());
+			Ente::pGG->desenhar(&(*it)->getBg());
+			Ente::pGG->desenhar(&(*it)->getText());
 		}
 	}
 

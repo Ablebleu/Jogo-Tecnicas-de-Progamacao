@@ -4,9 +4,12 @@
 Gerenciador::Gerenciador_Colisoes* Fase::GC = nullptr;
 Fase::Fase(): Ente(), ltext() {
 	ltext.clear();
+	std::cout << "Criando fase: " << getId() << std::endl;
+
 }
 
 Fase::~Fase() {
+	std::cout << "Deletando fase: " << getId() << std::endl;
 	list<sf::Texture*>::iterator it;
 	for (it = ltext.begin(); it != ltext.end(); ++it) {
 		if (*it) { 

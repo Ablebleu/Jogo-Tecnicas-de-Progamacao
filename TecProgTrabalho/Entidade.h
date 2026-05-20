@@ -7,7 +7,7 @@ class Entidade : public Ente {
 protected:
 	sf::Vector2f pos;
 	sf::Vector2f vel;
-	sf::FloatRect corpo;
+	sf::RectangleShape corpo;
 	//int ...;
 	//ostream buffer;
 	void salvarDataBuffer();
