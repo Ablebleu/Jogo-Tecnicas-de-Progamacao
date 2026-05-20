@@ -17,7 +17,7 @@ protected:
 	void criarCenario();
 public:
 	//void ...();
-	Fase_Primeira(Gerenciador::Gerenciador_Colisoes *pG = NULL);
+	Fase_Primeira();
 	~Fase_Primeira();
 	void executar();
 };

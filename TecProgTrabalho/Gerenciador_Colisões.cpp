@@ -1,18 +1,21 @@
 #include <iostream>
 #include "Gerenciador_Colisões.h"
+#include "Fase.h"
 #include "Entidade.h"
 #include "Obstaculo.h"
 #include "Jogador.h"
 
+Gerenciador::Gerenciador_Colisoes* Gerenciador::Gerenciador_Colisoes::pColisoes = nullptr;
 namespace Gerenciador {
 	Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), LPs(), pJog1(NULL), pJog2(NULL) {
 		LIs.clear();
 		LOs.clear();
 		LPs.clear();
+		Fase::setGC(this);
 	}
 
 	Gerenciador_Colisoes::~Gerenciador_Colisoes() {
-
+		std::cout << "Deletando Gerenciador de Colisões" << std::endl;
 	}
 
 	void Gerenciador_Colisoes::incluirInimigo(Inimigo* pi) {
@@ -67,5 +70,19 @@ namespace Gerenciador {
 	void Gerenciador_Colisoes::setJogadores(Jogador* p1, Jogador* p2) {
 		pJog1 = p1;
 		pJog2 = p2;
+	}
+
+	Gerenciador_Colisoes* Gerenciador_Colisoes::getGerenciador_Colisoes() {
+		if(pColisoes == nullptr) {
+			pColisoes = new Gerenciador_Colisoes();
+		}
+		return pColisoes;
+	}
+
+	void Gerenciador_Colisoes::deletar() {
+		if (pColisoes) {
+			delete pColisoes;
+			pColisoes = nullptr;
+		}
 	}
 }

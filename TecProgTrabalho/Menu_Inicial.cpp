@@ -43,5 +43,4 @@ void Menu_Inicial::selecionarAcao(int i) {
 
 void Menu_Inicial::addFase(int i) {
 	Estado_Fase* eFase = new Estado_Fase(i);
-	Estado::getGE()->incluirEstado(eFase);
 }

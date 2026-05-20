@@ -14,14 +14,21 @@ namespace Gerenciador {
 	}
 
 	Gerenciador_Estados::~Gerenciador_Estados() {
+		std::cout << "Deletando Gerenciador de Estados" << std::endl;
 		while (!pilhaEstados.empty()) {
-			if (pilhaEstados.top()) delete pilhaEstados.top();
+			if (pilhaEstados.top()) {
+				std::cout << "Deletando: " << pilhaEstados.top()->getId() << std::endl;
+				delete pilhaEstados.top();
+			}
 			pilhaEstados.pop();
 		}
 	}
 
 	void Gerenciador_Estados::incluirEstado(Estado* pE) {
-		if (pE) pilhaEstados.push(pE);
+		if (pE) {
+			std::cout << "Incluindo estado: " << pE->getId() << std::endl;
+			pilhaEstados.push(pE);
+		}
 		else std::cout << "Estado Nulo" << std::endl;
 	}
 
@@ -50,7 +57,6 @@ namespace Gerenciador {
 			std::cout << "Erro ao criar eMenu" << std::endl;
 			exit(1);
 		}
-		incluirEstado(static_cast<Estado*>(eMenu));
 	}
 
 	void Gerenciador_Estados::executar() {

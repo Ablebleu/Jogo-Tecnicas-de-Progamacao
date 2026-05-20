@@ -16,6 +16,7 @@ namespace Gerenciador {
 	}
 
 	Gerenciador_Grafico::~Gerenciador_Grafico() {
+		std::cout << "Deletando Gerenciador Grafico" << std::endl;
 		if (janela) delete janela;
 	}
 

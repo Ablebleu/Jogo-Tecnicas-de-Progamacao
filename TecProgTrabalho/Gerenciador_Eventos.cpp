@@ -21,7 +21,7 @@ namespace Gerenciador {
 	}
 
 	Gerenciador_Evento::~Gerenciador_Evento() {
-
+		std::cout << "Deletando Gerenciador de Eventos" << std::endl;
 	}
 
 	Gerenciador_Evento* Gerenciador_Evento::getGerenciador_Evento() {

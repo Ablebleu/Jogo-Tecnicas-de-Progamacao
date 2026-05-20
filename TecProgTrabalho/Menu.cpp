@@ -68,8 +68,8 @@ namespace Menus {
 					--seletor;
 				}
 			}
-			if (seletor != lbotoes.end())
-				std::cout << "Selecionando " << (*seletor)->getNum() << std::endl;
+			/*if (seletor != lbotoes.end())
+				std::cout << "Selecionando " << (*seletor)->getNum() << std::endl;*/
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) {
 				if (seletor != lbotoes.end())
 					selecionarAcao((*seletor)->getNum());

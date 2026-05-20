@@ -11,7 +11,9 @@ namespace Gerenciador {
         camera.setCenter(tamJanela * 0.5f);
     }
 
-    Gerenciador_Camera::~Gerenciador_Camera() {}
+    Gerenciador_Camera::~Gerenciador_Camera() {
+        std::cout << "Deletando Gerenciador de Camera" << std::endl;
+    }
 
     sf::View Gerenciador_Camera::getCamera() const {
         return camera;

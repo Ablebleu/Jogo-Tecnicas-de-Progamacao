@@ -28,6 +28,7 @@ void ListaEntidades::mover() {
 	}
 }
 
+//Objetivamente errado pois adiciona nulo na lista
 void ListaEntidades::remover(int id) {
 	Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
 	while (it != NULL) {

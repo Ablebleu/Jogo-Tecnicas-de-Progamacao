@@ -27,8 +27,10 @@ namespace Gerenciador {
 		void tratarColisoesJogsInimgs();
 		void tratarColisoesJogsProjeteis();
 
-	public:
+		static Gerenciador_Colisoes* pColisoes;
 		Gerenciador_Colisoes();
+	public:
+
 		~Gerenciador_Colisoes();
 		void incluirInimigo(Inimigo *pi);
 		void incluirObstaculo(Obstaculo *po);
@@ -36,7 +38,8 @@ namespace Gerenciador {
 		void executar();
 		void setJogadores(Jogador *p1, Jogador *p2);
 
-		//. . .
+		static Gerenciador_Colisoes* getGerenciador_Colisoes();
+		static void deletar();
 	};
 }
 #endif 

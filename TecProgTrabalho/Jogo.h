@@ -12,14 +12,13 @@
 class Jogo {
 private:
 	
-	int fps;
 	Jogador *pJog1;
-	Jogador* pJog2;
+	Jogador *pJog2;
 	Fase_Primeira* fase1;
 	Fase* faseAtual; 
 	static Gerenciador::Gerenciador_Grafico* GG;
 	static Gerenciador::Gerenciador_Evento* GE;
-	Gerenciador::Gerenciador_Colisoes*GC;
+	static Gerenciador::Gerenciador_Colisoes*GC;
 	Gerenciador::Gerenciador_Estados* GEs;
 
 public:

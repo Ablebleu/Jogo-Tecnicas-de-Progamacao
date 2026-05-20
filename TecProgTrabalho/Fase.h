@@ -9,7 +9,7 @@ class Fase : public Ente {
 protected:
 	ListaEntidades lista_ents;
 	list<sf::Texture*> ltext;
-	Gerenciador::Gerenciador_Colisoes* GC;
+	static Gerenciador::Gerenciador_Colisoes* GC;
 	void criarInimFaceis();
 	void criarPlataformas();
 	virtual void criar() = 0;
@@ -18,13 +18,13 @@ protected:
 	virtual void criarCenario() = 0;
 public:
 	//int ...;
-	Fase(Gerenciador::Gerenciador_Colisoes* pG = NULL);
+	Fase();
 	virtual ~Fase();
 	//void ...();
 	virtual void executar();
 	void incluirJogador(Jogador* pE);
 	void desenhar();
 	void removerEntidade(int id);
-	void incluirGerenciador(Gerenciador::Gerenciador_Colisoes *pG);
+	static void setGC(Gerenciador::Gerenciador_Colisoes *pG);
 };
 #endif  

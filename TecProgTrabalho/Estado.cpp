@@ -4,8 +4,9 @@
 
 Gerenciador::Gerenciador_Estados* Estado::pGE = nullptr;
 
-Estado::Estado() {
+Estado::Estado(): Ente() {
 	incluirEstado();
+	std::cout << "Criando estado: " << getId() << std::endl;
 }
 
 Estado::~Estado() {

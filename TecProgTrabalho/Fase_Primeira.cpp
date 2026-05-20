@@ -3,7 +3,7 @@
 /*void Fase Primeira::...() {
 
 }*/
-Fase_Primeira::Fase_Primeira(Gerenciador::Gerenciador_Colisoes* pG): Fase(pG) {
+Fase_Primeira::Fase_Primeira(): Fase() {
 	//No futuro esse criar não vai estar aqui ou vai estar diferente para o caso de salvamento
 	criar();
 }

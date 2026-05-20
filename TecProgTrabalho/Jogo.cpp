@@ -4,8 +4,9 @@
 
 Gerenciador::Gerenciador_Grafico* Jogo::GG = Gerenciador::Gerenciador_Grafico::getGerenciador_Grafico();
 Gerenciador::Gerenciador_Evento* Jogo::GE = Gerenciador::Gerenciador_Evento::getGerenciador_Evento();
+Gerenciador::Gerenciador_Colisoes* Jogo::GC = Gerenciador::Gerenciador_Colisoes::getGerenciador_Colisoes();
 
-Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GC(NULL), GEs(NULL) {
+Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GEs(NULL) {
 
 	if (!GG) {
 		std::cerr << "Erro na criação do Gerador Gráfico" << std::endl;
@@ -15,8 +16,6 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GC(NULL),
 		std::cerr << "Erro na criação do Gerador Eventos" << std::endl;
 		exit(1);
 	}
-
-	GC = new Gerenciador::Gerenciador_Colisoes;
 	if (!GC) {
 		std::cerr << "Erro ao criar Gerenciador Eventos" << std::endl;
 		exit(1);
@@ -59,10 +58,10 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GC(NULL),
 Jogo::~Jogo() {
 	Gerenciador::Gerenciador_Grafico::deletar();
 	Gerenciador::Gerenciador_Evento::deletar();
-	if (GC) delete GC;
-	if (pJog1) {
-		faseAtual->removerEntidade(pJog1->getId());
-		delete pJog1;
+	Gerenciador::Gerenciador_Colisoes::deletar();
+	if (GEs) {
+		std::cout << "Deletando GEs " << std::endl;
+		delete GEs;
 	}
 	if (pJog2) {
 		faseAtual->removerEntidade(pJog2->getId());
