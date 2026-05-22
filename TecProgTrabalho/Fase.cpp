@@ -10,6 +10,7 @@ Fase::Fase(): Ente(), ltext() {
 
 Fase::~Fase() {
 	std::cout << "Deletando fase: " << getId() << std::endl;
+	lista_ents.~ListaEntidades();
 	list<sf::Texture*>::iterator it;
 	for (it = ltext.begin(); it != ltext.end(); ++it) {
 		if (*it) { 

@@ -19,8 +19,8 @@ public:
 	virtual void desenhar();
 	virtual void salvar() = 0;
 	virtual void mover() = 0;
+	virtual void setPos(sf::Vector2f p);
 	const sf::Vector2f getPos() const;
-	void setPos(sf::Vector2f p);
 	//void ...();
 };
 

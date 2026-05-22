@@ -8,7 +8,10 @@ int Ente::cont_id(0);
 Gerenciador::Gerenciador_Grafico* Ente::pGG = nullptr;
 
 Ente::~Ente() {
-	if (pSprite) delete pSprite;
+	if (pSprite) {
+		//std::cout << "Deletando sprite de " << id << std::endl;
+		delete pSprite;
+	}
 }
 
 sf::Sprite* Ente::getSprite() {

@@ -14,6 +14,7 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	pSprite = new sf::Sprite(textura);
 	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
+	pSprite->setScale(sf::Vector2f(6.0f, 6.0f));
 	std::cout << "Criando jogador: " << getId() << std::endl;
 
 }
@@ -27,7 +28,13 @@ void Jogador::colidir(Inimigo* pIn) {
 }
 
 void Jogador::executar() {
+	//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
 	mover();
+}
+
+void Jogador::desenhar() {
+	pGG->desenhar(pSprite);
+	Entidade::desenhar();
 }
 
 void Jogador::salvar() {
@@ -47,6 +54,11 @@ void Jogador::mover() {
 	if (sf::Keyboard::isKeyPressed(tecla_direita)) {
 		pos.x -= vel.x;
 	}
+	setPos(pos);
+}
+
+void Jogador::setPos(sf::Vector2f p) {
+	Entidade::setPos(p);
 	pSprite->setPosition(pos);
 }
 

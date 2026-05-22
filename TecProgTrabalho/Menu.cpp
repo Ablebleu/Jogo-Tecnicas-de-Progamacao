@@ -5,6 +5,7 @@ namespace Menus {
 	static sf::Font s_menuFont;
 
 	Menu::Menu() : Ente(), lbotoes(), seletor(lbotoes.begin()) {
+		std::cout << "Criando menu " << getId() << std::endl;
 		if (s_menuFont.getInfo().family.empty()) {
 			if (!s_menuFont.openFromFile("assets/fonts/arialCE.ttf")) {
 				std::cerr << "Erro ao carregar fonte assets/fonts/arialCE.ttf." << std::endl;
@@ -16,6 +17,7 @@ namespace Menus {
 	}
 
 	Menu::~Menu() {
+		std::cout << "Deletando menu " << getId() << std::endl;
 		list<Botao*>::const_iterator it;
 		for (it = lbotoes.begin(); it != lbotoes.end(); it++) {
 			if (*it) delete* it;

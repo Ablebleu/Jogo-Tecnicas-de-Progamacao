@@ -15,7 +15,9 @@ Estado_Fase::Estado_Fase(int n) : Estado(), pFase(nullptr) {
 		break;
 	}
 }
-Estado_Fase::~Estado_Fase() {}
+Estado_Fase::~Estado_Fase() {
+	if (pFase) delete pFase;
+}
 
 void Estado_Fase::criarFase1() {
 	Fase_Primeira *nFase = new Fase_Primeira;

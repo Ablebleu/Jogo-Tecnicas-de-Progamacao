@@ -3,8 +3,13 @@
 /*void Fase Primeira::...() {
 
 }*/
-Fase_Primeira::Fase_Primeira(): Fase() {
+Fase_Primeira::Fase_Primeira(): Fase(), pJog1(NULL) {
 	//No futuro esse criar não vai estar aqui ou vai estar diferente para o caso de salvamento
+	pJog1 = new Jogador;
+	if (!pJog1) {
+		std::cerr << "Erro ao criar Jogador" << std::endl;
+		exit(1);
+	}
 	criar();
 }
 
@@ -22,6 +27,7 @@ void Fase_Primeira::criar() {
 	//criarInimMedios();
 	//criarObstMedios();
 	//criarInimgos();
+	lista_ents.incluir(static_cast<Entidade*>(pJog1));
 }
 
 void Fase_Primeira::criarInimMedios() {

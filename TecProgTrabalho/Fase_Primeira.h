@@ -1,11 +1,13 @@
 #ifndef _FASE_PRIMEIRA_H
 #define _FASE_PRIMEIRA_H
 
+#include "Jogador.h"
 #include "Fase.h"
 #include <list>
 
 class Fase_Primeira: public Fase {
 private:
+	Jogador *pJog1;
 	//int ...;
 	//const int maxInimMedios;
 protected:

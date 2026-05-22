@@ -18,8 +18,10 @@ public:
 	~Jogador();
 	void colidir(Inimigo* pIn);
 	void executar();
+	void desenhar();
 	void salvar();
 	void mover();
+	void setPos(sf::Vector2f p);
 	void setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir);
 	//. . .
 };

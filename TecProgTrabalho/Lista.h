@@ -44,21 +44,22 @@ public:
 
 template <class TL>
 Lista<TL>::Lista(): pPrimeiro(NULL), pUltimo(NULL) {
-
+	limpar();
 }
 
 template <class TL>
 Lista<TL>::~Lista() {
-	while(pPrimeiro) {
-		Elemento<TL>* pAux = pPrimeiro;
-		pPrimeiro = pPrimeiro->getProximo();
-		delete pAux;
-	}
+	limpar();
 }
 
 template <class TL>
 void Lista<TL>::limpar() {
-	
+	while (pPrimeiro) {
+		Elemento<TL>* pAux = pPrimeiro;
+		pPrimeiro = pPrimeiro->getProximo();
+		delete pAux;
+	}
+	pUltimo = nullptr;
 }
 
 template <class TL>

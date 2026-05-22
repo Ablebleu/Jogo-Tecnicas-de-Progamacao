@@ -26,13 +26,13 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GEs(NULL)
 		std::cerr << "Erro ao criar Gerenciador Estados" << std::endl;
 		exit(1);
 	}
-	
+
 	/*pJog1 = new Jogador;
 	if (!pJog1) {
 		std::cerr << "Erro ao criar Jogador" << std::endl;
 		return;
-	}
-
+	}*/
+	/*
 	pJog2 = new Jogador;
 	if (!pJog1) {
 		std::cerr << "Erro ao criar Jogador" << std::endl;
@@ -60,8 +60,11 @@ Jogo::~Jogo() {
 	Gerenciador::Gerenciador_Evento::deletar();
 	Gerenciador::Gerenciador_Colisoes::deletar();
 	if (GEs) {
-		std::cout << "Deletando GEs " << std::endl;
 		delete GEs;
+	}
+	if (pJog1) {
+		faseAtual->removerEntidade(pJog1->getId());
+		delete pJog1;
 	}
 	if (pJog2) {
 		faseAtual->removerEntidade(pJog2->getId());
