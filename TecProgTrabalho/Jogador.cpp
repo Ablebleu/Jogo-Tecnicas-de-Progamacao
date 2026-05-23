@@ -4,6 +4,7 @@
 Jogador::Jogador(): Personagem(), pontos(0), 
 tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
+	std::cout << "Criando jogador: " << getId() << std::endl;
 	if(!textura.loadFromFile("assets/sprites/Diamond.png")) {
 		std::cerr << "Erro ao carregar textura do jogador!" << std::endl;
 	}
@@ -15,8 +16,7 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
 	pSprite->setScale(sf::Vector2f(6.0f, 6.0f));
-	std::cout << "Criando jogador: " << getId() << std::endl;
-
+	GC->setJogadores(this);
 }
 
 Jogador::~Jogador() {
@@ -58,8 +58,11 @@ void Jogador::mover() {
 }
 
 void Jogador::setPos(sf::Vector2f p) {
+	//Hitbox
 	Entidade::setPos(p);
-	pSprite->setPosition(pos);
+
+	//Sprite
+	pSprite->setPosition(pos + sf::Vector2f(-23.f, -25.f));
 }
 
 void Jogador::setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir) {

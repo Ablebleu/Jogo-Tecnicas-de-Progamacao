@@ -2,6 +2,7 @@
 #define _ENTIDADE_H
 
 #include "Ente.h"
+#include "Gerenciador_Colisões.h"
 
 class Entidade : public Ente {
 protected:
@@ -11,6 +12,7 @@ protected:
 	//int ...;
 	//ostream buffer;
 	void salvarDataBuffer();
+	static Gerenciador::Gerenciador_Colisoes* GC;
 public:
 	Entidade(sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0));
 	virtual  ~Entidade();
@@ -21,6 +23,7 @@ public:
 	virtual void mover() = 0;
 	virtual void setPos(sf::Vector2f p);
 	const sf::Vector2f getPos() const;
+	static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
 	//void ...();
 };
 

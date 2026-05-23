@@ -5,7 +5,7 @@ Gerenciador::Gerenciador_Colisoes* Fase::GC = nullptr;
 Fase::Fase(): Ente(), ltext() {
 	ltext.clear();
 	std::cout << "Criando fase: " << getId() << std::endl;
-
+	Entidade::setGC(GC);
 }
 
 Fase::~Fase() {
@@ -39,7 +39,10 @@ void Fase::criarCenario() {
 
 void Fase::executar() {
 	lista_ents.mover();
-	if(GC) GC->executar();
+	if (GC) {
+		//std::cout << "Indo executar GC" << std::endl;
+		GC->executar();
+	}
 	else cerr << "Nenhuma GC para ser executada" << endl;
 }
 

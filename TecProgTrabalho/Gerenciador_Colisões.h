@@ -19,8 +19,8 @@ namespace Gerenciador {
 		vector<Inimigo*> LIs;
 		list<Obstaculo*> LOs;
 		set<Projetil*> LPs;
+		//Checar depois como fazer para ter mais outro jogador sem ficar estranho
 		Jogador* pJog1;
-		Jogador* pJog2;
 
 		const bool verificarColisao(Entidade* pe1, Entidade* pe2) const;
 		void tratarColisoesJogsObstacs();
@@ -36,7 +36,8 @@ namespace Gerenciador {
 		void incluirObstaculo(Obstaculo *po);
 		void incluirProjetil(Projetil *pj);
 		void executar();
-		void setJogadores(Jogador *p1, Jogador *p2);
+		//Mudar o setJogadores depois
+		void setJogadores(Jogador *p1);
 
 		static Gerenciador_Colisoes* getGerenciador_Colisoes();
 		static void deletar();

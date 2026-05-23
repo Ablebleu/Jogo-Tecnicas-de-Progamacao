@@ -7,7 +7,7 @@
 
 Gerenciador::Gerenciador_Colisoes* Gerenciador::Gerenciador_Colisoes::pColisoes = nullptr;
 namespace Gerenciador {
-	Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), LPs(), pJog1(NULL), pJog2(NULL) {
+	Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), LPs(), pJog1(NULL) {
 		LIs.clear();
 		LOs.clear();
 		LPs.clear();
@@ -24,7 +24,10 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Colisoes::incluirObstaculo(Obstaculo* po) {
-		if (po) LOs.push_back(po);
+		if (po) {
+			std::cout << "Incluindo obstáculo: " << po->getId() << std::endl;
+			LOs.push_back(po);
+		}
 		else std::cerr << "Obstáculo nulo" << endl;
 	}
 
@@ -49,8 +52,11 @@ namespace Gerenciador {
 	void Gerenciador_Colisoes::tratarColisoesJogsObstacs() {
 		//Vou tratar apenas um jogador por enquanto(Talvez faça set ou vector de Jogador depois)
 		//OBS: Faz mais sentido fazer vector para obstáculos e list para inimigos pois obstáculos não variam mas inimigo sim
+		//std::cout << "Indo detectar colisão" << std::endl;
 		if (pJog1) {
+			//std::cout << "Indo detectar colisão" << std::endl;
 			for (list<Obstaculo*>::iterator it = LOs.begin(); it != LOs.end(); it++) {
+				//std::cout << "Detectando colisão..." << std::endl;
 				if (verificarColisao(static_cast<Entidade*>(pJog1), static_cast<Entidade*>(*it))) {
 					//std::cout << "Colisão detectada" << std::endl;
 					(*it)->obstaculizar(pJog1);
@@ -67,9 +73,9 @@ namespace Gerenciador {
 
 	}
 
-	void Gerenciador_Colisoes::setJogadores(Jogador* p1, Jogador* p2) {
+	void Gerenciador_Colisoes::setJogadores(Jogador* p1) {
+		std::cout << "Setando jogador 1" << std::endl;
 		pJog1 = p1;
-		pJog2 = p2;
 	}
 
 	Gerenciador_Colisoes* Gerenciador_Colisoes::getGerenciador_Colisoes() {
