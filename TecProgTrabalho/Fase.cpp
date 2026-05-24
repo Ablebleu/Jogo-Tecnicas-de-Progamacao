@@ -1,24 +1,14 @@
 #include "Fase.h"
 #include "Jogador.h"
 
-Gerenciador::Gerenciador_Colisoes* Fase::GC = nullptr;
-Fase::Fase(): Ente(), ltext() {
-	ltext.clear();
+Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
+Fase::Fase(): Ente() {
 	std::cout << "Criando fase: " << getId() << std::endl;
-	Entidade::setGC(GC);
 }
 
 Fase::~Fase() {
 	std::cout << "Deletando fase: " << getId() << std::endl;
 	lista_ents.~ListaEntidades();
-	list<sf::Texture*>::iterator it;
-	for (it = ltext.begin(); it != ltext.end(); ++it) {
-		if (*it) { 
-			delete *it; 
-			*it = NULL; 
-		}
-	}
-	ltext.clear();
 }
 
 /*void Fase::...() {
@@ -39,9 +29,9 @@ void Fase::criarCenario() {
 
 void Fase::executar() {
 	lista_ents.mover();
-	if (GC) {
+	if (pGC) {
 		//std::cout << "Indo executar GC" << std::endl;
-		GC->executar();
+		pGC->executar();
 	}
 	else cerr << "Nenhuma GC para ser executada" << endl;
 }
@@ -59,7 +49,7 @@ void Fase::removerEntidade(int id) {
 }
 
 void Fase::setGC(Gerenciador::Gerenciador_Colisoes *pG) {
-	if(pG) GC = pG;
+	if(pG) pGC = pG;
 	else cerr << "GC não incluido na fase." << endl;
 }
 

@@ -1,15 +1,11 @@
 #include "Fase_Primeira.h"
 #include "Plataforma.h"
+#include "Alien.h"
 /*void Fase Primeira::...() {
 
 }*/
 Fase_Primeira::Fase_Primeira(): Fase(), pJog1(NULL) {
-	//No futuro esse criar não vai estar aqui ou vai estar diferente para o caso de salvamento
-	pJog1 = new Jogador;
-	if (!pJog1) {
-		std::cerr << "Erro ao criar Jogador" << std::endl;
-		exit(1);
-	}
+	pJog1 = pGC->getJogadores(1);
 	criar();
 }
 
@@ -24,10 +20,18 @@ void Fase_Primeira::executar() {
 void Fase_Primeira::criar() {
 	criarCenario();
 	criarObstaculo();
-	//criarInimMedios();
+	criarInimFaceis();
 	//criarObstMedios();
 	//criarInimgos();
 	lista_ents.incluir(static_cast<Entidade*>(pJog1));
+}
+
+
+void Fase_Primeira::criarInimFaceis() {
+	Alien* pAlien1 = new Alien(sf::Vector2f(200.0f, 200.0f), 0, 1.0f); 
+	if (pAlien1) {
+		lista_ents.incluir(static_cast<Entidade*>(pAlien1));
+	}
 }
 
 void Fase_Primeira::criarInimMedios() {
@@ -48,8 +52,6 @@ void Fase_Primeira::criarObstaculo() {
 		Plataforma* bloxk = new Plataforma(bloco);
 		if (bloxk) {
 			lista_ents.incluir(static_cast<Entidade*>(bloxk));
-			if (GC) GC->incluirObstaculo(bloxk);
-			else cerr << "Sem GC em fase" << endl;
 		}
 	}
 }

@@ -7,6 +7,7 @@ namespace Gerenciador {
         limiteCamera(sf::Vector2f(0.f, 0.f), sf::Vector2f(tamJanela.x, tamJanela.y)),
         tamJanela(tamJanela)
     {
+		std::cout << "Criando Gerenciador de Camera" << std::endl;
         camera.setSize(tamJanela);
         camera.setCenter(tamJanela * 0.5f);
     }

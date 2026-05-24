@@ -12,6 +12,7 @@ private:
 	//const int maxInimMedios;
 protected:
 	void criar();
+	void criarInimFaceis();
 	void criarInimMedios();
 	void criarObstMedios();
 	void criarInimigos();

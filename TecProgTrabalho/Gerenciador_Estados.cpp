@@ -6,6 +6,7 @@
 
 namespace Gerenciador {
 	Gerenciador_Estados::Gerenciador_Estados() : pilhaEstados() {
+		std::cout << "Criando Gerenciador de Estados" << std::endl;
 		while (!pilhaEstados.empty()) {
 			pilhaEstados.pop();
 		}
