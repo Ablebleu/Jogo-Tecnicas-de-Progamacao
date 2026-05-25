@@ -16,7 +16,7 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
 	pSprite->setScale(sf::Vector2f(6.0f, 6.0f));
-	pGC->setJogadores(this);
+	GC->setJogadores(this);
 }
 
 Jogador::~Jogador() {
@@ -33,9 +33,7 @@ void Jogador::executar() {
 }
 
 void Jogador::desenhar() {
-	//Sprite
 	pGG->desenhar(pSprite);
-	//Hitbox
 	Entidade::desenhar();
 }
 

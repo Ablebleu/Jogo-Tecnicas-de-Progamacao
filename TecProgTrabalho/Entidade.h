@@ -12,7 +12,7 @@ protected:
 	//int ...;
 	//ostream buffer;
 	void salvarDataBuffer();
-	static Gerenciador::Gerenciador_Colisoes* pGC;
+	static Gerenciador::Gerenciador_Colisoes* GC;
 public:
 	Entidade(sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0));
 	virtual  ~Entidade();

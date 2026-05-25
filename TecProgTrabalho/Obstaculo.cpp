@@ -1,7 +1,7 @@
 #include "Obstaculo.h"
 
 Obstaculo::Obstaculo() : danoso(false) {
-	pGC->incluirObstaculo(this);
+	GC->incluirObstaculo(this);
 }
 
 Obstaculo::~Obstaculo() {
