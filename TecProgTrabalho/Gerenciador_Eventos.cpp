@@ -5,6 +5,7 @@
 Gerenciador::Gerenciador_Evento* Gerenciador::Gerenciador_Evento::pEvento = nullptr;
 namespace Gerenciador {
 	Gerenciador_Evento::Gerenciador_Evento() : pGG(nullptr) {
+		std::cout << "Criando Gerenciador de Eventos" << std::endl;
 		pGG = Gerenciador_Grafico::getGerenciador_Grafico();
 		if (!pGG) {
 			std::cerr << "Erro ao disponibilizar Gerenciador Gráfico para o Gerenciador Eventos" << std::endl;

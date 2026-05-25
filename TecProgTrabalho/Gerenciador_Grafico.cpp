@@ -4,7 +4,9 @@
 Gerenciador::Gerenciador_Grafico* Gerenciador::Gerenciador_Grafico::pGrafico = nullptr;
 namespace Gerenciador {
 	Gerenciador_Grafico::Gerenciador_Grafico() : janela(new sf::RenderWindow(sf::VideoMode({ 1200, 675 }), "Jogo++")),
-		camera(sf::Vector2f(800.f, 600.f)), relogio() {
+		camera(sf::Vector2f(800.f, 600.f)), relogio(), ltext() {
+		std::cout << "Criando Gerenciador Grafico" << std::endl;
+		ltext.clear();
 		if (!janela) {
 			std::cerr << "Erro na criação da janela" << std::endl;
 			exit(1);
@@ -18,6 +20,15 @@ namespace Gerenciador {
 	Gerenciador_Grafico::~Gerenciador_Grafico() {
 		std::cout << "Deletando Gerenciador Grafico" << std::endl;
 		if (janela) delete janela;
+
+		std::list<sf::Texture*>::iterator it;
+		for (it = ltext.begin(); it != ltext.end(); ++it) {
+			if (*it) {
+				delete* it;
+				*it = nullptr;
+			}
+		}
+		ltext.clear();
 	}
 
 	bool Gerenciador_Grafico::janelaAberta() const {
@@ -44,11 +55,13 @@ namespace Gerenciador {
 		return relogio.restart().asSeconds();
 	}
 
-	sf::Texture Gerenciador_Grafico::carregarTextura(const char* caminho) {
-		sf::Texture textura;
-		if (!textura.loadFromFile(caminho)) {
+	sf::Texture* Gerenciador_Grafico::carregarTextura(const char* caminho) {
+		sf::Texture* textura = NULL;
+		textura = new sf::Texture();
+		if (!textura->loadFromFile(caminho)) {
 			std::cout << "Textura: " << caminho << " não carregada" << std::endl;
 		}
+		else ltext.push_back(textura);
 		return textura;
 	}
 

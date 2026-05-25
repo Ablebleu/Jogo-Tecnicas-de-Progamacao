@@ -82,6 +82,15 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Entidades\Personagens\Inimigos">
+      <UniqueIdentifier>{d35fb349-4f12-4c1e-ba77-4e5fc98928e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Personagens\Inimigos\Arquivos Header">
+      <UniqueIdentifier>{44cb28de-3fec-4444-a2b3-fc66d5d48e0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Personagens\Inimigos\Arquivos Source">
+      <UniqueIdentifier>{dfadcf70-01fe-4425-991a-da52a20baa0e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -123,23 +132,11 @@
     <ClCompile Include="Jogador.cpp">
       <Filter>Entidades\Personagens\Arquivos Source</Filter>
     </ClCompile>
-    <ClCompile Include="Inimigo.cpp">
-      <Filter>Entidades\Personagens\Arquivos Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Inim_Medio.cpp">
-      <Filter>Entidades\Personagens\Arquivos Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Chefao.cpp">
-      <Filter>Entidades\Personagens\Arquivos Source</Filter>
-    </ClCompile>
     <ClCompile Include="Obstaculo.cpp">
       <Filter>Entidades\Obstáculos\Arquivos Source</Filter>
     </ClCompile>
     <ClCompile Include="Plataforma.cpp">
       <Filter>Entidades\Obstáculos\Arquivos Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Inim_Facil.cpp">
-      <Filter>Entidades\Personagens\Arquivos Source</Filter>
     </ClCompile>
     <ClCompile Include="Estado.cpp">
       <Filter>Estado\Arquivos Source</Filter>
@@ -164,6 +161,18 @@
     </ClCompile>
     <ClCompile Include="Gerenciador_Camera.cpp">
       <Filter>Gerenciadores\Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigo.cpp">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Inim_Medio.cpp">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Alien.cpp">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Chefao.cpp">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,18 +215,6 @@
     <ClInclude Include="Jogador.h">
       <Filter>Entidades\Personagens\Arquivos Header</Filter>
     </ClInclude>
-    <ClInclude Include="Inimigo.h">
-      <Filter>Entidades\Personagens\Arquivos Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Inim_Facil.h">
-      <Filter>Entidades\Personagens\Arquivos Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Inim_Medio.h">
-      <Filter>Entidades\Personagens\Arquivos Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Chefao.h">
-      <Filter>Entidades\Personagens\Arquivos Header</Filter>
-    </ClInclude>
     <ClInclude Include="Obstaculo.h">
       <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
     </ClInclude>
@@ -247,6 +244,18 @@
     </ClInclude>
     <ClInclude Include="Gerenciador_Camera.h">
       <Filter>Gerenciadores\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Chefao.h">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Alien.h">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inim_Medio.h">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inimigo.h">
+      <Filter>Entidades\Personagens\Inimigos\Arquivos Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

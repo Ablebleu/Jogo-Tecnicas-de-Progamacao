@@ -27,11 +27,12 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GEs(NULL)
 		exit(1);
 	}
 
-	/*pJog1 = new Jogador;
+	//Tenho dúvida quanto a esse cara
+	pJog1 = new Jogador;
 	if (!pJog1) {
 		std::cerr << "Erro ao criar Jogador" << std::endl;
-		return;
-	}*/
+		exit(1);
+	}
 	/*
 	pJog2 = new Jogador;
 	if (!pJog1) {
@@ -62,15 +63,14 @@ Jogo::~Jogo() {
 	if (GEs) {
 		delete GEs;
 	}
-	if (pJog1) {
-		faseAtual->removerEntidade(pJog1->getId());
+	/*if (pJog1) {
 		delete pJog1;
-	}
+	}/*
 	if (pJog2) {
 		faseAtual->removerEntidade(pJog2->getId());
 		delete pJog2;
-	}
-	if (fase1) delete fase1;
+	}*/
+	//if (fase1) delete fase1;
 }
 
 /*Loop principal do jogo.

@@ -6,6 +6,7 @@
 class Personagem : public Entidade {
 protected:
 	int num_vidas;
+	//Gerenciador_Fisica* GF;
 	//int ...;
 public:
 	Personagem();

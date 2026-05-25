@@ -1,6 +1,7 @@
 #ifndef _GERENCIADOR_GRAFICO_H
 #define _GERENCIADOR_GRAFICO_H
 
+#include <list>
 #include "Gerenciador_Camera.h"
 
 class Ente;
@@ -12,6 +13,8 @@ namespace Gerenciador {
 		sf::Clock relogio;
 		Gerenciador_Camera camera;
 
+		std::list<sf::Texture*> ltext;
+
 		static Gerenciador_Grafico* pGrafico;
 		Gerenciador_Grafico();
 	public:
@@ -22,7 +25,7 @@ namespace Gerenciador {
 		void resetarRelogio();
 		void mostrarTela();
 		float atualizarTempo();
-		sf::Texture carregarTextura(const char* caminho);
+		sf::Texture* carregarTextura(const char* caminho);
 		void desenhar(sf::RectangleShape* corpo);
 		void desenhar(sf::Sprite* sprite);
 		void desenhar(sf::Drawable* drawable);

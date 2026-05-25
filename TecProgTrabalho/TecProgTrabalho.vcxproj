@@ -202,7 +202,7 @@
     <ClCompile Include="Gerenciador_Eventos.cpp" />
     <ClCompile Include="Gerenciador_Grafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
-    <ClCompile Include="Inim_Facil.cpp" />
+    <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Inim_Medio.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
@@ -234,7 +234,7 @@
     <ClInclude Include="Gerenciador_Eventos.h" />
     <ClInclude Include="Gerenciador_Grafico.h" />
     <ClInclude Include="Inimigo.h" />
-    <ClInclude Include="Inim_Facil.h" />
+    <ClInclude Include="Alien.h" />
     <ClInclude Include="Inim_Medio.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />

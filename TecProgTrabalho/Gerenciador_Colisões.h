@@ -36,8 +36,10 @@ namespace Gerenciador {
 		void incluirObstaculo(Obstaculo *po);
 		void incluirProjetil(Projetil *pj);
 		void executar();
-		//Mudar o setJogadores depois
+
+		//Mudar o setJogadores e getJogadores depois
 		void setJogadores(Jogador *p1);
+		Jogador* getJogadores(int i) const;
 
 		static Gerenciador_Colisoes* getGerenciador_Colisoes();
 		static void deletar();

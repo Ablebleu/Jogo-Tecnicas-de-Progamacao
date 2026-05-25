@@ -8,9 +8,8 @@
 class Fase : public Ente {
 protected:
 	ListaEntidades lista_ents;
-	list<sf::Texture*> ltext;
 
-	static Gerenciador::Gerenciador_Colisoes* GC;
+	static Gerenciador::Gerenciador_Colisoes* pGC;
 
 	void criarInimFaceis();
 	void criarPlataformas();

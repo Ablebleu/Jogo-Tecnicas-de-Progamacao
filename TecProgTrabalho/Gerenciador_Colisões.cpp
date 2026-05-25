@@ -8,10 +8,12 @@
 Gerenciador::Gerenciador_Colisoes* Gerenciador::Gerenciador_Colisoes::pColisoes = nullptr;
 namespace Gerenciador {
 	Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), LPs(), pJog1(NULL) {
+		std::cout << "Criando Gerenciador de Colisões" << std::endl;
 		LIs.clear();
 		LOs.clear();
 		LPs.clear();
 		Fase::setGC(this);
+		Entidade::setGC(this);
 	}
 
 	Gerenciador_Colisoes::~Gerenciador_Colisoes() {
@@ -74,8 +76,14 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Colisoes::setJogadores(Jogador* p1) {
-		std::cout << "Setando jogador 1" << std::endl;
-		pJog1 = p1;
+		std::cout << "Setando jogador de id "<< p1->getId() << " em colisões" << std::endl;
+		if(p1) pJog1 = p1;
+		else std::cerr << "Jogador nulo" << std::endl;
+	}
+
+	Jogador* Gerenciador_Colisoes::getJogadores(int i) const{
+		if (i == 1) return pJog1;
+		else return NULL;
 	}
 
 	Gerenciador_Colisoes* Gerenciador_Colisoes::getGerenciador_Colisoes() {

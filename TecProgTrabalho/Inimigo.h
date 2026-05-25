@@ -7,14 +7,15 @@ class Jogador;
 class Inimigo : public Personagem {
 protected:
 	int nivel_maldade;
-	//int ...;
+	const sf::Vector2f posInicial;
 public:
-	//void ...();
+	Inimigo(sf::Vector2f p, int n = 0);
+	~Inimigo();
 	void salvarDataBuffer();
 	virtual void executar() = 0;
 	virtual void danificar(Jogador *p) = 0;
-	virtual void salva() = 0;
+	virtual void salvar() = 0;
 	virtual void mover() = 0;
 };
 
-#endif  //_INIMIGO_H
+#endif  

@@ -5,18 +5,21 @@ Jogador::Jogador(): Personagem(), pontos(0),
 tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	std::cout << "Criando jogador: " << getId() << std::endl;
-	if(!textura.loadFromFile("assets/sprites/Diamond.png")) {
-		std::cerr << "Erro ao carregar textura do jogador!" << std::endl;
-	}
+
+	/*
+	Abaixo está um memory leak sutil, pois o ponteiro da textura, que é dinâmico, é perdido,
+	Por isso é necessário que o Gerenciador_grafico guarde texturas num vetor e delete em
+	seu fim.
+	*/
+	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Diamond.png"));
 	pos.x = 800.0f;
 	pos.y = 500.0f;
 	vel.y = -5.0f;
 	vel.x = -5.0f;
-	pSprite = new sf::Sprite(textura);
 	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
 	pSprite->setScale(sf::Vector2f(6.0f, 6.0f));
-	GC->setJogadores(this);
+	pGC->setJogadores(this);
 }
 
 Jogador::~Jogador() {
