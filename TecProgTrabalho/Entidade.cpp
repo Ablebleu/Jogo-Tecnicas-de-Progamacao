@@ -33,7 +33,8 @@ const sf::Vector2f Entidade::getPos() const {
 
 void Entidade::desenhar() {
 	//Modificar depois
-	pGG->desenhar(&corpo);
+	pGG->desenhar(pSprite);
+	//pGG->desenhar(&corpo);
 	//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
 }
 

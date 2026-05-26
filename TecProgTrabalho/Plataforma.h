@@ -5,10 +5,11 @@
 
 class Plataforma : public Obstaculo {
 private:
-	sf::Vector2f prop; //Proporções -> substituir altura e largura
+	sf::Vector2f proporcao; //Proporções -> substituir altura e largura
 public:
-	Plataforma(sf::Texture *textura);
+	Plataforma(sf::Vector2f p, sf::Vector2f prop = sf::Vector2f{1.0f, 1.0f});
 	~Plataforma();
+	const sf::FloatRect getCorpo();
 	void executar();
 	void mover();
 	virtual void salvar();

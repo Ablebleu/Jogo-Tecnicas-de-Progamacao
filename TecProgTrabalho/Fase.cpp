@@ -2,7 +2,8 @@
 #include "Jogador.h"
 
 Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
-Fase::Fase(): Ente() {
+
+Fase::Fase(): Ente(), chao() {
 	std::cout << "Criando fase: " << getId() << std::endl;
 }
 
@@ -34,6 +35,7 @@ void Fase::executar() {
 		pGC->executar();
 	}
 	else cerr << "Nenhuma GC para ser executada" << endl;
+	lista_ents.verificarChao(chao);
 }
 
 void Fase::incluirJogador(Jogador* pE) {
@@ -41,6 +43,8 @@ void Fase::incluirJogador(Jogador* pE) {
 }
 
 void Fase::desenhar() {
+	pGG->desenhar(pSprite);
+	chao.desenhar();
 	lista_ents.desenhar();
 }
 
@@ -52,4 +56,3 @@ void Fase::setGC(Gerenciador::Gerenciador_Colisoes *pG) {
 	if(pG) pGC = pG;
 	else cerr << "GC não incluido na fase." << endl;
 }
-

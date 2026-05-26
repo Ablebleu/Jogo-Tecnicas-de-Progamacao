@@ -37,7 +37,7 @@ void Jogador::executar() {
 
 void Jogador::desenhar() {
 	pGG->desenhar(pSprite);
-	Entidade::desenhar();
+	//Entidade::desenhar();
 }
 
 void Jogador::salvar() {

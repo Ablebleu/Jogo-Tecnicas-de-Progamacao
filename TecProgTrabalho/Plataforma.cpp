@@ -2,14 +2,21 @@
 #include "Jogador.h"
 #include <iostream>
 
-Plataforma::Plataforma(sf::Texture *textura): prop(sf::Vector2(2.0f, 2.0f)) {
-	pSprite = new sf::Sprite(*textura);
-	pSprite->setPosition(pos);
+Plataforma::Plataforma(sf::Vector2f p, sf::Vector2f prop) : Obstaculo(), proporcao(prop) {
     std::cout << "Criando plataforma: " << getId() << std::endl;
+    pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/Plat_Tileset_1.png"));
+    pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 64,32 }));
+    pos = p;
+    pSprite->setPosition(pos);
+    pSprite->setScale(proporcao*2.5f);
 }
 
 Plataforma::~Plataforma() {
     std::cout << "Deletando plataforma: " << getId() << std::endl;
+}
+
+const sf::FloatRect Plataforma::getCorpo() {
+    return pSprite->getGlobalBounds();
 }
 
 void Plataforma::executar() {

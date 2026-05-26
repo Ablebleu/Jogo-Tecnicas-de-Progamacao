@@ -2,12 +2,15 @@
 #define _FASE_H
 
 #include "Ente.h"
+#include "Chao.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisões.h"
 
 class Fase : public Ente {
 protected:
+	
 	ListaEntidades lista_ents;
+	Chao chao;
 
 	static Gerenciador::Gerenciador_Colisoes* pGC;
 
@@ -17,6 +20,7 @@ protected:
 	virtual void criarInimigos() = 0;
 	virtual void criarObstaculo() = 0;
 	virtual void criarCenario() = 0;
+	void tratarColisoesEntidsChao();
 public:
 	//int ...;
 	Fase();
