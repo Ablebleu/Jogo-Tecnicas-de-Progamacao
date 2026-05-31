@@ -21,8 +21,11 @@ public:
 	virtual void desenhar();
 	virtual void salvar() = 0;
 	virtual void mover() = 0;
+	virtual void forcar(sf::Vector2f F);
 	virtual void setPos(sf::Vector2f p);
+	virtual void setVel(sf::Vector2f v);
 	const sf::Vector2f getPos() const;
+	const sf::Vector2f getVel() const;
 	static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
 	//void ...();
 };

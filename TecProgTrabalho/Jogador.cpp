@@ -14,8 +14,6 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Diamond.png"));
 	pos.x = 800.0f;
 	pos.y = 500.0f;
-	vel.y = -5.0f;
-	vel.x = -5.0f;
 	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
 	pSprite->setScale(sf::Vector2f(6.0f, 6.0f));
@@ -36,27 +34,36 @@ void Jogador::executar() {
 }
 
 void Jogador::desenhar() {
-	pGG->desenhar(pSprite);
-	//Entidade::desenhar();
+	//pGG->desenhar(pSprite);
+	Entidade::desenhar();
 }
 
 void Jogador::salvar() {
 
 }
 
-void Jogador::mover() {
-	if (sf::Keyboard::isKeyPressed(tecla_cima)) {
-		pos.y += vel.y;
-	}
-	if (sf::Keyboard::isKeyPressed(tecla_baixo)) {
-		pos.y -= vel.y;
-	}
-	if (sf::Keyboard::isKeyPressed(tecla_esquerda)) {
-		pos.x += vel.x;
-	}
+void Jogador::acelerar() {
 	if (sf::Keyboard::isKeyPressed(tecla_direita)) {
-		pos.x -= vel.x;
+		vel.x += 3.0f;
 	}
+	else if (sf::Keyboard::isKeyPressed(tecla_esquerda)) {
+		vel.x += -3.0f;
+	}
+	else {
+		vel.x = 0.0f;
+	}
+}
+
+void Jogador::pular() {
+	if (sf::Keyboard::isKeyPressed(tecla_cima)) {
+		vel.y = -20.0f;
+	}
+}
+
+void Jogador::mover() {
+	pular();
+	acelerar();
+	Personagem::mover();
 	setPos(pos);
 }
 

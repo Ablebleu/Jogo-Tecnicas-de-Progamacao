@@ -16,8 +16,6 @@ public:
 		Elemento() { pProx = nullptr; pinfo = nullptr; }
 		~Elemento() {
 			pProx = nullptr;
-			//Mudar no futuro para as classes que deram new deletar
-			if (pinfo) delete pinfo;
 			pinfo = nullptr;
 		}
 		void incluir(TE p) { pinfo = p; }

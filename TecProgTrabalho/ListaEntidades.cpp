@@ -28,8 +28,18 @@ void ListaEntidades::mover() {
 	}
 }
 
+void ListaEntidades::deletarEntidades() {
+	Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
+	while (it != NULL) {
+		if (it->getInfo()) delete it->getInfo();
+		it->incluir(nullptr);
+		it = it->getProximo();
+	}
+	LEs.limpar();
+}
 
-//Objetivamente errado pois adiciona nulo na lista
+// Objetivamente errado pois adiciona nulo na lista. 
+// Serve para remover o jogador antes de apagar lista.
 void ListaEntidades::remover(int id) {
 	Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
 	while (it != NULL) {

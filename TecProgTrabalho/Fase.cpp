@@ -9,7 +9,7 @@ Fase::Fase(): Ente(), chao() {
 
 Fase::~Fase() {
 	std::cout << "Deletando fase: " << getId() << std::endl;
-	lista_ents.~ListaEntidades();
+	lista_ents.deletarEntidades();
 }
 
 /*void Fase::...() {

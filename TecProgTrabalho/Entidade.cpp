@@ -22,13 +22,26 @@ const sf::FloatRect Entidade::getCorpo() {
 	return corpo.getGlobalBounds();
 }
 
+void Entidade::forcar(sf::Vector2f F) {
+	//std::cout << "Força aplicada: (" << F.x << ", " << F.y << ")" << std::endl;
+	vel += F;
+}
+
 void Entidade::setPos(sf::Vector2f p) {
 	pos = p;
 	corpo.setPosition(p);
 }
 
+void Entidade::setVel(sf::Vector2f v) {
+	vel = v;
+}
+
 const sf::Vector2f Entidade::getPos() const {
 	return pos;
+}
+
+const sf::Vector2f Entidade::getVel() const {
+	return vel;
 }
 
 void Entidade::desenhar() {

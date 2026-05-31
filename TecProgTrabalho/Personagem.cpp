@@ -12,6 +12,12 @@ void Personagem::salvarDataBuffer() {
 
 }
 
-/*void Personagem::...() {
+void Personagem::pular() {
 
-}*/
+}
+
+void Personagem::mover() {
+	pos.x += vel.x;
+	pos.y += vel.y;
+	setPos(pos);
+}

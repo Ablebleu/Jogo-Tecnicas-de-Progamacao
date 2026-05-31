@@ -17,6 +17,7 @@ public:
 	void mover();
 	void remover(int id);
 	void verificarChao(Chao c);
+	void deletarEntidades();
 	//void percorrer();
 	//void ...();
 };

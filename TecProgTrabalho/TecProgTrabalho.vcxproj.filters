@@ -38,9 +38,6 @@
     <Filter Include="Entidades\Personagens\Arquivos Header">
       <UniqueIdentifier>{72a79f31-ca8b-4d3b-8e97-3820f4c01dbf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Entidades\Arquivos Source">
-      <UniqueIdentifier>{f907cfc0-b5fc-447e-b54b-ce971b0b9f23}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Estado\Arquivos Header">
       <UniqueIdentifier>{0e83710e-41c1-4ed9-a7e8-3d764d1fd3fb}</UniqueIdentifier>
     </Filter>
@@ -91,6 +88,9 @@
     <Filter Include="Entidades\Personagens\Inimigos\Arquivos Source">
       <UniqueIdentifier>{dfadcf70-01fe-4425-991a-da52a20baa0e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entidades\Arquivos Source">
+      <UniqueIdentifier>{f907cfc0-b5fc-447e-b54b-ce971b0b9f23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -119,9 +119,6 @@
     </ClCompile>
     <ClCompile Include="Fase.cpp">
       <Filter>Fases\Arquivos Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Entidade.cpp">
-      <Filter>Entidades\Arquivos Source</Filter>
     </ClCompile>
     <ClCompile Include="Projetil.cpp">
       <Filter>Entidades\Arquivos Source</Filter>
@@ -177,6 +174,9 @@
     <ClCompile Include="Chao.cpp">
       <Filter>Fases\Arquivos Source</Filter>
     </ClCompile>
+    <ClCompile Include="Entidade.cpp">
+      <Filter>Entidades\Arquivos Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
@@ -205,9 +205,6 @@
     </ClInclude>
     <ClInclude Include="Fase.h">
       <Filter>Fases\Arquivos Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Entidade.h">
-      <Filter>Entidades\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Projetil.h">
       <Filter>Entidades\Arquivos Header</Filter>
@@ -262,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="Chao.h">
       <Filter>Fases\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidade.h">
+      <Filter>Entidades\Arquivos Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

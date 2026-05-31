@@ -7,10 +7,8 @@ Alien::Alien(sf::Vector2f p, int n, float tam): Inimigo(p, n), tamanho(tam) {
 	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
 	pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
 	pos = p;
-	vel.x = 3.f;
 	pSprite->setPosition(pos);
 	pSprite->setScale(tam*sf::Vector2f(3.5f, 3.5f));
-
 }
 
 Alien::~Alien() {
@@ -42,21 +40,22 @@ void Alien::mover() {
 			sf::Vector2f posJog = pJog->getPos();
 			if (std::abs(posJog.x - pos.x) < 250) {
 				if (posJog.x < pos.x) {
-					pos.x += -vel.x;
+					vel.x += -1.5f;
 				}
 				else if (posJog.x > pos.x) {
-					pos.x += vel.x;
+					vel.x += 1.5f;
 				}
 			}
 			else {
 				if (posInicial.x < pos.x) {
-					pos.x += -vel.x;
+					vel.x += -1.f;
 				}
 				else if (posInicial.x > pos.x) {
-					pos.x += vel.x;
+					pos.x += 1.f;
 				}
 			}
-			setPos(pos);
+			//std::cout << "Movendo Alien " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
+			Personagem::mover();
 		}
 		//else std::cout << i << std::endl;
 	}
