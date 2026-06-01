@@ -5,6 +5,11 @@
 Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
 Fase::Fase(): Ente(), chao(), pJog1(NULL) {
+	for (int i = 0;i < 10; i++) {
+		Chao achao;
+		achao.setPos(2000 * i);
+		chao[i] = achao;
+	}
 	pJog1 = pGC->getJogadores(1);
 	std::cout << "Criando fase: " << getId() << std::endl;
 }
@@ -37,7 +42,9 @@ void Fase::executar() {
 		pGC->executar();
 	}
 	else cerr << "Nenhuma GC para ser executada" << endl;
-	lista_ents.verificarChao(chao);
+	for (int i = 0; i < 10; i++) {
+		lista_ents.verificarChao(chao[i]);
+	}
 	moverCamera();
 }
 
@@ -56,7 +63,9 @@ void Fase::incluirJogador(Jogador* pE) {
 
 void Fase::desenhar() {
 	pGG->desenhar(pSprite);
-	chao.desenhar();
+	for (int i = 0; i < 10; i++) {
+		chao[i].desenhar();
+	}
 	lista_ents.desenhar();
 }
 

@@ -15,6 +15,10 @@ const sf::FloatRect Chao::getCorpo() {
 	return Sprite.getGlobalBounds();
 }
 
+void Chao::setPos(float posX) {
+	Sprite.setPosition(sf::Vector2f(posX, 600.f));
+}
+
 void Chao::desenhar() {
 	//std::cout << "Desenhando" << std::endl;
 	Gerenciador::Gerenciador_Grafico::getGerenciador_Grafico()->desenhar(&Sprite);

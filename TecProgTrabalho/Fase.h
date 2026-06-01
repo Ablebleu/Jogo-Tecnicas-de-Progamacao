@@ -11,7 +11,7 @@ class Fase : public Ente {
 protected:
 	
 	ListaEntidades lista_ents;
-	Chao chao;
+	Chao chao[10];
 	Jogador* pJog1;
 
 	static Gerenciador::Gerenciador_Colisoes* pGC;

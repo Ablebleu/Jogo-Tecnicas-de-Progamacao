@@ -9,7 +9,6 @@ protected:
 	static int cont_id;
 	static Gerenciador::Gerenciador_Grafico* pGG;
 	sf::Sprite *pSprite;
-	sf::Texture textura;
 
 	//. . .
 

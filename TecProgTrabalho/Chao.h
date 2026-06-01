@@ -11,6 +11,7 @@ public:
 	Chao();
 	~Chao();
 	const sf::FloatRect getCorpo();
+	void setPos(float posx);
 	void desenhar();
 	void obstaculizar(Entidade* p);
 };
