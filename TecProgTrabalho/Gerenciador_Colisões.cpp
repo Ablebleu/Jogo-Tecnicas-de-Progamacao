@@ -94,8 +94,8 @@ namespace Gerenciador {
 	void Gerenciador_Colisoes::AplicarForca(Entidade* pE) {
 		// Gravidade (para baixo) e arrasto (oposto à velocidade)
 		sf::Vector2f gravidade(0.f, 3.f);
-		sf::Vector2f arrasto(0.05f * -pE->getVel().x * std::abs(pE->getVel().x),
-			0.05f * -pE->getVel().y * std::abs(pE->getVel().y));
+		sf::Vector2f arrasto(0.04f * -pE->getVel().x * std::abs(pE->getVel().x),
+			0.04f * -pE->getVel().y * std::abs(pE->getVel().y));
 		pE->forcar(gravidade + arrasto);
 	}
 

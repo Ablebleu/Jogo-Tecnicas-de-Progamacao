@@ -49,9 +49,6 @@ void Jogador::acelerar() {
 	else if (sf::Keyboard::isKeyPressed(tecla_esquerda)) {
 		vel.x += -3.0f;
 	}
-	else {
-		vel.x = 0.0f;
-	}
 }
 
 void Jogador::pular() {
