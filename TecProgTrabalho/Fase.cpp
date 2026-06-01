@@ -5,11 +5,8 @@
 Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
 Fase::Fase(): Ente(), chao(), pJog1(NULL) {
-	for (int i = 0;i < 10; i++) {
-		Chao achao;
-		achao.setPos(2000 * i);
-		chao[i] = achao;
-	}
+	for (int i = 0; i < 10; i++)
+		chao[i].setPos(2000 * i);
 	pJog1 = pGC->getJogadores(1);
 	std::cout << "Criando fase: " << getId() << std::endl;
 }
@@ -64,6 +61,7 @@ void Fase::incluirJogador(Jogador* pE) {
 void Fase::desenhar() {
 	pGG->desenhar(pSprite);
 	for (int i = 0; i < 10; i++) {
+		std::cout << "Desenhando chao" << i << std::endl;
 		chao[i].desenhar();
 	}
 	lista_ents.desenhar();

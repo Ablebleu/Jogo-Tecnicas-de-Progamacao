@@ -24,7 +24,6 @@ protected:
 	virtual void criarInimigos() = 0;
 	virtual void criarObstaculo() = 0;
 	virtual void criarCenario() = 0;
-	void tratarColisoesEntidsChao();
 public:
 	//int ...;
 	Fase();

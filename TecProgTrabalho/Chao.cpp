@@ -1,27 +1,34 @@
 #include "Chao.h"
 
-Chao::Chao() : Sprite(sf::Sprite(*Gerenciador::Gerenciador_Grafico::getGerenciador_Grafico()->carregarTextura("assets/sprites/tiles/RunnerTileSet.png"))) {
+Chao::Chao(float x) : Ente(), posX(x) {
 	std::cout << "Criando chao da fase" << std::endl;
-	Sprite.setTextureRect(sf::IntRect({ 12,0 }, { 108,32 }));
-	Sprite.setPosition(sf::Vector2f{ 0.0f, 600.0f });
-	Sprite.setScale(sf::Vector2f{ 20.0f, 3.0f });
+	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/RunnerTileSet.png"));
+	pSprite->setTextureRect(sf::IntRect({ 12,0 }, { 108,32 }));
+	setPos(x);
+	pSprite->setPosition(sf::Vector2f{ 0.0f, 600.0f });
+	pSprite->setScale(sf::Vector2f{ 20.0f, 3.0f });
 }
 
 Chao::~Chao() {
 
 }
 
-const sf::FloatRect Chao::getCorpo() {
-	return Sprite.getGlobalBounds();
+void Chao::executar() {
+
 }
 
-void Chao::setPos(float posX) {
-	Sprite.setPosition(sf::Vector2f(posX, 600.f));
+const sf::FloatRect Chao::getCorpo() {
+	return pSprite->getGlobalBounds();
+}
+
+void Chao::setPos(float x) {
+	posX = x;
+	pSprite->setPosition(sf::Vector2f(x, 600.f));
 }
 
 void Chao::desenhar() {
-	//std::cout << "Desenhando" << std::endl;
-	Gerenciador::Gerenciador_Grafico::getGerenciador_Grafico()->desenhar(&Sprite);
+	//std::cout << "Desenhando Chao" << std::endl;
+	pGG->desenhar(pSprite);
 }
 
 void Chao::obstaculizar(Entidade* p) {

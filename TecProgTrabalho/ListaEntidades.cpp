@@ -51,7 +51,7 @@ void ListaEntidades::remover(int id) {
 	}
 }
 
-void ListaEntidades::verificarChao(Chao c) {
+void ListaEntidades::verificarChao(Chao &c) {
 	Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
 	while (it != NULL) {
 		if (it->getInfo() && (const bool)c.getCorpo().findIntersection(it->getInfo()->getCorpo()).has_value()) {
