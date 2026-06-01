@@ -1,9 +1,11 @@
+#include <cmath>
 #include "Fase.h"
 #include "Jogador.h"
 
 Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-Fase::Fase(): Ente(), chao() {
+Fase::Fase(): Ente(), chao(), pJog1(NULL) {
+	pJog1 = pGC->getJogadores(1);
 	std::cout << "Criando fase: " << getId() << std::endl;
 }
 
@@ -36,6 +38,16 @@ void Fase::executar() {
 	}
 	else cerr << "Nenhuma GC para ser executada" << endl;
 	lista_ents.verificarChao(chao);
+	moverCamera();
+}
+
+void Fase::moverCamera() {
+	if(pJog1) {
+		sf::Vector2f posJog = pJog1->getPos();
+		pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f), 
+										pGG->getTamJanela().y * 0.5f));
+		pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f),0.0f));
+	}
 }
 
 void Fase::incluirJogador(Jogador* pE) {

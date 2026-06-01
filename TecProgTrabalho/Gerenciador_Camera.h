@@ -18,6 +18,7 @@ namespace Gerenciador {
         void resetar();
         void atualizar(sf::Vector2f pos);
         void setLimiteCamera(sf::FloatRect limiteCamera);
+		const sf::Vector2f getTamJanela() const;
     };
 }
 #endif

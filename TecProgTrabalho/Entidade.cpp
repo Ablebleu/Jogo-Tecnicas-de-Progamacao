@@ -9,7 +9,7 @@ Entidade::Entidade(sf::Vector2f p, sf::Vector2f v):
 }
 
 Entidade::~ Entidade() {
-
+	std::cout << "Deletando entidade: " << getId() << std::endl;
 }
 
 

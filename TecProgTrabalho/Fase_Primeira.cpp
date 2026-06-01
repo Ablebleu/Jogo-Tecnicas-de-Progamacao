@@ -4,8 +4,7 @@
 /*void Fase Primeira::...() {
 
 }*/
-Fase_Primeira::Fase_Primeira(): Fase(), pJog1(NULL) {
-	pJog1 = pGC->getJogadores(1);
+Fase_Primeira::Fase_Primeira(): Fase() {
 	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/blue-preview.png"));
 	pSprite->setScale(sf::Vector2f(1.5f, 1.45f));
 	pSprite->setPosition(sf::Vector2f(0.0f, 0.0f));

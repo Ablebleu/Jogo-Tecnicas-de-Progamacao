@@ -3,6 +3,7 @@
 
 #include "Ente.h"
 #include "Chao.h"
+#include "Jogador.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisões.h"
 
@@ -11,8 +12,11 @@ protected:
 	
 	ListaEntidades lista_ents;
 	Chao chao;
+	Jogador* pJog1;
 
 	static Gerenciador::Gerenciador_Colisoes* pGC;
+
+	void moverCamera();
 
 	void criarInimFaceis();
 	void criarPlataformas();

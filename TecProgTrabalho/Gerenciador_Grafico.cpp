@@ -4,7 +4,7 @@
 Gerenciador::Gerenciador_Grafico* Gerenciador::Gerenciador_Grafico::pGrafico = nullptr;
 namespace Gerenciador {
 	Gerenciador_Grafico::Gerenciador_Grafico() : janela(new sf::RenderWindow(sf::VideoMode({ 1200, 675 }), "Jogo++")),
-		camera(sf::Vector2f(800.f, 600.f)), relogio(), ltext() {
+		camera(sf::Vector2f(1200.f, 675.f)), relogio(), ltext() {
 		std::cout << "Criando Gerenciador Grafico" << std::endl;
 		ltext.clear();
 		if (!janela) {
@@ -96,6 +96,11 @@ namespace Gerenciador {
 
 	std::optional<sf::Event> Gerenciador_Grafico::atualizaEvento() {
 		return janela->pollEvent();
+	}
+
+	const sf::Vector2f Gerenciador_Grafico::getTamJanela() const {
+		if (janela) return static_cast<sf::Vector2f>(janela->getSize());
+		else return sf::Vector2f({ 0.f, 0.f });
 	}
 
 	Gerenciador_Grafico* Gerenciador_Grafico::getGerenciador_Grafico() {
