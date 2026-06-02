@@ -77,6 +77,17 @@ namespace Gerenciador {
 
 	}
 
+	void Gerenciador_Colisoes::tratarColisoesChaoEntidades(Chao &c) {
+		if (pJog1 && (const bool)c.getCorpo().findIntersection(pJog1->getCorpo()).has_value()) {
+			c.obstaculizar(static_cast<Entidade*>(pJog1));
+		}
+		for (vector<Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+			if ((const bool)c.getCorpo().findIntersection((*it)->getCorpo()).has_value()) {
+				c.obstaculizar(static_cast<Entidade*>(*it));
+			}
+		}
+	}
+
 	void Gerenciador_Colisoes::forcarEntidades() {
 		for(vector<Inimigo*>::iterator itIn = LIs.begin(); itIn != LIs.end(); itIn++) {
 			if (*itIn) AplicarForca(static_cast<Entidade*>(*itIn));

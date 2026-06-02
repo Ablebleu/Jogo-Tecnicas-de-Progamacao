@@ -3,7 +3,6 @@
 
 #include "Lista.h"
 #include "Entidade.h"
-#include "Chao.h"
 
 class ListaEntidades {
 private:
@@ -16,7 +15,6 @@ public:
 	void desenhar();
 	void mover();
 	void remover(int id);
-	void verificarChao(Chao &c);
 	void deletarEntidades();
 	//void percorrer();
 	//void ...();

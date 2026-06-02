@@ -25,7 +25,7 @@ namespace Gerenciador {
 		void resetarRelogio();
 		void mostrarTela();
 		float atualizarTempo();
-		sf::Texture* carregarTextura(const char* caminho);
+		sf::Texture* carregarTextura(const char* caminho, bool repetir = false);
 		void desenhar(sf::RectangleShape* corpo);
 		void desenhar(sf::Sprite* sprite);
 		void desenhar(sf::Drawable* drawable);

@@ -55,13 +55,14 @@ namespace Gerenciador {
 		return relogio.restart().asSeconds();
 	}
 
-	sf::Texture* Gerenciador_Grafico::carregarTextura(const char* caminho) {
+	sf::Texture* Gerenciador_Grafico::carregarTextura(const char* caminho, bool repetir) {
 		sf::Texture* textura = NULL;
 		textura = new sf::Texture();
 		if (!textura->loadFromFile(caminho)) {
 			std::cout << "Textura: " << caminho << " não carregada" << std::endl;
 		}
 		else ltext.push_back(textura);
+		if(repetir)textura->setRepeated(true);
 		return textura;
 	}
 

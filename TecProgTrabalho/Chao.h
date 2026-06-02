@@ -7,13 +7,13 @@
 
 class Chao : public Ente {
 private:
-	float posX;
+	int comprimento;
 public:
-	Chao(float x = 0);
+	Chao(int l = 2000.f);
 	~Chao();
 	void executar();
 	const sf::FloatRect getCorpo();
-	void setPos(float x);
+	void setComprimento(int l);
 	void desenhar();
 	void obstaculizar(Entidade* p);
 };

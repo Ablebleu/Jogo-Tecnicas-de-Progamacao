@@ -1,12 +1,12 @@
 #include "Chao.h"
 
-Chao::Chao(float x) : Ente(), posX(x) {
+Chao::Chao(int l) : Ente(), comprimento(l) {
 	std::cout << "Criando chao da fase" << std::endl;
-	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/RunnerTileSet.png"));
-	pSprite->setTextureRect(sf::IntRect({ 12,0 }, { 108,32 }));
-	setPos(x);
+	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/Chao.png", true));
+	setComprimento(l);
 	pSprite->setPosition(sf::Vector2f{ 0.0f, 600.0f });
 	pSprite->setScale(sf::Vector2f{ 20.0f, 3.0f });
+	
 }
 
 Chao::~Chao() {
@@ -21,9 +21,9 @@ const sf::FloatRect Chao::getCorpo() {
 	return pSprite->getGlobalBounds();
 }
 
-void Chao::setPos(float x) {
-	posX = x;
-	pSprite->setPosition(sf::Vector2f(x, 600.f));
+void Chao::setComprimento(int l) {
+	comprimento = l;
+	pSprite->setTextureRect(sf::IntRect({ 0,0 }, { l,32 }));
 }
 
 void Chao::desenhar() {
