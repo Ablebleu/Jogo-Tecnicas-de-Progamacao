@@ -7,7 +7,7 @@ class Alien : public Inimigo {
 private:
 	float tamanho;
 public:
-	Alien(sf::Vector2f p, int n = 0, float tam = 1.f);
+	Alien(sf::Vector2f p, int n = 0, float raio = 1.f);
 	~Alien();
 	void salvar();
 	void executar();

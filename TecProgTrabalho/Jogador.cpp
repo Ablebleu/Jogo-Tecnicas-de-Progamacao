@@ -53,13 +53,14 @@ void Jogador::acelerar() {
 
 void Jogador::pular() {
 	if (sf::Keyboard::isKeyPressed(tecla_cima)) {
-		vel.y = -20.0f;
+		Personagem::pular(); 
 	}
 }
 
 void Jogador::mover() {
 	pular();
 	acelerar();
+	//std::cout << vel.y << std::endl;
 	Personagem::mover();
 	setPos(pos);
 }

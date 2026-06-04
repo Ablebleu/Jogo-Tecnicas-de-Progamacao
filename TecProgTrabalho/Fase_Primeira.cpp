@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "Fase_Primeira.h"
 #include "Plataforma.h"
+#include "UFO.h"
 #include "Alien.h"
 /*void Fase Primeira::...() {
 
@@ -24,6 +25,7 @@ void Fase_Primeira::criar() {
 	criarCenario();
 	criarObstaculo();
 	criarInimFaceis();
+	criarInimMedios();
 	//criarObstMedios();
 	//criarInimgos();
 	lista_ents.incluir(static_cast<Entidade*>(pJog1));
@@ -54,7 +56,10 @@ void Fase_Primeira::criarInimFaceis() {
 }
 
 void Fase_Primeira::criarInimMedios() {
-
+	UFO* pUFO1 = new UFO(sf::Vector2f(1000.0f, 450.0f), 0, 1.0f);
+	if (pUFO1) {
+		lista_ents.incluir(static_cast<Entidade*>(pUFO1));
+	}
 }
 
 void Fase_Primeira::criarObstMedios() {
@@ -79,7 +84,7 @@ void Fase_Primeira::criarObstaculo() {
 		lista_ents.incluir(static_cast<Entidade*>(pPlat3));
 	}
 	for (int i = 0; i < 30; i++) {
-		if (std::rand() % 100 < 10) {
+		if (std::rand() % 100 < 10 + i) {
 			Plataforma* pPlat3 = new Plataforma(sf::Vector2f(800.0f + i*200.f, 300.0f + std::rand()%250 * 1.0f), 
 												sf::Vector2f(2.0f+rand()%2 * 1.f - 1.0f, 1.0f + std::rand()%2 * 0.5f - 0.5f));
 			if (pPlat3) {

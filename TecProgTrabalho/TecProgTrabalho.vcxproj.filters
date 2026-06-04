@@ -162,7 +162,7 @@
     <ClCompile Include="Inimigo.cpp">
       <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
     </ClCompile>
-    <ClCompile Include="Inim_Medio.cpp">
+    <ClCompile Include="UFO.cpp">
       <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
     </ClCompile>
     <ClCompile Include="Alien.cpp">
@@ -251,7 +251,7 @@
     <ClInclude Include="Alien.h">
       <Filter>Entidades\Personagens\Inimigos\Arquivos Header</Filter>
     </ClInclude>
-    <ClInclude Include="Inim_Medio.h">
+    <ClInclude Include="UFO.h">
       <Filter>Entidades\Personagens\Inimigos\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Inimigo.h">
