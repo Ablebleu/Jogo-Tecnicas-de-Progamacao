@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "Fase_Primeira.h"
 #include "Plataforma.h"
+#include "Acelerador.h"
 #include "UFO.h"
 #include "Alien.h"
 /*void Fase Primeira::...() {
@@ -91,6 +92,11 @@ void Fase_Primeira::criarObstaculo() {
 				lista_ents.incluir(static_cast<Entidade*>(pPlat3));
 			}
 		}
+	}
+
+	Acelerador* pAcel1 = new Acelerador(sf::Vector2f(1100.0f, 550.0f), 7.0f, 7.0f);
+	if (pAcel1) {
+		lista_ents.incluir(static_cast<Entidade*>(pAcel1));
 	}
 }
 void Fase_Primeira::criarCenario() {
