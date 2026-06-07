@@ -45,6 +45,7 @@ namespace Gerenciador {
 		forcarEntidades();
 		tratarColisoesJogsObstacs();
 		tratarColisoesJogsInimgs();
+		tratarColisoesAtqInimgs();
 		tratarColisoesJogsProjeteis();
 	}
 
@@ -71,6 +72,15 @@ namespace Gerenciador {
 
 	void Gerenciador_Colisoes::tratarColisoesJogsInimgs() {
 
+	}
+
+	void Gerenciador_Colisoes::tratarColisoesAtqInimgs() {
+		for (vector<Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+			if (verificarColisao(static_cast<Entidade*>(pJog1->getAtaque()), static_cast<Entidade*>(*it))) {
+				//std::cout << "Colisão detectada" << std::endl;
+				pJog1->getAtaque()->danificar(*it);
+			}
+		}
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesJogsProjeteis() {

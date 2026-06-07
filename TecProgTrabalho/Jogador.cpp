@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Jogador.h"
 
-Jogador::Jogador(): Personagem(), pontos(0), 
+Jogador::Jogador(): Personagem(), pontos(0),
 tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	std::cout << "Criando jogador: " << getId() << std::endl;
@@ -11,6 +11,8 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	Por isso é necessário que o Gerenciador_grafico guarde texturas num vetor e delete em
 	seu fim.
 	*/
+	//ataque -> buraco_negro
+	pAtaque = new Buraco_Negro({0,0}, 120);
 
 	//hitbox
 	corpo.setSize(sf::Vector2f(80.0f, 80.0f));
@@ -38,6 +40,7 @@ void Jogador::colidir(Inimigo* pIn) {
 void Jogador::executar() {
 	//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
 	mover();
+	atacar();
 }
 
 void Jogador::desenhar() {
@@ -81,6 +84,14 @@ void Jogador::mover() {
 
 }
 
+void Jogador::atacar() {
+	if (sf::Keyboard::isKeyPressed(tecla_baixo) && pAtaque->getAtivo() == false)
+	{
+		pAtaque->setAtivo(true);
+		pAtaque->setPos(pos + sf::Vector2f(100.0f, -10.0f));
+	}
+}
+
 void Jogador::setPos(sf::Vector2f p) {
 	//Hitbox
 	Entidade::setPos(p);
@@ -93,4 +104,8 @@ void Jogador::setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Key
 	tecla_baixo = baixo;
 	tecla_esquerda = esq;
 	tecla_direita = dir;
+}
+
+Buraco_Negro* Jogador::getAtaque() {
+	return pAtaque;
 }

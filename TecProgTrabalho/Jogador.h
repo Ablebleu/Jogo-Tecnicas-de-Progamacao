@@ -2,6 +2,7 @@
 #define _JOGADOR_H
 
 #include "Personagem.h"
+#include "Buraco_Negro.h"
 
 //Fazer setTeclas depois para permitir 2 jogadores
 class Inimigo;
@@ -13,6 +14,8 @@ protected:
 	sf::Keyboard::Key tecla_esquerda;
 	sf::Keyboard::Key tecla_direita;
 	//int ...;
+
+	Buraco_Negro* pAtaque;
 public:
 	Jogador();
 	~Jogador();
@@ -23,8 +26,10 @@ public:
 	void acelerar();
 	void pular();
 	void mover();
+	void atacar();
 	void setPos(sf::Vector2f p);
 	void setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir);
+	Buraco_Negro* getAtaque();
 	//. . .
 };
 

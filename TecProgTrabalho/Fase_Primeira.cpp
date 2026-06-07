@@ -30,6 +30,7 @@ void Fase_Primeira::criar() {
 	//criarObstMedios();
 	//criarInimgos();
 	lista_ents.incluir(static_cast<Entidade*>(pJog1));
+	lista_ents.incluir(static_cast<Entidade*>(pJog1->getAtaque()));
 }
 
 

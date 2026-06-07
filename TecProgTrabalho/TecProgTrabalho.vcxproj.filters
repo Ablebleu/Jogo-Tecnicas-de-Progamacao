@@ -180,6 +180,9 @@
     <ClCompile Include="Acelerador.cpp">
       <Filter>Entidades\Obstáculos\Arquivos Source</Filter>
     </ClCompile>
+    <ClCompile Include="Buraco_Negro.cpp">
+      <Filter>Entidades\Personagens\Arquivos Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
@@ -268,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="Acelerador.h">
       <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Buraco_Negro.h">
+      <Filter>Entidades\Personagens\Arquivos Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
