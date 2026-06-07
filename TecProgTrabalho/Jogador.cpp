@@ -11,12 +11,19 @@ tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	Por isso é necessário que o Gerenciador_grafico guarde texturas num vetor e delete em
 	seu fim.
 	*/
-	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Diamond.png"));
+
+	//hitbox
+	corpo.setSize(sf::Vector2f(80.0f, 80.0f));
+	corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
+
+	//sprite
+	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
+	pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
+	pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 	pos.x = 800.0f;
 	pos.y = 500.0f;
-	pSprite->setScale(sf::Vector2f(1.0f,1.0f));
 	pSprite->setPosition(pos);
-	pSprite->setScale(sf::Vector2f(6.0f, 6.0f));
+	pSprite->setScale(sf::Vector2f(5.0f, 5.0f));
 	pGC->setJogadores(this);
 }
 
@@ -45,9 +52,17 @@ void Jogador::salvar() {
 void Jogador::acelerar() {
 	if (sf::Keyboard::isKeyPressed(tecla_direita)) {
 		vel.x += 3.0f;
+		if(pSprite->getScale().x < 0)
+		{
+			pSprite->setScale({ 5.0f, 5.0f });
+		}
 	}
 	else if (sf::Keyboard::isKeyPressed(tecla_esquerda)) {
 		vel.x += -3.0f;
+		if (pSprite->getScale().x > 0)
+		{
+			pSprite->setScale({ -5.0f, 5.0f });
+		}
 	}
 }
 
@@ -63,14 +78,14 @@ void Jogador::mover() {
 	//std::cout << vel.y << std::endl;
 	Personagem::mover();
 	setPos(pos);
+
 }
 
 void Jogador::setPos(sf::Vector2f p) {
 	//Hitbox
 	Entidade::setPos(p);
-
 	//Sprite
-	pSprite->setPosition(pos + sf::Vector2f(-23.f, -25.f));
+	pSprite->setPosition(pos);
 }
 
 void Jogador::setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir) {

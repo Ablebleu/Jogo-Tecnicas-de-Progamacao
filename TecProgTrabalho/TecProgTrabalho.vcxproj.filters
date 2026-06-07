@@ -177,6 +177,9 @@
     <ClCompile Include="Entidade.cpp">
       <Filter>Entidades\Arquivos Source</Filter>
     </ClCompile>
+    <ClCompile Include="Acelerador.cpp">
+      <Filter>Entidades\Obstáculos\Arquivos Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
@@ -262,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="Entidade.h">
       <Filter>Entidades\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Acelerador.h">
+      <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
