@@ -45,7 +45,7 @@ void Alien::mover() {
 				sf::Vector2f posJog = pJog->getPos();
 				if (std::abs(posJog.x - pos.x) < 250) {
 					if (std::abs(posJog.x - pos.x) < 10) {
-						framesPosAprox = 60;
+						framesPosAprox = 30;
 					}
 					if (posJog.x < pos.x) {
 						vel.x += -0.25f;

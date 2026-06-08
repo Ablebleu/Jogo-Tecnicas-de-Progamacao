@@ -115,9 +115,13 @@ namespace Gerenciador {
 	void Gerenciador_Colisoes::AplicarForca(Entidade* pE) {
 		// Gravidade (para baixo) e arrasto (oposto à velocidade)
 		sf::Vector2f gravidade(0.f, 2.f);
-		sf::Vector2f arrasto(0.004f * -pE->getVel().x * std::abs(pE->getVel().x),
+		sf::Vector2f arrasto1(0.004f * -pE->getVel().x * std::abs(pE->getVel().x),
 			0.004f * -pE->getVel().y * std::abs(pE->getVel().y));
-		pE->forcar(gravidade + arrasto);
+		sf::Vector2f arrasto2(0, 0);
+		if (pE->getContatoBase()) {
+			arrasto2 = sf::Vector2f(0.03f * -pE->getVel().x, 0.f);
+		}
+		pE->forcar(gravidade + arrasto1 + arrasto2);
 	}
 
 	void Gerenciador_Colisoes::setJogadores(Jogador* p1) {

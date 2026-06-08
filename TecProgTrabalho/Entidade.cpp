@@ -46,7 +46,7 @@ const sf::Vector2f Entidade::getVel() const {
 
 void Entidade::desenhar() {
 	//Modificar depois
-	pGG->desenhar(&corpo);
+	//pGG->desenhar(&corpo);
 	pGG->desenhar(pSprite);
 	//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
 }
@@ -59,6 +59,10 @@ void Entidade::setGC(Gerenciador::Gerenciador_Colisoes* pG) {
 	}
 }
 
-	void Entidade::houveContatoBase() {
-		contatoBase = true;
-	}
+const bool Entidade::getContatoBase() const {
+	return contatoBase;
+}
+
+void Entidade::houveContatoBase() {
+	contatoBase = true;
+}

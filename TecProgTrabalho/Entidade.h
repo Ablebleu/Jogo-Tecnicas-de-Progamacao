@@ -28,6 +28,7 @@ public:
 	virtual void setVel(sf::Vector2f v);
 	const sf::Vector2f getPos() const;
 	const sf::Vector2f getVel() const;
+	const bool getContatoBase() const;
 	void houveContatoBase();
 	static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
 	//void ...();
