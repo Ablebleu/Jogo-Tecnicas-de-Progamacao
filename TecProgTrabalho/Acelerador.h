@@ -5,19 +5,22 @@
 
 namespace Entidades
 {
-	class Acelerador : public Obstaculo {
-	private:
-		float altura;
-		float largura;
-	public:
-		Acelerador(sf::Vector2f p, float h, float l);
-		~Acelerador();
-		const sf::FloatRect getCorpo();
-		void executar();
-		void mover();
-		virtual void salvar();
-		void obstaculizar(Jogador* p);
-	};
+	namespace Obstaculos
+	{
+		class Acelerador : public Obstaculo {
+		private:
+			float altura;
+			float largura;
+		public:
+			Acelerador(sf::Vector2f p, float h, float l);
+			~Acelerador();
+			const sf::FloatRect getCorpo();
+			void executar();
+			void mover();
+			virtual void salvar();
+			void obstaculizar(Jogador* p);
+		};
+	}
 }
 
 #endif 

@@ -27,7 +27,7 @@ namespace Gerenciador {
 		else std::cerr << "Inimigo nulo" << endl;
 	}
 
-	void Gerenciador_Colisoes::incluirObstaculo(Entidades::Obstaculo* po) {
+	void Gerenciador_Colisoes::incluirObstaculo(Entidades::Obstaculos::Obstaculo* po) {
 		if (po) {
 			std::cout << "Incluindo obstáculo: " << po->getId() << std::endl;
 			LOs.push_back(po);
@@ -60,7 +60,7 @@ namespace Gerenciador {
 		//std::cout << "Indo detectar colisão" << std::endl;
 		if (pJog1) {
 			//std::cout << "Indo detectar colisão" << std::endl;
-			for (list<Entidades::Obstaculo*>::iterator it = LOs.begin(); it != LOs.end(); it++) {
+			for (list<Entidades::Obstaculos::Obstaculo*>::iterator it = LOs.begin(); it != LOs.end(); it++) {
 				//std::cout << "Detectando colisão..." << std::endl;
 				if (verificarColisao(static_cast<Entidades::Entidade*>(pJog1), static_cast<Entidades::Entidade*>(*it))) {
 					//std::cout << "Colisão detectada" << std::endl;
@@ -102,7 +102,7 @@ namespace Gerenciador {
 		for(vector<Entidades::Inimigo*>::iterator itIn = LIs.begin(); itIn != LIs.end(); itIn++) {
 			if (*itIn) AplicarForca(static_cast<Entidades::Entidade*>(*itIn));
 		}
-		for (list<Entidades::Obstaculo*>::iterator itOb = LOs.begin(); itOb != LOs.end(); itOb++) {
+		for (list<Entidades::Obstaculos::Obstaculo*>::iterator itOb = LOs.begin(); itOb != LOs.end(); itOb++) {
 			if (*itOb) AplicarForca(static_cast<Entidades::Entidade*>(*itOb));
 		}
 		for (set<Entidades::Projetil*>::iterator itPj = LPs.begin(); itPj != LPs.end(); itPj++) {

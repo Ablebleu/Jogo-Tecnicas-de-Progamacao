@@ -9,7 +9,9 @@ using namespace std;
 namespace Entidades
 {
 	class Inimigo;
-	class Obstaculo;
+	namespace Obstaculos {
+		class Obstaculo;
+	}
 	class Projetil;
 	class Jogador;
 	class Entidade;
@@ -23,7 +25,7 @@ namespace Gerenciador {
 	private:
 
 		vector<Entidades::Inimigo*> LIs;
-		list<Entidades::Obstaculo*> LOs;
+		list<Entidades::Obstaculos::Obstaculo*> LOs;
 		set<Entidades::Projetil*> LPs;
 		//Checar depois como fazer para ter mais outro jogador sem ficar estranho
 		Entidades::Jogador* pJog1;
@@ -42,7 +44,7 @@ namespace Gerenciador {
 
 		~Gerenciador_Colisoes();
 		void incluirInimigo(Entidades::Inimigo *pi);
-		void incluirObstaculo(Entidades::Obstaculo *po);
+		void incluirObstaculo(Entidades::Obstaculos::Obstaculo *po);
 		void incluirProjetil(Entidades::Projetil *pj);
 		void executar();
 		void tratarColisoesChaoEntidades(Fases::Chao &c);

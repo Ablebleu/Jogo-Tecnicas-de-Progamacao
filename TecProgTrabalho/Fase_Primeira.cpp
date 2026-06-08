@@ -72,21 +72,21 @@ namespace Fases {
 	}
 
 	void Fase_Primeira::criarObstaculo() {
-		Entidades::Plataforma* pPlat1 = new Entidades::Plataforma(sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(2.0f, 1.0f));
+		Entidades::Obstaculos::Plataforma* pPlat1 = new Entidades::Obstaculos::Plataforma(sf::Vector2f(1200.0f, 300.0f), sf::Vector2f(2.0f, 1.0f));
 		if (pPlat1) {
 			lista_ents.incluir(static_cast<Entidades::Entidade*>(pPlat1));
 		}
-		Entidades::Plataforma* pPlat2 = new Entidades::Plataforma(sf::Vector2f(2000.0f, 450.0f), sf::Vector2f(2.0f, 1.0f));
+		Entidades::Obstaculos::Plataforma* pPlat2 = new Entidades::Obstaculos::Plataforma(sf::Vector2f(2000.0f, 450.0f), sf::Vector2f(2.0f, 1.0f));
 		if (pPlat2) {
 			lista_ents.incluir(static_cast<Entidades::Entidade*>(pPlat2));
 		}
-		Entidades::Plataforma* pPlat3 = new Entidades::Plataforma(sf::Vector2f(3200.0f, 300.0f), sf::Vector2f(2.0f, 1.0f));
+		Entidades::Obstaculos::Plataforma* pPlat3 = new Entidades::Obstaculos::Plataforma(sf::Vector2f(3200.0f, 300.0f), sf::Vector2f(2.0f, 1.0f));
 		if (pPlat3) {
 			lista_ents.incluir(static_cast<Entidades::Entidade*>(pPlat3));
 		}
 		for (int i = 0; i < 30; i++) {
 			if (std::rand() % 100 < 10 + i) {
-				Entidades::Plataforma* pPlat3 = new Entidades::Plataforma(sf::Vector2f(800.0f + i * 200.f, 300.0f + std::rand() % 250 * 1.0f),
+				Entidades::Obstaculos::Plataforma* pPlat3 = new Entidades::Obstaculos::Plataforma(sf::Vector2f(800.0f + i * 200.f, 300.0f + std::rand() % 250 * 1.0f),
 					sf::Vector2f(2.0f + rand() % 2 * 1.f - 1.0f, 1.0f + std::rand() % 2 * 0.5f - 0.5f));
 				if (pPlat3) {
 					lista_ents.incluir(static_cast<Entidades::Entidade*>(pPlat3));
@@ -94,7 +94,7 @@ namespace Fases {
 			}
 		}
 
-		Entidades::Acelerador* pAcel1 = new Entidades::Acelerador(sf::Vector2f(1100.0f, 550.0f), 7.0f, 7.0f);
+		Entidades::Obstaculos::Acelerador* pAcel1 = new Entidades::Obstaculos::Acelerador(sf::Vector2f(1100.0f, 550.0f), 7.0f, 7.0f);
 		if (pAcel1) {
 			lista_ents.incluir(static_cast<Entidades::Entidade*>(pAcel1));
 		}
