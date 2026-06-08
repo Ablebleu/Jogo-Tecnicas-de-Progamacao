@@ -15,19 +15,19 @@ namespace Gerenciador {
 		LOs.clear();
 		LPs.clear();
 		Fases::Fase::setGC(this);
-		Entidade::setGC(this);
+		Entidades::Entidade::setGC(this);
 	}
 
 	Gerenciador_Colisoes::~Gerenciador_Colisoes() {
 		std::cout << "Deletando Gerenciador de Colisões" << std::endl;
 	}
 
-	void Gerenciador_Colisoes::incluirInimigo(Inimigo* pi) {
+	void Gerenciador_Colisoes::incluirInimigo(Entidades::Inimigo* pi) {
 		if (pi) LIs.push_back(pi);
 		else std::cerr << "Inimigo nulo" << endl;
 	}
 
-	void Gerenciador_Colisoes::incluirObstaculo(Obstaculo* po) {
+	void Gerenciador_Colisoes::incluirObstaculo(Entidades::Obstaculo* po) {
 		if (po) {
 			std::cout << "Incluindo obstáculo: " << po->getId() << std::endl;
 			LOs.push_back(po);
@@ -35,7 +35,7 @@ namespace Gerenciador {
 		else std::cerr << "Obstáculo nulo" << endl;
 	}
 
-	void Gerenciador_Colisoes::incluirProjetil(Projetil* pj) {
+	void Gerenciador_Colisoes::incluirProjetil(Entidades::Projetil* pj) {
 		if (pj) LPs.insert(pj);
 		else std::cerr << "Projétil nulo" << endl;
 	}
@@ -49,7 +49,7 @@ namespace Gerenciador {
 		tratarColisoesJogsProjeteis();
 	}
 
-	const bool Gerenciador_Colisoes::verificarColisao(Entidade* pe1, Entidade* pe2) const {
+	const bool Gerenciador_Colisoes::verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const {
 		//std::cout << "Checando se há colisão" << std::endl;
 		return (const bool)pe1->getCorpo().findIntersection(pe2->getCorpo()).has_value();
 	}
@@ -60,9 +60,9 @@ namespace Gerenciador {
 		//std::cout << "Indo detectar colisão" << std::endl;
 		if (pJog1) {
 			//std::cout << "Indo detectar colisão" << std::endl;
-			for (list<Obstaculo*>::iterator it = LOs.begin(); it != LOs.end(); it++) {
+			for (list<Entidades::Obstaculo*>::iterator it = LOs.begin(); it != LOs.end(); it++) {
 				//std::cout << "Detectando colisão..." << std::endl;
-				if (verificarColisao(static_cast<Entidade*>(pJog1), static_cast<Entidade*>(*it))) {
+				if (verificarColisao(static_cast<Entidades::Entidade*>(pJog1), static_cast<Entidades::Entidade*>(*it))) {
 					//std::cout << "Colisão detectada" << std::endl;
 					(*it)->obstaculizar(pJog1);
 				}
@@ -75,8 +75,8 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesAtqInimgs() {
-		for (vector<Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
-			if (verificarColisao(static_cast<Entidade*>(pJog1->getAtaque()), static_cast<Entidade*>(*it))) {
+		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+			if (verificarColisao(static_cast<Entidades::Entidade*>(pJog1->getAtaque()), static_cast<Entidades::Entidade*>(*it))) {
 				//std::cout << "Colisão detectada" << std::endl;
 				pJog1->getAtaque()->danificar(*it);
 			}
@@ -89,30 +89,30 @@ namespace Gerenciador {
 
 	void Gerenciador_Colisoes::tratarColisoesChaoEntidades(Fases::Chao &c) {
 		if (pJog1 && (const bool)c.getCorpo().findIntersection(pJog1->getCorpo()).has_value()) {
-			c.obstaculizar(static_cast<Entidade*>(pJog1));
+			c.obstaculizar(static_cast<Entidades::Entidade*>(pJog1));
 		}
-		for (vector<Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
 			if ((const bool)c.getCorpo().findIntersection((*it)->getCorpo()).has_value()) {
-				c.obstaculizar(static_cast<Entidade*>(*it));
+				c.obstaculizar(static_cast<Entidades::Entidade*>(*it));
 			}
 		}
 	}
 
 	void Gerenciador_Colisoes::forcarEntidades() {
-		for(vector<Inimigo*>::iterator itIn = LIs.begin(); itIn != LIs.end(); itIn++) {
-			if (*itIn) AplicarForca(static_cast<Entidade*>(*itIn));
+		for(vector<Entidades::Inimigo*>::iterator itIn = LIs.begin(); itIn != LIs.end(); itIn++) {
+			if (*itIn) AplicarForca(static_cast<Entidades::Entidade*>(*itIn));
 		}
-		for (list<Obstaculo*>::iterator itOb = LOs.begin(); itOb != LOs.end(); itOb++) {
-			if (*itOb) AplicarForca(static_cast<Entidade*>(*itOb));
+		for (list<Entidades::Obstaculo*>::iterator itOb = LOs.begin(); itOb != LOs.end(); itOb++) {
+			if (*itOb) AplicarForca(static_cast<Entidades::Entidade*>(*itOb));
 		}
-		for (set<Projetil*>::iterator itPj = LPs.begin(); itPj != LPs.end(); itPj++) {
+		for (set<Entidades::Projetil*>::iterator itPj = LPs.begin(); itPj != LPs.end(); itPj++) {
 			// Não possuímos projétil ainda
 			//if (*itPj) AplicarForca(static_cast<Entidade*>(*itPj));
 		}
-		if (pJog1) AplicarForca(static_cast<Entidade*>(pJog1));
+		if (pJog1) AplicarForca(static_cast<Entidades::Entidade*>(pJog1));
 	}
 
-	void Gerenciador_Colisoes::AplicarForca(Entidade* pE) {
+	void Gerenciador_Colisoes::AplicarForca(Entidades::Entidade* pE) {
 		// Gravidade (para baixo) e arrasto (oposto à velocidade)
 		sf::Vector2f gravidade(0.f, 2.f);
 		sf::Vector2f arrasto1(0.004f * -pE->getVel().x * std::abs(pE->getVel().x),
@@ -124,13 +124,13 @@ namespace Gerenciador {
 		pE->forcar(gravidade + arrasto1 + arrasto2);
 	}
 
-	void Gerenciador_Colisoes::setJogadores(Jogador* p1) {
+	void Gerenciador_Colisoes::setJogadores(Entidades::Jogador* p1) {
 		std::cout << "Setando jogador de id "<< p1->getId() << " em colisões" << std::endl;
 		if(p1) pJog1 = p1;
 		else std::cerr << "Jogador nulo" << std::endl;
 	}
 
-	Jogador* Gerenciador_Colisoes::getJogadores(int i) const{
+	Entidades::Jogador* Gerenciador_Colisoes::getJogadores(int i) const{
 		if (i == 1) return pJog1;
 		else return NULL;
 	}

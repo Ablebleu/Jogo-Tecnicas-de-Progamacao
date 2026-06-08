@@ -8,12 +8,12 @@ namespace Lista
 {
 	class ListaEntidades {
 	private:
-		Lista<Entidade*> LEs;
+		Lista<Entidades::Entidade*> LEs;
 		//int ...;
 	public:
 		ListaEntidades();
 		~ListaEntidades();
-		void incluir(Entidade* pE);
+		void incluir(Entidades::Entidade* pE);
 		void desenhar();
 		void mover();
 		void remover(int id);

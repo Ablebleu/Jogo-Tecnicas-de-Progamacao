@@ -32,7 +32,7 @@ namespace Fases {
 		pGG->desenhar(pSprite);
 	}
 
-	void Chao::obstaculizar(Entidade* p) {
+	void Chao::obstaculizar(Entidades::Entidade* p) {
 		sf::FloatRect corpoPassageiro = p->getCorpo();
 		sf::FloatRect corpoObstaculo = getCorpo();
 		std::optional<sf::FloatRect> intersecao = corpoPassageiro.findIntersection(corpoObstaculo);

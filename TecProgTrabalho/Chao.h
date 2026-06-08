@@ -17,7 +17,7 @@ namespace Fases
 		const sf::FloatRect getCorpo();
 		void setComprimento(int l);
 		void desenhar();
-		void obstaculizar(Entidade* p);
+		void obstaculizar(Entidades::Entidade* p);
 	};
 }
 #endif

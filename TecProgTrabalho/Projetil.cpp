@@ -1,24 +1,26 @@
 #include "Projetil.h"
 
-Projetil::Projetil() {
+namespace Entidades {
+	Projetil::Projetil() {
 
-}
+	}
 
-Projetil::~Projetil() {
+	Projetil::~Projetil() {
 
-}
+	}
 
-/*void Projetil::...() {
+	/*void Projetil::...() {
 
-}*/
+	}*/
 
-void Projetil::executar() {
+	void Projetil::executar() {
 
-}
+	}
 
-void Projetil::salvar() {
+	void Projetil::salvar() {
 
-}
+	}
 
-void Projetil::mover() {
+	void Projetil::mover() {
+	}
 }

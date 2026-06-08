@@ -6,11 +6,14 @@
 
 using namespace std;
 
-class Inimigo;
-class Obstaculo;
-class Projetil;
-class Jogador;
-class Entidade;
+namespace Entidades
+{
+	class Inimigo;
+	class Obstaculo;
+	class Projetil;
+	class Jogador;
+	class Entidade;
+}
 namespace Fases {
 	class Chao;
 }
@@ -19,34 +22,34 @@ namespace Gerenciador {
 	class Gerenciador_Colisoes{
 	private:
 
-		vector<Inimigo*> LIs;
-		list<Obstaculo*> LOs;
-		set<Projetil*> LPs;
+		vector<Entidades::Inimigo*> LIs;
+		list<Entidades::Obstaculo*> LOs;
+		set<Entidades::Projetil*> LPs;
 		//Checar depois como fazer para ter mais outro jogador sem ficar estranho
-		Jogador* pJog1;
+		Entidades::Jogador* pJog1;
 
-		const bool verificarColisao(Entidade* pe1, Entidade* pe2) const;
+		const bool verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const;
 		void tratarColisoesJogsObstacs();
 		void tratarColisoesJogsInimgs();
 		void tratarColisoesAtqInimgs();
 		void tratarColisoesJogsProjeteis();
 		void forcarEntidades();
-		void AplicarForca(Entidade* pE);
+		void AplicarForca(Entidades::Entidade* pE);
 
 		static Gerenciador_Colisoes* pColisoes;
 		Gerenciador_Colisoes();
 	public:
 
 		~Gerenciador_Colisoes();
-		void incluirInimigo(Inimigo *pi);
-		void incluirObstaculo(Obstaculo *po);
-		void incluirProjetil(Projetil *pj);
+		void incluirInimigo(Entidades::Inimigo *pi);
+		void incluirObstaculo(Entidades::Obstaculo *po);
+		void incluirProjetil(Entidades::Projetil *pj);
 		void executar();
 		void tratarColisoesChaoEntidades(Fases::Chao &c);
 
 		//Mudar o setJogadores e getJogadores depois
-		void setJogadores(Jogador *p1);
-		Jogador* getJogadores(int i) const;
+		void setJogadores(Entidades::Jogador *p1);
+		Entidades::Jogador* getJogadores(int i) const;
 
 		static Gerenciador_Colisoes* getGerenciador_Colisoes();
 		static void deletar();

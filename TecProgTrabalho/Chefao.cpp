@@ -1,21 +1,23 @@
 #include "Chefao.h"
 
-/*void Chefao::...() {
+namespace Entidades {
+	/*void Chefao::...() {
 
-}*/
+	}*/
 
-void Chefao::salvar() {
+	void Chefao::salvar() {
 
-}
+	}
 
-void Chefao::executar() {
+	void Chefao::executar() {
 
-}
+	}
 
-void Chefao::danificar(Jogador *p) {
+	void Chefao::danificar(Jogador* p) {
 
-}
+	}
 
-void Chefao::mover() {
+	void Chefao::mover() {
 
+	}
 }

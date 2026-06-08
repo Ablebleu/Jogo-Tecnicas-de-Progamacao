@@ -28,7 +28,7 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GEs(NULL)
 	}
 
 	//Tenho dúvida quanto a esse cara
-	pJog1 = new Jogador;
+	pJog1 = new Entidades::Jogador;
 	if (!pJog1) {
 		std::cerr << "Erro ao criar Jogador" << std::endl;
 		exit(1);

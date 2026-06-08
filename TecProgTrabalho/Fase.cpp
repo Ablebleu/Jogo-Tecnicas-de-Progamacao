@@ -51,8 +51,8 @@ namespace Fases {
 		}
 	}
 
-	void Fase::incluirJogador(Jogador* pE) {
-		if (pE) lista_ents.incluir(static_cast<Entidade*>(pE));
+	void Fase::incluirJogador(Entidades::Jogador* pE) {
+		if (pE) lista_ents.incluir(static_cast<Entidades::Entidade*>(pE));
 	}
 
 	void Fase::desenhar() {

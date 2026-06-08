@@ -11,19 +11,19 @@ namespace Lista
 
 	}
 
-	void ListaEntidades::incluir(Entidade* pE) {
+	void ListaEntidades::incluir(Entidades::Entidade* pE) {
 		if (pE) LEs.incluir(pE);
 	}
 
 	void ListaEntidades::desenhar() {
-		Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
+		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
 		while (it != NULL) {
 			if (it->getInfo()) it->getInfo()->desenhar();
 			it = it->getProximo();
 		}
 	}
 	void ListaEntidades::mover() {
-		Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
+		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
 		while (it != NULL) {
 			if (it->getInfo()) it->getInfo()->executar();
 			it = it->getProximo();
@@ -31,7 +31,7 @@ namespace Lista
 	}
 
 	void ListaEntidades::deletarEntidades() {
-		Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
+		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
 		while (it != NULL) {
 			if (it->getInfo()) delete it->getInfo();
 			it->incluir(nullptr);
@@ -43,7 +43,7 @@ namespace Lista
 	// Objetivamente errado pois adiciona nulo na lista. 
 	// Serve para remover o jogador antes de apagar lista.
 	void ListaEntidades::remover(int id) {
-		Lista<Entidade*>::Elemento<Entidade*>* it = LEs.getPrimeiro();
+		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
 		while (it != NULL) {
 			if (it->getInfo() && it->getInfo()->getId() == id) {
 				it->incluir(nullptr);

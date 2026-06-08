@@ -1,13 +1,16 @@
 #include "Obstaculo.h"
 
-Obstaculo::Obstaculo() : danoso(false) {
-	pGC->incluirObstaculo(this);
-}
+namespace Entidades
+{
+	Obstaculo::Obstaculo() : danoso(false) {
+		pGC->incluirObstaculo(this);
+	}
 
-Obstaculo::~Obstaculo() {
+	Obstaculo::~Obstaculo() {
 
-}
+	}
 
-void Obstaculo::salvarDataBuffer() {
+	void Obstaculo::salvarDataBuffer() {
 
+	}
 }

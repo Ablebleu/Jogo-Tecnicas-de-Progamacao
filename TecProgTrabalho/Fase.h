@@ -14,7 +14,7 @@ namespace Fases
 
 		Lista::ListaEntidades lista_ents;
 		Chao chao;
-		Jogador* pJog1;
+		Entidades::Jogador* pJog1;
 
 		static Gerenciador::Gerenciador_Colisoes* pGC;
 
@@ -32,7 +32,7 @@ namespace Fases
 		virtual ~Fase();
 		//void ...();
 		virtual void executar();
-		void incluirJogador(Jogador* pE);
+		void incluirJogador(Entidades::Jogador* pE);
 		void desenhar();
 		void removerEntidade(int id);
 		static void setGC(Gerenciador::Gerenciador_Colisoes* pG);

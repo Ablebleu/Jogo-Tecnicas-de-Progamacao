@@ -12,8 +12,8 @@
 class Jogo {
 private:
 	
-	Jogador *pJog1;
-	Jogador *pJog2;
+	Entidades::Jogador *pJog1;
+	Entidades::Jogador *pJog2;
 	Fases::Fase_Primeira* fase1;
 	Fases::Fase* faseAtual; 
 	static Gerenciador::Gerenciador_Grafico* GG;

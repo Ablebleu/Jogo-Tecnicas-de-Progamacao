@@ -3,20 +3,23 @@
 
 #include "Entidade.h"
 
-class Personagem : public Entidade {
-protected:
-	int num_vidas;
-	//Gerenciador_Fisica* GF;
-	//int ...;
-public:
-	Personagem();
-	~Personagem();
-	void salvarDataBuffer();
-	virtual void executar() = 0;
-	virtual void salvar() = 0;
-	virtual void pular();
-	virtual void mover();
-	//void ...();
-};
+namespace Entidades
+{
+	class Personagem : public Entidade {
+	protected:
+		int num_vidas;
+		//Gerenciador_Fisica* GF;
+		//int ...;
+	public:
+		Personagem();
+		~Personagem();
+		void salvarDataBuffer();
+		virtual void executar() = 0;
+		virtual void salvar() = 0;
+		virtual void pular();
+		virtual void mover();
+		//void ...();
+	};
+}
 
 #endif 
