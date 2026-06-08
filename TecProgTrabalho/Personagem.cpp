@@ -13,7 +13,6 @@ void Personagem::salvarDataBuffer() {
 }
 
 void Personagem::pular() {
-	vel.y = -20.0f;
 }
 
 void Personagem::mover() {
@@ -21,3 +20,8 @@ void Personagem::mover() {
 	pos.y += vel.y;
 	setPos(pos);
 }
+/*
+void Personagem::podePular() {
+	pulou = false;
+}
+*/

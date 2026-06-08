@@ -10,7 +10,7 @@ private:
 	bool ativo;
 	float tam;
 public:
-	Buraco_Negro(sf::Vector2f p, float dur);
+	Buraco_Negro(sf::Vector2f p, int dur);
 	~Buraco_Negro();
 	void salvar();
 	void executar();

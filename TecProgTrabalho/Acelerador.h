@@ -5,8 +5,8 @@
 
 class Acelerador : public Obstaculo {
 private:
-	int altura;
-	int largura;
+	float altura;
+	float largura;
 public:
 	Acelerador(sf::Vector2f p, float h, float l);
 	~Acelerador();

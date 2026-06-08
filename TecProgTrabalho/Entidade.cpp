@@ -3,7 +3,7 @@
 
 Gerenciador::Gerenciador_Colisoes* Entidade::pGC = nullptr;
 Entidade::Entidade(sf::Vector2f p, sf::Vector2f v): 
-	Ente(), pos(p), vel(v), corpo(sf::Vector2f{ 50.0f, 50.0f }) {
+	Ente(), pos(p), vel(v), corpo(sf::Vector2f{ 50.0f, 50.0f }), contatoBase(false) {
 	setPos(p);
 	corpo.setFillColor(sf::Color::Red);
 }
@@ -58,3 +58,7 @@ void Entidade::setGC(Gerenciador::Gerenciador_Colisoes* pG) {
 		exit(1);
 	}
 }
+
+	void Entidade::houveContatoBase() {
+		contatoBase = true;
+	}

@@ -9,6 +9,8 @@ protected:
 	sf::Vector2f pos;
 	sf::Vector2f vel;
 	sf::RectangleShape corpo;
+	//Contato dos pés do sprite com o chão ou plataforma.
+	bool contatoBase;
 	//int ...;
 	//ostream buffer;
 	void salvarDataBuffer();
@@ -26,6 +28,7 @@ public:
 	virtual void setVel(sf::Vector2f v);
 	const sf::Vector2f getPos() const;
 	const sf::Vector2f getVel() const;
+	void houveContatoBase();
 	static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
 	//void ...();
 };

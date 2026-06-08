@@ -40,32 +40,41 @@ void UFO::levitar() {
 }
 
 void UFO::mover() {
-	for (int i = 0; i < 2; i++) {
-		Jogador* pJog = pGC->getJogadores(1 + i);
-		if (pJog) {
-			sf::Vector2f posJog = pJog->getPos();
-			if (std::abs(posJog.x - pos.x) < 500) {
-				if (posJog.x < pos.x) {
-					vel.x += -1.5f;
+	if (framesPosAprox > 0) {
+		framesPosAprox--;
+		Personagem::mover();
+	}
+	else {
+		for (int i = 0; i < 2; i++) {
+			Jogador* pJog = pGC->getJogadores(1 + i);
+			if (pJog) {
+				sf::Vector2f posJog = pJog->getPos();
+				if (std::abs(posJog.x - pos.x) < 500) {
+					if (std::abs(posJog.x - pos.x) < 10) {
+						framesPosAprox = 60;
+					}
+					if (posJog.x < pos.x) {
+						vel.x += -1.5f;
+					}
+					else if (posJog.x > pos.x) {
+						vel.x += 1.5f;
+					}
 				}
-				else if (posJog.x > pos.x) {
-					vel.x += 1.5f;
+				else {
+					if (posInicial.x < pos.x) {
+						vel.x += -1.f;
+					}
+					else if (posInicial.x > pos.x) {
+						pos.x += 1.f;
+					}
 				}
+				//std::cout << "Movendo Alien " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
+				Personagem::mover();
 			}
-			else {
-				if (posInicial.x < pos.x) {
-					vel.x += -1.f;
-				}
-				else if (posInicial.x > pos.x) {
-					pos.x += 1.f;
-				}
-			}
-			//std::cout << "Movendo Alien " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
-			graus = (graus + 1) % 360;
-			Personagem::mover();
 		}
 		//else std::cout << i << std::endl;
 	}
+	graus = (graus + 1) % 360;
 }
 
 void UFO::setPos(sf::Vector2f p) {

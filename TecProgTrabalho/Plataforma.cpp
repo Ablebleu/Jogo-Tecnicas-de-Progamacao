@@ -37,25 +37,27 @@ void Plataforma::obstaculizar(Jogador* p) {
     std::optional<sf::FloatRect> intersecao = corpoPassageiro.findIntersection(corpoObstaculo);
     sf::Vector2f posAtual = p->getPos(); 
 
-    if (intersecao->size.x < intersecao->size.y) { 
+    if (intersecao->size.x < intersecao->size.y) {
         if (corpoPassageiro.position.x < corpoObstaculo.position.x) {
             posAtual.x -= intersecao->size.x;
-			p->setVel(sf::Vector2f(0.f, p->getVel().y)); 
+            p->setVel(sf::Vector2f(0.f, p->getVel().y));
         }
         else {
             posAtual.x += intersecao->size.x;
-			p->setVel(sf::Vector2f(0.f, p->getVel().y));
+            p->setVel(sf::Vector2f(0.f, p->getVel().y));
         }
     }
     else {
         if (corpoPassageiro.position.y < corpoObstaculo.position.y) {
             posAtual.y -= intersecao->size.y;
-			p->setVel(sf::Vector2f(p->getVel().x, 0.f));
+            p->setVel(sf::Vector2f(p->getVel().x, 0.f));
+            p->houveContatoBase();
         }
         else {
             posAtual.y += intersecao->size.y;
             p->setVel(sf::Vector2f(p->getVel().x, p->getVel().y / 2));
         }
     }
+
     p->setPos(posAtual);
 }

@@ -1,6 +1,6 @@
 #include "Buraco_Negro.h"
 
-Buraco_Negro::Buraco_Negro(sf::Vector2f p, float dur) : Entidade(p, {0, 0}), duracao(dur), ativo(false), tam(7.0f) {
+Buraco_Negro::Buraco_Negro(sf::Vector2f p, int dur) : Entidade(p, {0, 0}), duracao(dur), ativo(false), tam(7.0f) {
 	std::cout << "Criando Buraco Negro: " << getId() << std::endl;
 
 	//hitbox

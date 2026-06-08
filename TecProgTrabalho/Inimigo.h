@@ -7,6 +7,7 @@ class Jogador;
 class Inimigo : public Personagem {
 protected:
 	int nivel_maldade;
+	int framesPosAprox;
 	const sf::Vector2f posInicial;
 public:
 	Inimigo(sf::Vector2f p, int n = 0);

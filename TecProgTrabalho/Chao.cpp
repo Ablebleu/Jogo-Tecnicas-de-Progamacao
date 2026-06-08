@@ -39,4 +39,5 @@ void Chao::obstaculizar(Entidade* p) {
 	posAtual.y -= intersecao->size.y;
 	p->setPos(posAtual);
 	p->setVel(sf::Vector2f(p->getVel().x, 0.f)); 
+	p->houveContatoBase();
 }

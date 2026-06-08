@@ -6,17 +6,12 @@ tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 	std::cout << "Criando jogador: " << getId() << std::endl;
 
-	/*
-	Abaixo está um memory leak sutil, pois o ponteiro da textura, que é dinâmico, é perdido,
-	Por isso é necessário que o Gerenciador_grafico guarde texturas num vetor e delete em
-	seu fim.
-	*/
 	//ataque -> buraco_negro
 	pAtaque = new Buraco_Negro({0,0}, 120);
 
 	//hitbox
-	corpo.setSize(sf::Vector2f(80.0f, 80.0f));
-	corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
+	corpo.setSize(sf::Vector2f(50.0f, 80.0f));
+	corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f});//origem -> centro da hitbox
 
 	//sprite
 	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
@@ -54,14 +49,14 @@ void Jogador::salvar() {
 
 void Jogador::acelerar() {
 	if (sf::Keyboard::isKeyPressed(tecla_direita)) {
-		vel.x += 3.0f;
+		vel.x +=0.5f;
 		if(pSprite->getScale().x < 0)
 		{
 			pSprite->setScale({ 5.0f, 5.0f });
 		}
 	}
 	else if (sf::Keyboard::isKeyPressed(tecla_esquerda)) {
-		vel.x += -3.0f;
+		vel.x += -0.5f;
 		if (pSprite->getScale().x > 0)
 		{
 			pSprite->setScale({ -5.0f, 5.0f });
@@ -71,7 +66,10 @@ void Jogador::acelerar() {
 
 void Jogador::pular() {
 	if (sf::Keyboard::isKeyPressed(tecla_cima)) {
-		Personagem::pular(); 
+		if (contatoBase) {
+			vel.y = -90.0f;
+			contatoBase = false;
+		}
 	}
 }
 
