@@ -4,14 +4,17 @@
 #include "Estado.h"
 #include "Menu.h"
 
-class Estado_Menu : public Estado {
-private:
-    Menus::Menu* pMenu;
-public:
-    Estado_Menu(Menus::Menu* pM = NULL);
-    ~Estado_Menu();
+namespace Estados
+{
+    class Estado_Menu : public Estado {
+    private:
+        Menus::Menu* pMenu;
+    public:
+        Estado_Menu(Menus::Menu* pM = NULL);
+        ~Estado_Menu();
 
-    void executar();
-    void desenhar();
-};
+        void executar();
+        void desenhar();
+    };
+}
 #endif

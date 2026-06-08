@@ -4,15 +4,17 @@
 #include <stack>
 using std::stack;
 
-class Estado;
+namespace Estados {
+	class Estado;
+}
 namespace Gerenciador {
 	class Gerenciador_Estados {
 	private:
-		stack<Estado*> pilhaEstados;
+		stack<Estados::Estado*> pilhaEstados;
 	public:
 		Gerenciador_Estados();
 		~Gerenciador_Estados();
-		void incluirEstado(Estado* pE);
+		void incluirEstado(Estados::Estado* pE);
 		void removerEstado(int qtd);
 		void removerEstado();
 		void criarMenu();

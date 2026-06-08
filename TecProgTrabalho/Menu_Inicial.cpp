@@ -42,5 +42,5 @@ void Menu_Inicial::selecionarAcao(int i) {
 }
 
 void Menu_Inicial::addFase(int i) {
-	Estado_Fase* eFase = new Estado_Fase(i);
+	Estados::Estado_Fase* eFase = new Estados::Estado_Fase(i);
 }

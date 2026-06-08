@@ -6,17 +6,20 @@
 namespace Fases {
     class Fase;
 }
-class Estado_Fase : public Estado {
-private:
-    Fases::Fase* pFase;
-public:
-    Estado_Fase(int n);
-    ~Estado_Fase();
+namespace Estados
+{
+    class Estado_Fase : public Estado {
+    private:
+        Fases::Fase* pFase;
+    public:
+        Estado_Fase(int n);
+        ~Estado_Fase();
 
-    void criarFase1();
-    void criarFase2();
+        void criarFase1();
+        void criarFase2();
 
-    void executar();
-    void desenhar();
-};
+        void executar();
+        void desenhar();
+    };
+}
 #endif
