@@ -5,24 +5,27 @@
 #include "Fase.h"
 #include <list>
 
-class Fase_Primeira: public Fase {
-private:
-	//int ...;
-	//const int maxInimMedios;
-protected:
-	void criar();
-	void criarInimFaceis();
-	void criarInimMedios();
-	void criarObstMedios();
-	void criarInimigos();
-	void criarObstaculo();
-	void criarCenario();
-public:
-	//void ...();
-	Fase_Primeira();
-	~Fase_Primeira();
-	void desenhar();
-	void executar();
-};
+namespace Fases
+{
+	class Fase_Primeira : public Fase {
+	private:
+		//int ...;
+		//const int maxInimMedios;
+	protected:
+		void criar();
+		void criarInimFaceis();
+		void criarInimMedios();
+		void criarObstMedios();
+		void criarInimigos();
+		void criarObstaculo();
+		void criarCenario();
+	public:
+		//void ...();
+		Fase_Primeira();
+		~Fase_Primeira();
+		void desenhar();
+		void executar();
+	};
+}
 
 #endif 

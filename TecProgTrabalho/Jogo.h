@@ -14,8 +14,8 @@ private:
 	
 	Jogador *pJog1;
 	Jogador *pJog2;
-	Fase_Primeira* fase1;
-	Fase* faseAtual; 
+	Fases::Fase_Primeira* fase1;
+	Fases::Fase* faseAtual; 
 	static Gerenciador::Gerenciador_Grafico* GG;
 	static Gerenciador::Gerenciador_Evento* GE;
 	static Gerenciador::Gerenciador_Colisoes*GC;

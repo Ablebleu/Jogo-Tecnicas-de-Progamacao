@@ -20,7 +20,7 @@ Estado_Fase::~Estado_Fase() {
 }
 
 void Estado_Fase::criarFase1() {
-	Fase_Primeira *nFase = new Fase_Primeira;
+	Fases::Fase_Primeira *nFase = new Fases::Fase_Primeira;
 	if (nFase) pFase = nFase;
 	else {
 		std::cerr << "Erro ao criar fase1" << std::endl;

@@ -7,32 +7,35 @@
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisões.h"
 
-class Fase : public Ente {
-protected:
-	
-	ListaEntidades lista_ents;
-	Chao chao;
-	Jogador* pJog1;
+namespace Fases
+{
+	class Fase : public Ente {
+	protected:
 
-	static Gerenciador::Gerenciador_Colisoes* pGC;
+		Lista::ListaEntidades lista_ents;
+		Chao chao;
+		Jogador* pJog1;
 
-	void moverCamera();
+		static Gerenciador::Gerenciador_Colisoes* pGC;
 
-	void criarInimFaceis();
-	void criarPlataformas();
-	virtual void criar() = 0;
-	virtual void criarInimigos() = 0;
-	virtual void criarObstaculo() = 0;
-	virtual void criarCenario() = 0;
-public:
-	//int ...;
-	Fase();
-	virtual ~Fase();
-	//void ...();
-	virtual void executar();
-	void incluirJogador(Jogador* pE);
-	void desenhar();
-	void removerEntidade(int id);
-	static void setGC(Gerenciador::Gerenciador_Colisoes *pG);
-};
+		void moverCamera();
+
+		void criarInimFaceis();
+		void criarPlataformas();
+		virtual void criar() = 0;
+		virtual void criarInimigos() = 0;
+		virtual void criarObstaculo() = 0;
+		virtual void criarCenario() = 0;
+	public:
+		//int ...;
+		Fase();
+		virtual ~Fase();
+		//void ...();
+		virtual void executar();
+		void incluirJogador(Jogador* pE);
+		void desenhar();
+		void removerEntidade(int id);
+		static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
+	};
+}
 #endif  

@@ -51,7 +51,7 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GEs(NULL)
 	fase1->incluirJogador(pJog2);
 	GC->setJogadores(pJog1, pJog2 );*/
 
-	faseAtual = static_cast<Fase*>(fase1);
+	faseAtual = static_cast<Fases::Fase*>(fase1);
 
 	/*Adicionar Menu depois*/ 
 	executar(); 

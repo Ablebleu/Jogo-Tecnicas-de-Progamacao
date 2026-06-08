@@ -4,20 +4,23 @@
 #include "Lista.h"
 #include "Entidade.h"
 
-class ListaEntidades {
-private:
-	Lista<Entidade*> LEs;
-	//int ...;
-public:
-	ListaEntidades();
-	~ListaEntidades();
-	void incluir(Entidade *pE);
-	void desenhar();
-	void mover();
-	void remover(int id);
-	void deletarEntidades();
-	//void percorrer();
-	//void ...();
-};
+namespace Lista
+{
+	class ListaEntidades {
+	private:
+		Lista<Entidade*> LEs;
+		//int ...;
+	public:
+		ListaEntidades();
+		~ListaEntidades();
+		void incluir(Entidade* pE);
+		void desenhar();
+		void mover();
+		void remover(int id);
+		void deletarEntidades();
+		//void percorrer();
+		//void ...();
+	};
+}
 
 #endif  

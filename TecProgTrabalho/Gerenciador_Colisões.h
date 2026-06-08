@@ -11,7 +11,9 @@ class Obstaculo;
 class Projetil;
 class Jogador;
 class Entidade;
-class Chao;
+namespace Fases {
+	class Chao;
+}
 
 namespace Gerenciador {
 	class Gerenciador_Colisoes{
@@ -40,7 +42,7 @@ namespace Gerenciador {
 		void incluirObstaculo(Obstaculo *po);
 		void incluirProjetil(Projetil *pj);
 		void executar();
-		void tratarColisoesChaoEntidades(class Chao &c);
+		void tratarColisoesChaoEntidades(Fases::Chao &c);
 
 		//Mudar o setJogadores e getJogadores depois
 		void setJogadores(Jogador *p1);

@@ -3,10 +3,12 @@
 
 #include "Estado.h"
 
-class Fase;
+namespace Fases {
+    class Fase;
+}
 class Estado_Fase : public Estado {
 private:
-    Fase* pFase;
+    Fases::Fase* pFase;
 public:
     Estado_Fase(int n);
     ~Estado_Fase();

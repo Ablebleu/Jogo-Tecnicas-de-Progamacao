@@ -50,7 +50,7 @@ void Buraco_Negro::danificar(Inimigo* pInim) {
 }
 
 void Buraco_Negro::levitar() {
-	vel.y -= 0.5f;
+	//vel.y -= 0.5f;
 }
 
 void Buraco_Negro::mover() {

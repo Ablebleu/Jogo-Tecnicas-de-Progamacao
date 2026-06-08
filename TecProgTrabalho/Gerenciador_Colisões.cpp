@@ -14,7 +14,7 @@ namespace Gerenciador {
 		LIs.clear();
 		LOs.clear();
 		LPs.clear();
-		Fase::setGC(this);
+		Fases::Fase::setGC(this);
 		Entidade::setGC(this);
 	}
 
@@ -87,7 +87,7 @@ namespace Gerenciador {
 
 	}
 
-	void Gerenciador_Colisoes::tratarColisoesChaoEntidades(Chao &c) {
+	void Gerenciador_Colisoes::tratarColisoesChaoEntidades(Fases::Chao &c) {
 		if (pJog1 && (const bool)c.getCorpo().findIntersection(pJog1->getCorpo()).has_value()) {
 			c.obstaculizar(static_cast<Entidade*>(pJog1));
 		}
