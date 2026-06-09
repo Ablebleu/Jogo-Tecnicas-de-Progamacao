@@ -30,10 +30,8 @@ namespace Entidades {
 
 
 		void Acelerador::executar() {
-		}
-
-		void Acelerador::mover() {
-
+			forcar();
+			mover();
 		}
 
 		void Acelerador::salvar() {

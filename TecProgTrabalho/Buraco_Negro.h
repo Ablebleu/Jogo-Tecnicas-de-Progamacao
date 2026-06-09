@@ -17,10 +17,10 @@ namespace Entidades
 		void salvar();
 		void executar();
 		void desenhar();
+		void forcar();
 		void setPos(sf::Vector2f p);
 		void danificar(Inimigo* pInim);
 		void levitar();
-		void mover();
 		void sumir();
 		void setAtivo(bool a);
 		bool getAtivo();

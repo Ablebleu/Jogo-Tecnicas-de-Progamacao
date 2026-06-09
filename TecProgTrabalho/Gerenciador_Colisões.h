@@ -35,8 +35,6 @@ namespace Gerenciador {
 		void tratarColisoesJogsInimgs();
 		void tratarColisoesAtqInimgs();
 		void tratarColisoesJogsProjeteis();
-		void forcarEntidades();
-		void AplicarForca(Entidades::Entidade* pE);
 
 		static Gerenciador_Colisoes* pColisoes;
 		Gerenciador_Colisoes();

@@ -22,6 +22,7 @@ namespace Entidades {
 
 	void UFO::executar() {
 		//std::cout << "Movendo Alien" << pos.x << " " << pos.y << std::endl;
+		forcar();
 		levitar();
 		mover();
 	}
