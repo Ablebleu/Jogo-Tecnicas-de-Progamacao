@@ -20,6 +20,7 @@ namespace Entidades {
 
 	void Alien::executar() {
 		//std::cout << "Movendo Alien" << pos.x << " " << pos.y << std::endl;
+		forcar();
 		mover();
 	}
 

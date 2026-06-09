@@ -17,9 +17,25 @@ namespace Entidades {
 	}
 
 	void Personagem::mover() {
-		pos.x += vel.x;
-		pos.y += vel.y;
-		setPos(pos);
+		Entidade::mover();
+	}
+
+	void Personagem::forcar() {
+		gravitar();
+		arrastar();
+		atritar();
+	}
+
+	void Personagem::operator-=(int dano) {
+		num_vidas -= dano;
+		verificarVivo();
+	}
+
+	void Personagem::verificarVivo() {
+		if (num_vidas <= 0) {
+			num_vidas = 0;
+			//morrer
+		}
 	}
 	/*
 	void Personagem::podePular() {

@@ -24,8 +24,12 @@ namespace Entidades
 		virtual void executar() = 0;
 		virtual void desenhar();
 		virtual void salvar() = 0;
-		virtual void mover() = 0;
-		virtual void forcar(sf::Vector2f F);
+		virtual void mover();
+		void gravitar();
+		void arrastar();
+		void atritar();
+		virtual void forcar() = 0;
+		void forcar(sf::Vector2f f);
 		virtual void setPos(sf::Vector2f p);
 		virtual void setVel(sf::Vector2f v);
 		const sf::Vector2f getPos() const;

@@ -15,7 +15,6 @@ namespace Entidades
 			~Plataforma();
 			const sf::FloatRect getCorpo();
 			void executar();
-			void mover();
 			void salvar();
 			void obstaculizar(Jogador* p);
 		};

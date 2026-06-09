@@ -18,6 +18,9 @@ namespace Entidades
 		virtual void salvar() = 0;
 		virtual void pular();
 		virtual void mover();
+		void forcar();
+		void operator-=(int dano);
+		void verificarVivo();
 		//void ...();
 	};
 }

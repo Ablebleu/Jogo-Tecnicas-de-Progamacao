@@ -42,7 +42,6 @@ namespace Gerenciador {
 
 	void Gerenciador_Colisoes::executar() {
 		//Vou tentar implementar só colisão com parede por enquanto.
-		forcarEntidades();
 		tratarColisoesJogsObstacs();
 		tratarColisoesJogsInimgs();
 		tratarColisoesAtqInimgs();
@@ -96,32 +95,6 @@ namespace Gerenciador {
 				c.obstaculizar(static_cast<Entidades::Entidade*>(*it));
 			}
 		}
-	}
-
-	void Gerenciador_Colisoes::forcarEntidades() {
-		for(vector<Entidades::Inimigo*>::iterator itIn = LIs.begin(); itIn != LIs.end(); itIn++) {
-			if (*itIn) AplicarForca(static_cast<Entidades::Entidade*>(*itIn));
-		}
-		for (list<Entidades::Obstaculos::Obstaculo*>::iterator itOb = LOs.begin(); itOb != LOs.end(); itOb++) {
-			if (*itOb) AplicarForca(static_cast<Entidades::Entidade*>(*itOb));
-		}
-		for (set<Entidades::Projetil*>::iterator itPj = LPs.begin(); itPj != LPs.end(); itPj++) {
-			// Não possuímos projétil ainda
-			//if (*itPj) AplicarForca(static_cast<Entidade*>(*itPj));
-		}
-		if (pJog1) AplicarForca(static_cast<Entidades::Entidade*>(pJog1));
-	}
-
-	void Gerenciador_Colisoes::AplicarForca(Entidades::Entidade* pE) {
-		// Gravidade (para baixo) e arrasto (oposto à velocidade)
-		sf::Vector2f gravidade(0.f, 2.f);
-		sf::Vector2f arrasto1(0.004f * -pE->getVel().x * std::abs(pE->getVel().x),
-			0.004f * -pE->getVel().y * std::abs(pE->getVel().y));
-		sf::Vector2f arrasto2(0, 0);
-		if (pE->getContatoBase()) {
-			arrasto2 = sf::Vector2f(0.03f * -pE->getVel().x, 0.f);
-		}
-		pE->forcar(gravidade + arrasto1 + arrasto2);
 	}
 
 	void Gerenciador_Colisoes::setJogadores(Entidades::Jogador* p1) {
