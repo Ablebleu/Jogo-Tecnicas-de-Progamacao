@@ -27,8 +27,7 @@ namespace Entidades {
 
 	void Buraco_Negro::executar() {
 		if (ativo) sumir();
-		forcar();
-		mover();
+		levitar();
 	}
 
 	void Buraco_Negro::desenhar() {
@@ -36,27 +35,23 @@ namespace Entidades {
 		Entidade::desenhar();
 	}
 
-	void Buraco_Negro::forcar() {
-		gravitar();
-		levitar();
-		arrastar();
-		atritar();
-	}
-
 	void Buraco_Negro::setPos(sf::Vector2f p) {
 		//Hitbox
 		Entidade::setPos(p);
 		//Sprite
-		pSprite->setPosition(p);
+		pSprite->setPosition(pos);
 	}
 
 	void Buraco_Negro::danificar(Inimigo* pInim) {
 		//std::cout << "Danificando inimigo" << std::endl;
-		*pInim -= 1;
 	}
 
 	void Buraco_Negro::levitar() {
-		vel.y -= 2.0f;
+		//vel.y -= 0.5f;
+	}
+
+	void Buraco_Negro::mover() {
+
 	}
 
 	void Buraco_Negro::sumir() {

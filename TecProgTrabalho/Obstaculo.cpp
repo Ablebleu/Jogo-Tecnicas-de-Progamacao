@@ -15,16 +15,5 @@ namespace Entidades
 		void Obstaculo::salvarDataBuffer() {
 
 		}
-
-		void Obstaculo::levitar() {
-			vel += (sf::Vector2f(0.f, -0.5f));
-		}
-
-		void Obstaculo::forcar() {
-			gravitar();
-			arrastar();
-			atritar();
-			levitar();
-		}
 	}
 }

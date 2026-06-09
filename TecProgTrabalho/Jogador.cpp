@@ -35,7 +35,6 @@ namespace Entidades {
 
 	void Jogador::executar() {
 		//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
-		forcar();
 		mover();
 		atacar();
 	}

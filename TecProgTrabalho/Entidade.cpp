@@ -23,23 +23,9 @@ namespace Entidades {
 		return corpo.getGlobalBounds();
 	}
 
-	void Entidade::mover() {
-		pos += vel;
-		setPos(pos);
-	}
-
-	void Entidade::gravitar() {
-		vel += (sf::Vector2f(0.f, 2.f));
-	}
-	void Entidade::arrastar() {
-		vel += (sf::Vector2f(0.004f * -vel.x * std::abs(vel.x), 0.004f * -vel.y * std::abs(vel.y)));
-	}
-	void Entidade::atritar() {
-		if (contatoBase) vel +=(sf::Vector2f(0.03f * -vel.x, 0.f));
-	}
-
-	void Entidade::forcar(sf::Vector2f f) {
-		vel += f;
+	void Entidade::forcar(sf::Vector2f F) {
+		//std::cout << "Força aplicada: (" << F.x << ", " << F.y << ")" << std::endl;
+		vel += F;
 	}
 
 	void Entidade::setPos(sf::Vector2f p) {

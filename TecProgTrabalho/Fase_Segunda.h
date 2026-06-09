@@ -11,11 +11,14 @@ namespace Fases
 		const int maxLasers;
 	protected:
 		void criarChefoes();
-		void criarObstMedios();
+		void criarLasers();
 		void criarProjeteis();
-		void criarInimgos();
+		void criarInimigos();
 		void criarObstaculo();
+		void criarCenario();
 	public:
+		Fase_Segunda();
+		~Fase_Segunda();
 		void executar();
 	};
 }

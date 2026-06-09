@@ -21,7 +21,6 @@ namespace Fases
 		//void ...();
 		Fase_Primeira();
 		~Fase_Primeira();
-		void desenhar();
 		void executar();
 	};
 }

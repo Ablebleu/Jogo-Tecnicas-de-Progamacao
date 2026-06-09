@@ -7,7 +7,6 @@ namespace Entidades {
 		std::cout << "Criando Alien: " << getId() << std::endl;
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
-		pos = p;
 		pSprite->setPosition(pos);
 		pSprite->setScale(tam * sf::Vector2f(3.5f, 3.5f));
 	}
@@ -21,7 +20,6 @@ namespace Entidades {
 
 	void Alien::executar() {
 		//std::cout << "Movendo Alien" << pos.x << " " << pos.y << std::endl;
-		forcar();
 		mover();
 	}
 

@@ -12,7 +12,7 @@ namespace Entidades
 		int framesPosAprox;
 		const sf::Vector2f posInicial;
 	public:
-		Inimigo(sf::Vector2f p, int n = 0);
+		Inimigo(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0);
 		~Inimigo();
 		void salvarDataBuffer();
 		virtual void executar() = 0;

@@ -12,15 +12,15 @@ namespace Entidades
 		bool ativo;
 		float tam;
 	public:
-		Buraco_Negro(sf::Vector2f p, int dur);
+		Buraco_Negro(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), int dur = 0);
 		~Buraco_Negro();
 		void salvar();
 		void executar();
 		void desenhar();
-		void forcar();
 		void setPos(sf::Vector2f p);
 		void danificar(Inimigo* pInim);
 		void levitar();
+		void mover();
 		void sumir();
 		void setAtivo(bool a);
 		bool getAtivo();

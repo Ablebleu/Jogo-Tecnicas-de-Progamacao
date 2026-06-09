@@ -24,8 +24,11 @@ namespace Entidades
         }
 
         void Plataforma::executar() {
-            forcar();
-            mover();
+
+        }
+
+        void Plataforma::mover() {
+
         }
 
         void Plataforma::salvar() {

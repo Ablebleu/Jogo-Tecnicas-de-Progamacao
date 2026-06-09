@@ -4,10 +4,9 @@
 #include "Jogador.h"
 
 namespace Entidades {
-	UFO::UFO(sf::Vector2f p, int n, float r) : Inimigo(p, n), raio(r), posEixoY(p.y), graus(0.f) {
+	UFO::UFO(sf::Vector2f p, int n, float r) : Inimigo(p, n), raio(r), posEixoY(p.y), graus(0) {
 		std::cout << "Criando Alien Medio: " << getId() << std::endl;
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien2.png"));
-		pos = p;
 		pSprite->setPosition(pos);
 		pSprite->setScale(raio * sf::Vector2f(3.5f, 3.5f));
 	}
@@ -22,7 +21,6 @@ namespace Entidades {
 
 	void UFO::executar() {
 		//std::cout << "Movendo Alien" << pos.x << " " << pos.y << std::endl;
-		forcar();
 		levitar();
 		mover();
 	}

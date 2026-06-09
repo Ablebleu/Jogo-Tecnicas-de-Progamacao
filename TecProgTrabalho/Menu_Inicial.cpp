@@ -22,11 +22,9 @@ void Menu_Inicial::desenhar() {
 }
 
 void Menu_Inicial::criarBotoes() {
-	adicionaBotao("Novo Jogo", 1);
-	adicionaBotao("Continuar", 2);
-	adicionaBotao("Teste1", 2);
-	adicionaBotao("Teste2", 2);
-	adicionaBotao("Teste3", 2);
+	adicionaBotao("Nova Fase 1", 1);
+	adicionaBotao("Nova Fase 2", 2);
+	adicionaBotao("Continuar", 3);
 }
 
 void Menu_Inicial::selecionarAcao(int i) {
@@ -35,6 +33,9 @@ void Menu_Inicial::selecionarAcao(int i) {
 		addFase(1);
 		break;
 	case 2: 
+		addFase(2);
+		break;
+	case 3:
 		break;
 	default:
 		break;

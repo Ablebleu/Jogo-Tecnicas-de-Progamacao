@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "Fase_Primeira.h"
-#include "Plataforma.h"
 #include "Acelerador.h"
 #include "UFO.h"
 
@@ -26,7 +25,7 @@ namespace Fases {
 
 	void Fase_Primeira::criarUFOs() {
 		for (int i = 0; i < maxUFOs; i++) {
-			Entidades::UFO* pUFO1 = new Entidades::UFO(sf::Vector2f(1200.0f + 2500.f / maxUFOs * i, 550.0f), 0, 1.0f);
+			Entidades::UFO* pUFO1 = new Entidades::UFO(sf::Vector2f(1200.0f + 2500.f / maxUFOs * i, 350.0f+rand()%125* 1.0f), 0, 1.0f);
 			if (pUFO1) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pUFO1));
 			}			

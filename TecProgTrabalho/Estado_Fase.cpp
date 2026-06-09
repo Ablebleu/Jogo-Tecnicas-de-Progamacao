@@ -1,6 +1,6 @@
 #include "Estado_Fase.h"
 #include "Fase_Primeira.h"
-//#include "Fase_Segunda.h"
+#include "Fase_Segunda.h"
 #include <iostream>
 
 namespace Estados {
@@ -29,6 +29,11 @@ namespace Estados {
 	}
 	void Estado_Fase::criarFase2() {
 		std::cerr << "Erro ao criar fase2" << std::endl;
+		Fases::Fase_Segunda* nFase = new Fases::Fase_Segunda;
+		if (nFase) pFase = nFase;
+		else {
+			std::cerr << "Erro ao criar fase1" << std::endl;
+		}
 	}
 
 	void Estado_Fase::executar() {

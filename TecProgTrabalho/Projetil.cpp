@@ -1,7 +1,20 @@
 #include "Projetil.h"
 
 namespace Entidades {
-	Projetil::Projetil() {
+	Projetil::Projetil(sf::Vector2f p) : Entidade(), ativo(false) {
+		std::cout << "Criando Projetil: " << getId() << std::endl;
+
+		//hitbox
+		corpo.setSize(sf::Vector2f(16.0f, 16.0f));
+		corpo.setScale({ 7.0f,7.0f });
+		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
+
+		//sprite
+		//pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
+		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
+		pSprite->setPosition(p);
+		pSprite->setScale({ 7.0f, 7.0f });
 
 	}
 
@@ -9,12 +22,8 @@ namespace Entidades {
 
 	}
 
-	/*void Projetil::...() {
-
-	}*/
-
 	void Projetil::executar() {
-
+		mover();
 	}
 
 	void Projetil::salvar() {
