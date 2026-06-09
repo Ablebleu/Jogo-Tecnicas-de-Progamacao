@@ -26,6 +26,17 @@ namespace Entidades {
 		mover();
 	}
 
+	void Projetil::forcar() {
+		gravitar();
+		levitar();
+		arrastar();
+		atritar();
+	}
+
+	void Projetil::levitar() {
+		vel.y -= 2.0f;
+	}
+
 	void Projetil::salvar() {
 
 	}

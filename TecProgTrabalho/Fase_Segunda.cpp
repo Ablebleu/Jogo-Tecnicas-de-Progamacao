@@ -46,8 +46,8 @@ namespace Fases {
 
 	void Fase_Segunda::criarCenario() {
 		//Adicionar sprite diferente
-		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/blue-preview.png"));
-		pSprite->setScale(sf::Vector2f(1.5f, 1.45f));
+		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/red-preview.png"));
+		pSprite->setScale(sf::Vector2f(5.0f, 5.43f));
 		pSprite->setPosition(sf::Vector2f(0.0f, 0.0f));
 	}
 

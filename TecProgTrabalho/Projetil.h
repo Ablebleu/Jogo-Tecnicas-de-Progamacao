@@ -12,6 +12,8 @@ namespace Entidades
 		Projetil(sf::Vector2f p = sf::Vector2f(-100.f, -100.f));
 		~Projetil();
 		void executar();
+		void levitar();
+		void forcar();
 		void salvar();
 		void mover();
 	};

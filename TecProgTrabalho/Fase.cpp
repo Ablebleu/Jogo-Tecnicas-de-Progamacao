@@ -7,7 +7,7 @@
 namespace Fases {
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-	Fase::Fase() : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 17 + 3), chao(), pJog1(NULL) {
+	Fase::Fase() : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL) {
 		pJog1 = pGC->getJogadores(1);
 		std::cout << "Criando fase: " << getId() << std::endl;
 	}
