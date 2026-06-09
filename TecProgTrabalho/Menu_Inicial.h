@@ -8,7 +8,7 @@ namespace Menus {
 	private:
 		Menu* pMenu;
 	public:
-		Menu_Inicial(Menu* pM = nullptr);
+		Menu_Inicial(Menu* pM = NULL);
 		~Menu_Inicial();
 
 		void executar();

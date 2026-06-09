@@ -17,7 +17,7 @@ namespace Entidades
 			const sf::FloatRect getCorpo();
 			void executar();
 			void mover();
-			virtual void salvar();
+			void salvar();
 			void obstaculizar(Jogador* p);
 		};
 	}

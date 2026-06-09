@@ -12,7 +12,7 @@ namespace Gerenciador {
         sf::Vector2f tamJanela;
 
     public:
-        Gerenciador_Camera(const sf::Vector2f tamJanela = sf::Vector2f(1200.f, 875.f));
+        Gerenciador_Camera(const sf::Vector2f tamJanela = { 1200.0f, 875.0f });
         ~Gerenciador_Camera();
         sf::View getCamera() const;
         void resetar();

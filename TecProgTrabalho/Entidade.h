@@ -18,7 +18,7 @@ namespace Entidades
 		void salvarDataBuffer();
 		static Gerenciador::Gerenciador_Colisoes* pGC;
 	public:
-		Entidade(sf::Vector2f p = sf::Vector2f(0, 0), sf::Vector2f v = sf::Vector2f(0, 0));
+		Entidade(sf::Vector2f p = { 0.0f, 0.0f }, sf::Vector2f v = { 0.0f, 0.0f });
 		virtual  ~Entidade();
 		virtual const sf::FloatRect getCorpo(); //Faz Hitbox
 		virtual void executar() = 0;

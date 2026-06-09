@@ -15,10 +15,10 @@ namespace Lista
 			Elemento<TE>* pProx;
 			TE pinfo;
 		public:
-			Elemento() { pProx = nullptr; pinfo = nullptr; }
+			Elemento() { pProx = NULL; pinfo = NULL; }
 			~Elemento() {
-				pProx = nullptr;
-				pinfo = nullptr;
+				pProx = NULL;
+				pinfo = NULL;
 			}
 			void incluir(TE p) { pinfo = p; }
 			void setProx(Elemento<TE>* pE) { pProx = pE; }

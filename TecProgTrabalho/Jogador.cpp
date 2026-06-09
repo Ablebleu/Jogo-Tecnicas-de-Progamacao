@@ -8,7 +8,7 @@ namespace Entidades {
 		std::cout << "Criando jogador: " << getId() << std::endl;
 
 		//ataque -> buraco_negro
-		pAtaque = new Buraco_Negro({ 0,0 }, 120);
+		pAtaque = new Buraco_Negro({ -50.0f, -50.0f }, 120);
 
 		//hitbox
 		corpo.setSize(sf::Vector2f(50.0f, 80.0f));

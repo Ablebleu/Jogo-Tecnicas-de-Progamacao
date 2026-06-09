@@ -18,7 +18,6 @@ namespace Entidades
 		void executar();
 		void desenhar();
 		void setPos(sf::Vector2f p);
-		const sf::FloatRect getCorpo();
 		void danificar(Inimigo* pInim);
 		void levitar();
 		void mover();

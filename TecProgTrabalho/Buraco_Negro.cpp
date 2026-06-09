@@ -42,10 +42,6 @@ namespace Entidades {
 		pSprite->setPosition(pos);
 	}
 
-	const sf::FloatRect Buraco_Negro::getCorpo() {
-		return pSprite->getGlobalBounds();
-	}
-
 	void Buraco_Negro::danificar(Inimigo* pInim) {
 		//std::cout << "Danificando inimigo" << std::endl;
 	}
