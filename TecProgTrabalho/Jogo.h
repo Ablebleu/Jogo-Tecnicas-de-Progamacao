@@ -22,11 +22,11 @@ private:
 	Gerenciador::Gerenciador_Estados* GEs;
 
 public:
-	//int ...;
+
 	Jogo();
 	~Jogo();
 	void executar();
-	//void ...();
+
 };
 
 #endif  

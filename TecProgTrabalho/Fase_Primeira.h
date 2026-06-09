@@ -9,13 +9,11 @@ namespace Fases
 {
 	class Fase_Primeira : public Fase {
 	private:
-		//int ...;
-		//const int maxInimMedios;
+		const int maxUFOs;
+		const int maxAcel;
 	protected:
-		void criar();
-		void criarInimFaceis();
-		void criarInimMedios();
-		void criarObstMedios();
+		void criarUFOs();
+		void criarAceleradores();
 		void criarInimigos();
 		void criarObstaculo();
 		void criarCenario();

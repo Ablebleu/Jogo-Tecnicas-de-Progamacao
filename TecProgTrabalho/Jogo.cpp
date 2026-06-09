@@ -33,25 +33,9 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase1(NULL), faseAtual(NULL), GEs(NULL)
 		std::cerr << "Erro ao criar Jogador" << std::endl;
 		exit(1);
 	}
-	/*
-	pJog2 = new Jogador;
-	if (!pJog1) {
-		std::cerr << "Erro ao criar Jogador" << std::endl;
-		exit(1);
-	}
-	pJog2->setTeclas(sf::Keyboard::Key::Up, sf::Keyboard::Key::Down, sf::Keyboard::Key::Left, sf::Keyboard::Key::Right);
 
-	fase1 = new Fase_Primeira(GC);
-	if (!fase1) {
-		std::cerr << "Erro ao criar Fase" << std::endl;
-		exit(1);
-	}
-
-	fase1->incluirJogador(pJog1);
-	fase1->incluirJogador(pJog2);
-	GC->setJogadores(pJog1, pJog2 );*/
-
-	faseAtual = static_cast<Fases::Fase*>(fase1);
+	//Seed baseada na execução normal do programa
+	srand((unsigned int)time(NULL));
 
 	/*Adicionar Menu depois*/ 
 	executar(); 
@@ -63,14 +47,6 @@ Jogo::~Jogo() {
 	if (GEs) {
 		delete GEs;
 	}
-	/*if (pJog1) {
-		delete pJog1;
-	}/*
-	if (pJog2) {
-		faseAtual->removerEntidade(pJog2->getId());
-		delete pJog2;
-	}*/
-	//if (fase1) delete fase1;
 }
 
 /*Loop principal do jogo.

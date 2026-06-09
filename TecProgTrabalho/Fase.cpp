@@ -1,11 +1,13 @@
 #include <cmath>
 #include "Fase.h"
 #include "Jogador.h"
+#include "Plataforma.h"
+#include "Alien.h"
 
 namespace Fases {
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-	Fase::Fase() : Ente(), chao(), pJog1(NULL) {
+	Fase::Fase() : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 17 + 3), chao(), pJog1(NULL) {
 		pJog1 = pGC->getJogadores(1);
 		std::cout << "Criando fase: " << getId() << std::endl;
 	}
@@ -15,20 +17,22 @@ namespace Fases {
 		lista_ents.deletarEntidades();
 	}
 
-	/*void Fase::...() {
-
-	}*/
-
-	void Fase::criarInimFaceis() {
-
+	void Fase::criarAliens() {
+		for (int i = 0; i < maxAliens; i++) {
+			Entidades::Alien* pAlien = new Entidades::Alien(sf::Vector2f(1200.0f + 3400.f/maxAliens * i, 550.0f), 0, 1.0f);
+			if (pAlien) {
+				lista_ents.incluir(static_cast<Entidades::Entidade*>(pAlien));
+			}
+		}
 	}
 
 	void Fase::criarPlataformas() {
-
-	}
-
-	void Fase::criarCenario() {
-
+		for (int i = 0; i < maxPlat; i++) {
+			Entidades::Obstaculos::Plataforma* pPlat = new Entidades::Obstaculos::Plataforma(sf::Vector2f(1500.0f + 3000.f/maxPlat*i, 300.0f + std::rand() % 125 * 1.0f));
+			if (pPlat) {
+				lista_ents.incluir(static_cast<Entidades::Entidade*>(pPlat));
+			}
+		}
 	}
 
 	void Fase::executar() {
