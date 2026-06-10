@@ -28,14 +28,13 @@ namespace Entidades {
 
 	void Personagem::operator-=(int dano) {
 		num_vidas -= dano;
-		verificarVivo();
 	}
 
-	void Personagem::verificarVivo() {
+	int Personagem::getVidas() {
 		if (num_vidas <= 0) {
 			num_vidas = 0;
-			//morrer
 		}
+		return num_vidas;
 	}
 	/*
 	void Personagem::podePular() {

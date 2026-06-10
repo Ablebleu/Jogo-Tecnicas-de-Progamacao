@@ -20,7 +20,7 @@ namespace Entidades
 		virtual void mover();
 		void forcar();
 		void operator-=(int dano);
-		void verificarVivo();
+		int getVidas();
 		//void ...();
 	};
 }

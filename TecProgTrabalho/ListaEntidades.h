@@ -3,6 +3,7 @@
 
 #include "Lista.h"
 #include "Entidade.h"
+#include "Personagem.h"
 
 namespace Lista
 {
@@ -15,6 +16,7 @@ namespace Lista
 		~ListaEntidades();
 		void incluir(Entidades::Entidade* pE);
 		void desenhar();
+		void retiraEntidadesMortas();
 		void mover();
 		void remover(int id);
 		void deletarEntidades();

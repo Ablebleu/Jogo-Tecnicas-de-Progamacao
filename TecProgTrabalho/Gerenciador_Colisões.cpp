@@ -70,7 +70,12 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesJogsInimgs() {
-
+		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+			if ((*it)->getVidas() > 0 && verificarColisao(static_cast<Entidades::Entidade*>(pJog1), static_cast<Entidades::Entidade*>(*it))) {
+				//std::cout << "Colisão detectada" << std::endl;
+				(*it)->danificar(pJog1);
+			}
+		}
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesAtqInimgs() {

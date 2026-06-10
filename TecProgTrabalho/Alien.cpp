@@ -31,7 +31,7 @@ namespace Entidades {
 	}
 
 	void Alien::danificar(Jogador* p) {
-
+		*p -= 1;
 	}
 
 	void Alien::mover() {

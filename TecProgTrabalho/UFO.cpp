@@ -33,7 +33,7 @@ namespace Entidades {
 	}
 
 	void UFO::danificar(Jogador* p) {
-
+		*p -= 2;
 	}
 
 	void UFO::levitar() {

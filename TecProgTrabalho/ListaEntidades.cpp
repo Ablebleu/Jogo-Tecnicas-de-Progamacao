@@ -22,6 +22,18 @@ namespace Lista
 			it = it->getProximo();
 		}
 	}
+
+	void ListaEntidades::retiraEntidadesMortas() {
+		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
+		while (it != NULL) {
+			Entidades::Personagem* pPersonagem = dynamic_cast<Entidades::Personagem*>(it->getInfo());
+			if (it->getInfo() && pPersonagem && pPersonagem->getVidas() <= 0) {
+				it->incluir(nullptr);
+			}
+			it = it->getProximo();
+		}
+	}
+
 	void ListaEntidades::mover() {
 		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
 		while (it != NULL) {
