@@ -5,17 +5,16 @@ namespace Entidades {
 		std::cout << "Criando Projetil: " << getId() << std::endl;
 
 		//hitbox
-		corpo.setSize(sf::Vector2f(16.0f, 16.0f));
+		corpo.setSize(sf::Vector2f(16.0f, 12.0f));
 		corpo.setScale({ 7.0f,7.0f });
 		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
 
 		//sprite
-		//pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
-		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
+		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/projetil.png"));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 12 }));
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 		pSprite->setPosition(p);
 		pSprite->setScale({ 7.0f, 7.0f });
-
 	}
 
 	Projetil::~Projetil() {

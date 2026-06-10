@@ -207,6 +207,7 @@
     <ClCompile Include="Gerenciador_Grafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Alien.cpp" />
+    <ClCompile Include="Laser.cpp" />
     <ClCompile Include="UFO.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
@@ -243,6 +244,7 @@
     <ClInclude Include="Gerenciador_Grafico.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Alien.h" />
+    <ClInclude Include="Laser.h" />
     <ClInclude Include="UFO.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
