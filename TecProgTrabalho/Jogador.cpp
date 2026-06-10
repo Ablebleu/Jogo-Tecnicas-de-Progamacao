@@ -43,9 +43,19 @@ namespace Entidades {
 	}
 
 	void Jogador::desenhar() {
+		//Vida
 		hp.setTextureRect(sf::IntRect({ 64*(num_vidas+1)/**/,16}, {64 /**/, 48}));
 		hp.setPosition(sf::Vector2f(std::fmax(pos.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(10.f, 10.f));
 		pGG->desenhar(&hp);
+		//Pontuação
+		sf::Text texto(*pGG->getFonte());
+		texto.setString(std::to_string(pontos));
+		texto.setCharacterSize(18);
+		texto.setFillColor(sf::Color::White);
+		texto.setPosition(sf::Vector2f(std::fmax(pos.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(180.f, 29.f));
+		//pontos += 100;
+		pGG->desenhar(&texto);
+		//Sprite e corpo
 		Entidade::desenhar();
 	}
 

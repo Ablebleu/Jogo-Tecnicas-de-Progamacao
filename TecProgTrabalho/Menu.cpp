@@ -2,16 +2,10 @@
 #include "Menu.h"
 
 namespace Menus {
-	static sf::Font s_menuFont;
+	static sf::Font Fonte_Menu;
 
 	Menu::Menu() : Ente(), lbotoes(), seletor(lbotoes.begin()) {
 		std::cout << "Criando menu: " << getId() << std::endl;
-		if (s_menuFont.getInfo().family.empty()) {
-			if (!s_menuFont.openFromFile("assets/fonts/arialCE.ttf")) {
-				std::cerr << "Erro ao carregar fonte assets/fonts/arialCE.ttf." << std::endl;
-				exit(1);
-			}
-		}
 		lbotoes.clear();
 		seletor = lbotoes.begin();
 	}
@@ -25,7 +19,7 @@ namespace Menus {
 		lbotoes.clear();
 	}
 
-	Menu::Botao::Botao(std::string t, int i) : texto(t), numBotao(i), text(s_menuFont), bg() {
+	Menu::Botao::Botao(std::string t, const sf::Font *fonte, int i) : texto(t), numBotao(i), text(*fonte), bg() {
 		text.setString(texto);
 		text.setCharacterSize(36);
 		text.setFillColor(sf::Color::White);
@@ -95,14 +89,14 @@ namespace Menus {
 		for (list<Menus::Menu::Botao*>::iterator it = lbotoes.begin(); it != lbotoes.end(); it++, i++) {
 			sf::Vector2f pos = sf::Vector2f(posInicial.x, posInicial.y + i*deltaY);
 			(*it)->setPosition(pos);
-			Ente::pGG->desenhar(&(*it)->getBg());
-			Ente::pGG->desenhar(&(*it)->getText());
+			pGG->desenhar(&(*it)->getBg());
+			pGG->desenhar(&(*it)->getText());
 		}
 	}
 
 	void Menu::adicionaBotao(std::string t, int i) {
 		Botao* b = NULL;
-		b = new Botao(t, i);
+		b = new Botao(t, pGG->getFonte(), i);
 		if (b) lbotoes.push_back(b);
 		else std::cerr << "Erro ao criar botao" << std::endl;
 	}

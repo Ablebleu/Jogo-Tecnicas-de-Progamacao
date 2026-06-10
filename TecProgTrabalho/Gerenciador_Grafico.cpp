@@ -13,6 +13,10 @@ namespace Gerenciador {
 		}
 		janela->setFramerateLimit(60);
 		limparTela();
+		if (!Fonte.openFromFile("assets/fonts/arialCE.ttf")) {
+			std::cerr << "Erro ao carregar fonte assets/fonts/arialCE.ttf." << std::endl;
+			exit(1);
+		}
 
 		Ente::setGG(this);
 	}
@@ -102,6 +106,10 @@ namespace Gerenciador {
 	const sf::Vector2f Gerenciador_Grafico::getTamJanela() const {
 		if (janela) return static_cast<sf::Vector2f>(janela->getSize());
 		else return sf::Vector2f({ 0.f, 0.f });
+	}
+
+	const sf::Font *Gerenciador_Grafico::getFonte() const {
+		return &Fonte;
 	}
 
 	Gerenciador_Grafico* Gerenciador_Grafico::getGerenciador_Grafico() {

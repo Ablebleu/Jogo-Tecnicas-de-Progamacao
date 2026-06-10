@@ -17,7 +17,7 @@ namespace Menus {
 			sf::Text text;
 			sf::RectangleShape bg;
 		public:
-			Botao(std::string t = "", int i = -1);
+			Botao(std::string t = "", const sf::Font *fonte = NULL, int i = -1);
 			int getNum() const { return numBotao; }
 			void setPosition(sf::Vector2f pos);
 			void setSelected(bool s);

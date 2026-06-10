@@ -12,6 +12,7 @@ namespace Gerenciador {
 		sf::RenderWindow* janela;
 		sf::Clock relogio;
 		Gerenciador_Camera camera;
+		sf::Font Fonte;
 
 		std::list<sf::Texture*> ltext;
 
@@ -32,6 +33,7 @@ namespace Gerenciador {
 		void atualizarView(const sf::Vector2f pos);
 		std::optional<sf::Event> atualizaEvento();
 		const sf::Vector2f getTamJanela() const;
+		const sf::Font *getFonte() const;
 		static Gerenciador_Grafico* getGerenciador_Grafico();
 		static void deletar();
 	};
