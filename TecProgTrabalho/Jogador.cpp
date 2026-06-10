@@ -2,7 +2,7 @@
 #include "Jogador.h"
 
 namespace Entidades {
-	Jogador::Jogador() : Personagem(), pontos(0),
+	Jogador::Jogador() : Personagem(), pontos(0), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
 		tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 		tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 		std::cout << "Criando jogador: " << getId() << std::endl;
@@ -15,6 +15,7 @@ namespace Entidades {
 		corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f });//origem -> centro da hitbox
 
 		//sprite
+		hp.setScale(sf::Vector2f(2.f, 2.f));
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
@@ -34,6 +35,7 @@ namespace Entidades {
 	}
 
 	void Jogador::executar() {
+		if (frameInv > 0) frameInv--;
 		//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
 		forcar();
 		mover();
@@ -41,7 +43,9 @@ namespace Entidades {
 	}
 
 	void Jogador::desenhar() {
-		//pGG->desenhar(pSprite);
+		hp.setTextureRect(sf::IntRect({ 64*(num_vidas+1)/**/,16}, {64 /**/, 48}));
+		hp.setPosition(sf::Vector2f(std::fmax(pos.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(10.f, 10.f));
+		pGG->desenhar(&hp);
 		Entidade::desenhar();
 	}
 
@@ -81,7 +85,13 @@ namespace Entidades {
 		//std::cout << vel.y << std::endl;
 		Personagem::mover();
 		setPos(pos);
+	}
 
+	void Jogador::operator-=(int dano) {
+		if (!frameInv) {
+			Personagem::operator-=(dano);
+			frameInv = 60;
+		}
 	}
 
 	void Jogador::atacar() {

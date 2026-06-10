@@ -8,8 +8,7 @@ namespace Entidades
 	class Personagem : public Entidade {
 	protected:
 		int num_vidas;
-		//Gerenciador_Fisica* GF;
-		//int ...;
+		int frameInv;
 	public:
 		Personagem();
 		~Personagem();
@@ -18,8 +17,8 @@ namespace Entidades
 		virtual void salvar() = 0;
 		virtual void pular();
 		virtual void mover();
+		virtual void operator-=(int dano);
 		void forcar();
-		void operator-=(int dano);
 		int getVidas();
 		//void ...();
 	};

@@ -11,6 +11,7 @@ namespace Entidades
 	class Jogador : public Personagem {
 	protected:
 		int pontos;
+		sf::Sprite hp;
 		sf::Keyboard::Key tecla_cima;
 		sf::Keyboard::Key tecla_baixo;
 		sf::Keyboard::Key tecla_esquerda;
@@ -28,6 +29,7 @@ namespace Entidades
 		void acelerar();
 		void pular();
 		void mover();
+		void operator-=(int dano);
 		void atacar();
 		void setPos(sf::Vector2f p);
 		void setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir);

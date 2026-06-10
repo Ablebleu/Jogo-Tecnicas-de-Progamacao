@@ -1,7 +1,7 @@
 #include "Personagem.h"
 
 namespace Entidades {
-	Personagem::Personagem() : num_vidas(10), Entidade() {
+	Personagem::Personagem() : num_vidas(9), Entidade(), frameInv(0) {
 
 	}
 
