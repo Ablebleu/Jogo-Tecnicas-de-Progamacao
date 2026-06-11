@@ -17,11 +17,9 @@ namespace Lista
 		void incluir(Entidades::Entidade* pE);
 		void desenhar();
 		void retiraEntidadesMortas();
-		void mover();
+		void percorrer();
 		void remover(int id);
 		void deletarEntidades();
-		//void percorrer();
-		//void ...();
 	};
 }
 

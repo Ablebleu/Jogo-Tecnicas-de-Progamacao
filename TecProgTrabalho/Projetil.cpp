@@ -1,8 +1,10 @@
 #include "Projetil.h"
+#include "Chefao.h"
 
 namespace Entidades {
-	Projetil::Projetil(sf::Vector2f p) : Entidade(), ativo(false) {
+	Projetil::Projetil(sf::Vector2f p) : Entidade(), ativo(false), pChef(NULL) {
 		std::cout << "Criando Projetil: " << getId() << std::endl;
+		pGC->incluirProjetil(this);
 
 		//hitbox
 		corpo.setSize(sf::Vector2f(16.0f, 12.0f));
@@ -21,8 +23,20 @@ namespace Entidades {
 
 	}
 
+	const bool Projetil::estaRelacionado() const {
+		if (!pChef) return false;
+		return true;
+	}
+
+	void Projetil::relacionarChefe(Chefao* pC) {
+		pChef = pC;
+	}
+
 	void Projetil::executar() {
-		mover();
+		if (ativo) {
+			forcar();
+			mover();
+		}
 	}
 
 	void Projetil::forcar() {
@@ -41,5 +55,6 @@ namespace Entidades {
 	}
 
 	void Projetil::mover() {
+		Entidade::mover();
 	}
 }

@@ -4,9 +4,11 @@
 #include "Inimigo.h"
 
 namespace Entidades {
+	class Projetil;
 	class Chefao : public Inimigo {
 	private:
 		short int forca;
+		Projetil* pProj;
 	public:
 		Chefao(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0, int f = 0);
 		~Chefao();

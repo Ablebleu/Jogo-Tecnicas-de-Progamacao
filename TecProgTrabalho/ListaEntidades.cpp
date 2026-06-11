@@ -34,7 +34,7 @@ namespace Lista
 		}
 	}
 
-	void ListaEntidades::mover() {
+	void ListaEntidades::percorrer() {
 		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
 		while (it != NULL) {
 			if (it->getInfo()) it->getInfo()->executar();

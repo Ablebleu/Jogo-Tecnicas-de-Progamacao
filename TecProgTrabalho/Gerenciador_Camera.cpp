@@ -40,4 +40,8 @@ namespace Gerenciador {
     const sf::Vector2f Gerenciador_Camera::getTamJanela() const {
         return tamJanela;
 	}  
+
+    const sf::Vector2f Gerenciador_Camera::getCenter() const {
+        return camera.getCenter();
+    }
 }

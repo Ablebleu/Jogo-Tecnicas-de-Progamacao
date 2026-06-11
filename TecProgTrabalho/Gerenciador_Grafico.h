@@ -33,6 +33,7 @@ namespace Gerenciador {
 		void atualizarView(const sf::Vector2f pos);
 		std::optional<sf::Event> atualizaEvento();
 		const sf::Vector2f getTamJanela() const;
+		const sf::Vector2f getPosJanela() const;
 		const sf::Font *getFonte() const;
 		static Gerenciador_Grafico* getGerenciador_Grafico();
 		static void deletar();

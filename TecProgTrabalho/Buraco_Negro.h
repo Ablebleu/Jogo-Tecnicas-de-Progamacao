@@ -12,7 +12,7 @@ namespace Entidades
 		bool ativo;
 		float tam;
 	public:
-		Buraco_Negro(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), int dur = 0);
+		Buraco_Negro(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), int dur = 0, int i = 1);
 		~Buraco_Negro();
 		void salvar();
 		void executar();

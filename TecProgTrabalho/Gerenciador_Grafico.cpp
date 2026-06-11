@@ -108,6 +108,10 @@ namespace Gerenciador {
 		else return sf::Vector2f({ 0.f, 0.f });
 	}
 
+	const sf::Vector2f Gerenciador_Grafico::getPosJanela() const {
+		return camera.getCenter();
+	}
+
 	const sf::Font *Gerenciador_Grafico::getFonte() const {
 		return &Fonte;
 	}

@@ -1,7 +1,7 @@
 #include "Buraco_Negro.h"
 
 namespace Entidades {
-	Buraco_Negro::Buraco_Negro(sf::Vector2f p, int dur) : Entidade(p, { 0, 0 }), duracao(dur), ativo(false), tam(7.0f) {
+	Buraco_Negro::Buraco_Negro(sf::Vector2f p, int dur, int i) : Entidade(p, { 0, 0 }), duracao(dur), ativo(false), tam(7.0f) {
 		std::cout << "Criando Buraco Negro: " << getId() << std::endl;
 
 		//hitbox
@@ -10,7 +10,9 @@ namespace Entidades {
 		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
 
 		//sprite
-		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
+		if(i==1)
+			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
+		else pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 		pSprite->setPosition(p);

@@ -2,13 +2,21 @@
 #include "Jogador.h"
 
 namespace Entidades {
-	Jogador::Jogador() : Personagem(), pontos(0), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
+	Jogador::Jogador(int i) : Personagem(), pontos(0), ordemJogador(i), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
 		tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 		tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
-		std::cout << "Criando jogador: " << getId() << std::endl;
+		std::cout << "Criando jogador " << ordemJogador << ": " << getId() << std::endl;
+
+		//Para jogador 2
+		if (ordemJogador == 2) {
+			tecla_cima = sf::Keyboard::Key::Up;
+			tecla_baixo = sf::Keyboard::Key::Down;
+			tecla_esquerda = sf::Keyboard::Key::Left;
+			tecla_direita = sf::Keyboard::Key::Right;
+		}
 
 		//ataque -> buraco_negro
-		pAtaque = new Buraco_Negro({ -50.0f, -50.0f }, 120);
+		pAtaque = new Buraco_Negro({ -50.0f, -50.0f }, 120, ordemJogador);
 
 		//hitbox
 		corpo.setSize(sf::Vector2f(50.0f, 80.0f));
@@ -19,7 +27,7 @@ namespace Entidades {
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
-		pos.x = 800.0f;
+		pos.x = 100.0f;
 		pos.y = 500.0f;
 		pSprite->setPosition(pos);
 		pSprite->setScale(sf::Vector2f(5.0f, 5.0f));
@@ -45,14 +53,14 @@ namespace Entidades {
 	void Jogador::desenhar() {
 		//Vida
 		hp.setTextureRect(sf::IntRect({ 64*(num_vidas+1)/**/,16}, {64 /**/, 48}));
-		hp.setPosition(sf::Vector2f(std::fmax(pos.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(10.f, 10.f));
+		hp.setPosition(sf::Vector2f(std::fmax(pGG->getPosJanela().x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(10.f + 30.f, 5.f + 40.f * ordemJogador));
 		pGG->desenhar(&hp);
 		//Pontuação
 		sf::Text texto(*pGG->getFonte());
 		texto.setString(std::to_string(pontos));
 		texto.setCharacterSize(18);
 		texto.setFillColor(sf::Color::White);
-		texto.setPosition(sf::Vector2f(std::fmax(pos.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(180.f, 29.f));
+		texto.setPosition(sf::Vector2f(std::fmax(pGG->getPosJanela().x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(180.f, 24.f + 40.f * ordemJogador));
 		//pontos += 100;
 		pGG->desenhar(&texto);
 		//Sprite e corpo
@@ -94,6 +102,12 @@ namespace Entidades {
 		acelerar();
 		//std::cout << vel.y << std::endl;
 		Personagem::mover();
+
+		float posMinx = pGG->getPosJanela().x - pGG->getTamJanela().x * 0.5f;
+		if (pos.x < posMinx) pos.x = posMinx;
+		float posMaxx = pGG->getPosJanela().x + pGG->getTamJanela().x * 0.5f;
+		if (pos.x > posMaxx) pos.x = posMaxx;
+
 		setPos(pos);
 	}
 

@@ -1,8 +1,19 @@
 #include "Chefao.h"
+#include "Projetil.h"
 
 namespace Entidades {
-	Chefao::Chefao(sf::Vector2f p, int n, int f) : Inimigo(p, n), forca() {
+	Chefao::Chefao(sf::Vector2f p, int n, int f) : Inimigo(p, n), forca(), pProj(NULL) {
 		std::cout << "Criando Chefao: " << getId() << std::endl;
+
+		//Incluir Projetil
+		pProj = pGC->getProjetilUnico();
+		if (!pProj) {
+			std::cout << "Erro ao receber projetil em: "<< getId() << std::endl;
+			exit(1);
+		}
+		std::cout << "Recebendo projetil de: " << pProj->getId() << std::endl;
+		pProj->relacionarChefe(this);
+
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Beholder.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
 		pSprite->setPosition(pos);

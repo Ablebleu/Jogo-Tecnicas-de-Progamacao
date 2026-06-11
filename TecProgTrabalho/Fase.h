@@ -19,6 +19,7 @@ namespace Fases
 		Chao chao;
 
 		Entidades::Jogador* pJog1;
+		Entidades::Jogador* pJog2;
 
 		static Gerenciador::Gerenciador_Colisoes* pGC;
 
@@ -30,10 +31,8 @@ namespace Fases
 		virtual void criarObstaculo() = 0;
 		virtual void criarCenario() = 0;
 	public:
-		//int ...;
 		Fase();
 		virtual ~Fase();
-		//void ...();
 		virtual void executar();
 		void incluirJogador(Entidades::Jogador* pE);
 		void desenhar();

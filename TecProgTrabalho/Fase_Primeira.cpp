@@ -11,8 +11,6 @@ namespace Fases {
 		//criarObstMedios();
 		//criarInimgos();
 
-		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
-		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
 	}
 
 	Fase_Primeira::~Fase_Primeira() {

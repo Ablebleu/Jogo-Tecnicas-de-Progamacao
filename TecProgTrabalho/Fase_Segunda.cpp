@@ -27,16 +27,18 @@ namespace Fases {
 	}
 
 	void Fase_Segunda::criarProjeteis() {
-		Entidades::Projetil* proj = new Entidades::Projetil();
-		if (proj) {
-			lista_ents.incluir(static_cast<Entidades::Entidade*>(proj));
+		for (int i = 0; i < maxChefoes; i++) {
+			Entidades::Projetil* proj = new Entidades::Projetil();
+			if (proj) {
+				lista_ents.incluir(static_cast<Entidades::Entidade*>(proj));
+			}
 		}
 	}
 
 	void Fase_Segunda::criarInimigos() {
 		criarAliens();
-		//criarChefoes();
-		//criarProjeteis();
+		criarProjeteis();
+		criarChefoes();
 	}
 
 	void Fase_Segunda::criarObstaculo() {

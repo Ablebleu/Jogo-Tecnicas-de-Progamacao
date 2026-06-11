@@ -27,8 +27,9 @@ namespace Gerenciador {
 		vector<Entidades::Inimigo*> LIs;
 		list<Entidades::Obstaculos::Obstaculo*> LOs;
 		set<Entidades::Projetil*> LPs;
-		//Checar depois como fazer para ter mais outro jogador sem ficar estranho
+
 		Entidades::Jogador* pJog1;
+		Entidades::Jogador* pJog2;
 
 		const bool verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const;
 		void tratarColisoesJogsObstacs();
@@ -44,6 +45,7 @@ namespace Gerenciador {
 		void incluirInimigo(Entidades::Inimigo *pi);
 		void incluirObstaculo(Entidades::Obstaculos::Obstaculo *po);
 		void incluirProjetil(Entidades::Projetil *pj);
+		Entidades::Projetil *getProjetilUnico();
 		void executar();
 		void tratarColisoesChaoEntidades(Fases::Chao &c);
 

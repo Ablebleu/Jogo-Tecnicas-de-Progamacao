@@ -11,6 +11,7 @@ namespace Entidades
 	class Jogador : public Personagem {
 	protected:
 		int pontos;
+		int ordemJogador;
 		sf::Sprite hp;
 		sf::Keyboard::Key tecla_cima;
 		sf::Keyboard::Key tecla_baixo;
@@ -20,7 +21,7 @@ namespace Entidades
 
 		Buraco_Negro* pAtaque;
 	public:
-		Jogador();
+		Jogador(int i = 1);
 		~Jogador();
 		void colidir(Inimigo* pIn);
 		void executar();

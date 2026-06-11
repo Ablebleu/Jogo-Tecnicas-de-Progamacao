@@ -8,8 +8,15 @@ namespace Fases {
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
 	Fase::Fase() : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL) {
-		pJog1 = pGC->getJogadores(1);
 		std::cout << "Criando fase: " << getId() << std::endl;
+
+		pJog1 = pGC->getJogadores(1);
+		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
+		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
+
+		pJog2 = pGC->getJogadores(2);
+		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
+		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
 	}
 
 	Fase::~Fase() {
@@ -37,7 +44,7 @@ namespace Fases {
 
 	void Fase::executar() {
 		lista_ents.retiraEntidadesMortas();
-		lista_ents.mover();
+		lista_ents.percorrer();
 		if (pGC) {
 			//std::cout << "Indo executar GC" << std::endl;
 			pGC->executar();
@@ -48,8 +55,20 @@ namespace Fases {
 	}
 
 	void Fase::moverCamera() {
-		if (pJog1) {
+		if (pJog1 && pJog2) {
+			sf::Vector2f posJog = 0.5f * (pJog1->getPos() + pJog2->getPos());
+			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
+				pGG->getTamJanela().y * 0.5f));
+			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
+		}
+		else if (pJog1) {
 			sf::Vector2f posJog = pJog1->getPos();
+			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
+				pGG->getTamJanela().y * 0.5f));
+			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
+		}
+		else if (pJog2) {
+			sf::Vector2f posJog = pJog2->getPos();
 			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
 				pGG->getTamJanela().y * 0.5f));
 			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
