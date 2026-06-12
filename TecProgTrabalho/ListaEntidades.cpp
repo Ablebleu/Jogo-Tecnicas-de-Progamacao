@@ -27,7 +27,7 @@ namespace Lista
 		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
 		while (it != NULL) {
 			Entidades::Personagem* pPersonagem = dynamic_cast<Entidades::Personagem*>(it->getInfo());
-			if (it->getInfo() && pPersonagem && pPersonagem->getVidas() <= 0) {
+			if (it->getInfo() && pPersonagem && !pPersonagem->getVivo()) {
 				it->incluir(nullptr);
 			}
 			it = it->getProximo();

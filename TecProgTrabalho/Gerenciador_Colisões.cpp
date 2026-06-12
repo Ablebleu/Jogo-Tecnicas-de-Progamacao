@@ -90,11 +90,11 @@ namespace Gerenciador {
 
 	void Gerenciador_Colisoes::tratarColisoesJogsInimgs() {
 		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
-			if ((*it)->getVidas() > 0 && verificarColisao(static_cast<Entidades::Entidade*>(pJog1), static_cast<Entidades::Entidade*>(*it))) {
+			if ((*it)->getVivo() && verificarColisao(static_cast<Entidades::Entidade*>(pJog1), static_cast<Entidades::Entidade*>(*it))) {
 				//std::cout << "Colisão detectada" << std::endl;
 				(*it)->danificar(pJog1);
 			}
-			if ((*it)->getVidas() > 0 && verificarColisao(static_cast<Entidades::Entidade*>(pJog2), static_cast<Entidades::Entidade*>(*it))) {
+			if ((*it)->getVivo() && verificarColisao(static_cast<Entidades::Entidade*>(pJog2), static_cast<Entidades::Entidade*>(*it))) {
 				//std::cout << "Colisão detectada" << std::endl;
 				(*it)->danificar(pJog2);
 			}

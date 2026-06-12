@@ -1,7 +1,7 @@
 #include "Personagem.h"
 
 namespace Entidades {
-	Personagem::Personagem() : num_vidas(9), Entidade(), frameInv(0) {
+	Personagem::Personagem() : num_vidas(9), vivo(true), Entidade(), frameInv(0) {
 
 	}
 
@@ -28,13 +28,22 @@ namespace Entidades {
 
 	void Personagem::operator-=(int dano) {
 		num_vidas -= dano;
-	}
-
-	int Personagem::getVidas() {
 		if (num_vidas <= 0) {
 			num_vidas = 0;
+			setVivo(false);
 		}
+	}
+
+	int Personagem::getVidas() const{
 		return num_vidas;
+	}
+
+	bool Personagem::getVivo() const{
+		return vivo;
+	}
+
+	void Personagem::setVivo(bool v) {
+		vivo = v;
 	}
 	/*
 	void Personagem::podePular() {

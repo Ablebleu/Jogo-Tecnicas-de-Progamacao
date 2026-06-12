@@ -37,38 +37,41 @@ namespace Entidades {
 	void Alien::mover() {
 		if (framesPosAprox > 0) {
 			framesPosAprox--;
-			Personagem::mover();
 		}
 		else {
-			for (int i = 0; i < 2; i++) {
-				Jogador* pJog = pGC->getJogadores(1 + i);
-				if (pJog) {
-					sf::Vector2f posJog = pJog->getPos();
-					if (std::abs(posJog.x - pos.x) < 250) {
-						if (std::abs(posJog.x - pos.x) < 10) {
-							framesPosAprox = 30;
-						}
-						if (posJog.x < pos.x) {
-							vel.x += -0.25f;
-						}
-						else if (posJog.x > pos.x) {
-							vel.x += 0.25f;
-						}
-					}
-					else {
-						if (posInicial.x < pos.x) {
-							vel.x += -0.3f;
-						}
-						else if (posInicial.x > pos.x) {
-							vel.x += 0.3f;
-						}
-					}
-					//std::cout << "Movendo Alien " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
-					Personagem::mover();
+			sf::Vector2f posJog;
+			Jogador* pJog1 = pGC->getJogadores(1);
+			Jogador* pJog2 = pGC->getJogadores(2);
+			if (!pJog1)
+				return;
+			if(pJog2) {
+				if (!pJog1->getVivo() || (std::abs(pJog2->getPos().x - pos.x) < std::abs(pJog1->getPos().x - pos.x) && pJog2->getVivo()))
+					posJog = pJog2->getPos();
+				else
+					posJog = pJog1->getPos();
+			}
+			if (std::abs(posJog.x - pos.x) < 250) {
+				if (std::abs(posJog.x - pos.x) < 10) {
+					framesPosAprox = 30;
+				}
+				if (posJog.x < pos.x) {
+					vel.x += -0.25f;
+				}
+				else if (posJog.x > pos.x) {
+					vel.x += 0.25f;
 				}
 			}
-			//else std::cout << i << std::endl;
+			else {
+				if (posInicial.x < pos.x) {
+					vel.x += -0.3f;
+				}
+				else if (posInicial.x > pos.x) {
+					vel.x += 0.3f;
+				}
+			}
 		}
+		//std::cout << "Movendo Alien " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
+		Personagem::mover();
 	}
 
 	void Alien::setPos(sf::Vector2f p) {

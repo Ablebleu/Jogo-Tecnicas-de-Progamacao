@@ -8,6 +8,7 @@ namespace Entidades
 	class Personagem : public Entidade {
 	protected:
 		int num_vidas;
+		bool vivo;
 		int frameInv;
 	public:
 		Personagem();
@@ -19,7 +20,9 @@ namespace Entidades
 		virtual void mover();
 		virtual void operator-=(int dano);
 		void forcar();
-		int getVidas();
+		int getVidas() const;
+		bool getVivo() const;
+		void setVivo(bool v);
 		//void ...();
 	};
 }
