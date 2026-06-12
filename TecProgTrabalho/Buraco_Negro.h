@@ -11,8 +11,9 @@ namespace Entidades
 		int duracao;//frames
 		bool ativo;
 		float tam;
+		Jogador* pJogador;
 	public:
-		Buraco_Negro(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), int dur = 0, int i = 1);
+		Buraco_Negro(Jogador* pJog, sf::Vector2f p = sf::Vector2f(-100.f, -100.f), int dur = 0, int i = 1);
 		~Buraco_Negro();
 		void salvar();
 		void executar();

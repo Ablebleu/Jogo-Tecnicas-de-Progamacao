@@ -183,11 +183,11 @@
     <ClCompile Include="Buraco_Negro.cpp">
       <Filter>Entidades\Personagens\Arquivos Source</Filter>
     </ClCompile>
-    <ClCompile Include="Fase_Segunda.cpp">
-      <Filter>Arquivos Source</Filter>
-    </ClCompile>
     <ClCompile Include="Laser.cpp">
       <Filter>Entidades\Obstáculos\Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Fase_Segunda.cpp">
+      <Filter>Fases\Arquivos Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -281,11 +281,11 @@
     <ClInclude Include="Buraco_Negro.h">
       <Filter>Entidades\Personagens\Arquivos Header</Filter>
     </ClInclude>
-    <ClInclude Include="Fase_Segunda.h">
-      <Filter>Arquivos Header</Filter>
-    </ClInclude>
     <ClInclude Include="Laser.h">
       <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Fase_Segunda.h">
+      <Filter>Fases\Arquivos Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

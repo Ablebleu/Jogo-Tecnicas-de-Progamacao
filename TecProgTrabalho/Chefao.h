@@ -16,6 +16,7 @@ namespace Entidades {
 		void executar();
 		void danificar(Jogador* p);
 		void mover();
+		void setPos(sf::Vector2f p);
 	};
 }
 

@@ -1,7 +1,8 @@
 #include "Buraco_Negro.h"
+#include "Jogador.h"
 
 namespace Entidades {
-	Buraco_Negro::Buraco_Negro(sf::Vector2f p, int dur, int i) : Entidade(p, { 0, 0 }), duracao(dur), ativo(false), tam(7.0f) {
+	Buraco_Negro::Buraco_Negro(Jogador* pJog, sf::Vector2f p, int dur, int i) : Entidade(p, { 0, 0 }), pJogador(pJog), duracao(dur), ativo(false), tam(7.0f) {
 		std::cout << "Criando Buraco Negro: " << getId() << std::endl;
 
 		//hitbox
@@ -12,7 +13,7 @@ namespace Entidades {
 		//sprite
 		if(i==1)
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
-		else pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
+		else pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro2.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 		pSprite->setPosition(p);
@@ -54,7 +55,13 @@ namespace Entidades {
 
 	void Buraco_Negro::danificar(Inimigo* pInim) {
 		//std::cout << "Danificando inimigo" << std::endl;
-		*pInim -= 1;
+		if (pInim->getVivo())
+		{
+			*pInim -= 1;
+			if (!pInim->getVivo())
+				pJogador->addPontos(100);
+		}
+	
 	}
 
 	void Buraco_Negro::levitar() {

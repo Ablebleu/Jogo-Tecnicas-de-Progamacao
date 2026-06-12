@@ -32,6 +32,7 @@ namespace Entidades
 		void mover();
 		void operator-=(int dano);
 		void atacar();
+		void addPontos(int pont = 100);
 		void setPos(sf::Vector2f p);
 		void setTeclas(sf::Keyboard::Key cima, sf::Keyboard::Key baixo, sf::Keyboard::Key esq, sf::Keyboard::Key dir);
 		Buraco_Negro* getAtaque();

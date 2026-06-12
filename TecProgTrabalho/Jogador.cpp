@@ -16,7 +16,7 @@ namespace Entidades {
 		}
 
 		//ataque -> buraco_negro
-		pAtaque = new Buraco_Negro({ -50.0f, -50.0f }, 120, ordemJogador);
+		pAtaque = new Buraco_Negro(this, { -50.0f, -50.0f }, 120, ordemJogador);
 
 		//hitbox
 		corpo.setSize(sf::Vector2f(50.0f, 80.0f));
@@ -24,7 +24,10 @@ namespace Entidades {
 
 		//sprite
 		hp.setScale(sf::Vector2f(2.f, 2.f));
-		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
+		if (ordemJogador == 1) 
+			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
+		else 
+			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle2.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 		pos.x = 100.0f;
@@ -124,6 +127,10 @@ namespace Entidades {
 			pAtaque->setAtivo(true);
 			pAtaque->setPos(pos + sf::Vector2f(100.0f, -10.0f));
 		}
+	}
+
+	void Jogador::addPontos(int pont) {
+		pontos += pont;
 	}
 
 	void Jogador::setPos(sf::Vector2f p) {
