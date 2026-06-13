@@ -22,6 +22,7 @@ namespace Entidades {
 	Projetil::Projetil(const nlohmann::json& dados): Entidade(dados),
 		ativo(dados["ativo"]), pChef(NULL) {
 		std::cout << "Recriando Projetil: " << getId() << std::endl;
+		pGC->incluirProjetil(this);
 
 		corpo.setSize(sf::Vector2f(16.0f, 12.0f));
 		corpo.setScale({ 7.0f,7.0f });

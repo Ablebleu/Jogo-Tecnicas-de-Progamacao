@@ -35,6 +35,12 @@ namespace Fases {
 					lista_ents.incluir(static_cast<Entidades::Entidade*>(pAlien));
 				}
 			}
+			else if (tipo == "Projetil") {
+				Entidades::Projetil* pProj = new Entidades::Projetil(dados[i]);
+				if (pProj) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pProj));
+				}
+			}
 			else if (tipo == "Chefao") {
 				Entidades::Chefao* pChef = new Entidades::Chefao(dados[i]);
 				if (pChef) {
