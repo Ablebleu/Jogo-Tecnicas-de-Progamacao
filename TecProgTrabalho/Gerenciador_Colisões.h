@@ -6,6 +6,7 @@
 
 using namespace std;
 
+class Jogo;
 namespace Entidades
 {
 	class Inimigo;
@@ -23,6 +24,7 @@ namespace Fases {
 namespace Gerenciador {
 	class Gerenciador_Colisoes{
 	private:
+		Jogo* pJogo;
 
 		vector<Entidades::Inimigo*> LIs;
 		list<Entidades::Obstaculos::Obstaculo*> LOs;
@@ -49,9 +51,8 @@ namespace Gerenciador {
 		void executar();
 		void tratarColisoesChaoEntidades(Fases::Chao &c);
 
-		//Mudar o setJogadores e getJogadores depois
-		void setJogadores(Entidades::Jogador *p1);
-		Entidades::Jogador* getJogadores(int i) const;
+		void setJogo(Jogo *p);
+		Entidades::Jogador* getJogadores(int i);
 
 		static Gerenciador_Colisoes* getGerenciador_Colisoes();
 		static void deletar();
