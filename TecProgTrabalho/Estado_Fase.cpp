@@ -1,3 +1,4 @@
+#include "Jogo.h"
 #include "Estado_Fase.h"
 #include "Fase_Primeira.h"
 #include "Fase_Segunda.h"
@@ -5,35 +6,10 @@
 
 namespace Estados {
 	Estado_Fase::Estado_Fase(int n) : Estado(), pFase(nullptr) {
-		switch (n) {
-		case 1:
-			criarFase1();
-			break;
-		case 2:
-			criarFase2();
-			break;
-		default:
-			break;
-		}
+		pFase = pJogo->getFase(n);
 	}
 	Estado_Fase::~Estado_Fase() {
 		if (pFase) delete pFase;
-	}
-
-	void Estado_Fase::criarFase1() {
-		Fases::Fase_Primeira* nFase = new Fases::Fase_Primeira;
-		if (nFase) pFase = nFase;
-		else {
-			std::cerr << "Erro ao criar fase1" << std::endl;
-		}
-	}
-	void Estado_Fase::criarFase2() {
-		std::cerr << "Erro ao criar fase2" << std::endl;
-		Fases::Fase_Segunda* nFase = new Fases::Fase_Segunda;
-		if (nFase) pFase = nFase;
-		else {
-			std::cerr << "Erro ao criar fase1" << std::endl;
-		}
 	}
 
 	void Estado_Fase::executar() {

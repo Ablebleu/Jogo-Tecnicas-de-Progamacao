@@ -4,6 +4,11 @@
 Ente::Ente(): id(cont_id++), pSprite(NULL) {
 
 }
+
+Ente::Ente(int id) :id(id), pSprite(NULL) {
+	cont_id = std::max(cont_id, id + 1);
+}
+
 int Ente::cont_id(0);
 Gerenciador::Gerenciador_Grafico* Ente::pGG = nullptr;
 

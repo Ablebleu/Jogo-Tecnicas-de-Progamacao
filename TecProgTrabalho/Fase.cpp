@@ -1,22 +1,29 @@
 #include <cmath>
+#include "Jogo.h"
 #include "Fase.h"
 #include "Jogador.h"
 #include "Plataforma.h"
 #include "Alien.h"
 
 namespace Fases {
+	Jogo* Fase::pJogo = nullptr;
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-	Fase::Fase() : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL) {
+	Fase::Fase() : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL) {
 		std::cout << "Criando fase: " << getId() << std::endl;
 
-		pJog1 = pGC->getJogadores(1);
+		pJog1 = pJogo->getJogador(1);
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
 
-		pJog2 = pGC->getJogadores(2);
+		pJog2 = pJogo->getJogador(2);
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
+	}
+
+	Fase::Fase(const nlohmann::json& dados) : Ente(dados[0]["id"]),
+		maxAliens(dados[0]["maxAliens"]), maxPlat(dados[0]["maxPlat"]), chao(), pJog1(NULL), pJog2(NULL) {
+
 	}
 
 	Fase::~Fase() {
@@ -89,8 +96,16 @@ namespace Fases {
 		lista_ents.remover(id);
 	}
 
+	void Fase::setJogo(Jogo* pJ) {
+		pJogo = pJ;
+	}
+
 	void Fase::setGC(Gerenciador::Gerenciador_Colisoes* pG) {
 		if (pG) pGC = pG;
 		else cerr << "GC não incluido na fase." << endl;
 	}
+	
+	/*void Fase::salvar() {
+
+	}*/
 }

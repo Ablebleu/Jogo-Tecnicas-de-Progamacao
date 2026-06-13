@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include "Jogo.h"
 #include "Gerenciador_Colisões.h"
 #include "Fase.h"
 #include "Entidade.h"
@@ -10,7 +11,7 @@
 
 Gerenciador::Gerenciador_Colisoes* Gerenciador::Gerenciador_Colisoes::pColisoes = nullptr;
 namespace Gerenciador {
-	Gerenciador_Colisoes::Gerenciador_Colisoes() : LIs(), LOs(), LPs(), pJog1(NULL), pJog2(NULL) {
+	Gerenciador_Colisoes::Gerenciador_Colisoes() : pJogo(NULL), LIs(), LOs(), LPs(), pJog1(NULL), pJog2(NULL) {
 		std::cout << "Criando Gerenciador de Colisões" << std::endl;
 		LIs.clear();
 		LOs.clear();
@@ -132,17 +133,14 @@ namespace Gerenciador {
 		}
 	}
 
-	void Gerenciador_Colisoes::setJogadores(Entidades::Jogador* pj) {
-		std::cout << "Setando jogador de id "<< pj->getId() << " em colisões" << std::endl;
-		if (pj && !pJog1) pJog1 = pj;
-		else if (pj) pJog2 = pj;
-		else std::cerr << "Jogador nulo" << std::endl;
+	void Gerenciador_Colisoes::setJogo(Jogo* p) {
+		pJogo = p;
 	}
 
-	Entidades::Jogador* Gerenciador_Colisoes::getJogadores(int i) const{
-		if (i == 1) return pJog1;
-		if (i == 2) return pJog2;
-		return NULL;
+	Entidades::Jogador* Gerenciador_Colisoes::getJogadores(int i){
+		if (i == 1) pJog1 = pJogo->getJogador(1);
+		else if (i == 2) pJog2 = pJogo->getJogador(2);
+		return pJogo->getJogador(i);
 	}
 
 	Gerenciador_Colisoes* Gerenciador_Colisoes::getGerenciador_Colisoes() {

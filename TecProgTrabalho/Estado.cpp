@@ -1,9 +1,12 @@
 #include "Estado.h"
+#include "Jogo.h"
 #include "Gerenciador_Estados.h"
 #include <iostream>
 
+
 namespace Estados {
 	Gerenciador::Gerenciador_Estados* Estado::pGE = nullptr;
+	Jogo* Estado::pJogo = nullptr;
 
 	Estado::Estado() : Ente() {
 		incluirEstado();
@@ -28,6 +31,14 @@ namespace Estados {
 		if (p) pGE = p;
 		else {
 			std::cerr << "Erro setando gerenciador de estados para os estados" << std::endl;
+			exit(1);
+		}
+	}
+
+	void Estado::setJogo(Jogo* p) {
+		if (p) pJogo = p;
+		else {
+			std::cerr << "Erro setando jogo para os estados" << std::endl;
 			exit(1);
 		}
 	}

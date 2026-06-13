@@ -3,6 +3,7 @@
 #include "Acelerador.h"
 #include "UFO.h"
 
+using nlohmann::json;
 namespace Fases {
 	Fase_Primeira::Fase_Primeira() : Fase(), maxUFOs(rand() % 3 + 3), maxAcel(rand() % 3 + 3) {
 		criarCenario();
@@ -13,8 +14,13 @@ namespace Fases {
 
 	}
 
-	Fase_Primeira::~Fase_Primeira() {
+	Fase_Primeira::Fase_Primeira(const nlohmann::json& dados) : Fase(dados),
+		maxUFOs(dados[0]["maxUFOs"]), maxAcel(dados[0]["maxAcel"]) {
+		criarCenario();
+	}
 
+	Fase_Primeira::~Fase_Primeira() {
+		salvar();
 	}
 
 	void Fase_Primeira::executar() {
@@ -52,5 +58,21 @@ namespace Fases {
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/blue-preview.png"));
 		pSprite->setScale(sf::Vector2f(1.5f, 1.45f));
 		pSprite->setPosition(sf::Vector2f(0.0f, 0.0f));
+	}
+
+	void Fase_Primeira::salvar() {
+		json arquivoJson = json::array();
+		json dadosFase = {
+			{"tipo", "Fase_Primeira"},
+			{"id", getId()},
+			{"maxAliens", maxAliens},
+			{"maxPlat", maxPlat},
+			{"maxUFOs", maxUFOs},
+			{"maxAcel", maxAcel}
+		};
+		arquivoJson.push_back(dadosFase);
+		std::ofstream file("save.json");
+		file << arquivoJson.dump(4);
+		file.close();
 	}
 }

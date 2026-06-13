@@ -5,17 +5,14 @@
 #include "Gerenciador_Eventos.h"
 #include "Gerenciador_Estados.h"
 #include "Jogador.h"
-
-//Retirar depois
-#include "Fase_Primeira.h"
+#include "Fase.h"
 
 class Jogo {
 private:
 	
 	Entidades::Jogador *pJog1;
 	Entidades::Jogador *pJog2;
-	Fases::Fase_Primeira* fase1;
-	Fases::Fase* faseAtual; 
+	Fases::Fase* fase; 
 	static Gerenciador::Gerenciador_Grafico* GG;
 	static Gerenciador::Gerenciador_Evento* GE;
 	static Gerenciador::Gerenciador_Colisoes*GC;
@@ -26,7 +23,9 @@ public:
 	Jogo();
 	~Jogo();
 	void executar();
-
+	void deleteJogadores();
+	Entidades::Jogador* getJogador(int i = 1);
+	Fases::Fase* getFase(int i = 1);
 };
 
 #endif  

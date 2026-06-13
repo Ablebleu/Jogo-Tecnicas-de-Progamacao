@@ -36,6 +36,7 @@ void Menu_Inicial::selecionarAcao(int i) {
 		addFase(2);
 		break;
 	case 3:
+		addFase(3);
 		break;
 	default:
 		break;

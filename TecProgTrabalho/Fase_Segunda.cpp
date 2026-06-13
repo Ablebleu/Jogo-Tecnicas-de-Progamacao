@@ -3,11 +3,17 @@
 #include "Projetil.h"
 #include "Laser.h"
 
+using nlohmann::json;
 namespace Fases {
 	Fase_Segunda::Fase_Segunda() : Fase(), maxChefoes(rand()%3+3), maxLasers(rand()%3+3) {
 		criarCenario();
 		criarObstaculo();
 		criarInimigos();
+	}
+
+	Fase_Segunda::Fase_Segunda(const nlohmann::json& dados) : Fase(dados), 
+		maxChefoes(dados[0]["maxChefoes"]), maxLasers(dados[0]["maxLasers"]) {
+		criarCenario();
 	}
 
 	Fase_Segunda::~Fase_Segunda() {
@@ -61,5 +67,21 @@ namespace Fases {
 
 	void Fase_Segunda::executar() {
 		Fase::executar();
+	}
+
+	void Fase_Segunda::salvar() {
+		json arquivoJson = json::array();
+		json dadosFase{
+			{"tipo", "Fase_Segunda"},
+			{"id", getId()},
+			{"maxAliens", maxAliens},
+			{"maxPlat", maxPlat},
+			{"maxChefoes", maxChefoes},
+			{"maxLasers", maxLasers}
+		};
+		arquivoJson.push_back(dadosFase);
+		std::ofstream file("save.json");
+		file << arquivoJson.dump(4);
+		file.close();
 	}
 }

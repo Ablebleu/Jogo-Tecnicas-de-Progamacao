@@ -34,7 +34,6 @@ namespace Entidades {
 		pos.y = 500.0f;
 		pSprite->setPosition(pos);
 		pSprite->setScale(sf::Vector2f(5.0f, 5.0f));
-		pGC->setJogadores(this);
 	}
 
 	Jogador::~Jogador() {

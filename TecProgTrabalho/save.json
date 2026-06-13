@@ -1,0 +1,10 @@
+[
+    {
+        "id": 3,
+        "maxAcel": 5,
+        "maxAliens": 9,
+        "maxPlat": 3,
+        "maxUFOs": 5,
+        "tipo": "Fase_Primeira"
+    }
+]

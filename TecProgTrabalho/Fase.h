@@ -1,19 +1,23 @@
 #ifndef _FASE_H
 #define _FASE_H
 
+#include <fstream>
 #include "Ente.h"
 #include "Chao.h"
 #include "Jogador.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisões.h"
 
+class Jogo;
+
 namespace Fases
 {
 	class Fase : public Ente {
-	private: 
+	protected: 
+		static Jogo* pJogo;
+
 		const int maxAliens;
 		const int maxPlat;
-	protected:
 
 		Lista::ListaEntidades lista_ents;
 		Chao chao;
@@ -32,11 +36,14 @@ namespace Fases
 		virtual void criarCenario() = 0;
 	public:
 		Fase();
+		Fase(const nlohmann::json& dados);
 		virtual ~Fase();
 		virtual void executar();
 		void incluirJogador(Entidades::Jogador* pE);
 		void desenhar();
 		void removerEntidade(int id);
+		virtual void salvar() = 0;
+		static void setJogo(Jogo* pJ);
 		static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
 	};
 }

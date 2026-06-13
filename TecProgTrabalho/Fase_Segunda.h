@@ -16,8 +16,10 @@ namespace Fases
 		void criarInimigos();
 		void criarObstaculo();
 		void criarCenario();
+		void salvar();
 	public:
 		Fase_Segunda();
+		Fase_Segunda(const nlohmann::json& dados);
 		~Fase_Segunda();
 		void executar();
 	};

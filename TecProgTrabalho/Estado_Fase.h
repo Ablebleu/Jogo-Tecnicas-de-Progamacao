@@ -15,9 +15,6 @@ namespace Estados
         Estado_Fase(int n);
         ~Estado_Fase();
 
-        void criarFase1();
-        void criarFase2();
-
         void executar();
         void desenhar();
     };

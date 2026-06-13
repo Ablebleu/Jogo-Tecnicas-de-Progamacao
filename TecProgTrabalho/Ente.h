@@ -2,6 +2,7 @@
 #define _ENTE_H
 
 #include "Gerenciador_Grafico.h"
+#include "json.hpp"
 
 class Ente {
 protected:
@@ -14,6 +15,7 @@ protected:
 
 public:
 	Ente();
+	Ente(int id);
 	virtual ~Ente();
 	virtual void executar() = 0;
 	sf::Sprite* getSprite();
