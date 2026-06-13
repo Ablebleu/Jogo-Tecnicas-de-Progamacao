@@ -11,12 +11,24 @@ namespace Entidades {
 		pSprite->setScale(raio * sf::Vector2f(3.5f, 3.5f));
 	}
 
+	UFO::UFO(const nlohmann::json& dados) : Inimigo(dados), raio(dados["raio"]), 
+		posEixoY(pos.y), graus(dados["graus"]) {
+		std::cout << "Criando Alien Medio: " << getId() << std::endl;
+		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien2.png"));
+		pSprite->setPosition(pos);
+		pSprite->setScale(raio * sf::Vector2f(3.5f, 3.5f));
+
+	}
+
 	UFO::~UFO() {
 
 	}
 
 	void UFO::salvar() {
-
+		Inimigo::salvarDataBuffer();
+		dadosSalvos["tipo"] = "UFO";
+		dadosSalvos["raio"] = raio;
+		dadosSalvos["graus"] = graus;
 	}
 
 	void UFO::executar() {

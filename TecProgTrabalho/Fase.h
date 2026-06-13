@@ -7,6 +7,8 @@
 #include "Jogador.h"
 #include "ListaEntidades.h"
 #include "Gerenciador_Colisões.h"
+#include "Plataforma.h"
+#include "Alien.h"
 
 class Jogo;
 

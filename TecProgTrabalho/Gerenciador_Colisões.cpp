@@ -42,6 +42,14 @@ namespace Gerenciador {
 		else std::cerr << "Projétil nulo" << endl;
 	}
 
+	Entidades::Projetil* Gerenciador_Colisoes::getProjetil(int id) {
+		set<Entidades::Projetil*>::iterator it;
+		for (it = LPs.begin(); it != LPs.end(); ++it) {
+			if ((*it)->getId() == id) return *it;
+		}
+		return NULL;
+	}
+
 	Entidades::Projetil *Gerenciador_Colisoes::getProjetilUnico() {
 		set<Entidades::Projetil*>::iterator it;
 		for (it = LPs.begin(); it != LPs.end(); ++it) {

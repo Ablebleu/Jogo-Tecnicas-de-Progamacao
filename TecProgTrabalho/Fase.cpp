@@ -1,9 +1,6 @@
 #include <cmath>
 #include "Jogo.h"
 #include "Fase.h"
-#include "Jogador.h"
-#include "Plataforma.h"
-#include "Alien.h"
 
 namespace Fases {
 	Jogo* Fase::pJogo = nullptr;

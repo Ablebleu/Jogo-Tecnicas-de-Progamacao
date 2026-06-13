@@ -12,6 +12,7 @@ namespace Entidades
 		int frameInv;
 	public:
 		Personagem();
+		Personagem(const nlohmann::json& dados);
 		~Personagem();
 		void salvarDataBuffer();
 		virtual void executar() = 0;

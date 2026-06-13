@@ -111,6 +111,28 @@ Entidades::Jogador* Jogo::getJogador(int i) {
 	return NULL;
 }
 
+Entidades::Jogador* Jogo::getJogador(const nlohmann::json& dados) {
+	if (dados["ordemJogador"] == 1) {
+		if (pJog1) delete pJog1;
+		pJog1 = new Entidades::Jogador(dados);
+		if (!pJog1) {
+			std::cerr << "Erro ao dar load no Jogador" << std::endl;
+			exit(1);
+		}
+		return pJog1;
+	}
+	if (dados["ordemJogador"] == 2) {
+		if (pJog2) delete pJog2;
+		pJog2 = new Entidades::Jogador(dados);
+		if (!pJog2) {
+			std::cerr << "Erro ao dar load no Jogador" << std::endl;
+			exit(1);
+		}
+		return pJog2;
+	}
+	return NULL;
+}
+
 Fases::Fase* Jogo::getFase(int i) {
 	if (fase) {
 		if (pJog1) fase->removerEntidade(pJog1->getId());
@@ -133,6 +155,7 @@ Fases::Fase* Jogo::getFase(int i) {
 		}
 		return fase;
 	case 3: {
+		std::cout << "Carregando fase do save.json" << std::endl;
 		std::ifstream file("save.json");
 		if (!file.is_open()) {
 			std::cerr << "Erro ao abrir save.json" << std::endl;

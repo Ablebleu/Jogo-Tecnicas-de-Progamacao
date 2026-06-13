@@ -15,6 +15,14 @@ namespace Entidades
             pSprite->setScale(proporcao * 2.5f);
         }
 
+        Plataforma::Plataforma(const nlohmann::json& dados) : Obstaculo(dados), 
+            proporcao(sf::Vector2f(dados["proporcaox"], dados["proporcaoy"])) {
+            pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/Plat_Tileset_1.png"));
+            pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 64,32 }));
+            pSprite->setPosition(pos);
+            pSprite->setScale(proporcao * 2.5f);
+        }
+
         Plataforma::~Plataforma() {
             std::cout << "Deletando plataforma: " << getId() << std::endl;
         }
@@ -26,10 +34,14 @@ namespace Entidades
         void Plataforma::executar() {
             forcar();
             mover();
+			pSprite->setPosition(pos);
         }
 
         void Plataforma::salvar() {
-
+            Obstaculo::salvarDataBuffer();
+            dadosSalvos["tipo"] = "Plataforma";
+            dadosSalvos["proporcaox"] = proporcao.x;
+            dadosSalvos["proporcaoy"] = proporcao.y;
         }
 
         void Plataforma::obstaculizar(Jogador* p) {

@@ -12,7 +12,8 @@ namespace Entidades
 			float altura;
 			float largura;
 		public:
-			Acelerador(sf::Vector2f p, float h, float l);
+			Acelerador(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), float h = 1.f, float l = 1.f);
+			Acelerador(const nlohmann::json& dados);
 			~Acelerador();
 			const sf::FloatRect getCorpo();
 			void executar();

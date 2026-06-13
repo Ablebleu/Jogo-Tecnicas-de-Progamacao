@@ -14,6 +14,7 @@ namespace Lista
 	public:
 		ListaEntidades();
 		~ListaEntidades();
+		void salvarEntidades(nlohmann::json& arquivoJson);
 		void incluir(Entidades::Entidade* pE);
 		void desenhar();
 		void retiraEntidadesMortas();

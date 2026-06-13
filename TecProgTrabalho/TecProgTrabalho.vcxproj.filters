@@ -29,9 +29,6 @@
     <Filter Include="Entidades\Personagens\Arquivos Source">
       <UniqueIdentifier>{7a072900-973f-4d42-99a4-374740d32bbc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Entidades\Obstáculos\ArquivosHeader">
-      <UniqueIdentifier>{c727f3cf-d819-4b7f-a820-a187ee8eeb34}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Entidades\Obstáculos\Arquivos Source">
       <UniqueIdentifier>{e3bde6cf-e2fd-4774-9424-808526869365}</UniqueIdentifier>
     </Filter>
@@ -90,6 +87,12 @@
     </Filter>
     <Filter Include="Entidades\Arquivos Source">
       <UniqueIdentifier>{f907cfc0-b5fc-447e-b54b-ce971b0b9f23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entidades\Obstáculos\Arquivos Header">
+      <UniqueIdentifier>{c727f3cf-d819-4b7f-a820-a187ee8eeb34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="save">
+      <UniqueIdentifier>{01563b11-0517-41ad-bce9-8e20ca8dc8b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -228,10 +231,10 @@
       <Filter>Entidades\Personagens\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Obstaculo.h">
-      <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
+      <Filter>Entidades\Obstáculos\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Plataforma.h">
-      <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
+      <Filter>Entidades\Obstáculos\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Estado.h">
       <Filter>Estado\Arquivos Header</Filter>
@@ -276,16 +279,21 @@
       <Filter>Entidades\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Acelerador.h">
-      <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
+      <Filter>Entidades\Obstáculos\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Buraco_Negro.h">
       <Filter>Entidades\Personagens\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Laser.h">
-      <Filter>Entidades\Obstáculos\ArquivosHeader</Filter>
+      <Filter>Entidades\Obstáculos\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Fase_Segunda.h">
       <Filter>Fases\Arquivos Header</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="save.json">
+      <Filter>save</Filter>
+    </None>
   </ItemGroup>
 </Project>

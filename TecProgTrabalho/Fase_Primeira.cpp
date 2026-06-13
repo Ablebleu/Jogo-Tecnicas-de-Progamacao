@@ -2,6 +2,7 @@
 #include "Fase_Primeira.h"
 #include "Acelerador.h"
 #include "UFO.h"
+#include "Jogo.h"
 
 using nlohmann::json;
 namespace Fases {
@@ -9,14 +10,52 @@ namespace Fases {
 		criarCenario();
 		criarObstaculo();
 		criarInimigos();
-		//criarObstMedios();
-		//criarInimgos();
-
 	}
 
 	Fase_Primeira::Fase_Primeira(const nlohmann::json& dados) : Fase(dados),
 		maxUFOs(dados[0]["maxUFOs"]), maxAcel(dados[0]["maxAcel"]) {
 		criarCenario();
+		for(int i = 1; i < (int)dados.size(); i++) {
+			std::string tipo = dados[i]["tipo"];
+			if (tipo == "Plataforma") {
+				Entidades::Obstaculos::Plataforma* pPlat = new Entidades::Obstaculos::Plataforma(dados[i]);
+				if (pPlat) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pPlat));
+				}
+			}
+			else if (tipo == "Acelerador") {
+				Entidades::Obstaculos::Acelerador* pAcel = new Entidades::Obstaculos::Acelerador(dados[i]);
+				if (pAcel) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pAcel));
+				}
+			}
+			else if (tipo == "Alien") {
+				Entidades::Alien* pAlien = new Entidades::Alien(dados[i]);
+				if (pAlien) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pAlien));
+				}
+			}
+			else if (tipo == "UFO") {
+				Entidades::UFO* pUFO = new Entidades::UFO(dados[i]);
+				if (pUFO) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pUFO));
+				}
+			}
+			else if (tipo == "Jogador") {
+				if (dados[i]["ordemJogador"] == 1) {
+					pJog1 = pJogo->getJogador(dados[i]);
+					if (pJog1) {
+						lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
+					}
+				}
+				if (dados[i]["ordemJogador"] == 2) {
+					pJog2 = pJogo->getJogador(dados[i]);
+					if (pJog2) {
+						lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
+					}
+				}
+			}
+		}
 	}
 
 	Fase_Primeira::~Fase_Primeira() {
@@ -71,6 +110,7 @@ namespace Fases {
 			{"maxAcel", maxAcel}
 		};
 		arquivoJson.push_back(dadosFase);
+		lista_ents.salvarEntidades(arquivoJson);
 		std::ofstream file("save.json");
 		file << arquivoJson.dump(4);
 		file.close();

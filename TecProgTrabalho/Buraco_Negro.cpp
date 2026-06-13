@@ -2,7 +2,8 @@
 #include "Jogador.h"
 
 namespace Entidades {
-	Buraco_Negro::Buraco_Negro(Jogador* pJog, sf::Vector2f p, int dur, int i) : Entidade(p, { 0, 0 }), pJogador(pJog), duracao(dur), ativo(false), tam(7.0f) {
+	Buraco_Negro::Buraco_Negro(sf::Vector2f p, int dur, int i) : Entidade(p, { 0, 0 }), 
+		pJogador(NULL), duracao(dur), ativo(false), cor(i), tam(7.0f) {
 		std::cout << "Criando Buraco Negro: " << getId() << std::endl;
 
 		//hitbox
@@ -11,7 +12,7 @@ namespace Entidades {
 		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
 
 		//sprite
-		if(i==1)
+		if(cor==1)
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
 		else pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro2.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
@@ -20,12 +21,34 @@ namespace Entidades {
 		pSprite->setScale({ 7.0f, 7.0f });
 	}
 
+	Buraco_Negro::Buraco_Negro(const nlohmann::json& dados) : Entidade(dados),
+		pJogador(NULL), duracao(dados["duracao"]), ativo(dados["ativo"]), cor(dados["cor"]), tam(dados["tam"]) {
+		std::cout << "Criando Buraco Negro: " << getId() << std::endl;
+
+		corpo.setSize(sf::Vector2f(16.0f, 16.0f));
+		corpo.setScale({ 7.0f,7.0f });
+		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
+
+		if (cor == 1)
+			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
+		else pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro2.png"));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
+		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
+		pSprite->setPosition(pos);
+		pSprite->setScale({ 7.0f, 7.0f });
+	}
+
 	Buraco_Negro::~Buraco_Negro() {
 
 	}
 
 	void Buraco_Negro::salvar() {
-
+		Entidade::salvarDataBuffer();
+		dadosSalvos["tipo"] = "Buraco_Negro";
+		dadosSalvos["duracao"] = duracao;
+		dadosSalvos["ativo"] = ativo;
+		dadosSalvos["cor"] = cor;
+		dadosSalvos["tam"] = tam;
 	}
 
 	void Buraco_Negro::executar() {
@@ -51,6 +74,10 @@ namespace Entidades {
 		Entidade::setPos(p);
 		//Sprite
 		pSprite->setPosition(p);
+	}
+
+	void Buraco_Negro::setJogador(Jogador* pJog) {
+		pJogador = pJog;
 	}
 
 	void Buraco_Negro::danificar(Inimigo* pInim) {

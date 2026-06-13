@@ -12,6 +12,7 @@ namespace Entidades
 		int graus;
 	public:
 		UFO(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0, float r = 1.f);
+		UFO(const nlohmann::json& dados);
 		~UFO();
 		void salvar();
 		void executar();

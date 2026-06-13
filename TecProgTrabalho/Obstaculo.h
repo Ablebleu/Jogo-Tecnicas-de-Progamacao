@@ -11,9 +11,9 @@ namespace Entidades
 		class Obstaculo : public Entidade {
 		protected:
 			bool danoso;
-			//int ...;
 		public:
 			Obstaculo();
+			Obstaculo(const nlohmann::json& dados);
 			~Obstaculo();
 			void salvarDataBuffer();
 			void levitar();

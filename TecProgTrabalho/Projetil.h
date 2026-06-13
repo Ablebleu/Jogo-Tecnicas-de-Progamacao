@@ -12,6 +12,7 @@ namespace Entidades
 		Chefao* pChef;
 	public:
 		Projetil(sf::Vector2f p = sf::Vector2f(-100.f, -100.f));
+		Projetil(const nlohmann::json& dados);
 		~Projetil();
 		const bool estaRelacionado() const;
 		void relacionarChefe(Chefao* pC);

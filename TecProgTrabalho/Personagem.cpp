@@ -1,7 +1,13 @@
 #include "Personagem.h"
+#include "json.hpp"
 
 namespace Entidades {
-	Personagem::Personagem() : num_vidas(9), vivo(true), Entidade(), frameInv(0) {
+	Personagem::Personagem() : Entidade(), num_vidas(9), vivo(true), frameInv(0) {
+
+	}
+
+	Personagem::Personagem(const nlohmann::json& dados) : Entidade(dados), num_vidas(dados["num_vidas"]),
+		vivo(dados["vivo"]), frameInv(dados["frameInv"]) {
 
 	}
 
@@ -10,7 +16,12 @@ namespace Entidades {
 	}
 
 	void Personagem::salvarDataBuffer() {
+		Entidade::salvarDataBuffer();
 
+		dadosSalvos["tipo_base"] = "Personagem";
+		dadosSalvos["num_vidas"] = num_vidas;
+		dadosSalvos["vivo"] = vivo;
+		dadosSalvos["frameInv"] = frameInv;
 	}
 
 	void Personagem::pular() {

@@ -11,6 +11,17 @@ namespace Lista
 
 	}
 
+	void ListaEntidades::salvarEntidades(nlohmann::json& arquivoJson) {
+		Lista<Entidades::Entidade*>::Elemento<Entidades::Entidade*>* it = LEs.getPrimeiro();
+		while (it != NULL) {
+			if (it->getInfo()) {
+				it->getInfo()->salvar();
+				arquivoJson.push_back(it->getInfo()->getDadosSalvos());
+			}
+			it = it->getProximo();
+		}
+	}
+
 	void ListaEntidades::incluir(Entidades::Entidade* pE) {
 		if (pE) LEs.incluir(pE);
 	}

@@ -22,6 +22,7 @@ namespace Entidades
 		Buraco_Negro* pAtaque;
 	public:
 		Jogador(int i = 1);
+		Jogador(const nlohmann::json& dados);
 		~Jogador();
 		void colidir(Inimigo* pIn);
 		void executar();

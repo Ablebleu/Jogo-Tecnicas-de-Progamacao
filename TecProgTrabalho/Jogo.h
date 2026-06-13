@@ -6,6 +6,7 @@
 #include "Gerenciador_Estados.h"
 #include "Jogador.h"
 #include "Fase.h"
+#include "json.hpp"
 
 class Jogo {
 private:
@@ -25,6 +26,7 @@ public:
 	void executar();
 	void deleteJogadores();
 	Entidades::Jogador* getJogador(int i = 1);
+	Entidades::Jogador* getJogador(const nlohmann::json& dados);
 	Fases::Fase* getFase(int i = 1);
 };
 

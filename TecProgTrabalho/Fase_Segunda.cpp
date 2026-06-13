@@ -2,6 +2,7 @@
 #include "Chefao.h"
 #include "Projetil.h"
 #include "Laser.h"
+#include "Jogo.h"
 
 using nlohmann::json;
 namespace Fases {
@@ -14,10 +15,51 @@ namespace Fases {
 	Fase_Segunda::Fase_Segunda(const nlohmann::json& dados) : Fase(dados), 
 		maxChefoes(dados[0]["maxChefoes"]), maxLasers(dados[0]["maxLasers"]) {
 		criarCenario();
+		for (int i = 1; i < (int)dados.size(); i++) {
+			std::string tipo = dados[i]["tipo"];
+			if (tipo == "Plataforma") {
+				Entidades::Obstaculos::Plataforma* pPlat = new Entidades::Obstaculos::Plataforma(dados[i]);
+				if (pPlat) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pPlat));
+				}
+			}
+			else if (tipo == "Laser") {
+				Entidades::Obstaculos::Laser* pLaser = new Entidades::Obstaculos::Laser(dados[i]);
+				if (pLaser) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pLaser));
+				}
+			}
+			else if (tipo == "Alien") {
+				Entidades::Alien* pAlien = new Entidades::Alien(dados[i]);
+				if (pAlien) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pAlien));
+				}
+			}
+			else if (tipo == "Chefao") {
+				Entidades::Chefao* pChef = new Entidades::Chefao(dados[i]);
+				if (pChef) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pChef));
+				}
+			}
+			else if (tipo == "Jogador") {
+				if (dados[i]["ordemJogador"] == 1) {
+					pJog1 = pJogo->getJogador(dados[i]);
+					if (pJog1) {
+						lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
+					}
+				}
+				if (dados[i]["ordemJogador"] == 2) {
+					pJog2 = pJogo->getJogador(dados[i]);
+					if (pJog2) {
+						lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
+					}
+				}
+			}
+		}
 	}
 
 	Fase_Segunda::~Fase_Segunda() {
-
+		salvar();
 	}
 
 	void Fase_Segunda::criarChefoes() {
@@ -80,6 +122,7 @@ namespace Fases {
 			{"maxLasers", maxLasers}
 		};
 		arquivoJson.push_back(dadosFase);
+		lista_ents.salvarEntidades(arquivoJson);
 		std::ofstream file("save.json");
 		file << arquivoJson.dump(4);
 		file.close();

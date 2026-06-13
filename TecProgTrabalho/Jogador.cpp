@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Jogador.h"
+#include "json.hpp"
 
 namespace Entidades {
 	Jogador::Jogador(int i) : Personagem(), pontos(0), ordemJogador(i), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
@@ -16,7 +17,8 @@ namespace Entidades {
 		}
 
 		//ataque -> buraco_negro
-		pAtaque = new Buraco_Negro(this, { -50.0f, -50.0f }, 120, ordemJogador);
+		pAtaque = new Buraco_Negro({ -50.0f, -50.0f }, 120, ordemJogador);
+		pAtaque->setJogador(this);
 
 		//hitbox
 		corpo.setSize(sf::Vector2f(50.0f, 80.0f));
@@ -32,6 +34,36 @@ namespace Entidades {
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 		pos.x = 100.0f;
 		pos.y = 500.0f;
+		pSprite->setPosition(pos);
+		pSprite->setScale(sf::Vector2f(5.0f, 5.0f));
+	}
+
+	Jogador::Jogador(const nlohmann::json& dados) : Personagem(dados), pontos(dados["pontos"]),
+		ordemJogador(dados["ordemJogador"]), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
+		tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
+		tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
+		std::cout << "Criando jogador " << ordemJogador << ": " << getId() << std::endl;
+
+		if (ordemJogador == 2) {
+			tecla_cima = sf::Keyboard::Key::Up;
+			tecla_baixo = sf::Keyboard::Key::Down;
+			tecla_esquerda = sf::Keyboard::Key::Left;
+			tecla_direita = sf::Keyboard::Key::Right;
+		}
+
+		pAtaque = new Buraco_Negro(dados["ataque"]);
+		pAtaque->setJogador(this);
+
+		corpo.setSize(sf::Vector2f(50.0f, 80.0f));
+		corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f });//origem -> centro da hitbox
+
+		hp.setScale(sf::Vector2f(2.f, 2.f));
+		if (ordemJogador == 1)
+			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
+		else
+			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle2.png"));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 16 }));
+		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });
 		pSprite->setPosition(pos);
 		pSprite->setScale(sf::Vector2f(5.0f, 5.0f));
 	}
@@ -70,7 +102,16 @@ namespace Entidades {
 	}
 
 	void Jogador::salvar() {
+		Personagem::salvarDataBuffer();
 
+		dadosSalvos["tipo"] = "Jogador";
+		dadosSalvos["pontos"] = pontos;
+		dadosSalvos["ordemJogador"] = ordemJogador;
+
+		if (pAtaque) {
+			pAtaque->salvar();                                
+			dadosSalvos["ataque"] = pAtaque->getDadosSalvos();
+		}
 	}
 
 	void Jogador::acelerar() {

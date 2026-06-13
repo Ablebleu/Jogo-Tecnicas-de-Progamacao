@@ -28,12 +28,40 @@ namespace Entidades {
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 	}
 
+	Chefao::Chefao(const nlohmann::json& dados) : Inimigo(dados), forca(dados["forca"]), pProj(NULL){
+		std::cout << "Criando Chefao: " << getId() << std::endl;
+
+		//Incluir Projetil
+		pProj = pGC->getProjetil(dados["id_projetil"]);
+		if (!pProj) {
+			std::cout << "Erro ao receber projetil em: " << getId() << std::endl;
+			exit(1);
+		}
+		std::cout << "Recebendo projetil de: " << pProj->getId() << std::endl;
+		pProj->relacionarChefe(this);
+
+		//hitbox
+		corpo.setSize(sf::Vector2f(32.0f, 32.0f));
+		corpo.setScale(sf::Vector2f(6.0f, 6.0f));
+		corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f });//origem -> centro da hitbox
+
+		//sprite
+		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Beholder.png"));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
+		pSprite->setPosition(pos);
+		pSprite->setScale(sf::Vector2f(6.0f, 6.0f));
+		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
+	}
+
 	Chefao::~Chefao() {
 
 	}
 
 	void Chefao::salvar() {
-
+		Inimigo::salvarDataBuffer();
+		dadosSalvos["tipo"] = "Chefao";
+		dadosSalvos["forca"] = forca;
+		if (pProj) dadosSalvos["id_projetil"] = pProj->getId();
 	}
 
 	void Chefao::executar() {

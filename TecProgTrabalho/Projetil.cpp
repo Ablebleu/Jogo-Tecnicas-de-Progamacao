@@ -19,6 +19,21 @@ namespace Entidades {
 		pSprite->setScale({ 7.0f, 7.0f });
 	}
 
+	Projetil::Projetil(const nlohmann::json& dados): Entidade(dados),
+		ativo(dados["ativo"]), pChef(NULL) {
+		std::cout << "Recriando Projetil: " << getId() << std::endl;
+
+		corpo.setSize(sf::Vector2f(16.0f, 12.0f));
+		corpo.setScale({ 7.0f,7.0f });
+		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });
+
+		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/projetil.png"));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 12 }));
+		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
+		pSprite->setPosition(pos);
+		pSprite->setScale({ 7.0f, 7.0f });
+	}
+
 	Projetil::~Projetil() {
 
 	}
@@ -51,7 +66,9 @@ namespace Entidades {
 	}
 
 	void Projetil::salvar() {
-
+		Entidade::salvarDataBuffer();
+		dadosSalvos["tipo"] = "Projetil";
+		dadosSalvos["ativo"] = ativo;
 	}
 
 	void Projetil::mover() {

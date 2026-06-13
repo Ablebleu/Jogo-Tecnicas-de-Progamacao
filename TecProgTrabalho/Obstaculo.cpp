@@ -4,7 +4,12 @@ namespace Entidades
 {
 	namespace Obstaculos
 	{
-		Obstaculo::Obstaculo() : danoso(false) {
+		Obstaculo::Obstaculo() : Entidade(), danoso(false) {
+			pGC->incluirObstaculo(this);
+		}
+
+		Obstaculo::Obstaculo(const nlohmann::json& dados) : Entidade(dados),
+			danoso(dados["danoso"]) {
 			pGC->incluirObstaculo(this);
 		}
 
@@ -13,18 +18,20 @@ namespace Entidades
 		}
 
 		void Obstaculo::salvarDataBuffer() {
-
+			Entidade::salvarDataBuffer();
+			dadosSalvos["tipo_base"] = "Obstaculo";
+			dadosSalvos["danoso"] = danoso;
 		}
 
 		void Obstaculo::levitar() {
-			vel += (sf::Vector2f(0.f, -0.5f));
+			vel += (sf::Vector2f(0.f, -2.f));
 		}
 
 		void Obstaculo::forcar() {
 			gravitar();
+			levitar();
 			arrastar();
 			atritar();
-			levitar();
 		}
 	}
 }

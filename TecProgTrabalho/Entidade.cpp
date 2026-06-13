@@ -9,13 +9,28 @@ namespace Entidades {
 		corpo.setFillColor(sf::Color::Red);
 	}
 
+	Entidade::Entidade(const nlohmann::json &dados) : Ente(dados["id"]),
+		pos(sf::Vector2f(dados["posx"], dados["posy"])), vel(sf::Vector2f(dados["velx"], dados["vely"])),
+		corpo(sf::Vector2f{ 50.0f, 50.0f }), contatoBase(dados["contatoBase"]) {
+		setPos(pos);
+		corpo.setFillColor(sf::Color::Red);
+	}
+
 	Entidade::~Entidade() {
 		std::cout << "Deletando entidade: " << getId() << std::endl;
 	}
 
 
 	void Entidade::salvarDataBuffer() {
-
+		dadosSalvos = {
+			{"tipo_base", "Entidade"},
+			{"id", getId()},
+			{"posx", pos.x},
+			{"posy", pos.y},
+			{"velx", vel.x},
+			{"vely", vel.y},
+			{"contatoBase", contatoBase}
+		};
 	}
 
 	//Hitbox/mudar depois
@@ -80,5 +95,9 @@ namespace Entidades {
 
 	void Entidade::houveContatoBase() {
 		contatoBase = true;
+	}
+
+	nlohmann::json Entidade::getDadosSalvos() const {
+		return dadosSalvos;
 	}
 }

@@ -2,7 +2,6 @@
 #define _ENTE_H
 
 #include "Gerenciador_Grafico.h"
-#include "json.hpp"
 
 class Ente {
 protected:

@@ -3,22 +3,24 @@
 
 #include "Ente.h"
 #include "Gerenciador_Colisões.h"
+#include "json.hpp"
 
 namespace Entidades
 {
 	class Entidade : public Ente {
 	protected:
+		nlohmann::json dadosSalvos;
+
 		sf::Vector2f pos;
 		sf::Vector2f vel;
 		sf::RectangleShape corpo;
-		//Contato dos pés do sprite com o chão ou plataforma.
 		bool contatoBase;
-		//int ...;
-		//ostream buffer;
+		
 		void salvarDataBuffer();
 		static Gerenciador::Gerenciador_Colisoes* pGC;
 	public:
 		Entidade(sf::Vector2f p = { 0.0f, 0.0f }, sf::Vector2f v = { 0.0f, 0.0f });
+		Entidade(const nlohmann::json &dados);
 		virtual  ~Entidade();
 		virtual const sf::FloatRect getCorpo(); //Faz Hitbox
 		virtual void executar() = 0;
@@ -35,9 +37,9 @@ namespace Entidades
 		const sf::Vector2f getPos() const;
 		const sf::Vector2f getVel() const;
 		const bool getContatoBase() const;
-		void houveContatoBase();
+		void houveContatoBase(); 
+		nlohmann::json getDadosSalvos() const;
 		static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
-		//void ...();
 	};
 }
 
