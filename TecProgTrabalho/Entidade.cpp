@@ -41,6 +41,7 @@ namespace Entidades {
 	void Entidade::mover() {
 		pos += vel;
 		setPos(pos);
+		pSprite->setPosition(pos);
 	}
 
 	void Entidade::gravitar() {

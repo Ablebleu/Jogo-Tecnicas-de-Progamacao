@@ -15,6 +15,7 @@ namespace Entidades {
 			//sprite
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/LaserCompleto.png"));
 			pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 18, 88 }));
+			pos = p;
 			pSprite->setPosition(p);
 			pSprite->setScale({ 5.0f*h, 5.0f*l });
 		}
@@ -58,7 +59,7 @@ namespace Entidades {
 		}
 
 		void Laser::obstaculizar(Jogador* p) {
-			if (danoso) *p -= 2;
+			if (danoso) (*p) -= 2;
 		}
 
 		void Laser::cicloOnOff() {

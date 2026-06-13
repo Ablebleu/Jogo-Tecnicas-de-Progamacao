@@ -5,6 +5,7 @@
 
 namespace Entidades
 {
+	class Jogador;
 	class Chefao;
 	class Projetil : public Entidade {
 	protected:
@@ -21,6 +22,9 @@ namespace Entidades
 		void forcar();
 		void salvar();
 		void mover();
+		void danificar(Jogador* p);
+		void setAtivo(bool a);
+		bool getAtivo() const;
 	};
 }
 

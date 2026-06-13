@@ -8,6 +8,7 @@ namespace Entidades {
 	class Chefao : public Inimigo {
 	private:
 		short int forca;
+		int cadencia; //tempo entre cada disparo
 		Projetil* pProj;
 	public:
 		Chefao(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0, int f = 0);
@@ -17,6 +18,7 @@ namespace Entidades {
 		void executar();
 		void danificar(Jogador* p);
 		void mover();
+		void atirar();
 		void setPos(sf::Vector2f p);
 	};
 }

@@ -124,7 +124,15 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesJogsProjeteis() {
-
+		for (std::set<Entidades::Projetil*>::iterator it = LPs.begin(); it != LPs.end(); it++) {
+			if (verificarColisao(static_cast<Entidades::Entidade*>(pJog1), static_cast<Entidades::Entidade*>(*it))) {
+				(*it)->danificar(pJog1);
+			}
+			if (verificarColisao(static_cast<Entidades::Entidade*>(pJog2), static_cast<Entidades::Entidade*>(*it))) {
+				//std::cout << "Colisão detectada" << std::endl;
+				(*it)->danificar(pJog2);
+			}
+		}
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesChaoEntidades(Fases::Chao &c) {
@@ -137,6 +145,11 @@ namespace Gerenciador {
 		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
 			if ((const bool)c.getCorpo().findIntersection((*it)->getCorpo()).has_value()) {
 				c.obstaculizar(static_cast<Entidades::Entidade*>(*it));
+			}
+		}
+		for (std::set<Entidades::Projetil*>::iterator it = LPs.begin(); it != LPs.end(); it++) {
+			if ((const bool)c.getCorpo().findIntersection((*it)->getCorpo()).has_value()) {
+				(*it)->setAtivo(false);
 			}
 		}
 	}

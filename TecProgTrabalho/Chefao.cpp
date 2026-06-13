@@ -3,7 +3,7 @@
 #include "Jogador.h"
 
 namespace Entidades {
-	Chefao::Chefao(sf::Vector2f p, int n, int f) : Inimigo(p, n), forca(), pProj(NULL) {
+	Chefao::Chefao(sf::Vector2f p, int n, int f) : Inimigo(p, n), forca(), cadencia(180), pProj(NULL) {
 		std::cout << "Criando Chefao: " << getId() << std::endl;
 
 		//Incluir Projetil
@@ -67,6 +67,7 @@ namespace Entidades {
 	void Chefao::executar() {
 		forcar();
 		mover();
+		atirar();
 	}
 
 	void Chefao::danificar(Jogador* p) {
@@ -111,6 +112,23 @@ namespace Entidades {
 		}
 		//std::cout << "Movendo Chefao " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
 		Personagem::mover();
+	}
+
+	void Chefao::atirar() {
+		if (cadencia > 0) {
+			cadencia--;
+		}
+		else {
+			for (int i = 1; i < 3; i++) {
+				Jogador* pJog = pGC->getJogadores(i);
+				if (pJog && !pProj->getAtivo() && std::abs(pJog->getPos().x - pos.x) < 400.0f) {
+					pProj->setAtivo(true);
+					pProj->setPos(pos + sf::Vector2f(-30.0f, -10.0f));
+					pProj->setVel({ -8.0f, 0.0f });
+					cadencia = 180;
+				}
+			}
+		}
 	}
 
 	void Chefao::setPos(sf::Vector2f p) {
