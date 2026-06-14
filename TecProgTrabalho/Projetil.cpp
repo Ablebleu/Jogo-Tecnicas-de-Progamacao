@@ -79,7 +79,7 @@ namespace Entidades {
 
 	void Projetil::danificar(Jogador* p) {
 		if (p) {
-			(*p) -= 2;
+			(*p) -= (int)pChef->getForca();
 			setAtivo(false);
 		}
 	}

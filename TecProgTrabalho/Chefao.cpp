@@ -3,7 +3,7 @@
 #include "Jogador.h"
 
 namespace Entidades {
-	Chefao::Chefao(sf::Vector2f p, int n, int f) : Inimigo(p, n), forca(), cadencia(180), pProj(NULL) {
+	Chefao::Chefao(sf::Vector2f p, int n, short int f) : Inimigo(p, n), forca(f), cadencia(180), pProj(NULL) {
 		std::cout << "Criando Chefao: " << getId() << std::endl;
 
 		//Incluir Projetil
@@ -28,7 +28,7 @@ namespace Entidades {
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 	}
 
-	Chefao::Chefao(const nlohmann::json& dados) : Inimigo(dados), forca(dados["forca"]), pProj(NULL){
+	Chefao::Chefao(const nlohmann::json& dados) : Inimigo(dados), forca(dados["forca"]), cadencia(180), pProj(NULL){
 		std::cout << "Criando Chefao: " << getId() << std::endl;
 
 		//Incluir Projetil
@@ -71,7 +71,7 @@ namespace Entidades {
 	}
 
 	void Chefao::danificar(Jogador* p) {
-
+		(*p) -= 1;
 	}
 
 	void Chefao::mover() {
@@ -137,5 +137,9 @@ namespace Entidades {
 
 		//Sprite
 		pSprite->setPosition(pos + sf::Vector2f(0.0f, 0.0f));
+	}
+
+	short int Chefao::getForca() const {
+		return forca;
 	}
 }

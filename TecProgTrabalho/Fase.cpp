@@ -54,7 +54,7 @@ namespace Fases {
 			pGC->executar();
 			pGC->tratarColisoesChaoEntidades(chao);
 		}
-		else cerr << "Nenhuma GC para ser executada" << endl;
+		else std::cerr << "Nenhuma GC para ser executada" << std::endl;
 		moverCamera();
 	}
 
@@ -99,7 +99,7 @@ namespace Fases {
 
 	void Fase::setGC(Gerenciador::Gerenciador_Colisoes* pG) {
 		if (pG) pGC = pG;
-		else cerr << "GC não incluido na fase." << endl;
+		else std::cerr << "GC não incluido na fase." << std::endl;
 	}
 	
 	/*void Fase::salvar() {

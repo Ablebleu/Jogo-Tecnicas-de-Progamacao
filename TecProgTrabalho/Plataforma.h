@@ -11,7 +11,7 @@ namespace Entidades
 		private:
 			sf::Vector2f proporcao; //Proporções -> substituir altura e largura
 		public:
-			Plataforma(sf::Vector2f p, sf::Vector2f prop = { 1.0f, 1.0f });
+			Plataforma(sf::Vector2f p, sf::Vector2f prop = { 1.f, 1.f });
 			Plataforma(const nlohmann::json& dados);
 			~Plataforma();
 			const sf::FloatRect getCorpo();

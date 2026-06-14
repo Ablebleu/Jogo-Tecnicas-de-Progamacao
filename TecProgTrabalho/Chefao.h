@@ -11,7 +11,7 @@ namespace Entidades {
 		int cadencia; //tempo entre cada disparo
 		Projetil* pProj;
 	public:
-		Chefao(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0, int f = 0);
+		Chefao(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0, short int f = 0);
 		Chefao(const nlohmann::json& dados);
 		~Chefao();
 		void salvar();
@@ -20,6 +20,7 @@ namespace Entidades {
 		void mover();
 		void atirar();
 		void setPos(sf::Vector2f p);
+		short int getForca() const;
 	};
 }
 

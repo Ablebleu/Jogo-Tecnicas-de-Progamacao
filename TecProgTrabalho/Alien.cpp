@@ -41,7 +41,7 @@ namespace Entidades {
 	}
 
 	void Alien::danificar(Jogador* p) {
-		*p -= 1;
+		*p -= nivel_maldade + tamanho;
 	}
 
 	void Alien::mover() {
