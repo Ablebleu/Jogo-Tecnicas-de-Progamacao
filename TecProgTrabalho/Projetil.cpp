@@ -34,6 +34,7 @@ namespace Entidades {
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 		pSprite->setPosition(pos);
 		pSprite->setScale({ 5.0f, 5.0f });
+		setAtivo(ativo);
 	}
 
 	Projetil::~Projetil() {

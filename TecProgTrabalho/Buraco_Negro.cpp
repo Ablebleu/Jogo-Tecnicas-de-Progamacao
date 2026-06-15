@@ -36,6 +36,14 @@ namespace Entidades {
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 		pSprite->setPosition(pos);
 		pSprite->setScale({ 7.0f, 7.0f });
+
+		if (tam < 0.0f)
+		{
+			setAtivo(false);
+			tam = 0.0f;
+		}
+		corpo.setScale({ tam, tam });
+		pSprite->setScale({ tam, tam });
 	}
 
 	Buraco_Negro::~Buraco_Negro() {

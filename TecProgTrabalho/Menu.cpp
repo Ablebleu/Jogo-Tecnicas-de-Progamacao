@@ -78,6 +78,7 @@ namespace Menus {
 			std::cerr << "Erro: Nenhum botão" << std::endl;
 			exit(1);
 		}
+		if (pSprite) pGG->desenhar(pSprite);
 		for (std::list<Menus::Menu::Botao*>::iterator it = lbotoes.begin(); it != lbotoes.end(); it++) {
 			(*it)->setSelected(false);
 		}

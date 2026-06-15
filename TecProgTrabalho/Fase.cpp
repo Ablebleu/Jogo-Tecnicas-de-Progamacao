@@ -11,11 +11,11 @@ namespace Fases {
 
 		pJog1 = pJogo->getJogador(1);
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
-		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
+		if (pJog1->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
 
 		pJog2 = pJogo->getJogador(2);
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
-		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
+		if (pJog2->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
 	}
 
 	Fase::Fase(const nlohmann::json& dados) : Ente(dados[0]["id"]),
@@ -59,19 +59,19 @@ namespace Fases {
 	}
 
 	void Fase::moverCamera() {
-		if (pJog1 && pJog2) {
+		if (pJog1 && pJog2 && pJog1->getVidas() && pJog2->getVidas()) {
 			sf::Vector2f posJog = 0.5f * (pJog1->getPos() + pJog2->getPos());
 			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
 				pGG->getTamJanela().y * 0.5f));
 			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
 		}
-		else if (pJog1) {
+		else if (pJog1 && pJog1->getVidas()) {
 			sf::Vector2f posJog = pJog1->getPos();
 			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
 				pGG->getTamJanela().y * 0.5f));
 			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
 		}
-		else if (pJog2) {
+		else if (pJog2 && pJog2->getVidas()) {
 			sf::Vector2f posJog = pJog2->getPos();
 			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
 				pGG->getTamJanela().y * 0.5f));

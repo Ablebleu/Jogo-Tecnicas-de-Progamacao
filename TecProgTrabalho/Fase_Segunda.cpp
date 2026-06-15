@@ -52,16 +52,19 @@ namespace Fases {
 					pJog1 = pJogo->getJogador(dados[i]);
 					if (pJog1) {
 						lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
+						if (pJog1->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
 					}
 				}
 				if (dados[i]["ordemJogador"] == 2) {
 					pJog2 = pJogo->getJogador(dados[i]);
 					if (pJog2) {
 						lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
+						if (pJog2->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
 					}
 				}
 			}
 		}
+		moverCamera();
 	}
 
 	Fase_Segunda::~Fase_Segunda() {
