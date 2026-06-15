@@ -45,7 +45,7 @@ namespace Entidades {
 	}
 
 	void UFO::danificar(Jogador* p) {
-		*p -= nivel_maldade + raio;
+		*p -= nivel_maldade + (int)raio;
 	}
 
 	void UFO::levitar() {
