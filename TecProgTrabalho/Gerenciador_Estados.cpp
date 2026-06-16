@@ -11,7 +11,7 @@ namespace Gerenciador {
 			pilhaEstados.pop();
 		}
 		Estados::Estado::setGE(this);
-		criarMenu();
+		criarMenuInicial();
 	}
 
 	Gerenciador_Estados::~Gerenciador_Estados() {
@@ -47,17 +47,13 @@ namespace Gerenciador {
 		pilhaEstados.pop();
 	}
 
-	void Gerenciador_Estados::criarMenu() {
+	void Gerenciador_Estados::criarMenuInicial() {
 		Menus::Menu_Inicial* pMenu = new Menus::Menu_Inicial;
 		if (!pMenu) {
 			std::cout << "Erro ao criar pMenu" << std::endl;
 			exit(1);
 		}
 		Estados::Estado_Menu* eMenu = new Estados::Estado_Menu(pMenu);
-		if (!pMenu) {
-			std::cout << "Erro ao criar eMenu" << std::endl;
-			exit(1);
-		}
 	}
 
 	void Gerenciador_Estados::executar() {

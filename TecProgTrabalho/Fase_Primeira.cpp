@@ -6,7 +6,7 @@
 
 using nlohmann::json;
 namespace Fases {
-	Fase_Primeira::Fase_Primeira() : Fase(), maxUFOs(rand() % 3 + 3), maxAcel(rand() % 3 + 3) {
+	Fase_Primeira::Fase_Primeira(int nJog) : Fase(nJog), maxUFOs(rand() % 3 + 3), maxAcel(rand() % 3 + 3) {
 		criarCenario();
 		criarObstaculo();
 		criarInimigos();

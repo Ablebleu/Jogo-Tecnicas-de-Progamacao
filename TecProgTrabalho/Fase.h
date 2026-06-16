@@ -37,7 +37,7 @@ namespace Fases
 		virtual void criarObstaculo() = 0;
 		virtual void criarCenario() = 0;
 	public:
-		Fase();
+		Fase(int nJog = 1);
 		Fase(const nlohmann::json& dados);
 		virtual ~Fase();
 		virtual void executar();

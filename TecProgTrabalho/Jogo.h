@@ -27,7 +27,6 @@ public:
 	void deleteJogadores();
 	Entidades::Jogador* getJogador(int i = 1);
 	Entidades::Jogador* getJogador(const nlohmann::json& dados);
-	Fases::Fase* getFase(int i = 1);
 };
 
 #endif  

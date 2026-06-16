@@ -3,7 +3,7 @@
 #include "json.hpp"
 
 namespace Entidades {
-	Jogador::Jogador(int i) : Personagem(), pontos(0), ordemJogador(i), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
+	Jogador::Jogador(int i) : Personagem(), Nome(""), pontos(0), ordemJogador(i), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
 		tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 		tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
 		std::cout << "Criando jogador " << ordemJogador << ": " << getId() << std::endl;
@@ -38,7 +38,7 @@ namespace Entidades {
 		pSprite->setScale(sf::Vector2f(5.0f, 5.0f));
 	}
 
-	Jogador::Jogador(const nlohmann::json& dados) : Personagem(dados), pontos(dados["pontos"]),
+	Jogador::Jogador(const nlohmann::json& dados) : Personagem(dados), Nome(dados["Nome"]), pontos(dados["pontos"]),
 		ordemJogador(dados["ordemJogador"]), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
 		tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 		tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
@@ -104,6 +104,7 @@ namespace Entidades {
 	void Jogador::salvar() {
 		Personagem::salvarDataBuffer();
 
+		dadosSalvos["Nome"] = Nome;
 		dadosSalvos["tipo"] = "Jogador";
 		dadosSalvos["pontos"] = pontos;
 		dadosSalvos["ordemJogador"] = ordemJogador;

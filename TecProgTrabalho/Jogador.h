@@ -10,6 +10,7 @@ namespace Entidades
 	class Inimigo;
 	class Jogador : public Personagem {
 	protected:
+		std::string Nome;
 		int pontos;
 		int ordemJogador;
 		sf::Sprite hp;

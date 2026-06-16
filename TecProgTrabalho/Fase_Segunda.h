@@ -18,7 +18,7 @@ namespace Fases
 		void criarCenario();
 		void salvar();
 	public:
-		Fase_Segunda();
+		Fase_Segunda(int nJog = 1);
 		Fase_Segunda(const nlohmann::json& dados);
 		~Fase_Segunda();
 		void executar();

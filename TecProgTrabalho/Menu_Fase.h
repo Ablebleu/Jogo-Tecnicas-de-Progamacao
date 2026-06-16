@@ -18,7 +18,6 @@ namespace Menus {
 		void desenhar();
 
 		void criarBotoes();
-		void selecionarAcao(int i = -1);
 	};
 }
 #endif 

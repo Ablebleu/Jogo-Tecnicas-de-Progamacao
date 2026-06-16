@@ -17,7 +17,7 @@ namespace Gerenciador {
 		void incluirEstado(Estados::Estado* pE);
 		void removerEstado(int qtd);
 		void removerEstado();
-		void criarMenu();
+		void criarMenuInicial();
 		void executar();
 		void desenhar();
 	};

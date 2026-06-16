@@ -25,6 +25,7 @@ namespace Menus {
 			sf::RectangleShape& getBg() { return bg; }
 		};
 
+		int Selecionado;
 		list<Botao*> lbotoes;
 		list<Botao*>::iterator seletor;
 		void adicionaBotao(std::string t = "", int i = -1);
@@ -35,7 +36,7 @@ namespace Menus {
 		virtual void executar();
 		virtual void desenhar();
 		virtual void criarBotoes() = 0;
-		virtual void selecionarAcao(int i = -1) = 0;
+		const int getSelecionado() const;
 	};
 }
 #endif

@@ -2,9 +2,7 @@
 #include "Menu.h"
 
 namespace Menus {
-	static sf::Font Fonte_Menu;
-
-	Menu::Menu() : Ente(), lbotoes(), seletor(lbotoes.begin()) {
+	Menu::Menu() : Ente(), Selecionado(0), lbotoes(), seletor(lbotoes.begin()) {
 		std::cout << "Criando menu: " << getId() << std::endl;
 		lbotoes.clear();
 		seletor = lbotoes.begin();
@@ -68,7 +66,7 @@ namespace Menus {
 				std::cout << "Selecionando " << (*seletor)->getNum() << std::endl;*/
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) {
 				if (seletor != lbotoes.end())
-					selecionarAcao((*seletor)->getNum());
+					Selecionado=(*seletor)->getNum();
 			}
 		}
 	}
@@ -100,5 +98,9 @@ namespace Menus {
 		b = new Botao(t, pGG->getFonte(), i);
 		if (b) lbotoes.push_back(b);
 		else std::cerr << "Erro ao criar botao" << std::endl;
+	}
+
+	const int Menu::getSelecionado() const {
+		return Selecionado;
 	}
 }

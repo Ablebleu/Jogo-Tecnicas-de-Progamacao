@@ -6,16 +6,18 @@ namespace Fases {
 	Jogo* Fase::pJogo = nullptr;
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-	Fase::Fase() : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL) {
+	Fase::Fase(int nJog) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL) {
 		std::cout << "Criando fase: " << getId() << std::endl;
 
 		pJog1 = pJogo->getJogador(1);
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
 		if (pJog1->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
 
-		pJog2 = pJogo->getJogador(2);
-		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
-		if (pJog2->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
+		if (nJog == 2) {
+			pJog2 = pJogo->getJogador(2);
+			lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
+			if (pJog2->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
+		}
 	}
 
 	Fase::Fase(const nlohmann::json& dados) : Ente(dados[0]["id"]),

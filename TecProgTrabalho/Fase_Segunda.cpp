@@ -6,7 +6,7 @@
 
 using nlohmann::json;
 namespace Fases {
-	Fase_Segunda::Fase_Segunda() : Fase(), maxMonstros(rand()%3+3), maxLasers(rand()%3+3) {
+	Fase_Segunda::Fase_Segunda(int nJog) : Fase(nJog), maxMonstros(rand()%3+3), maxLasers(rand()%3+3) {
 		criarCenario();
 		criarObstaculo();
 		criarInimigos();

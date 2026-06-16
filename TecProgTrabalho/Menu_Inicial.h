@@ -15,10 +15,6 @@ namespace Menus {
 		void desenhar();
 
 		void criarBotoes();
-		void selecionarAcao(int i = -1);
-
-		//Temporário
-		void addFase(int i);
 	};
 }
 #endif 
