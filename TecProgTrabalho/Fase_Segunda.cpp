@@ -1,19 +1,19 @@
 #include "Fase_Segunda.h"
-#include "Chefao.h"
+#include "Monstro.h"
 #include "Projetil.h"
 #include "Laser.h"
 #include "Jogo.h"
 
 using nlohmann::json;
 namespace Fases {
-	Fase_Segunda::Fase_Segunda() : Fase(), maxChefoes(rand()%3+3), maxLasers(rand()%3+3) {
+	Fase_Segunda::Fase_Segunda() : Fase(), maxMonstros(rand()%3+3), maxLasers(rand()%3+3) {
 		criarCenario();
 		criarObstaculo();
 		criarInimigos();
 	}
 
 	Fase_Segunda::Fase_Segunda(const nlohmann::json& dados) : Fase(dados), 
-		maxChefoes(dados[0]["maxChefoes"]), maxLasers(dados[0]["maxLasers"]) {
+		maxMonstros(dados[0]["maxMonstros"]), maxLasers(dados[0]["maxLasers"]) {
 		criarCenario();
 		for (int i = 1; i < (int)dados.size(); i++) {
 			std::string tipo = dados[i]["tipo"];
@@ -41,10 +41,10 @@ namespace Fases {
 					lista_ents.incluir(static_cast<Entidades::Entidade*>(pProj));
 				}
 			}
-			else if (tipo == "Chefao") {
-				Entidades::Chefao* pChef = new Entidades::Chefao(dados[i]);
-				if (pChef) {
-					lista_ents.incluir(static_cast<Entidades::Entidade*>(pChef));
+			else if (tipo == "Monstro") {
+				Entidades::Monstro* pMons = new Entidades::Monstro(dados[i]);
+				if (pMons) {
+					lista_ents.incluir(static_cast<Entidades::Entidade*>(pMons));
 				}
 			}
 			else if (tipo == "Jogador") {
@@ -71,11 +71,11 @@ namespace Fases {
 		salvar();
 	}
 
-	void Fase_Segunda::criarChefoes() {
-		for (int i = 0; i < maxChefoes; i++) {
-			Entidades::Chefao* pChef = new Entidades::Chefao(sf::Vector2f(1200.0f + 2500.f / maxChefoes * i, 300.0f), 0, 1);
-			if (pChef) {
-				lista_ents.incluir(static_cast<Entidades::Entidade*>(pChef));
+	void Fase_Segunda::criarMonstros() {
+		for (int i = 0; i < maxMonstros; i++) {
+			Entidades::Monstro* pMons = new Entidades::Monstro(sf::Vector2f(1200.0f + 2500.f / maxMonstros * i, 300.0f), 0, 1);
+			if (pMons) {
+				lista_ents.incluir(static_cast<Entidades::Entidade*>(pMons));
 			}
 		}
 	}
@@ -90,7 +90,7 @@ namespace Fases {
 	}
 
 	void Fase_Segunda::criarProjeteis() {
-		for (int i = 0; i < maxChefoes; i++) {
+		for (int i = 0; i < maxMonstros; i++) {
 			Entidades::Projetil* proj = new Entidades::Projetil();
 			if (proj) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(proj));
@@ -101,7 +101,7 @@ namespace Fases {
 	void Fase_Segunda::criarInimigos() {
 		criarAliens();
 		criarProjeteis();
-		criarChefoes();
+		criarMonstros();
 	}
 
 	void Fase_Segunda::criarObstaculo() {
@@ -127,7 +127,7 @@ namespace Fases {
 			{"id", getId()},
 			{"maxAliens", maxAliens},
 			{"maxPlat", maxPlat},
-			{"maxChefoes", maxChefoes},
+			{"maxMonstros", maxMonstros},
 			{"maxLasers", maxLasers}
 		};
 		arquivoJson.push_back(dadosFase);

@@ -1,10 +1,10 @@
-#include "Chefao.h"
+#include "Monstro.h"
 #include "Projetil.h"
 #include "Jogador.h"
 
 namespace Entidades {
-	Chefao::Chefao(sf::Vector2f p, int n, short int f) : Inimigo(p, n), forca(f), cadencia(180), pProj(NULL) {
-		std::cout << "Criando Chefao: " << getId() << std::endl;
+	Monstro::Monstro(sf::Vector2f p, int n, short int f) : Inimigo(p, n), forca(f), cadencia(180), pProj(NULL) {
+		std::cout << "Criando Monstro: " << getId() << std::endl;
 
 		//Incluir Projetil
 		pProj = pGC->getProjetilUnico();
@@ -13,7 +13,7 @@ namespace Entidades {
 			exit(1);
 		}
 		std::cout << "Recebendo projetil de: " << pProj->getId() << std::endl;
-		pProj->relacionarChefe(this);
+		pProj->relacionarMonstro(this);
 
 		//hitbox
 		corpo.setSize(sf::Vector2f(32.0f, 32.0f));
@@ -28,8 +28,8 @@ namespace Entidades {
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 	}
 
-	Chefao::Chefao(const nlohmann::json& dados) : Inimigo(dados), forca(dados["forca"]), cadencia(180), pProj(NULL){
-		std::cout << "Criando Chefao: " << getId() << std::endl;
+	Monstro::Monstro(const nlohmann::json& dados) : Inimigo(dados), forca(dados["forca"]), cadencia(180), pProj(NULL){
+		std::cout << "Criando Monstro: " << getId() << std::endl;
 
 		//Incluir Projetil
 		pProj = pGC->getProjetil(dados["id_projetil"]);
@@ -38,7 +38,7 @@ namespace Entidades {
 			exit(1);
 		}
 		std::cout << "Recebendo projetil de: " << pProj->getId() << std::endl;
-		pProj->relacionarChefe(this);
+		pProj->relacionarMonstro(this);
 
 		//hitbox
 		corpo.setSize(sf::Vector2f(32.0f, 32.0f));
@@ -53,28 +53,29 @@ namespace Entidades {
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite
 	}
 
-	Chefao::~Chefao() {
+	Monstro::~Monstro() {
 
 	}
 
-	void Chefao::salvar() {
+	void Monstro::salvar() {
 		Inimigo::salvarDataBuffer();
-		dadosSalvos["tipo"] = "Chefao";
+		dadosSalvos["tipo"] = "Monstro";
 		dadosSalvos["forca"] = forca;
 		if (pProj) dadosSalvos["id_projetil"] = pProj->getId();
 	}
 
-	void Chefao::executar() {
+	void Monstro::executar() {
 		forcar();
 		mover();
 		atirar();
 	}
 
-	void Chefao::danificar(Jogador* p) {
+	void Monstro::danificar(Jogador* p) {
+		num_vidas--;
 		(*p) -= 1;
 	}
 
-	void Chefao::mover() {
+	void Monstro::mover() {
 		if (framesPosAprox > 0) {
 			framesPosAprox--;
 		}
@@ -110,11 +111,11 @@ namespace Entidades {
 				}
 			}
 		}
-		//std::cout << "Movendo Chefao " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
+		//std::cout << "Movendo Monstro " << getId() << " Vel: (" << vel.x << ", " << vel.y << ")" << std::endl;
 		Personagem::mover();
 	}
 
-	void Chefao::atirar() {
+	void Monstro::atirar() {
 		if (cadencia > 0) {
 			cadencia--;
 		}
@@ -122,16 +123,16 @@ namespace Entidades {
 			for (int i = 1; i < 3; i++) {
 				Jogador* pJog = pGC->getJogadores(i);
 				if (pJog && !pProj->getAtivo() && std::abs(pJog->getPos().x - pos.x) < 400.0f) {
-					pProj->setAtivo(true);
 					pProj->setPos(pos + sf::Vector2f(-30.0f, -10.0f));
 					pProj->setVel({ -8.0f, 0.0f });
+					pProj->setAtivo(true);
 					cadencia = 180;
 				}
 			}
 		}
 	}
 
-	void Chefao::setPos(sf::Vector2f p) {
+	void Monstro::setPos(sf::Vector2f p) {
 		//Hitbox
 		Entidade::setPos(p);
 
@@ -139,7 +140,7 @@ namespace Entidades {
 		pSprite->setPosition(pos + sf::Vector2f(0.0f, 0.0f));
 	}
 
-	short int Chefao::getForca() const {
+	short int Monstro::getForca() const {
 		return forca;
 	}
 }

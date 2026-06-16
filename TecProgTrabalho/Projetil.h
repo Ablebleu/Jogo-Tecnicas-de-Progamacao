@@ -6,17 +6,17 @@
 namespace Entidades
 {
 	class Jogador;
-	class Chefao;
+	class Monstro;
 	class Projetil : public Entidade {
 	protected:
 		bool ativo;
-		Chefao* pChef;
+		Monstro* pMons;
 	public:
 		Projetil(sf::Vector2f p = sf::Vector2f(-100.f, -100.f));
 		Projetil(const nlohmann::json& dados);
 		~Projetil();
 		const bool estaRelacionado() const;
-		void relacionarChefe(Chefao* pC);
+		void relacionarMonstro(Monstro* pM);
 		void executar();
 		void levitar();
 		void forcar();

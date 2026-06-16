@@ -1,19 +1,19 @@
-#ifndef _CHEFAO_H
-#define _CHEFAO_H
+#ifndef _MONSTRO_H
+#define _MONSTRO_H
 
 #include "Inimigo.h"
 
 namespace Entidades {
 	class Projetil;
-	class Chefao : public Inimigo {
+	class Monstro : public Inimigo {
 	private:
 		short int forca;
 		int cadencia; //tempo entre cada disparo
 		Projetil* pProj;
 	public:
-		Chefao(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0, short int f = 0);
-		Chefao(const nlohmann::json& dados);
-		~Chefao();
+		Monstro(sf::Vector2f p = sf::Vector2f(1400.f, 500.f), int n = 0, short int f = 0);
+		Monstro(const nlohmann::json& dados);
+		~Monstro();
 		void salvar();
 		void executar();
 		void danificar(Jogador* p);
@@ -24,4 +24,4 @@ namespace Entidades {
 	};
 }
 
-#endif  //_CHEFAO_H
+#endif  //_MONSTRO_H

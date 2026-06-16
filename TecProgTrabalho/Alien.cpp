@@ -3,12 +3,12 @@
 #include "Jogador.h"
 
 namespace Entidades {
-	Alien::Alien(sf::Vector2f p, int n, float tam) : Inimigo(p, n), tamanho(tam) {
+	Alien::Alien(sf::Vector2f p, int n, int tam) : Inimigo(p, n), tamanho(tam) {
 		std::cout << "Criando Alien: " << getId() << std::endl;
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
 		pSprite->setPosition(pos);
-		pSprite->setScale(tam * sf::Vector2f(3.5f, 3.5f));
+		pSprite->setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
 	}
 
 	Alien::Alien(const nlohmann::json& dados) : Inimigo(dados), tamanho(dados["tamanho"]) {
@@ -16,7 +16,7 @@ namespace Entidades {
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
 		pSprite->setPosition(pos);
-		pSprite->setScale(tamanho * sf::Vector2f(3.5f, 3.5f));
+		pSprite->setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
 	}
 
 	Alien::~Alien() {
@@ -41,7 +41,9 @@ namespace Entidades {
 	}
 
 	void Alien::danificar(Jogador* p) {
-		*p -= nivel_maldade + (int)tamanho;
+		int dano = (int)(p->getVidas()/9.f * (tamanho + nivel_maldade));
+		if (dano <= 0) dano = 1;
+		*p -= dano;
 	}
 
 	void Alien::mover() {

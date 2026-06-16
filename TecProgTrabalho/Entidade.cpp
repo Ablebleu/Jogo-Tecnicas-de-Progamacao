@@ -54,10 +54,6 @@ namespace Entidades {
 		if (contatoBase) vel +=(sf::Vector2f(0.03f * -vel.x, 0.f));
 	}
 
-	void Entidade::forcar(sf::Vector2f f) {
-		vel += f;
-	}
-
 	void Entidade::setPos(sf::Vector2f p) {
 		pos = p;
 		corpo.setPosition(p);

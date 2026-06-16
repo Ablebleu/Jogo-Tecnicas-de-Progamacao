@@ -6,7 +6,7 @@
 #include "Chao.h"
 #include "Jogador.h"
 #include "ListaEntidades.h"
-#include "Gerenciador_Colisões.h"
+#include "Gerenciador_Colisoes.h"
 #include "Plataforma.h"
 #include "Alien.h"
 

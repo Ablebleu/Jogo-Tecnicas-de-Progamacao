@@ -2,7 +2,7 @@
 #define _ENTIDADE_H
 
 #include "Ente.h"
-#include "Gerenciador_Colisões.h"
+#include "Gerenciador_Colisoes.h"
 #include "json.hpp"
 
 namespace Entidades
@@ -31,7 +31,6 @@ namespace Entidades
 		void arrastar();
 		void atritar();
 		virtual void forcar() = 0;
-		void forcar(sf::Vector2f f);
 		virtual void setPos(sf::Vector2f p);
 		virtual void setVel(sf::Vector2f v);
 		const sf::Vector2f getPos() const;

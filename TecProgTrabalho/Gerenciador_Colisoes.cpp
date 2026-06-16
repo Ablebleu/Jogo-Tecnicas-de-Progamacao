@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "Jogo.h"
-#include "Gerenciador_Colisões.h"
+#include "Gerenciador_Colisoes.h"
 #include "Fase.h"
 #include "Entidade.h"
 #include "Obstaculo.h"

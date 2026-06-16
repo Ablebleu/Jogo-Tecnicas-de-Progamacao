@@ -1,9 +1,9 @@
 #include "Projetil.h"
-#include "Chefao.h"
+#include "Monstro.h"
 #include "Jogador.h"
 
 namespace Entidades {
-	Projetil::Projetil(sf::Vector2f p) : Entidade(), ativo(false), pChef(NULL) {
+	Projetil::Projetil(sf::Vector2f p) : Entidade(), ativo(false), pMons(NULL) {
 		std::cout << "Criando Projetil: " << getId() << std::endl;
 		pGC->incluirProjetil(this);
 
@@ -21,7 +21,7 @@ namespace Entidades {
 	}
 
 	Projetil::Projetil(const nlohmann::json& dados): Entidade(dados),
-		ativo(dados["ativo"]), pChef(NULL) {
+		ativo(dados["ativo"]), pMons(NULL) {
 		std::cout << "Recriando Projetil: " << getId() << std::endl;
 		pGC->incluirProjetil(this);
 
@@ -42,12 +42,12 @@ namespace Entidades {
 	}
 
 	const bool Projetil::estaRelacionado() const {
-		if (!pChef) return false;
+		if (!pMons) return false;
 		return true;
 	}
 
-	void Projetil::relacionarChefe(Chefao* pC) {
-		pChef = pC;
+	void Projetil::relacionarMonstro(Monstro* pM) {
+		pMons = pM;
 	}
 
 	void Projetil::executar() {
@@ -80,7 +80,7 @@ namespace Entidades {
 
 	void Projetil::danificar(Jogador* p) {
 		if (p) {
-			(*p) -= (int)pChef->getForca();
+			(*p) -= (int)pMons->getForca();
 			setAtivo(false);
 		}
 	}
@@ -90,6 +90,7 @@ namespace Entidades {
 		if (a) {
 			corpo.setScale({ 5.0f,5.0f });
 			pSprite->setScale({ 5.0f, 5.0f });
+			pSprite->setPosition(pos);
 		}
 		else {
 			corpo.setScale({ 0.0f,0.0f });

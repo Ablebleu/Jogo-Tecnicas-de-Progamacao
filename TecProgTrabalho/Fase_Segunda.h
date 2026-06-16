@@ -7,10 +7,10 @@ namespace Fases
 {
 	class Fase_Segunda : public Fase {
 	private:
-		const int maxChefoes;
+		const int maxMonstros;
 		const int maxLasers;
 	protected:
-		void criarChefoes();
+		void criarMonstros();
 		void criarLasers();
 		void criarProjeteis();
 		void criarInimigos();

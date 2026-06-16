@@ -60,7 +60,7 @@ namespace Entidades {
 		}
 
 		void Acelerador::obstaculizar(Jogador* p) {
-			static_cast<Entidade*>(p)->forcar({ -10.0f, 0.0f });
+			p->setVel(p->getVel() + sf::Vector2f(-10.f, 0.f));
 		}
 	}
 }

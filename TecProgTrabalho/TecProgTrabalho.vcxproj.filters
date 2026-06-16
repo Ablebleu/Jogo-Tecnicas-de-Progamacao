@@ -105,7 +105,7 @@
     <ClCompile Include="Jogo.cpp">
       <Filter>Arquivos Source</Filter>
     </ClCompile>
-    <ClCompile Include="Gerenciador_Colisões.cpp">
+    <ClCompile Include="Gerenciador_Colisoes.cpp">
       <Filter>Gerenciadores\Arquivos Source</Filter>
     </ClCompile>
     <ClCompile Include="Gerenciador_Grafico.cpp">
@@ -171,7 +171,7 @@
     <ClCompile Include="Alien.cpp">
       <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
     </ClCompile>
-    <ClCompile Include="Chefao.cpp">
+    <ClCompile Include="Monstro.cpp">
       <Filter>Entidades\Personagens\Inimigos\Arquivos Source</Filter>
     </ClCompile>
     <ClCompile Include="Chao.cpp">
@@ -200,7 +200,7 @@
     <ClInclude Include="Jogo.h">
       <Filter>Arquivos Header</Filter>
     </ClInclude>
-    <ClInclude Include="Gerenciador_Colisões.h">
+    <ClInclude Include="Gerenciador_Colisoes.h">
       <Filter>Gerenciadores\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Gerenciador_Eventos.h">
@@ -260,7 +260,7 @@
     <ClInclude Include="Gerenciador_Camera.h">
       <Filter>Gerenciadores\Arquivos Header</Filter>
     </ClInclude>
-    <ClInclude Include="Chefao.h">
+    <ClInclude Include="Monstro.h">
       <Filter>Entidades\Personagens\Inimigos\Arquivos Header</Filter>
     </ClInclude>
     <ClInclude Include="Alien.h">
