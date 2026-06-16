@@ -71,7 +71,7 @@ namespace Fases {
 
 	void Fase_Primeira::criarUFOs() {
 		for (int i = 0; i < maxUFOs; i++) {
-			Entidades::UFO* pUFO1 = new Entidades::UFO(sf::Vector2f(1400.0f + 2500.f / maxUFOs * i, 350.0f+rand()%125* 1.0f), 0, 1.0f);
+			Entidades::UFO* pUFO1 = new Entidades::UFO(sf::Vector2f(1400.0f + 2500.f / maxUFOs * i, 350.0f+rand()%125* 1.0f), 0, (rand()%11)/10.f + 1.f);
 			if (pUFO1) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pUFO1));
 			}			

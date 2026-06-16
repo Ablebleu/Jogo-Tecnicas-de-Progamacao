@@ -30,7 +30,7 @@ namespace Fases {
 
 	void Fase::criarAliens() {
 		for (int i = 0; i < maxAliens; i++) {
-			Entidades::Alien* pAlien = new Entidades::Alien(sf::Vector2f(1200.0f + 3400.f/maxAliens * i, 550.0f), 0, 1.0f);
+			Entidades::Alien* pAlien = new Entidades::Alien(sf::Vector2f(1200.0f + 3400.f/maxAliens * i, 550.0f), 0, (rand()%2) + 1);
 			if (pAlien) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pAlien));
 			}

@@ -6,6 +6,10 @@
 namespace Entidades {
 	UFO::UFO(sf::Vector2f p, int n, float r) : Inimigo(p, n), raio(r), posEixoY(p.y), graus(0) {
 		std::cout << "Criando Alien Medio: " << getId() << std::endl;
+		//hitbox
+		corpo.setSize(sf::Vector2f(16.f, 16.f));
+		corpo.setScale(raio * sf::Vector2f(3.5f, 3.5f));
+		//sprite
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien2.png"));
 		pSprite->setPosition(pos);
 		pSprite->setScale(raio * sf::Vector2f(3.5f, 3.5f));
@@ -14,6 +18,10 @@ namespace Entidades {
 	UFO::UFO(const nlohmann::json& dados) : Inimigo(dados), raio(dados["raio"]), 
 		posEixoY(pos.y), graus(dados["graus"]) {
 		std::cout << "Criando Alien Medio: " << getId() << std::endl;
+		//hitbox
+		corpo.setSize(sf::Vector2f(16.f, 16.f));
+		corpo.setScale(raio * sf::Vector2f(3.5f, 3.5f));
+		//sprite
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien2.png"));
 		pSprite->setPosition(pos);
 		pSprite->setScale(raio * sf::Vector2f(3.5f, 3.5f));

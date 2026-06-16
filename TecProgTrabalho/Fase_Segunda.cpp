@@ -73,7 +73,7 @@ namespace Fases {
 
 	void Fase_Segunda::criarMonstros() {
 		for (int i = 0; i < maxMonstros; i++) {
-			Entidades::Monstro* pMons = new Entidades::Monstro(sf::Vector2f(1200.0f + 2500.f / maxMonstros * i, 300.0f), 0, 1);
+			Entidades::Monstro* pMons = new Entidades::Monstro(sf::Vector2f(1200.0f + 2500.f / maxMonstros * i, 300.0f), 0, rand()%2 + 2);
 			if (pMons) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pMons));
 			}

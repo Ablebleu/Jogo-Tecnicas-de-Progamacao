@@ -5,16 +5,24 @@
 namespace Entidades {
 	Alien::Alien(sf::Vector2f p, int n, int tam) : Inimigo(p, n), tamanho(tam) {
 		std::cout << "Criando Alien: " << getId() << std::endl;
+		//hitbox
+		corpo.setSize(sf::Vector2f(12.0f, 18.0f));
+		corpo.setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
+		//sprite
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
-		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 12,18 }));
 		pSprite->setPosition(pos);
 		pSprite->setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
 	}
 
 	Alien::Alien(const nlohmann::json& dados) : Inimigo(dados), tamanho(dados["tamanho"]) {
 		std::cout << "Criando Alien: " << getId() << std::endl;
+		//hitbox
+		corpo.setSize(sf::Vector2f(12.0f, 18.0f));
+		corpo.setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
+		//sprite
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
-		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
+		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 12,18 }));
 		pSprite->setPosition(pos);
 		pSprite->setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
 	}
@@ -91,6 +99,6 @@ namespace Entidades {
 		Entidade::setPos(p);
 
 		//Sprite
-		pSprite->setPosition(pos + sf::Vector2f(-32.f, -26.f));
+		pSprite->setPosition(pos);
 	}
 }
