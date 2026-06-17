@@ -17,7 +17,6 @@ namespace Lista
 		void salvarEntidades(nlohmann::json& arquivoJson);
 		void incluir(Entidades::Entidade* pE);
 		void desenhar();
-		void retiraEntidadesMortas();
 		void percorrer();
 		void remover(int id);
 		void deletarEntidades();

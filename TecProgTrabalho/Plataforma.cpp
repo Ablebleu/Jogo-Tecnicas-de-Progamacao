@@ -6,21 +6,21 @@ namespace Entidades
 {
     namespace Obstaculos
     {
-        Plataforma::Plataforma(sf::Vector2f p, sf::Vector2f prop) : Obstaculo(), proporcao(prop) {
+        Plataforma::Plataforma(sf::Vector2f p, float l) : Obstaculo(), comprimento(l) {
             std::cout << "Criando plataforma: " << getId() << std::endl;
             pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/Plat_Tileset_1.png"));
             pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 64,32 }));
             pos = p;
             pSprite->setPosition(pos);
-            pSprite->setScale(proporcao * 2.5f);
+            pSprite->setScale(sf::Vector2f(2.5f * comprimento, 2.5f));
         }
 
         Plataforma::Plataforma(const nlohmann::json& dados) : Obstaculo(dados), 
-            proporcao(sf::Vector2f(dados["proporcaox"], dados["proporcaoy"])) {
+            comprimento(dados["comprimento"]) {
             pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/Plat_Tileset_1.png"));
             pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 64,32 }));
             pSprite->setPosition(pos);
-            pSprite->setScale(proporcao * 2.5f);
+            pSprite->setScale(sf::Vector2f(2.5f * comprimento, 2.5f));
         }
 
         Plataforma::~Plataforma() {
@@ -40,8 +40,7 @@ namespace Entidades
         void Plataforma::salvar() {
             Obstaculo::salvarDataBuffer();
             dadosSalvos["tipo"] = "Plataforma";
-            dadosSalvos["proporcaox"] = proporcao.x;
-            dadosSalvos["proporcaoy"] = proporcao.y;
+            dadosSalvos["comprimento"] = comprimento;
         }
 
         void Plataforma::obstaculizar(Jogador* p) {

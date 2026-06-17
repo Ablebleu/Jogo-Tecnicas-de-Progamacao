@@ -14,7 +14,6 @@ namespace Entidades
 		~Alien();
 		void salvar();
 		void executar();
-		void desenhar();
 		void danificar(Jogador* p);
 		void mover();
 		void setPos(sf::Vector2f p);

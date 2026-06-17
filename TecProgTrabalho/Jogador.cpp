@@ -78,11 +78,14 @@ namespace Entidades {
 	}
 
 	void Jogador::executar() {
-		if (frameInv > 0) frameInv--;
-		//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
-		forcar();
-		mover();
-		atacar();
+		if(vivo)
+		{
+			if (frameInv > 0) frameInv--;
+			//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
+			forcar();
+			mover();
+			atacar();
+		}
 	}
 
 	void Jogador::desenhar() {
@@ -99,7 +102,7 @@ namespace Entidades {
 		//pontos += 100;
 		pGG->desenhar(&texto);
 		//Sprite e corpo
-		Entidade::desenhar();
+		Personagem::desenhar();
 	}
 
 	void Jogador::salvar() {

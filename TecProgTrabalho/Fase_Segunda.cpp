@@ -81,7 +81,7 @@ namespace Fases {
 
 	void Fase_Segunda::criarLasers() {
 		for (int i = 0; i < maxLasers; i++) {
-			Entidades::Obstaculos::Laser* pLaser = new Entidades::Obstaculos::Laser(sf::Vector2f(1200.0f + 2500.f / maxLasers * i, -60.0f), 1.0f, 1.5f, 60);
+			Entidades::Obstaculos::Laser* pLaser = new Entidades::Obstaculos::Laser(sf::Vector2f(1200.0f + 2500.f / maxLasers * i, -60.0f), 1.0f, 60);
 			if (pLaser) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pLaser));
 			}
