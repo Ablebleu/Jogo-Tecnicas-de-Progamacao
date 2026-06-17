@@ -49,7 +49,6 @@ namespace Fases {
 	}
 
 	void Fase::executar() {
-		lista_ents.retiraEntidadesMortas();
 		lista_ents.percorrer();
 		if (pGC) {
 			//std::cout << "Indo executar GC" << std::endl;

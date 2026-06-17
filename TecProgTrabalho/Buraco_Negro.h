@@ -19,7 +19,6 @@ namespace Entidades
 		~Buraco_Negro();
 		void salvar();
 		void executar();
-		void desenhar();
 		void forcar();
 		void setPos(sf::Vector2f p);
 		void setJogador(Jogador* pJog);

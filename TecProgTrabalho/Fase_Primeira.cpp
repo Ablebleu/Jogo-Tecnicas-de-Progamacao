@@ -79,7 +79,7 @@ namespace Fases {
 
 	void Fase_Primeira::criarAceleradores() {
 		for (int i = 0; i < maxAcel; i++) {
-			Entidades::Obstaculos::Acelerador* pAcel = new Entidades::Obstaculos::Acelerador(sf::Vector2f(1500.0f+2500.f/maxAcel*i, 550.0f), 7.0f, 7.0f);
+			Entidades::Obstaculos::Acelerador* pAcel = new Entidades::Obstaculos::Acelerador(sf::Vector2f(1500.0f+2500.f/maxAcel*i, 550.0f), rand()%2 + 1.f);
 			if (pAcel) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pAcel));
 			}

@@ -37,15 +37,12 @@ namespace Entidades {
 	}
 
 	void Alien::executar() {
-		//std::cout << "Movendo Alien" << pos.x << " " << pos.y << std::endl;
-		forcar();
-		mover();
-	}
-
-	void Alien::desenhar() {
-		pGG->desenhar(pSprite);
-		//std::cout << "Desenhando Alien" << pos.x << " " << pos.y << std::endl;
-		Entidade::desenhar();
+		if(vivo)
+		{
+			//std::cout << "Movendo Alien" << pos.x << " " << pos.y << std::endl;
+			forcar();
+			mover();
+		}
 	}
 
 	void Alien::danificar(Jogador* p) {

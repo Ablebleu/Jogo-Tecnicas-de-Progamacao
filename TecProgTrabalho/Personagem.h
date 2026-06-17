@@ -24,6 +24,7 @@ namespace Entidades
 		int getVidas() const;
 		bool getVivo() const;
 		void setVivo(bool v);
+		virtual void desenhar();
 		//void ...();
 	};
 }

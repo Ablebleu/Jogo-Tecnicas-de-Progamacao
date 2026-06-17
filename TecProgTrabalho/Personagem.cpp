@@ -61,4 +61,8 @@ namespace Entidades {
 		pulou = false;
 	}
 	*/
+	void Personagem::desenhar() {
+		if(vivo)
+			Entidade::desenhar();
+	}
 }

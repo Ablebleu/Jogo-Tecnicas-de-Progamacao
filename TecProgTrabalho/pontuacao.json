@@ -1,5 +1,9 @@
 [
     {
+        "Nome": "",
+        "pontos": 1000
+    },
+    {
         "Nome": "Arthur",
         "pontos": 500
     },
@@ -13,10 +17,6 @@
     },
     {
         "Nome": "Brazil",
-        "pontos": 400
-    },
-    {
-        "Nome": "Brasil",
         "pontos": 400
     }
 ]

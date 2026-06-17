@@ -65,11 +65,6 @@ namespace Entidades {
 		mover();
 	}
 
-	void Buraco_Negro::desenhar() {
-		pGG->desenhar(pSprite);
-		Entidade::desenhar();
-	}
-
 	void Buraco_Negro::forcar() {
 		gravitar();
 		levitar();

@@ -65,13 +65,18 @@ namespace Entidades {
 	}
 
 	void Monstro::executar() {
-		forcar();
-		mover();
-		atirar();
+		if(vivo)
+		{
+			forcar();
+			mover();
+			atirar();
+		}
 	}
 
 	void Monstro::danificar(Jogador* p) {
 		num_vidas--;
+		if (num_vidas <= 0)
+			setVivo(false);
 		(*p) -= 1;
 	}
 

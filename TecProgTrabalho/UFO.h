@@ -16,7 +16,6 @@ namespace Entidades
 		~UFO();
 		void salvar();
 		void executar();
-		void desenhar();
 		void setPos(sf::Vector2f p);
 		void danificar(Jogador* p);
 		void levitar();
