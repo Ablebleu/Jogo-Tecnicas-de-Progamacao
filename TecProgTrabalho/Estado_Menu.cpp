@@ -16,14 +16,15 @@ namespace Estados {
 	void Estado_Menu::executar() {
 		if (pMenu) {
 			int S = pMenu->getSelecionado();
-			if (S < 0) pGEs->removerEstado(-S+2);
-			else if (S > 0 && S < 4) {
+			if (S < 0) pGEs->removerEstado(-S + 2);
+			else if (S > 0 && S < 3) {
 				pMenu->setAtivo(false);
 				new Estados::Estado_Menu(new Menus::Menu_Intermediario(S));
 				pMenu->setAtivo(true);
 				if (pMenu) pMenu->zeraSelecionado();
 			}
-			else if (S > 10 && S < 14) {
+			else if (S == 3) new Estados::Estado_Fase(3);
+			else if (S > 10 && S < 13) {
 				Menus::Menu_Intermediario* mi = static_cast<Menus::Menu_Intermediario*>(pMenu);
 				if (mi->estaPronto())
 				{
@@ -34,7 +35,7 @@ namespace Estados {
 					if (pMenu) pMenu->zeraSelecionado();
 				}
 			}
-			else if (S > 20 && S < 24) {
+			else if (S > 20 && S < 23) {
 				Menus::Menu_Intermediario* mi = static_cast<Menus::Menu_Intermediario*>(pMenu);
 				if(mi->estaPronto())
 				{

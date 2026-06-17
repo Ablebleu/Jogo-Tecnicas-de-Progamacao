@@ -8,7 +8,6 @@ using nlohmann::json;
 namespace Fases {
 	Fase_Primeira::Fase_Primeira(int nJog, vector<string> nomes) : Fase(nJog, nomes), maxUFOs(rand() % 3 + 3), maxAcel(rand() % 3 + 3) {
 		criarCenario();
-		criarObstaculo();
 		criarInimigos();
 	}
 
@@ -100,6 +99,7 @@ namespace Fases {
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/blue-preview.png"));
 		pSprite->setScale(sf::Vector2f(1.5f, 1.45f));
 		pSprite->setPosition(sf::Vector2f(0.0f, 0.0f));
+		criarObstaculo();
 	}
 
 	void Fase_Primeira::salvar() {
