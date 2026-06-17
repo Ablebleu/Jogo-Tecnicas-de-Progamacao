@@ -68,10 +68,9 @@ namespace Menus {
 						aguardandoLiberarEnter = true; 
 					}
 					else {
-						std::cout << "Nomes confirmados: "
-							<< nomes[0] << " e "
-							<< nomes[1] << std::endl;
-						Selecionado = nFase + 20;
+						std::cout << "Nome(s) confirmado(s): "
+							<< nomes[0] << nomes[1] << std::endl;
+						Selecionado = (modoJogadores == 1) ? (nFase + 10) : (nFase + 20);
 						falta--;
 					}
 				}
