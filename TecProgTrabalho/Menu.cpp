@@ -2,10 +2,12 @@
 #include "Menu.h"
 
 namespace Menus {
-	Menu::Menu() : Ente(), Selecionado(0), lbotoes(), seletor(lbotoes.begin()) {
+	Menu::Menu() : Ente(), Observadores::Observer_Menu(), Selecionado(0), lbotoes(), seletor(lbotoes.begin()) {
 		std::cout << "Criando menu: " << getId() << std::endl;
 		lbotoes.clear();
 		seletor = lbotoes.begin();
+
+		while (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter));
 	}
 
 	Menu::~Menu() {

@@ -2,6 +2,7 @@
 #include "Gerenciador_Estados.h"
 #include "Estado_Menu.h"
 #include "Menu_Inicial.h"
+#include "Menu_Intermediario.h"
 #include "Gerenciador_Estados.h"
 
 namespace Gerenciador {
@@ -10,7 +11,7 @@ namespace Gerenciador {
 		while (!pilhaEstados.empty()) {
 			pilhaEstados.pop();
 		}
-		Estados::Estado::setGE(this);
+		Estados::Estado::setGEs(this);
 		criarMenuInicial();
 	}
 
@@ -48,7 +49,7 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Estados::criarMenuInicial() {
-		Menus::Menu_Inicial* pMenu = new Menus::Menu_Inicial;
+		Menus::Menu* pMenu = new Menus::Menu_Inicial;
 		if (!pMenu) {
 			std::cout << "Erro ao criar pMenu" << std::endl;
 			exit(1);

@@ -6,7 +6,7 @@ namespace Fases {
 	Jogo* Fase::pJogo = nullptr;
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-	Fase::Fase(int nJog) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL) {
+	Fase::Fase(int nJog, vector<string> nomes) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL) {
 		std::cout << "Criando fase: " << getId() << std::endl;
 
 		pJog1 = pJogo->getJogador(1);

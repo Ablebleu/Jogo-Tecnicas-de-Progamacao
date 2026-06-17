@@ -19,7 +19,7 @@ namespace Fases
 		void criarCenario();
 		void salvar();
 	public:
-		Fase_Primeira(int nJog = 1);
+		Fase_Primeira(int nJog = 1, vector<string> nomes = {"", ""});
 		Fase_Primeira(const nlohmann::json& dados);
 		~Fase_Primeira();
 		void executar();

@@ -191,6 +191,7 @@
     <ClCompile Include="Acelerador.cpp" />
     <ClCompile Include="Buraco_Negro.cpp" />
     <ClCompile Include="Chao.cpp" />
+    <ClCompile Include="Menu_Intermediario.cpp" />
     <ClCompile Include="Monstro.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
@@ -208,6 +209,8 @@
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Laser.cpp" />
+    <ClCompile Include="Observer.cpp" />
+    <ClCompile Include="Observer_Menu.cpp" />
     <ClCompile Include="UFO.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
@@ -228,6 +231,7 @@
     <ClInclude Include="Acelerador.h" />
     <ClInclude Include="Buraco_Negro.h" />
     <ClInclude Include="Chao.h" />
+    <ClInclude Include="Menu_Intermediario.h" />
     <ClInclude Include="Monstro.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
@@ -245,6 +249,8 @@
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Alien.h" />
     <ClInclude Include="Laser.h" />
+    <ClInclude Include="Observer.h" />
+    <ClInclude Include="Observer_Menu.h" />
     <ClInclude Include="UFO.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />

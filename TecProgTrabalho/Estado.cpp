@@ -1,11 +1,13 @@
 #include "Estado.h"
 #include "Jogo.h"
 #include "Gerenciador_Estados.h"
+#include "Gerenciador_Eventos.h"
 #include <iostream>
 
 
 namespace Estados {
-	Gerenciador::Gerenciador_Estados* Estado::pGE = nullptr;
+	Gerenciador::Gerenciador_Estados* Estado::pGEs = nullptr;
+	Gerenciador::Gerenciador_Evento* Estado::pGE = nullptr;
 	Jogo* Estado::pJogo = nullptr;
 
 	Estado::Estado() : Ente() {
@@ -18,8 +20,8 @@ namespace Estados {
 	}
 
 	void Estado::incluirEstado() {
-		if (pGE) {
-			pGE->incluirEstado(this);
+		if (pGEs) {
+			pGEs->incluirEstado(this);
 		}
 		else {
 			std::cerr << "Gerenciador de estados não definido!" << std::endl;
@@ -27,7 +29,14 @@ namespace Estados {
 		}
 	}
 
-	void Estado::setGE(Gerenciador::Gerenciador_Estados* p) {
+	void Estado::setGEs(Gerenciador::Gerenciador_Estados* p) {
+		if (p) pGEs = p;
+		else {
+			std::cerr << "Erro setando gerenciador de estados para os estados" << std::endl;
+			exit(1);
+		}
+	}
+	void Estado::setGE(Gerenciador::Gerenciador_Evento* p) {
 		if (p) pGE = p;
 		else {
 			std::cerr << "Erro setando gerenciador de estados para os estados" << std::endl;

@@ -1,13 +1,15 @@
 #ifndef _MENU_H
 #define _MENU_H
 
-#include "Ente.h"
 #include <list>
 #include <SFML/Graphics.hpp>
+#include "Ente.h"
+#include "Observer_Menu.h"
+
 using std::list;
 
 namespace Menus {
-	class Menu : public Ente {
+	class Menu : public Ente, public Observadores::Observer_Menu {
 	protected:
 
 		class Botao {

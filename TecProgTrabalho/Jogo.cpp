@@ -70,7 +70,7 @@ Jogo::~Jogo() {
 */
 void Jogo::executar() {
 	while(GG->janelaAberta()) {
-		GE->executar();
+		//GE->executar();
 		GEs->executar();
 		GG->limparTela();
 		GEs->desenhar();

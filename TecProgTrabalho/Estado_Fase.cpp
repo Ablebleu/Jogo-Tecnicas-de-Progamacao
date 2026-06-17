@@ -5,17 +5,17 @@
 #include <iostream>
 
 namespace Estados {
-	Estado_Fase::Estado_Fase(int n) : Estado(), pFase(nullptr) {
-		switch (n) {
+	Estado_Fase::Estado_Fase(int nf, int nj, vector<string> nomes) : Estado(), pFase(nullptr) {
+		switch (nf) {
 		case 1:
-			pFase = new Fases::Fase_Primeira();
+			pFase = new Fases::Fase_Primeira(nj, nomes);
 			if (!pFase) {
 				std::cerr << "Erro ao criar fase" << std::endl;
 			exit(1);
 			}
 			break;
 		case 2:
-			pFase = new Fases::Fase_Segunda();
+			pFase = new Fases::Fase_Segunda(nj, nomes);
 			if (!pFase) {
 				std::cerr << "Erro ao criar fase" << std::endl;
 				exit(1);

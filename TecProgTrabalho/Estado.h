@@ -4,12 +4,16 @@
 #include "Ente.h"
 
 class Jogo;
-namespace Gerenciador { class Gerenciador_Estados; }
+namespace Gerenciador {
+    class Gerenciador_Estados;
+    class Gerenciador_Evento;
+}
 namespace Estados
 {
     class Estado : public Ente {
     protected:
-        static Gerenciador::Gerenciador_Estados* pGE;
+        static Gerenciador::Gerenciador_Estados* pGEs;
+        static Gerenciador::Gerenciador_Evento* pGE;
         static Jogo* pJogo;
     public:
         Estado();
@@ -19,9 +23,10 @@ namespace Estados
         virtual void desenhar() = 0;
 
         void incluirEstado();
-        static void setGE(Gerenciador::Gerenciador_Estados* p);
+        static void setGEs(Gerenciador::Gerenciador_Estados* p);
+        static void setGE(Gerenciador::Gerenciador_Evento* p);
         static void setJogo(Jogo* p);
-        static Gerenciador::Gerenciador_Estados* getGE() { return pGE; }
+        static Gerenciador::Gerenciador_Estados* getGE() { return pGEs; }
     };
 }
 #endif

@@ -1,12 +1,14 @@
 #include "Gerenciador_Eventos.h"
 #include "Gerenciador_Grafico.h"
+#include "Estado.h"
 #include <iostream>
 
 Gerenciador::Gerenciador_Evento* Gerenciador::Gerenciador_Evento::pEvento = nullptr;
 namespace Gerenciador {
-	Gerenciador_Evento::Gerenciador_Evento() : pGG(nullptr) {
+	Gerenciador_Evento::Gerenciador_Evento() : pGG(nullptr), enterLiberado(true) {
 		std::cout << "Criando Gerenciador de Eventos" << std::endl;
 		pGG = Gerenciador_Grafico::getGerenciador_Grafico();
+		Estados::Estado::setGE(this);
 		if (!pGG) {
 			std::cerr << "Erro ao disponibilizar Gerenciador Gráfico para o Gerenciador Eventos" << std::endl;
 			exit(1);
@@ -18,7 +20,19 @@ namespace Gerenciador {
 			if (evento->is<sf::Event::Closed>()) {
 				pGG->fecharJanela();
 			}
+			if (0/*Observador*/) {
+				/*Observador->processarEvento(evento);*/
+			}
 		}
+
+		if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) {
+			enterLiberado = true;
+		}
+	}
+
+	void Gerenciador_Evento::incluirObservador(/*Observador pObs;*/) {
+		//Observador=pObs;
+		enterLiberado = false;
 	}
 
 	Gerenciador_Evento::~Gerenciador_Evento() {
