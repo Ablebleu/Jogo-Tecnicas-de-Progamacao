@@ -57,11 +57,11 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase(NULL), GEs(NULL) {
 }
 Jogo::~Jogo() {
 	Gerenciador::Gerenciador_Grafico::deletar();
-	Gerenciador::Gerenciador_Evento::deletar();
 	Gerenciador::Gerenciador_Colisoes::deletar();
 	if (GEs) {
 		delete GEs;
 	}
+	Gerenciador::Gerenciador_Evento::deletar();
 }
 
 /*Loop principal do jogo.
@@ -70,7 +70,7 @@ Jogo::~Jogo() {
 */
 void Jogo::executar() {
 	while(GG->janelaAberta()) {
-		//GE->executar();
+		GE->executar();
 		GEs->executar();
 		GG->limparTela();
 		GEs->desenhar();
@@ -89,10 +89,10 @@ void Jogo::deleteJogadores() {
 	}
 }
 
-Entidades::Jogador* Jogo::getJogador(int i) {
+Entidades::Jogador* Jogo::getJogador(int i, string nome) {
 	if (i == 1) {
 		if (pJog1) return pJog1;
-		pJog1 = new Entidades::Jogador(1);
+		pJog1 = new Entidades::Jogador(1, nome);
 		if (!pJog1) {
 			std::cerr << "Erro ao criar Jogador" << std::endl;
 			exit(1);
@@ -101,7 +101,7 @@ Entidades::Jogador* Jogo::getJogador(int i) {
 	}
 	if (i == 2) {
 		if (pJog2) return pJog2;
-		pJog2 = new Entidades::Jogador(2);
+		pJog2 = new Entidades::Jogador(2, nome);
 		if (!pJog2) {
 			std::cerr << "Erro ao criar Jogador" << std::endl;
 			exit(1);

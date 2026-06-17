@@ -3,10 +3,10 @@
 #include "json.hpp"
 
 namespace Entidades {
-	Jogador::Jogador(int i) : Personagem(), Nome(""), pontos(0), ordemJogador(i), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
+	Jogador::Jogador(int i, std::string nome) : Personagem(), Nome(nome), pontos(0), ordemJogador(i), hp(*pGG->carregarTextura("assets/sprites/hp1.png")),
 		tecla_cima(sf::Keyboard::Key::W), tecla_baixo(sf::Keyboard::Key::S),
 		tecla_esquerda(sf::Keyboard::Key::A), tecla_direita(sf::Keyboard::Key::D) {
-		std::cout << "Criando jogador " << ordemJogador << ": " << getId() << std::endl;
+		std::cout << "Criando jogador " << Nome << ordemJogador << ": " << getId() << std::endl;
 
 		//Para jogador 2
 		if (ordemJogador == 2) {

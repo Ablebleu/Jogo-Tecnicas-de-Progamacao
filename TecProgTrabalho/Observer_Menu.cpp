@@ -13,11 +13,11 @@ namespace Observadores
     }
 
     void Observer_Menu::processarEvento(const sf::Event& evento) {
-        if (evento.is<sf::Event::KeyPressed>()) {
-            if (evento.getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::Enter) {
-            }
+        if (const sf::Event::TextEntered* texto = evento.getIf<sf::Event::TextEntered>()) {
+            Observer::evento = evento;
+            executar();
         }
-        if (timerTeclas.getElapsedTime().asSeconds() >= 0.15f) {
+        if (timerTeclas.getElapsedTime().asSeconds() >= 0.05f) {
             Observer::evento = evento;
             executar();
             timerTeclas.restart();

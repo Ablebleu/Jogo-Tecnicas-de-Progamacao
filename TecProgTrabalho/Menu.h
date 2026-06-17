@@ -38,6 +38,7 @@ namespace Menus {
 		virtual void executar();
 		virtual void desenhar();
 		virtual void criarBotoes() = 0;
+		void zeraSelecionado();
 		const int getSelecionado() const;
 	};
 }

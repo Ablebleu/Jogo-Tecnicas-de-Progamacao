@@ -41,6 +41,7 @@ namespace Gerenciador {
 			}
 			else break;
 		}
+		if (pilhaEstados.empty()) criarMenuInicial();
 	}
 	void Gerenciador_Estados::removerEstado() {
 		if (pilhaEstados.top())

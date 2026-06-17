@@ -9,12 +9,12 @@ namespace Fases {
 	Fase::Fase(int nJog, vector<string> nomes) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL) {
 		std::cout << "Criando fase: " << getId() << std::endl;
 
-		pJog1 = pJogo->getJogador(1);
+		pJog1 = pJogo->getJogador(1, nomes[0]);
 		lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1));
 		if (pJog1->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog1->getAtaque()));
 
 		if (nJog == 2) {
-			pJog2 = pJogo->getJogador(2);
+			pJog2 = pJogo->getJogador(2, nomes[1]);
 			lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2));
 			if (pJog2->getAtaque()) lista_ents.incluir(static_cast<Entidades::Entidade*>(pJog2->getAtaque()));
 		}

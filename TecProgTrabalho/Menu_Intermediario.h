@@ -19,8 +19,6 @@ namespace Menus {
 		sf::Text textoTitulo;
 		sf::Text textoNomeInput;
 
-		void processarEvento(const sf::Event& evento);
-
 	public:
 		Menu_Intermediario(int n = 1);
 		~Menu_Intermediario();

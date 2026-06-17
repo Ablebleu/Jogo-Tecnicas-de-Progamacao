@@ -42,6 +42,7 @@ namespace Estados {
 	Estado_Fase::~Estado_Fase() {
 		cout << "Deletando Estado Fase" << endl;
 		if (pFase) delete pFase;
+		pFase = NULL;
 	}
 
 	void Estado_Fase::executar() {

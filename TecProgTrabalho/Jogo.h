@@ -25,7 +25,7 @@ public:
 	~Jogo();
 	void executar();
 	void deleteJogadores();
-	Entidades::Jogador* getJogador(int i = 1);
+	Entidades::Jogador* getJogador(int i = 1, string nome = "");
 	Entidades::Jogador* getJogador(const nlohmann::json& dados);
 };
 

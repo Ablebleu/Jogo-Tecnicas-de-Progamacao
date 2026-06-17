@@ -49,26 +49,30 @@ namespace Menus {
 
 	void Menu::executar() {
 		if (!lbotoes.empty()) {
-			//Navegaação simples para depois mudar no gerenciador de eventos
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)) {
-				if (seletor == lbotoes.end()) seletor = lbotoes.begin();
-				++seletor;
-				if (seletor == lbotoes.end()) seletor = lbotoes.begin();
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)) {
-				if (seletor == lbotoes.begin()) {
-					seletor = lbotoes.end();
-					--seletor;
+			sf::Event::KeyPressed *key = evento.getIf<sf::Event::KeyPressed>();
+			if(key)
+			{
+				if (key->code == (sf::Keyboard::Key::Down)) {
+					if (seletor == lbotoes.end()) seletor = lbotoes.begin();
+					++seletor;
+					if (seletor == lbotoes.end()) seletor = lbotoes.begin();
 				}
-				else {
-					--seletor;
+				if (key->code == (sf::Keyboard::Key::Up)) {
+					if (seletor == lbotoes.begin()) {
+						seletor = lbotoes.end();
+						--seletor;
+					}
+					else {
+						--seletor;
+					}
 				}
-			}
-			/*if (seletor != lbotoes.end())
-				std::cout << "Selecionando " << (*seletor)->getNum() << std::endl;*/
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) {
-				if (seletor != lbotoes.end())
-					Selecionado=(*seletor)->getNum();
+				if (evento.getIf<sf::Event::KeyPressed>()->code == (sf::Keyboard::Key::Enter)) {
+					if (seletor != lbotoes.end()) {
+						std::cout << Selecionado << getId() << std::endl;
+						Selecionado = (*seletor)->getNum();
+						std::cout << Selecionado << getId() << std::endl;
+					}
+				}
 			}
 		}
 	}
@@ -100,6 +104,10 @@ namespace Menus {
 		b = new Botao(t, pGG->getFonte(), i);
 		if (b) lbotoes.push_back(b);
 		else std::cerr << "Erro ao criar botao" << std::endl;
+	}
+
+	void Menu::zeraSelecionado() {
+		Selecionado = 0;
 	}
 
 	const int Menu::getSelecionado() const {

@@ -5,10 +5,12 @@
 
 Gerenciador::Gerenciador_Evento* Gerenciador::Gerenciador_Evento::pEvento = nullptr;
 namespace Gerenciador {
-	Gerenciador_Evento::Gerenciador_Evento() : pGG(nullptr), enterLiberado(true) {
+	Gerenciador_Evento::Gerenciador_Evento() : pGG(nullptr), enterLiberado(true), Observadores() {
 		std::cout << "Criando Gerenciador de Eventos" << std::endl;
+		Observadores.clear();
 		pGG = Gerenciador_Grafico::getGerenciador_Grafico();
 		Estados::Estado::setGE(this);
+		Observadores::Observer::setGE(this);
 		if (!pGG) {
 			std::cerr << "Erro ao disponibilizar Gerenciador Gráfico para o Gerenciador Eventos" << std::endl;
 			exit(1);
@@ -19,9 +21,20 @@ namespace Gerenciador {
 		while (const std::optional<sf::Event> evento = pGG->atualizaEvento()) {
 			if (evento->is<sf::Event::Closed>()) {
 				pGG->fecharJanela();
+				break;
 			}
-			if (0/*Observador*/) {
-				/*Observador->processarEvento(evento);*/
+
+			if (const sf::Event::KeyPressed* key = evento->getIf<sf::Event::KeyPressed>()) {
+				if (!enterLiberado && key->code == sf::Keyboard::Key::Enter) {
+					continue; 
+				}
+			}
+
+			std::vector<Observadores::Observer*>::iterator *it = NULL;
+			for (std::vector<Observadores::Observer*>::iterator it = Observadores.begin(); it != Observadores.end(); ++it) {
+				if (*it && (*it)->getAtivo()) {
+					(*it)->processarEvento(*evento);
+				}
 			}
 		}
 
@@ -30,8 +43,17 @@ namespace Gerenciador {
 		}
 	}
 
-	void Gerenciador_Evento::incluirObservador(/*Observador pObs;*/) {
-		//Observador=pObs;
+	void Gerenciador_Evento::incluirObservador(Observadores::Observer* pObs) {
+		Observadores.push_back(pObs);
+		enterLiberado = false;
+	}
+
+	void Gerenciador_Evento::removerObservador(Observadores::Observer* pObs) {
+		if (pObs) {
+			Observadores.erase(std::remove(Observadores.begin(), Observadores.end(), pObs),
+				Observadores.end());
+		}
+		if (!Observadores.empty()) Observadores.back()->setAtivo(true);
 		enterLiberado = false;
 	}
 
