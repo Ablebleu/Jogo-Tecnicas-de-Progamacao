@@ -27,10 +27,6 @@ namespace Entidades
             std::cout << "Deletando plataforma: " << getId() << std::endl;
         }
 
-        const sf::FloatRect Plataforma::getCorpo() {
-            return pSprite->getGlobalBounds();
-        }
-
         void Plataforma::executar() {
             forcar();
             mover();

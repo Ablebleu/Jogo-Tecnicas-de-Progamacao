@@ -6,6 +6,7 @@ class Fase;
 namespace Menus {
 	Menu_Pontos::Menu_Pontos() : ranking(), rank(5, (*pGG->getFonte())) {
 		ranking.clear();
+		seletor = lbotoes.begin();
 		criarBotoes();
 		std::cout << "Carregando pontuacao.json" << std::endl;
 		std::ifstream file("pontuacao.json");
@@ -40,11 +41,11 @@ namespace Menus {
 				std::cerr << "Entrada invalida ignorada: " << e.what() << std::endl;
 			}
 		}
-		for (int i = 5; ranking.size(); i++) {
-			rank[i].setString(std::to_string(i) + ": " + ranking[i].second + "; Pontuação: " + std::to_string(ranking[i].first));
+		for (int i = 0; i < ranking.size(); i++) {
+			rank[i].setString(std::to_string(i) + ": " + ranking[i].second + "; Pontos: " + std::to_string(ranking[i].first));
 			rank[i].setCharacterSize(36);
 			rank[i].setFillColor(sf::Color::Yellow);
-			rank[i].setPosition(sf::Vector2f(200.f, 100.f + 50.f));
+			rank[i].setPosition(sf::Vector2f(200.f, 100.f + 50.f*i));
 		}
 	}
 
@@ -58,7 +59,7 @@ namespace Menus {
 
 	void Menu_Pontos::desenhar() {
 		Menu::desenhar();
-		for (int i = 5; ranking.size(); i++) {
+		for (int i = 0; i < ranking.size(); i++) {
 			pGG->desenhar(&rank[i]);
 		}
 	}

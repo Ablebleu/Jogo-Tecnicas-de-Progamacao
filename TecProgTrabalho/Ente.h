@@ -17,6 +17,7 @@ public:
 	Ente(int id);
 	virtual ~Ente();
 	virtual void executar() = 0;
+	virtual void desenhar() = 0;
 	sf::Sprite* getSprite();
 	void static setGG(Gerenciador::Gerenciador_Grafico* pG);
 	const int getId() const;
