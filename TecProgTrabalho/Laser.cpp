@@ -37,11 +37,6 @@ namespace Entidades {
 			std::cout << "Deletando laser: " << getId() << std::endl;
 		}
 
-		const sf::FloatRect Laser::getCorpo() {
-			return pSprite->getGlobalBounds();
-		}
-
-
 		void Laser::executar() {
 			cicloOnOff();
 			forcar();

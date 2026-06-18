@@ -15,7 +15,6 @@ namespace Entidades
 			Laser(sf::Vector2f p, float h, int t = 60);
 			Laser(const nlohmann::json& dados);
 			~Laser();
-			const sf::FloatRect getCorpo();
 			void executar();
 			void salvar();
 			void obstaculizar(Jogador* p);

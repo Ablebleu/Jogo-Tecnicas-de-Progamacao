@@ -41,11 +41,6 @@ namespace Entidades {
 			std::cout << "Deletando acelerador: " << getId() << std::endl;
 		}
 
-		const sf::FloatRect Acelerador::getCorpo() {
-			return pSprite->getGlobalBounds();
-		}
-
-
 		void Acelerador::executar() {
 			forcar();
 			mover();

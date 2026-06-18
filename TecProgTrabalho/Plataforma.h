@@ -14,7 +14,6 @@ namespace Entidades
 			Plataforma(sf::Vector2f p, float l = 1.f);
 			Plataforma(const nlohmann::json& dados);
 			~Plataforma();
-			const sf::FloatRect getCorpo();
 			void executar();
 			void salvar();
 			void obstaculizar(Jogador* p);

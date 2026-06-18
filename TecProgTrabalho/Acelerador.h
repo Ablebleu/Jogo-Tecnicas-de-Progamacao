@@ -14,7 +14,6 @@ namespace Entidades
 			Acelerador(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), float acel = 1.f);
 			Acelerador(const nlohmann::json& dados);
 			~Acelerador();
-			const sf::FloatRect getCorpo();
 			void executar();
 			void salvar();
 			void obstaculizar(Jogador* p);

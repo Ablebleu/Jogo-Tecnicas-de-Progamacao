@@ -33,5 +33,9 @@ namespace Entidades
 			arrastar();
 			atritar();
 		}
+
+		const sf::FloatRect Obstaculo::getCorpo() {
+			return pSprite->getGlobalBounds();
+		}
 	}
 }
