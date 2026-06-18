@@ -1,9 +1,7 @@
 #ifndef _MENU_FASE_H
 #define _MENU_FASE_H
-
 #include "Menu.h"
 
-class Fase;
 namespace Menus {
 	class Menu_Fase : public Menu {
 	public:

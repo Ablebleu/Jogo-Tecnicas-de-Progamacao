@@ -89,6 +89,86 @@ void Jogo::deleteJogadores() {
 	}
 }
 
+void Jogo::salvarJogadoresVivos() {
+	std::cout << "Carregando fase do save.json" << std::endl;
+	std::ifstream file("save.json");
+	if (!file.is_open()) {
+		std::cerr << "Erro ao abrir save.json" << std::endl;
+	}
+	nlohmann::json datafase;
+	file >> datafase;
+	file.close();
+	int j = 0;
+	for (int i = 0; i < (int)datafase.size() && j < 2; i++) {
+		std::string tipo = datafase[i]["tipo"];
+		if (tipo == "Jogador") {
+			j++;
+			if (datafase[i]["Vivo"] = true) {
+				nlohmann::json dadosJogador = datafase[i];
+				std::cout << "Carregando pontuacao.json" << std::endl;
+				std::ifstream file("pontuacao.json");
+
+				nlohmann::json data = nlohmann::json::array(); // inicia como array vazio
+
+				if (file.is_open()) {
+					try {
+						file >> data;
+					}
+					catch (const std::exception& e) {
+						std::cerr << "Erro ao parsear JSON: " << e.what() << std::endl;
+						data = nlohmann::json::array(); // reseta para array vazio
+					}
+					file.close();
+				}
+				else {
+					std::cerr << "Arquivo pontuacao.json nao encontrado. Criando novo." << std::endl;
+				}
+
+				if (!data.is_array()) {
+					std::cerr << "Aviso: JSON raiz nao e um array. Resetando." << std::endl;
+					data = nlohmann::json::array();
+				}
+
+				std::vector<std::pair<int, std::string>> pontuacao;
+				for (size_t i = 0; i < data.size(); ++i) {
+					try {
+						int pts = data[i].at("pontos").get<int>();
+						std::string nome = data[i].at("Nome").get<std::string>();
+						pontuacao.push_back({ pts, nome });
+					}
+					catch (const std::exception& e) {
+						std::cerr << "Entrada invalida ignorada: " << e.what() << std::endl;
+					}
+				}
+
+				pontuacao.push_back({ dadosJogador["pontos"], dadosJogador["Nome"]});
+
+				std::sort(pontuacao.begin(), pontuacao.end(), greater<>());
+
+				// Monta o novo ranking (top 5)
+				nlohmann::json ranking = nlohmann::json::array();
+				size_t limite = std::min((size_t)5, pontuacao.size());
+				for (int i = 0; i < std::min(5, (int)pontuacao.size()); ++i) {
+					nlohmann::json player;
+					player["pontos"] = pontuacao[i].first;
+					player["Nome"] = pontuacao[i].second;
+					ranking.push_back(player);
+				}
+
+				std::ofstream file1("pontuacao.json");
+				if (file1.is_open()) {
+					file1 << ranking.dump(4);
+					file1.close();
+					std::cout << "Ranking salvo com sucesso!" << std::endl;
+				}
+				else {
+					std::cerr << "Erro ao salvar o ranking." << std::endl;
+				}
+			}
+		}
+	}
+}
+
 Entidades::Jogador* Jogo::getJogador(int i, string nome) {
 	if (i == 1) {
 		if (pJog1) return pJog1;

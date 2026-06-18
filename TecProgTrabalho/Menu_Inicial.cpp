@@ -27,4 +27,5 @@ void Menu_Inicial::criarBotoes() {
 	adicionaBotao("Nova Fase 1", 1);
 	adicionaBotao("Nova Fase 2", 2);
 	adicionaBotao("Continuar", 3);
+	adicionaBotao("Ranking", 4);
 }

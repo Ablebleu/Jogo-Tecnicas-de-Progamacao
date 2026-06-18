@@ -192,6 +192,7 @@
     <ClCompile Include="Buraco_Negro.cpp" />
     <ClCompile Include="Chao.cpp" />
     <ClCompile Include="Menu_Intermediario.cpp" />
+    <ClCompile Include="Menu_Pontos.cpp" />
     <ClCompile Include="Monstro.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="Buraco_Negro.h" />
     <ClInclude Include="Chao.h" />
     <ClInclude Include="Menu_Intermediario.h" />
+    <ClInclude Include="Menu_Pontos.h" />
     <ClInclude Include="Monstro.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
@@ -267,6 +269,7 @@
   <ItemGroup>
     <None Include="pontuacao.json" />
     <None Include="save.json" />
+    <None Include="temp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,7 +10,6 @@ namespace Gerenciador {
 		Observadores.clear();
 		pGG = Gerenciador_Grafico::getGerenciador_Grafico();
 		Estados::Estado::setGE(this);
-		Observadores::Observer::setGE(this);
 		if (!pGG) {
 			std::cerr << "Erro ao disponibilizar Gerenciador Gráfico para o Gerenciador Eventos" << std::endl;
 			exit(1);
@@ -21,20 +20,9 @@ namespace Gerenciador {
 		while (const std::optional<sf::Event> evento = pGG->atualizaEvento()) {
 			if (evento->is<sf::Event::Closed>()) {
 				pGG->fecharJanela();
-				break;
 			}
-
-			if (const sf::Event::KeyPressed* key = evento->getIf<sf::Event::KeyPressed>()) {
-				if (!enterLiberado && key->code == sf::Keyboard::Key::Enter) {
-					continue;
-				}
-			}
-
-			std::vector<Observadores::Observer*>::iterator *it = NULL;
-			for (std::vector<Observadores::Observer*>::iterator it = Observadores.begin(); it != Observadores.end(); ++it) {
-				if (*it && (*it)->getAtivo()) {
-					(*it)->processarEvento(*evento);
-				}
+			if (0/*Observador*/) {
+				/*Observador->processarEvento(evento);*/
 			}
 		}
 
@@ -53,8 +41,6 @@ namespace Gerenciador {
 			Observadores.erase(std::remove(Observadores.begin(), Observadores.end(), pObs),
 				Observadores.end());
 		}
-		if (!Observadores.empty()) Observadores.back()->setAtivo(true);
-		enterLiberado = false;
 	}
 
 	Gerenciador_Evento::~Gerenciador_Evento() {

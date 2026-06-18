@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Gerenciador_Estados.h"
 #include "Menu_Intermediario.h"
+#include "Menu_Pontos.h"
 #include "Estado_Menu.h"
 #include "Estado_Fase.h"
 
@@ -24,6 +25,7 @@ namespace Estados {
 				if (pMenu) pMenu->zeraSelecionado();
 			}
 			else if (S == 3) new Estados::Estado_Fase(3);
+			else if (S == 4) new Estados::Estado_Menu(new Menus::Menu_Pontos());
 			else if (S > 10 && S < 13) {
 				Menus::Menu_Intermediario* mi = static_cast<Menus::Menu_Intermediario*>(pMenu);
 				if (mi->estaPronto())

@@ -8,6 +8,7 @@ namespace Estados {
 	Estado_Fase::Estado_Fase(int nf, int nj, vector<string> nomes) : Estado(), pFase(nullptr) {
 		switch (nf) {
 		case 1:
+			pJogo->salvarJogadoresVivos();
 			pFase = new Fases::Fase_Primeira(nj, nomes);
 			if (!pFase) {
 				std::cerr << "Erro ao criar fase" << std::endl;
@@ -15,6 +16,7 @@ namespace Estados {
 			}
 			break;
 		case 2:
+			pJogo->salvarJogadoresVivos();
 			pFase = new Fases::Fase_Segunda(nj, nomes);
 			if (!pFase) {
 				std::cerr << "Erro ao criar fase" << std::endl;

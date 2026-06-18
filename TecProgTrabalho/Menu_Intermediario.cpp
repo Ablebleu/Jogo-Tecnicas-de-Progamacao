@@ -9,7 +9,6 @@ namespace Menus {
 		textoTitulo(*pGG->getFonte()), textoNomeInput(*pGG->getFonte())
 	{
 		criarBotoes();
-		seletor = lbotoes.begin();
 
 		textoTitulo.setCharacterSize(36);
 		textoTitulo.setFillColor(sf::Color::Yellow);

@@ -192,6 +192,18 @@
     <ClCompile Include="Fase_Segunda.cpp">
       <Filter>Fases\Arquivos Source</Filter>
     </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer_Menu.cpp">
+      <Filter>Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Intermediario.cpp">
+      <Filter>Menus\Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu_Pontos.cpp">
+      <Filter>Menus\Arquivos Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ente.h">
@@ -290,9 +302,25 @@
     <ClInclude Include="Fase_Segunda.h">
       <Filter>Fases\Arquivos Header</Filter>
     </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer_Menu.h">
+      <Filter>Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Intermediario.h">
+      <Filter>Menus\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu_Pontos.h">
+      <Filter>Menus\Arquivos Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="save.json">
+      <Filter>save</Filter>
+    </None>
+    <None Include="temp" />
+    <None Include="pontuacao.json">
       <Filter>save</Filter>
     </None>
   </ItemGroup>
