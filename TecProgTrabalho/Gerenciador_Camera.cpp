@@ -21,9 +21,8 @@ namespace Gerenciador {
     }
 
     void Gerenciador_Camera::resetar() {
-		tamJanela = sf::Vector2f(1200.f, 875.f);
-        camera = sf::View(sf::FloatRect(sf::Vector2f(0.f, 0.f), sf::Vector2f(tamJanela.x, tamJanela.y)));
-		limiteCamera = sf::FloatRect(sf::Vector2f(0.f, 0.f), sf::Vector2f(tamJanela.x, tamJanela.y));
+        std::cout << this;
+        atualizar(sf::Vector2f(tamJanela.x * 0.f, tamJanela.y * 0.f));
     }
 
     void Gerenciador_Camera::atualizar(sf::Vector2f pos) {

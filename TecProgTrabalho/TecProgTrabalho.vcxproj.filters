@@ -212,9 +212,6 @@
     <ClInclude Include="Jogo.h">
       <Filter>Arquivos Header</Filter>
     </ClInclude>
-    <ClInclude Include="Gerenciador_Colisoes.h">
-      <Filter>Gerenciadores\Arquivos Header</Filter>
-    </ClInclude>
     <ClInclude Include="Gerenciador_Eventos.h">
       <Filter>Gerenciadores\Arquivos Header</Filter>
     </ClInclude>
@@ -313,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="Menu_Pontos.h">
       <Filter>Menus\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Gerenciador_Colisoes.h">
+      <Filter>Gerenciadores\Arquivos Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

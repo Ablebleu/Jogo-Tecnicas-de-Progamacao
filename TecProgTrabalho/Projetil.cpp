@@ -38,7 +38,7 @@ namespace Entidades {
 	}
 
 	Projetil::~Projetil() {
-
+		pGC->removerProjetil(this);
 	}
 
 	const bool Projetil::estaRelacionado() const {

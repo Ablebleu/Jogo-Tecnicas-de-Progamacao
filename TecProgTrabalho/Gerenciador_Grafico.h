@@ -30,6 +30,7 @@ namespace Gerenciador {
 		void desenhar(sf::RectangleShape* corpo);
 		void desenhar(sf::Sprite* sprite);
 		void desenhar(sf::Drawable* drawable);
+		void resetarView();
 		void atualizarView(const sf::Vector2f pos);
 		std::optional<sf::Event> atualizaEvento();
 		const sf::Vector2f getTamJanela() const;

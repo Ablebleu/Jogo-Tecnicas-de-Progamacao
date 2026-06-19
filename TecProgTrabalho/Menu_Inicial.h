@@ -5,10 +5,8 @@
 
 namespace Menus {
 	class Menu_Inicial : public Menu {
-	private:
-		Menu* pMenu;
 	public:
-		Menu_Inicial(Menu* pM = NULL);
+		Menu_Inicial();
 		~Menu_Inicial();
 
 		void executar();

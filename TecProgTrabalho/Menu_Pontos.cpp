@@ -59,12 +59,12 @@ namespace Menus {
 
 	void Menu_Pontos::desenhar() {
 		Menu::desenhar();
-		for (int i = 0; i < ranking.size(); i++) {
+		for (int i = 0; i < (int)ranking.size(); i++) {
 			pGG->desenhar(&rank[i]);
 		}
 	}
 
 	void Menu_Pontos::criarBotoes() {
-		adicionaBotao("Voltar", -1);
+		adicionaBotao("Voltar", -2);
 	}
 }

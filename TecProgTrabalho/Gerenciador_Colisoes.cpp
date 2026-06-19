@@ -13,9 +13,7 @@ Gerenciador::Gerenciador_Colisoes* Gerenciador::Gerenciador_Colisoes::pColisoes 
 namespace Gerenciador {
 	Gerenciador_Colisoes::Gerenciador_Colisoes() : pJogo(NULL), LIs(), LOs(), LPs(), pJog1(NULL), pJog2(NULL) {
 		std::cout << "Criando Gerenciador de Colisões" << std::endl;
-		LIs.clear();
-		LOs.clear();
-		LPs.clear();
+		limpar();
 		Fases::Fase::setGC(this);
 		Entidades::Entidade::setGC(this);
 	}
@@ -40,6 +38,32 @@ namespace Gerenciador {
 	void Gerenciador_Colisoes::incluirProjetil(Entidades::Projetil* pj) {
 		if (pj) LPs.insert(pj);
 		else std::cerr << "Projétil nulo" << endl;
+	}
+
+	void Gerenciador_Colisoes::removerInimigo(Entidades::Inimigo* pi) {
+		if (!pi) return;
+		auto it = std::find(LIs.begin(), LIs.end(), pi);
+		if (it != LIs.end()) {
+			LIs.erase(it);
+		}
+	}
+
+	void Gerenciador_Colisoes::removerObstaculo(Entidades::Obstaculos::Obstaculo* po) {
+		if (!po) return;
+		for (auto it = LOs.begin(); it != LOs.end(); ++it) {
+			if (*it == po) {
+				LOs.erase(it);
+				return;
+			}
+		}
+	}
+
+	void Gerenciador_Colisoes::removerProjetil(Entidades::Projetil* pj) {
+		if (!pj) return;
+		auto it = LPs.find(pj);
+		if (it != LPs.end()) {
+			LPs.erase(it);
+		}
 	}
 
 	Entidades::Projetil* Gerenciador_Colisoes::getProjetil(int id) {
@@ -70,6 +94,8 @@ namespace Gerenciador {
 		LIs.clear();
 		LOs.clear();
 		LPs.clear();
+		pJog1 = NULL;
+		pJog2 = NULL;
 	}
 
 	const bool Gerenciador_Colisoes::verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const {

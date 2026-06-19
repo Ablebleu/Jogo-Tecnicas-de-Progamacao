@@ -232,6 +232,7 @@
     <ClInclude Include="Acelerador.h" />
     <ClInclude Include="Buraco_Negro.h" />
     <ClInclude Include="Chao.h" />
+    <ClInclude Include="Gerenciador_Colisoes.h" />
     <ClInclude Include="Menu_Intermediario.h" />
     <ClInclude Include="Menu_Pontos.h" />
     <ClInclude Include="Monstro.h" />
@@ -244,7 +245,6 @@
     <ClInclude Include="Fase_Primeira.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Gerenciador_Camera.h" />
-    <ClInclude Include="Gerenciador_Colisoes.h" />
     <ClInclude Include="Gerenciador_Estados.h" />
     <ClInclude Include="Gerenciador_Eventos.h" />
     <ClInclude Include="Gerenciador_Grafico.h" />

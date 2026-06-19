@@ -3,7 +3,7 @@
 using Menus::Menu_Inicial;
 
 
-Menu_Inicial::Menu_Inicial(Menu* pM) : Menu(), pMenu(pM) {
+Menu_Inicial::Menu_Inicial() : Menu() {
 	criarBotoes();
 	seletor = lbotoes.begin();
 

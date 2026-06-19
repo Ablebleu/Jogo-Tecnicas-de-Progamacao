@@ -14,7 +14,9 @@ namespace Fases {
 
 	Fase_Primeira::Fase_Primeira(const nlohmann::json& dados) : Fase(dados),
 		maxUFOs(dados[0]["maxUFOs"]), maxAcel(dados[0]["maxAcel"]) {
-		criarCenario();
+		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/blue-preview.png"));
+		pSprite->setScale(sf::Vector2f(1.5f, 1.45f));
+		pSprite->setPosition(sf::Vector2f(0.0f, 0.0f));
 		for(int i = 1; i < (int)dados.size(); i++) {
 			std::string tipo = dados[i]["tipo"];
 			if (tipo == "Plataforma") {

@@ -14,7 +14,7 @@ namespace Entidades
 		}
 
 		Obstaculo::~Obstaculo() {
-
+			pGC->removerObstaculo(this);
 		}
 
 		void Obstaculo::salvarDataBuffer() {

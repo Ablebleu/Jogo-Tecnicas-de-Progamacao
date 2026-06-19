@@ -94,6 +94,11 @@ namespace Gerenciador {
 		}
 	}
 
+	void Gerenciador_Grafico::resetarView() {
+		std::cout << "Reset";
+		camera.resetar();
+	}
+
 	void Gerenciador_Grafico::atualizarView(sf::Vector2f pos) {
 		camera.atualizar(pos);
 		if (janela) janela->setView(camera.getCamera());

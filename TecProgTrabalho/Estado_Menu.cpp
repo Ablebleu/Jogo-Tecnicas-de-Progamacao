@@ -17,7 +17,7 @@ namespace Estados {
 	void Estado_Menu::executar() {
 		if (pMenu) {
 			int S = pMenu->getSelecionado();
-			if (S < 0) pGEs->removerEstado(-S + 2);
+			if (S < 0) pGEs->removerEstado(-S);
 			else if (S > 0 && S < 3) {
 				pMenu->setAtivo(false);
 				new Estados::Estado_Menu(new Menus::Menu_Intermediario(S));
@@ -53,6 +53,9 @@ namespace Estados {
 		else std::cerr << "Menu nulo" << std::endl;
 	}
 	void Estado_Menu::desenhar() {
+		if (pGG) {
+			pGG->atualizarView(sf::Vector2f(pGG->getTamJanela().x * 0.5f, pGG->getTamJanela().y * 0.5f));
+		}
 		if (pMenu) pMenu->desenhar();
 		else std::cerr << "Menu nulo" << std::endl;
 	}

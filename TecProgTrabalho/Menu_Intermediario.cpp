@@ -26,7 +26,7 @@ namespace Menus {
 	void Menu_Intermediario::criarBotoes() {
 		adicionaBotao("1 Jogador", 11);
 		adicionaBotao("2 Jogadores", 12);
-		adicionaBotao("Voltar", -1);
+		adicionaBotao("Voltar", -2);
 	}
 
 	void Menu_Intermediario::executar() {

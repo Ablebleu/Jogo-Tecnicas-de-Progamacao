@@ -14,6 +14,7 @@ namespace Entidades {
 
 	Inimigo::~Inimigo() {
 		nivel_maldade = 0;
+		pGC->removerInimigo(this);
 	}
 
 	void Inimigo::salvarDataBuffer() {

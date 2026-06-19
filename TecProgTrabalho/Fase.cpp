@@ -1,4 +1,5 @@
 #include <cmath>
+#include <SFML/Graphics.hpp>
 #include "Jogo.h"
 #include "Fase.h"
 
@@ -6,7 +7,7 @@ namespace Fases {
 	Jogo* Fase::pJogo = nullptr;
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-	Fase::Fase(int nJog, vector<string> nomes) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL), faseAcabou(0) {
+	Fase::Fase(int nJog, vector<string> nomes) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL), faseAcabou(0), pausa(false) {
 		std::cout << "Criando fase: " << getId() << std::endl;
 
 		pJog1 = pJogo->getJogador(1, nomes[0]);
@@ -21,12 +22,23 @@ namespace Fases {
 	}
 
 	Fase::Fase(const nlohmann::json& dados) : Ente(dados[0]["id"]),
-		maxAliens(dados[0]["maxAliens"]), maxPlat(dados[0]["maxPlat"]), chao(), pJog1(NULL), pJog2(NULL), faseAcabou(0) {
+		maxAliens(dados[0]["maxAliens"]), maxPlat(dados[0]["maxPlat"]), chao(), pJog1(NULL), pJog2(NULL), faseAcabou(0), pausa(false) {
 
 	}
 
 	Fase::~Fase() {
 		std::cout << "Deletando fase: " << getId() << std::endl;
+		pGC->limpar();
+		if (pJog1)
+		{
+			lista_ents.remover(pJog1->getId());
+			lista_ents.remover(pJog1->getId() + 1);//ataque jog1
+		}
+		if (pJog2)
+		{
+			lista_ents.remover(pJog2->getId());
+			lista_ents.remover(pJog2->getId() + 1);//ataque jog2
+		}
 		lista_ents.deletarEntidades();
 	}
 
@@ -49,6 +61,8 @@ namespace Fases {
 	}
 
 	void Fase::executar() {
+		pausa = false;
+		moverCamera();
 		lista_ents.percorrer();
 		if (pGC) {
 			//std::cout << "Indo executar GC" << std::endl;
@@ -57,6 +71,10 @@ namespace Fases {
 		}
 		else std::cerr << "Nenhuma GC para ser executada" << std::endl;
 		moverCamera();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
+			pausa = true;
+		}
 	}
 
 	void Fase::moverCamera() {
@@ -103,7 +121,11 @@ namespace Fases {
 		else std::cerr << "GC não incluido na fase." << std::endl;
 	}
 	
-	int Fase::getAcabou() {
+	const int Fase::getAcabou() const {
 		return faseAcabou;
+	}
+
+	const bool Fase::getPause() const {
+		return pausa;
 	}
 }

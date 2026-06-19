@@ -12,6 +12,7 @@ namespace Estados
 {
     class Estado : public Ente {
     protected:
+        static Gerenciador::Gerenciador_Grafico* pGG;
         static Gerenciador::Gerenciador_Estados* pGEs;
         static Gerenciador::Gerenciador_Evento* pGE;
         static Jogo* pJogo;

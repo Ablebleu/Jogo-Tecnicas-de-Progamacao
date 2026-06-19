@@ -47,6 +47,9 @@ namespace Gerenciador {
 		void incluirInimigo(Entidades::Inimigo *pi);
 		void incluirObstaculo(Entidades::Obstaculos::Obstaculo *po);
 		void incluirProjetil(Entidades::Projetil *pj);
+		void removerInimigo(Entidades::Inimigo* pi);
+		void removerObstaculo(Entidades::Obstaculos::Obstaculo* po);
+		void removerProjetil(Entidades::Projetil* pj);
 		Entidades::Projetil *getProjetil(int id);
 		Entidades::Projetil *getProjetilUnico();
 		void executar();

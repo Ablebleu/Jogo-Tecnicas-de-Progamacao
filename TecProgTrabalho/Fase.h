@@ -18,6 +18,7 @@ namespace Fases
 	protected: 
 		static Jogo* pJogo;
 		int faseAcabou; //0 = não acabou, _1 = acabou a fase 1, _2 = acabou a fase 2, 1_ = 1 jogador, 2_ = 2 jogadores.
+		bool pausa;
 
 		const int maxAliens;
 		const int maxPlat;
@@ -48,7 +49,8 @@ namespace Fases
 		virtual void salvar() = 0;
 		static void setJogo(Jogo* pJ);
 		static void setGC(Gerenciador::Gerenciador_Colisoes* pG);
-		int getAcabou();
+		const int getAcabou() const;
+		const bool getPause() const;
 	};
 }
 #endif  

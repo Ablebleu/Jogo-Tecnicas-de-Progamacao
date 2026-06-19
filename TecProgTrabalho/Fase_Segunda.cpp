@@ -18,7 +18,9 @@ namespace Fases {
 
 	Fase_Segunda::Fase_Segunda(const nlohmann::json& dados) : Fase(dados), 
 		maxMonstros(dados[0]["maxMonstros"]), maxLasers(dados[0]["maxLasers"]) {
-		criarCenario();
+		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/red-preview.png"));
+		pSprite->setScale(sf::Vector2f(5.0f, 5.43f));
+		pSprite->setPosition(sf::Vector2f(0.0f, 0.0f));
 		for (int i = 1; i < (int)dados.size(); i++) {
 			std::string tipo = dados[i]["tipo"];
 			if (tipo == "Plataforma") {

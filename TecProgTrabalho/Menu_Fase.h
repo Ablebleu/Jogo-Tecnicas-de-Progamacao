@@ -1,6 +1,8 @@
 #ifndef _MENU_FASE_H
 #define _MENU_FASE_H
+
 #include "Menu.h"
+#include "Gerenciador_Grafico.h"
 
 namespace Menus {
 	class Menu_Fase : public Menu {

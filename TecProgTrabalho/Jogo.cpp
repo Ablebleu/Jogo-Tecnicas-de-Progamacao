@@ -56,11 +56,11 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase(NULL), GEs(NULL) {
 	executar(); 
 }
 Jogo::~Jogo() {
-	Gerenciador::Gerenciador_Grafico::deletar();
-	Gerenciador::Gerenciador_Colisoes::deletar();
 	if (GEs) {
 		delete GEs;
 	}
+	Gerenciador::Gerenciador_Grafico::deletar();
+	Gerenciador::Gerenciador_Colisoes::deletar();
 	Gerenciador::Gerenciador_Evento::deletar();
 }
 

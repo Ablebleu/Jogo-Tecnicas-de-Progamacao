@@ -2,6 +2,8 @@
 #include "Estado_Fase.h"
 #include "Fase_Primeira.h"
 #include "Fase_Segunda.h"
+#include "Estado_Menu.h"
+#include "Menu_Fase.h"
 #include <iostream>
 
 namespace Estados {
@@ -45,6 +47,7 @@ namespace Estados {
 		cout << "Deletando Estado Fase" << endl;
 		if (pFase) delete pFase;
 		pFase = NULL;
+		pJogo->deleteJogadores();
 	}
 
 	void Estado_Fase::executar() {
@@ -61,6 +64,11 @@ namespace Estados {
 				else if (faseAcabou%10 == 2) {
 					cout << "Parabens, voce venceu!" << endl;
 				}
+			}
+			bool pausa = pFase->getPause();
+			if (pausa) {
+				Menus::Menu_Fase *pMenu = new Menus::Menu_Fase;
+				if (pMenu) new Estados::Estado_Menu(pMenu);
 			}
 		}
 		else {
