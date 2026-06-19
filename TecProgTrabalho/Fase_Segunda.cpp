@@ -125,9 +125,24 @@ namespace Fases {
 		Fase::executar();
 		if (pJog1 && pJog2 && (pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f || pJog2->getPos().x >= pGG->getTamJanela().x * 4.5f)) {
 			faseAcabou = 22;
+			if(pJog1->getVivo())
+			{
+				pJog1->addPontos(500);
+				(*pJog1) -= pJog1->getVidas();
+			}
+			if (pJog2->getVivo())
+			{
+				pJog2->addPontos(500);
+				(*pJog2) -= pJog2->getVidas();
+			}
 		}
 		else if (pJog1 && pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f) {
 			faseAcabou = 12;
+			if (pJog1->getVivo())
+			{
+				pJog1->addPontos(500);
+				(*pJog1) -= pJog1->getVidas();
+			}
 		}
 	}
 
