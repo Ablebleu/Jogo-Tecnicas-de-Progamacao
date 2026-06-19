@@ -6,8 +6,8 @@ class Fase;
 namespace Menus {
 	Menu_Pontos::Menu_Pontos() : ranking(), rank(5, (*pGG->getFonte())) {
 		ranking.clear();
-		seletor = lbotoes.begin();
 		criarBotoes();
+		seletor = lbotoes.begin();
 		std::cout << "Carregando pontuacao.json" << std::endl;
 		std::ifstream file("pontuacao.json");
 		nlohmann::json data = nlohmann::json::array(); // inicia como array vazio

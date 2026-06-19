@@ -50,6 +50,7 @@ namespace Gerenciador {
 		Entidades::Projetil *getProjetil(int id);
 		Entidades::Projetil *getProjetilUnico();
 		void executar();
+		void limpar();
 		void tratarColisoesChaoEntidades(Fases::Chao &c);
 
 		void setJogo(Jogo *p);

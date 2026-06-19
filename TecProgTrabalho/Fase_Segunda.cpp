@@ -7,6 +7,11 @@
 using nlohmann::json;
 namespace Fases {
 	Fase_Segunda::Fase_Segunda(int nJog, vector<string> nomes) : Fase(nJog, nomes), maxMonstros(rand()%3+3), maxLasers(rand()%3+3) {
+		//caso venha da fase 1
+		pGG->atualizarView(sf::Vector2f(pGG->getTamJanela() * 0.5f));
+		if (pJog1) pJog1->setPos(sf::Vector2f(100.0f, 500.0f));
+		if (pJog2) pJog2->setPos(sf::Vector2f(100.0f, 550.0f));
+
 		criarCenario();
 		criarInimigos();
 	}
@@ -118,6 +123,12 @@ namespace Fases {
 
 	void Fase_Segunda::executar() {
 		Fase::executar();
+		if (pJog1 && pJog2 && (pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f || pJog2->getPos().x >= pGG->getTamJanela().x * 4.5f)) {
+			faseAcabou = 22;
+		}
+		else if (pJog1 && pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f) {
+			faseAcabou = 12;
+		}
 	}
 
 	void Fase_Segunda::salvar() {

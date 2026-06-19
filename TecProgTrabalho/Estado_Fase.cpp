@@ -48,7 +48,21 @@ namespace Estados {
 	}
 
 	void Estado_Fase::executar() {
-		if (pFase) pFase->executar();
+		if (pFase)
+		{
+			pFase->executar();
+			int faseAcabou = pFase->getAcabou();
+			if (faseAcabou) {
+				if (faseAcabou%10 == 1) {
+					delete pFase;
+					Gerenciador::Gerenciador_Colisoes::getGerenciador_Colisoes()->limpar();
+					pFase = new Fases::Fase_Segunda(faseAcabou/10);
+				}
+				else if (faseAcabou%10 == 2) {
+					cout << "Parabens, voce venceu!" << endl;
+				}
+			}
+		}
 		else {
 			std::cerr << "Sem fase" << std::endl;
 			exit(1);

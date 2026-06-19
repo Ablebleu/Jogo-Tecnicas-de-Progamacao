@@ -6,7 +6,7 @@ namespace Fases {
 	Jogo* Fase::pJogo = nullptr;
 	Gerenciador::Gerenciador_Colisoes* Fase::pGC = nullptr;
 
-	Fase::Fase(int nJog, vector<string> nomes) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL) {
+	Fase::Fase(int nJog, vector<string> nomes) : Ente(), maxAliens(rand() % 17 + 3), maxPlat(rand() % 5 + 3), chao(), pJog1(NULL), pJog2(NULL), faseAcabou(0) {
 		std::cout << "Criando fase: " << getId() << std::endl;
 
 		pJog1 = pJogo->getJogador(1, nomes[0]);
@@ -21,7 +21,7 @@ namespace Fases {
 	}
 
 	Fase::Fase(const nlohmann::json& dados) : Ente(dados[0]["id"]),
-		maxAliens(dados[0]["maxAliens"]), maxPlat(dados[0]["maxPlat"]), chao(), pJog1(NULL), pJog2(NULL) {
+		maxAliens(dados[0]["maxAliens"]), maxPlat(dados[0]["maxPlat"]), chao(), pJog1(NULL), pJog2(NULL), faseAcabou(0) {
 
 	}
 
@@ -62,21 +62,21 @@ namespace Fases {
 	void Fase::moverCamera() {
 		if (pJog1 && pJog2 && pJog1->getVidas() && pJog2->getVidas()) {
 			sf::Vector2f posJog = 0.5f * (pJog1->getPos() + pJog2->getPos());
-			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
+			pGG->atualizarView(sf::Vector2f(std::fmin(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f), pGG->getTamJanela().x * 4.f),
 				pGG->getTamJanela().y * 0.5f));
-			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
+			pSprite->setPosition(sf::Vector2f(std::fmin(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), pGG->getTamJanela().x * 3.5f), 0.0f));
 		}
 		else if (pJog1 && pJog1->getVidas()) {
 			sf::Vector2f posJog = pJog1->getPos();
-			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
+			pGG->atualizarView(sf::Vector2f(std::fmin(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f), pGG->getTamJanela().x * 4.f),
 				pGG->getTamJanela().y * 0.5f));
-			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
+			pSprite->setPosition(sf::Vector2f(std::fmin(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), pGG->getTamJanela().x * 3.5f), 0.0f));
 		}
 		else if (pJog2 && pJog2->getVidas()) {
 			sf::Vector2f posJog = pJog2->getPos();
-			pGG->atualizarView(sf::Vector2f(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f),
+			pGG->atualizarView(sf::Vector2f(std::fmin(std::fmax(posJog.x, pGG->getTamJanela().x * 0.5f), pGG->getTamJanela().x * 4.f),
 				pGG->getTamJanela().y * 0.5f));
-			pSprite->setPosition(sf::Vector2f(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f));
+			pSprite->setPosition(sf::Vector2f(std::fmin(std::fmax(posJog.x - pGG->getTamJanela().x * 0.5f, 0.0f), pGG->getTamJanela().x * 3.5f), 0.0f));
 		}
 	}
 
@@ -103,7 +103,7 @@ namespace Fases {
 		else std::cerr << "GC não incluido na fase." << std::endl;
 	}
 	
-	/*void Fase::salvar() {
-
-	}*/
+	int Fase::getAcabou() {
+		return faseAcabou;
+	}
 }

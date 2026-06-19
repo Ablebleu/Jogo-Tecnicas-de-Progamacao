@@ -66,6 +66,12 @@ namespace Gerenciador {
 		tratarColisoesJogsProjeteis();
 	}
 
+	void Gerenciador_Colisoes::limpar() {
+		LIs.clear();
+		LOs.clear();
+		LPs.clear();
+	}
+
 	const bool Gerenciador_Colisoes::verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const {
 		//std::cout << "Checando se há colisão" << std::endl;
 		return (const bool)pe1->getCorpo().findIntersection(pe2->getCorpo()).has_value();

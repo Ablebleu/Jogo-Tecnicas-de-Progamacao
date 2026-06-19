@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "Fase_Primeira.h"
+#include "Estado_Fase.h"
 #include "Acelerador.h"
 #include "UFO.h"
 #include "Jogo.h"
@@ -61,11 +62,29 @@ namespace Fases {
 	}
 
 	Fase_Primeira::~Fase_Primeira() {
+		if (faseAcabou) {//mantem para a fase 2
+			if(pJog1)
+			{
+				lista_ents.remover(pJog1->getId());
+				lista_ents.remover(pJog1->getId() + 1);//ataque jog1
+			}
+			if(pJog2)
+			{
+				lista_ents.remover(pJog2->getId());
+				lista_ents.remover(pJog2->getId() + 1);//ataque jog2
+			}
+		}
 		salvar();
 	}
 
 	void Fase_Primeira::executar() {
 		Fase::executar();
+		if (pJog1 && pJog2 && (pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f || pJog2->getPos().x >= pGG->getTamJanela().x * 4.5f)) {
+			faseAcabou = 21;
+		}
+		else if (pJog1 && pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f) {
+			faseAcabou = 11;
+		}
 	}
 
 	void Fase_Primeira::criarUFOs() {
