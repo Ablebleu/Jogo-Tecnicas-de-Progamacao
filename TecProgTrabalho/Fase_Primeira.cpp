@@ -83,9 +83,12 @@ namespace Fases {
 		Fase::executar();
 		if (pJog1 && pJog2 && (pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f || pJog2->getPos().x >= pGG->getTamJanela().x * 4.5f)) {
 			faseAcabou = 21;
+			pJog1->addPontos(500);
+			pJog2->addPontos(500);
 		}
 		else if (pJog1 && pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f) {
 			faseAcabou = 11;
+			pJog1->addPontos(500);
 		}
 	}
 

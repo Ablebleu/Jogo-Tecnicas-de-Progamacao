@@ -62,7 +62,8 @@ namespace Estados {
 					pFase = new Fases::Fase_Segunda(faseAcabou/10);
 				}
 				else if (faseAcabou%10 == 2) {
-					cout << "Parabens, voce venceu!" << endl;
+					Menus::Menu_Fase* pMenu = new Menus::Menu_Fase(faseAcabou);
+					if (pMenu) new Estados::Estado_Menu(pMenu);
 				}
 			}
 			bool pausa = pFase->getPause();

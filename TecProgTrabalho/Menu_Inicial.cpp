@@ -7,7 +7,7 @@ Menu_Inicial::Menu_Inicial() : Menu() {
 	criarBotoes();
 	seletor = lbotoes.begin();
 
-	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Background-fase-1/blue-stars.png"));
+	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Background-fase-1/AventuraAlienada.png"));
 	pSprite->setScale(sf::Vector2f(5.f, 5.f));
 }
 
