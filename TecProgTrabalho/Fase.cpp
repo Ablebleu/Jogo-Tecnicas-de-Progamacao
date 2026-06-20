@@ -1,5 +1,7 @@
 #include <cmath>
 #include <SFML/Graphics.hpp>
+#include <windows.h>
+#include <process.h>
 #include "Jogo.h"
 #include "Fase.h"
 
@@ -66,7 +68,8 @@ namespace Fases {
 		lista_ents.percorrer();
 		if (pGC) {
 			//std::cout << "Indo executar GC" << std::endl;
-			pGC->executar();
+			// Usar thread
+			_beginthread(threadColisoes, 0, NULL);
 			pGC->tratarColisoesChaoEntidades(chao);
 		}
 		else std::cerr << "Nenhuma GC para ser executada" << std::endl;
@@ -75,6 +78,11 @@ namespace Fases {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
 			pausa = true;
 		}
+	}
+
+
+	void Fase::threadColisoes(void* lpParam) {
+		pGC->executar();
 	}
 
 	void Fase::moverCamera() {

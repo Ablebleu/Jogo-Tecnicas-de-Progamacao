@@ -28,12 +28,17 @@ namespace Estados {
 		case 3: {
 			std::cout << "Carregando fase do save.json" << std::endl;
 			std::ifstream file("save.json");
-			if (!file.is_open()) {
-				std::cerr << "Erro ao abrir save.json" << std::endl;
-			}
 			nlohmann::json data;
-			file >> data;
-			file.close();
+			if (file.is_open()) {
+				try {
+					file >> data;
+				}
+				catch (const std::exception& e) {
+					std::cerr << "Erro ao parsear JSON: " << e.what() << std::endl;
+					data = nlohmann::json();
+				}
+				file.close();
+			}
 			std::string tipoFase = data[0]["tipo"];
 			if (tipoFase == "Fase_Primeira") pFase = new Fases::Fase_Primeira(data);
 			if (tipoFase == "Fase_Segunda") pFase = new Fases::Fase_Segunda(data);

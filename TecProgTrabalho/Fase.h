@@ -30,6 +30,7 @@ namespace Fases
 		Entidades::Jogador* pJog2;
 
 		static Gerenciador::Gerenciador_Colisoes* pGC;
+		static void threadColisoes(void* lpParam);
 
 		void moverCamera();
 

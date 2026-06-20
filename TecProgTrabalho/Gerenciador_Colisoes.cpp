@@ -86,8 +86,8 @@ namespace Gerenciador {
 		//Vou tentar implementar só colisão com parede por enquanto.
 		tratarColisoesJogsObstacs();
 		tratarColisoesJogsInimgs();
-		tratarColisoesAtqInimgs();
 		tratarColisoesJogsProjeteis();
+		tratarColisoesAtqInimgs();
 	}
 
 	void Gerenciador_Colisoes::limpar() {
