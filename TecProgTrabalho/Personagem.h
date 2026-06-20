@@ -9,6 +9,7 @@ namespace Entidades
 	protected:
 		int num_vidas;
 		bool vivo;
+		bool virado;
 		int frameInv;
 	public:
 		Personagem();

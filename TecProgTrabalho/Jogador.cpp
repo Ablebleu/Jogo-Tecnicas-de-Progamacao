@@ -90,6 +90,7 @@ namespace Entidades {
 
 	void Jogador::desenhar() {
 		//Vida
+		pSprite->setScale({ virado * (-10.f) + 5.f, 5.f });
 		hp.setTextureRect(sf::IntRect({ 64*(num_vidas+1)/**/,16}, {64 /**/, 48}));
 		hp.setPosition(sf::Vector2f(std::fmax(pGG->getPosJanela().x - pGG->getTamJanela().x * 0.5f, 0.0f), 0.0f) + sf::Vector2f(10.f + 30.f, 5.f + 40.f * ordemJogador));
 		pGG->desenhar(&hp);
@@ -124,14 +125,14 @@ namespace Entidades {
 			vel.x += 0.5f;
 			if (pSprite->getScale().x < 0)
 			{
-				pSprite->setScale({ 5.0f, 5.0f });
+				virado = false;
 			}
 		}
 		else if (sf::Keyboard::isKeyPressed(tecla_esquerda)) {
 			vel.x += -0.5f;
 			if (pSprite->getScale().x > 0)
 			{
-				pSprite->setScale({ -5.0f, 5.0f });
+				virado = true;
 			}
 		}
 	}

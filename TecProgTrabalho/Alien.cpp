@@ -8,10 +8,12 @@ namespace Entidades {
 		//hitbox
 		corpo.setSize(sf::Vector2f(12.0f, 18.0f));
 		corpo.setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
+		corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f });
 		//sprite
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 12,18 }));
 		pSprite->setPosition(pos);
+		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });
 		pSprite->setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
 	}
 
@@ -20,11 +22,14 @@ namespace Entidades {
 		//hitbox
 		corpo.setSize(sf::Vector2f(12.0f, 18.0f));
 		corpo.setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
+		corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f });
 		//sprite
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 12,18 }));
+		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });
 		pSprite->setPosition(pos);
 		pSprite->setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
+		pSprite->setScale(sf::Vector2f(-pSprite->getScale().x * virado * 2 + pSprite->getScale().x, pSprite->getScale().y));
 	}
 
 	Alien::~Alien() {
@@ -73,9 +78,20 @@ namespace Entidades {
 				}
 				if (posJog.x < pos.x) {
 					vel.x += -0.25f;
+					if (pSprite->getScale().x > 0)
+					{
+						virado = true;
+						pSprite->setScale(sf::Vector2f((float)tamanho * sf::Vector2f(-7.f*virado+3.5f, 3.5f)));
+					}
 				}
 				else if (posJog.x > pos.x) {
 					vel.x += 0.25f;
+
+					if (pSprite->getScale().x < 0)
+					{
+						virado = false;
+						pSprite->setScale(sf::Vector2f((float)tamanho * sf::Vector2f(-7.f * virado + 3.5f, 3.5f)));
+					}
 				}
 			}
 			else {
