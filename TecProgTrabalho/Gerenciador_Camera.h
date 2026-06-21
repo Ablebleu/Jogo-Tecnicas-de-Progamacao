@@ -10,11 +10,12 @@ namespace Gerenciador {
         sf::View camera;
         sf::FloatRect limiteCamera;
         sf::Vector2f tamJanela;
-
+        float alturaBase;
     public:
         Gerenciador_Camera(const sf::Vector2f tamJanela = { 1200.0f, 875.0f });
         ~Gerenciador_Camera();
         sf::View getCamera() const;
+        void redimensionar(sf::Vector2f novoTamJanela);
         void resetar();
         void atualizar(sf::Vector2f pos);
         void setLimiteCamera(sf::FloatRect limiteCamera);

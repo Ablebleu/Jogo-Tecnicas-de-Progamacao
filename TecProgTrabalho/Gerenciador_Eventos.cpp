@@ -24,6 +24,10 @@ namespace Gerenciador {
 				break;
 			}
 
+			if (const auto* resized = evento->getIf<sf::Event::Resized>()) {
+				pGG->atualizarTamanho(sf::Vector2f((float)resized->size.x, (float)resized->size.y));
+			}
+
 			if (const sf::Event::KeyPressed* key = evento->getIf<sf::Event::KeyPressed>()) {
 				if (!enterLiberado && key->code == sf::Keyboard::Key::Enter) {
 					continue;

@@ -72,7 +72,7 @@ namespace Entidades {
 	}
 
 	void Entidade::desenhar() {
-		pGG->desenhar(&corpo);
+		//pGG->desenhar(&corpo);
 		pGG->desenhar(pSprite);
 		//std::cout << "ID: " << getId() << " Pos: (" << pos.x << ", " << pos.y << ")" << std::endl;
 	}

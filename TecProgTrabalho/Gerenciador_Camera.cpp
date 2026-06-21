@@ -5,7 +5,8 @@ namespace Gerenciador {
     Gerenciador_Camera::Gerenciador_Camera(sf::Vector2f tamJanela) :
         limiteCamera(sf::Vector2f(0.f, 0.f), sf::Vector2f(tamJanela.x, tamJanela.y)),
         camera(limiteCamera),
-        tamJanela(tamJanela)
+        tamJanela(tamJanela),
+        alturaBase(tamJanela.y)
     {
 		std::cout << "Criando Gerenciador de Camera" << std::endl;
         camera.setSize(tamJanela);
@@ -18,6 +19,16 @@ namespace Gerenciador {
 
     sf::View Gerenciador_Camera::getCamera() const {
         return camera;
+    }
+
+    void Gerenciador_Camera::redimensionar(sf::Vector2f novoTamJanela) {
+        float novaLargura = alturaBase * (novoTamJanela.x / novoTamJanela.y);
+
+        tamJanela = sf::Vector2f(novaLargura, alturaBase);
+
+        camera.setSize(tamJanela);
+        camera.setCenter(tamJanela * 0.5f);
+        limiteCamera = sf::FloatRect(sf::Vector2f(0.f, 0.f), tamJanela);
     }
 
     void Gerenciador_Camera::resetar() {

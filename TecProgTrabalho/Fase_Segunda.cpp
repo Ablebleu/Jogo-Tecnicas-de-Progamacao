@@ -125,6 +125,10 @@ namespace Fases {
 
 	void Fase_Segunda::executar() {
 		Fase::executar();
+		if (pSprite) {
+			float escalaX = 5.f * (pGG->getTamJanela().x / 1200.0f);
+			pSprite->setScale(sf::Vector2f(escalaX, 5.43f));
+		}
 		if (pJog1 && pJog2 && (pJog1->getPos().x >= pGG->getTamJanela().x * 4.5f || pJog2->getPos().x >= pGG->getTamJanela().x * 4.5f)) {
 			faseAcabou = 22;
 			if(pJog1->getVivo())

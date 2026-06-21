@@ -51,14 +51,6 @@ namespace Gerenciador {
 		janela->display();
 	}
 
-	void Gerenciador_Grafico::resetarRelogio() {
-		relogio.restart();
-	}
-
-	float Gerenciador_Grafico::atualizarTempo() {
-		return relogio.restart().asSeconds();
-	}
-
 	sf::Texture* Gerenciador_Grafico::carregarTextura(const char* caminho, bool repetir) {
 		sf::Texture* textura = NULL;
 		textura = new sf::Texture();
@@ -104,13 +96,17 @@ namespace Gerenciador {
 		if (janela) janela->setView(camera.getCamera());
 	}
 
+	void Gerenciador_Grafico::atualizarTamanho(sf::Vector2f novoTam) {
+		camera.redimensionar(novoTam);
+		janela->setView(camera.getCamera());
+	}
+
 	std::optional<sf::Event> Gerenciador_Grafico::atualizaEvento() {
 		return janela->pollEvent();
 	}
 
 	const sf::Vector2f Gerenciador_Grafico::getTamJanela() const {
-		if (janela) return static_cast<sf::Vector2f>(janela->getSize());
-		else return sf::Vector2f({ 0.f, 0.f });
+		return camera.getTamJanela();
 	}
 
 	const sf::Vector2f Gerenciador_Grafico::getPosJanela() const {
