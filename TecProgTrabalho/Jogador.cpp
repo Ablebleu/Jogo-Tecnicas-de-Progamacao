@@ -238,6 +238,10 @@ namespace Entidades {
 			}
 		}
 
+		void Jogador::operator++() {
+			addPontos(100);
+		}
+
 		void Jogador::addPontos(int pont) {
 			pontos += pont;
 		}

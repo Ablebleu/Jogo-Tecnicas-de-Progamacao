@@ -32,6 +32,7 @@ namespace Entidades
 			void pular();
 			void mover();
 			void operator-=(int dano);
+			void operator++();
 			void atacar();
 			void addPontos(int pont = 100);
 			void setPos(sf::Vector2f p);

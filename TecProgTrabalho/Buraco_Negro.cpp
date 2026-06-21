@@ -89,7 +89,7 @@ namespace Entidades {
 		{
 			*pInim -= 1;
 			if (!pInim->getVivo())
-				pJogador->addPontos(100);
+				pJogador->operator++();
 		}
 	
 	}
