@@ -9,9 +9,6 @@ namespace Menus {
 		Menu_Inicial();
 		~Menu_Inicial();
 
-		void executar();
-		void desenhar();
-
 		void criarBotoes();
 	};
 }
