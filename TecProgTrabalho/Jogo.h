@@ -11,8 +11,8 @@
 class Jogo {
 private:
 	
-	Entidades::Jogador *pJog1;
-	Entidades::Jogador *pJog2;
+	Entidades::Personagens::Jogador *pJog1;
+	Entidades::Personagens::Jogador *pJog2;
 	Fases::Fase* fase; 
 	static Gerenciador::Gerenciador_Grafico* GG;
 	static Gerenciador::Gerenciador_Evento* GE;
@@ -26,8 +26,8 @@ public:
 	void executar();
 	void deleteJogadores();
 	void salvarJogadoresVivos();
-	Entidades::Jogador* getJogador(int i = 1, string nome = "");
-	Entidades::Jogador* getJogador(const nlohmann::json& dados);
+	Entidades::Personagens::Jogador* getJogador(int i = 1, string nome = "");
+	Entidades::Personagens::Jogador* getJogador(const nlohmann::json& dados);
 };
 
 #endif  

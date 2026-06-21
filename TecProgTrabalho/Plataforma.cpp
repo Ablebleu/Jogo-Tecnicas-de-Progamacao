@@ -39,7 +39,7 @@ namespace Entidades
             dadosSalvos["comprimento"] = comprimento;
         }
 
-        void Plataforma::obstaculizar(Jogador* p) {
+        void Plataforma::obstaculizar(Personagens::Jogador* p) {
             sf::FloatRect corpoPassageiro = p->getCorpo();
             sf::FloatRect corpoObstaculo = getCorpo();
             std::optional<sf::FloatRect> intersecao = corpoPassageiro.findIntersection(corpoObstaculo);

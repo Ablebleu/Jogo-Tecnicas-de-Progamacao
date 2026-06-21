@@ -22,7 +22,7 @@ namespace Gerenciador {
 		std::cout << "Deletando Gerenciador de Colisões" << std::endl;
 	}
 
-	void Gerenciador_Colisoes::incluirInimigo(Entidades::Inimigo* pi) {
+	void Gerenciador_Colisoes::incluirInimigo(Entidades::Personagens::Inimigo* pi) {
 		if (pi) LIs.push_back(pi);
 		else std::cerr << "Inimigo nulo" << endl;
 	}
@@ -40,7 +40,7 @@ namespace Gerenciador {
 		else std::cerr << "Projétil nulo" << endl;
 	}
 
-	void Gerenciador_Colisoes::removerInimigo(Entidades::Inimigo* pi) {
+	void Gerenciador_Colisoes::removerInimigo(Entidades::Personagens::Inimigo* pi) {
 		if (!pi) return;
 		auto it = std::find(LIs.begin(), LIs.end(), pi);
 		if (it != LIs.end()) {
@@ -130,7 +130,7 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesJogsInimgs() {
-		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+		for (vector<Entidades::Personagens::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
 			if ((*it)->getVivo() && verificarColisao(static_cast<Entidades::Entidade*>(pJog1), static_cast<Entidades::Entidade*>(*it))) {
 				//std::cout << "Colisão detectada" << std::endl;
 				(*it)->danificar(pJog1);
@@ -143,7 +143,7 @@ namespace Gerenciador {
 	}
 
 	void Gerenciador_Colisoes::tratarColisoesAtqInimgs() {
-		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+		for (vector<Entidades::Personagens::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
 			if (verificarColisao(static_cast<Entidades::Entidade*>(pJog1->getAtaque()), static_cast<Entidades::Entidade*>(*it))) {
 				//std::cout << "Colisão detectada" << std::endl;
 				pJog1->getAtaque()->danificar(*it);
@@ -174,7 +174,7 @@ namespace Gerenciador {
 		if (pJog2 && (const bool)c.getCorpo().findIntersection(pJog2->getCorpo()).has_value()) {
 			c.obstaculizar(static_cast<Entidades::Entidade*>(pJog2));
 		}
-		for (vector<Entidades::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
+		for (vector<Entidades::Personagens::Inimigo*>::iterator it = LIs.begin(); it != LIs.end(); it++) {
 			if ((const bool)c.getCorpo().findIntersection((*it)->getCorpo()).has_value()) {
 				c.obstaculizar(static_cast<Entidades::Entidade*>(*it));
 			}
@@ -190,7 +190,7 @@ namespace Gerenciador {
 		pJogo = p;
 	}
 
-	Entidades::Jogador* Gerenciador_Colisoes::getJogadores(int i){
+	Entidades::Personagens::Jogador* Gerenciador_Colisoes::getJogadores(int i){
 		if (i == 1) pJog1 = pJogo->getJogador(1);
 		else if (i == 2) pJog2 = pJogo->getJogador(2);
 		return pJogo->getJogador(i);

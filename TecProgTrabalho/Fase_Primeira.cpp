@@ -32,13 +32,13 @@ namespace Fases {
 				}
 			}
 			else if (tipo == "Alien") {
-				Entidades::Alien* pAlien = new Entidades::Alien(dados[i]);
+				Entidades::Personagens::Alien* pAlien = new Entidades::Personagens::Alien(dados[i]);
 				if (pAlien) {
 					lista_ents.incluir(static_cast<Entidades::Entidade*>(pAlien));
 				}
 			}
 			else if (tipo == "UFO") {
-				Entidades::UFO* pUFO = new Entidades::UFO(dados[i]);
+				Entidades::Personagens::UFO* pUFO = new Entidades::Personagens::UFO(dados[i]);
 				if (pUFO) {
 					lista_ents.incluir(static_cast<Entidades::Entidade*>(pUFO));
 				}
@@ -98,7 +98,7 @@ namespace Fases {
 
 	void Fase_Primeira::criarUFOs() {
 		for (int i = 0; i < maxUFOs; i++) {
-			Entidades::UFO* pUFO1 = new Entidades::UFO(sf::Vector2f(1400.0f + 2500.f / maxUFOs * i, 350.0f+rand()%125* 1.0f), 0, (rand()%11)/10.f + 1.f);
+			Entidades::Personagens::UFO* pUFO1 = new Entidades::Personagens::UFO(sf::Vector2f(1400.0f + 2500.f / maxUFOs * i, 350.0f+rand()%125* 1.0f), 0, (rand()%11)/10.f + 1.f);
 			if (pUFO1) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pUFO1));
 			}			

@@ -17,7 +17,7 @@ namespace Entidades
 			~Laser();
 			void executar();
 			void salvar();
-			void obstaculizar(Jogador* p);
+			void obstaculizar(Personagens::Jogador* p);
 			void cicloOnOff();
 		};
 	}

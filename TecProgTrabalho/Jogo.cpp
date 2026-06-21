@@ -169,10 +169,10 @@ void Jogo::salvarJogadoresVivos() {
 	}
 }
 
-Entidades::Jogador* Jogo::getJogador(int i, string nome) {
+Entidades::Personagens::Jogador* Jogo::getJogador(int i, string nome) {
 	if (i == 1) {
 		if (pJog1) return pJog1;
-		pJog1 = new Entidades::Jogador(1, nome);
+		pJog1 = new Entidades::Personagens::Jogador(1, nome);
 		if (!pJog1) {
 			std::cerr << "Erro ao criar Jogador" << std::endl;
 			exit(1);
@@ -181,7 +181,7 @@ Entidades::Jogador* Jogo::getJogador(int i, string nome) {
 	}
 	if (i == 2) {
 		if (pJog2) return pJog2;
-		pJog2 = new Entidades::Jogador(2, nome);
+		pJog2 = new Entidades::Personagens::Jogador(2, nome);
 		if (!pJog2) {
 			std::cerr << "Erro ao criar Jogador" << std::endl;
 			exit(1);
@@ -191,10 +191,10 @@ Entidades::Jogador* Jogo::getJogador(int i, string nome) {
 	return NULL;
 }
 
-Entidades::Jogador* Jogo::getJogador(const nlohmann::json& dados) {
+Entidades::Personagens::Jogador* Jogo::getJogador(const nlohmann::json& dados) {
 	if (dados["ordemJogador"] == 1) {
 		if (pJog1) delete pJog1;
-		pJog1 = new Entidades::Jogador(dados);
+		pJog1 = new Entidades::Personagens::Jogador(dados);
 		if (!pJog1) {
 			std::cerr << "Erro ao dar load no Jogador" << std::endl;
 			exit(1);
@@ -203,7 +203,7 @@ Entidades::Jogador* Jogo::getJogador(const nlohmann::json& dados) {
 	}
 	if (dados["ordemJogador"] == 2) {
 		if (pJog2) delete pJog2;
-		pJog2 = new Entidades::Jogador(dados);
+		pJog2 = new Entidades::Personagens::Jogador(dados);
 		if (!pJog2) {
 			std::cerr << "Erro ao dar load no Jogador" << std::endl;
 			exit(1);

@@ -183,9 +183,6 @@
     <ClCompile Include="Acelerador.cpp">
       <Filter>Entidades\Obstáculos\Arquivos Source</Filter>
     </ClCompile>
-    <ClCompile Include="Buraco_Negro.cpp">
-      <Filter>Entidades\Personagens\Arquivos Source</Filter>
-    </ClCompile>
     <ClCompile Include="Laser.cpp">
       <Filter>Entidades\Obstáculos\Arquivos Source</Filter>
     </ClCompile>
@@ -203,6 +200,9 @@
     </ClCompile>
     <ClCompile Include="Menu_Pontos.cpp">
       <Filter>Menus\Arquivos Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Buraco_Negro.cpp">
+      <Filter>Entidades\Arquivos Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -290,9 +290,6 @@
     <ClInclude Include="Acelerador.h">
       <Filter>Entidades\Obstáculos\Arquivos Header</Filter>
     </ClInclude>
-    <ClInclude Include="Buraco_Negro.h">
-      <Filter>Entidades\Personagens\Arquivos Header</Filter>
-    </ClInclude>
     <ClInclude Include="Laser.h">
       <Filter>Entidades\Obstáculos\Arquivos Header</Filter>
     </ClInclude>
@@ -313,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="Gerenciador_Colisoes.h">
       <Filter>Gerenciadores\Arquivos Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Buraco_Negro.h">
+      <Filter>Entidades\Arquivos Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

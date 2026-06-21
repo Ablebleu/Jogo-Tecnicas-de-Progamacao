@@ -12,7 +12,7 @@ namespace Entidades
 		bool ativo;
 		int cor;
 		float tam;
-		Jogador* pJogador;
+		Personagens::Jogador* pJogador;
 	public:
 		Buraco_Negro(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), int dur = 0, int i = 1);
 		Buraco_Negro(const nlohmann::json& dados);
@@ -21,8 +21,8 @@ namespace Entidades
 		void executar();
 		void forcar();
 		void setPos(sf::Vector2f p);
-		void setJogador(Jogador* pJog);
-		void danificar(Inimigo* pInim);
+		void setJogador(Personagens::Jogador* pJog);
+		void danificar(Personagens::Inimigo* pInim);
 		void levitar();
 		void sumir();
 		void setAtivo(bool a);

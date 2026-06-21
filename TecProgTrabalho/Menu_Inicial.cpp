@@ -15,14 +15,6 @@ Menu_Inicial::~Menu_Inicial() {
 
 }
 
-void Menu_Inicial::executar() {
-	Menu::executar();
-}
-
-void Menu_Inicial::desenhar() {
-	Menu::desenhar();
-}
-
 void Menu_Inicial::criarBotoes() {
 	adicionaBotao("Nova Fase 1", 1);
 	adicionaBotao("Nova Fase 2", 2);

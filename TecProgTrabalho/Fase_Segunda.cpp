@@ -36,7 +36,7 @@ namespace Fases {
 				}
 			}
 			else if (tipo == "Alien") {
-				Entidades::Alien* pAlien = new Entidades::Alien(dados[i]);
+				Entidades::Personagens::Alien* pAlien = new Entidades::Personagens::Alien(dados[i]);
 				if (pAlien) {
 					lista_ents.incluir(static_cast<Entidades::Entidade*>(pAlien));
 				}
@@ -48,7 +48,7 @@ namespace Fases {
 				}
 			}
 			else if (tipo == "Monstro") {
-				Entidades::Monstro* pMons = new Entidades::Monstro(dados[i]);
+				Entidades::Personagens::Monstro* pMons = new Entidades::Personagens::Monstro(dados[i]);
 				if (pMons) {
 					lista_ents.incluir(static_cast<Entidades::Entidade*>(pMons));
 				}
@@ -79,7 +79,7 @@ namespace Fases {
 
 	void Fase_Segunda::criarMonstros() {
 		for (int i = 0; i < maxMonstros; i++) {
-			Entidades::Monstro* pMons = new Entidades::Monstro(sf::Vector2f(1200.0f + 2500.f / maxMonstros * i, 300.0f), 0, rand()%2 + 2);
+			Entidades::Personagens::Monstro* pMons = new Entidades::Personagens::Monstro(sf::Vector2f(1200.0f + 2500.f / maxMonstros * i, 300.0f), 0, rand()%2 + 2);
 			if (pMons) {
 				lista_ents.incluir(static_cast<Entidades::Entidade*>(pMons));
 			}

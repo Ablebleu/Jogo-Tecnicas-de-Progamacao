@@ -53,7 +53,7 @@ namespace Entidades {
 			dadosSalvos["aceleracao"] = aceleracao;
 		}
 
-		void Acelerador::obstaculizar(Jogador* p) {
+		void Acelerador::obstaculizar(Personagens::Jogador* p) {
 			p->setVel(p->getVel() + sf::Vector2f(-5.f, 0.f) * aceleracao);
 		}
 	}

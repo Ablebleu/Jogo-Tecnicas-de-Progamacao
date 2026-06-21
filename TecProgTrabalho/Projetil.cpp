@@ -46,7 +46,7 @@ namespace Entidades {
 		return true;
 	}
 
-	void Projetil::relacionarMonstro(Monstro* pM) {
+	void Projetil::relacionarMonstro(Personagens::Monstro* pM) {
 		pMons = pM;
 	}
 
@@ -78,7 +78,7 @@ namespace Entidades {
 		Entidade::mover();
 	}
 
-	void Projetil::danificar(Jogador* p) {
+	void Projetil::danificar(Personagens::Jogador* p) {
 		if (p) {
 			(*p) -= (int)pMons->getForca();
 			setAtivo(false);

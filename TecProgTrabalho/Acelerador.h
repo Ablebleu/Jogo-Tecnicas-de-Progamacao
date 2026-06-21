@@ -16,7 +16,7 @@ namespace Entidades
 			~Acelerador();
 			void executar();
 			void salvar();
-			void obstaculizar(Jogador* p);
+			void obstaculizar(Personagens::Jogador* p);
 		};
 	}
 }

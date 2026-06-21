@@ -26,8 +26,8 @@ namespace Fases
 		Lista::ListaEntidades lista_ents;
 		Chao chao;
 
-		Entidades::Jogador* pJog1;
-		Entidades::Jogador* pJog2;
+		Entidades::Personagens::Jogador* pJog1;
+		Entidades::Personagens::Jogador* pJog2;
 
 		static Gerenciador::Gerenciador_Colisoes* pGC;
 		static void threadColisoes(void* lpParam);
@@ -44,7 +44,7 @@ namespace Fases
 		Fase(const nlohmann::json& dados);
 		virtual ~Fase();
 		virtual void executar();
-		void incluirJogador(Entidades::Jogador* pE);
+		void incluirJogador(Entidades::Personagens::Jogador* pE);
 		void desenhar();
 		void removerEntidade(int id);
 		virtual void salvar() = 0;

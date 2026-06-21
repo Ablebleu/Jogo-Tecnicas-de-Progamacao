@@ -52,7 +52,7 @@ namespace Entidades {
 			dadosSalvos["danoso"] = danoso;
 		}
 
-		void Laser::obstaculizar(Jogador* p) {
+		void Laser::obstaculizar(Personagens::Jogador* p) {
 			if (danoso) (*p) -= 2;
 		}
 

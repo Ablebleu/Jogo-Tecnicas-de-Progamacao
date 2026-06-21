@@ -79,11 +79,11 @@ namespace Entidades {
 		pSprite->setPosition(p);
 	}
 
-	void Buraco_Negro::setJogador(Jogador* pJog) {
+	void Buraco_Negro::setJogador(Personagens::Jogador* pJog) {
 		pJogador = pJog;
 	}
 
-	void Buraco_Negro::danificar(Inimigo* pInim) {
+	void Buraco_Negro::danificar(Personagens::Inimigo* pInim) {
 		//std::cout << "Danificando inimigo" << std::endl;
 		if (pInim->getVivo())
 		{

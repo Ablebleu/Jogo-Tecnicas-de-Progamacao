@@ -9,12 +9,14 @@ using namespace std;
 class Jogo;
 namespace Entidades
 {
-	class Inimigo;
+	namespace Personagens {
+		class Inimigo;
+		class Jogador;
+	}
 	namespace Obstaculos {
 		class Obstaculo;
 	}
 	class Projetil;
-	class Jogador;
 	class Entidade;
 }
 namespace Fases {
@@ -26,12 +28,12 @@ namespace Gerenciador {
 	private:
 		Jogo* pJogo;
 
-		vector<Entidades::Inimigo*> LIs;
+		vector<Entidades::Personagens::Inimigo*> LIs;
 		list<Entidades::Obstaculos::Obstaculo*> LOs;
 		set<Entidades::Projetil*> LPs;
 
-		Entidades::Jogador* pJog1;
-		Entidades::Jogador* pJog2;
+		Entidades::Personagens::Jogador* pJog1;
+		Entidades::Personagens::Jogador* pJog2;
 
 		const bool verificarColisao(Entidades::Entidade* pe1, Entidades::Entidade* pe2) const;
 		void tratarColisoesJogsObstacs();
@@ -44,10 +46,10 @@ namespace Gerenciador {
 	public:
 
 		~Gerenciador_Colisoes();
-		void incluirInimigo(Entidades::Inimigo *pi);
+		void incluirInimigo(Entidades::Personagens::Inimigo *pi);
 		void incluirObstaculo(Entidades::Obstaculos::Obstaculo *po);
 		void incluirProjetil(Entidades::Projetil *pj);
-		void removerInimigo(Entidades::Inimigo* pi);
+		void removerInimigo(Entidades::Personagens::Inimigo* pi);
 		void removerObstaculo(Entidades::Obstaculos::Obstaculo* po);
 		void removerProjetil(Entidades::Projetil* pj);
 		Entidades::Projetil *getProjetil(int id);
@@ -57,7 +59,7 @@ namespace Gerenciador {
 		void tratarColisoesChaoEntidades(Fases::Chao &c);
 
 		void setJogo(Jogo *p);
-		Entidades::Jogador* getJogadores(int i);
+		Entidades::Personagens::Jogador* getJogadores(int i);
 
 		static Gerenciador_Colisoes* getGerenciador_Colisoes();
 		static void deletar();

@@ -5,7 +5,9 @@
 
 namespace Entidades
 {
-	class Jogador;
+	namespace Personagens {
+		class Jogador;
+	}
 	namespace Obstaculos
 	{
 		class Obstaculo : public Entidade {
@@ -20,7 +22,7 @@ namespace Entidades
 			void forcar();
 			virtual void executar() = 0;
 			virtual void salvar() = 0;
-			virtual void obstaculizar(Jogador* p) = 0;
+			virtual void obstaculizar(Personagens::Jogador* p) = 0;
 			const sf::FloatRect getCorpo();
 		};
 	}
