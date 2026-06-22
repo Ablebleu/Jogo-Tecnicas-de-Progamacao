@@ -13,7 +13,6 @@ private:
 	
 	Entidades::Personagens::Jogador *pJog1;
 	Entidades::Personagens::Jogador *pJog2;
-	Fases::Fase* fase; 
 	static Gerenciador::Gerenciador_Grafico* GG;
 	static Gerenciador::Gerenciador_Evento* GE;
 	static Gerenciador::Gerenciador_Colisoes*GC;

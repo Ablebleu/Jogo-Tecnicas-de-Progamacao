@@ -8,7 +8,7 @@ namespace Entidades {
 	namespace Personagens {
 		class Monstro : public Inimigo {
 		private:
-			short int forca;
+			const short int forca;
 			int cadencia; //tempo entre cada disparo
 			Projetil* pProj;
 		public:

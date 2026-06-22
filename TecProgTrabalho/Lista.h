@@ -15,15 +15,12 @@ namespace Lista
 			Elemento<TE>* pProx;
 			TE pinfo;
 		public:
-			Elemento() { pProx = NULL; pinfo = NULL; }
-			~Elemento() {
-				pProx = NULL;
-				pinfo = NULL;
-			}
-			void incluir(TE p) { pinfo = p; }
-			void setProx(Elemento<TE>* pE) { pProx = pE; }
-			TE getInfo() const { return pinfo; }
-			Elemento<TE>* getProximo() const { return pProx; }
+			Elemento();
+			~Elemento();
+			void incluir(TE p);
+			void setProx(Elemento<TE>* pE);
+			TE getInfo() const;
+			Elemento<TE>* getProximo() const;
 		};
 
 	private:
@@ -78,6 +75,30 @@ namespace Lista
 	Lista<TL>::Elemento<TL>* Lista<TL>::getPrimeiro() const {
 		return pPrimeiro;
 	}
+
+template <class TL>
+template <class TE>
+Lista<TL>::Elemento<TE>::Elemento() : pProx(nullptr), pinfo() { }
+
+template <class TL>
+template <class TE>
+Lista<TL>::Elemento<TE>::~Elemento() { pProx = nullptr; }
+
+	template <class TL>
+	template <class TE>
+	void Lista<TL>::Elemento<TE>::incluir(TE p) { pinfo = p; }
+
+	template <class TL>
+	template <class TE>
+	void Lista<TL>::Elemento<TE>::setProx(typename Lista<TL>::template Elemento<TE>* pE) { pProx = pE; }
+
+	template <class TL>
+	template <class TE>
+	TE Lista<TL>::Elemento<TE>::getInfo() const { return pinfo; }
+
+	template <class TL>
+	template <class TE>
+	typename Lista<TL>::template Elemento<TE>* Lista<TL>::Elemento<TE>::getProximo() const { return pProx; }
 }
 
 #endif

@@ -5,6 +5,8 @@
 
 namespace Menus {
 	class Menu_Inicial : public Menu {
+	private:
+		bool continuar;
 	public:
 		Menu_Inicial();
 		~Menu_Inicial();

@@ -9,7 +9,7 @@ namespace Entidades
 	{
 		class Plataforma : public Obstaculo {
 		private:
-			float comprimento;
+			const float comprimento;
 		public:
 			Plataforma(sf::Vector2f p, float l = 1.f);
 			Plataforma(const nlohmann::json& dados);

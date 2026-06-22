@@ -27,7 +27,6 @@ namespace Estados
         static void setGEs(Gerenciador::Gerenciador_Estados* p);
         static void setGE(Gerenciador::Gerenciador_Evento* p);
         static void setJogo(Jogo* p);
-        static Gerenciador::Gerenciador_Estados* getGE() { return pGEs; }
     };
 }
 #endif

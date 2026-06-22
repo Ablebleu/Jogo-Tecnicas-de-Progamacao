@@ -47,6 +47,16 @@ namespace Menus {
 		}
 	}
 
+	int Menu::Botao::getNum() const { 
+		return numBotao; 
+	}
+
+	sf::Text& Menu::Botao::getText() {
+		return text; 
+	}
+
+	sf::RectangleShape& Menu::Botao::getBg() { return bg; }
+
 	void Menu::executar() {
 		if (!lbotoes.empty()) {
 			sf::Event::KeyPressed *key = evento.getIf<sf::Event::KeyPressed>();

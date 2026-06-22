@@ -9,7 +9,7 @@ namespace Entidades
 	{
 		class Acelerador : public Obstaculo {
 		private:
-			float aceleracao;
+			const float aceleracao;
 		public:
 			Acelerador(sf::Vector2f p = sf::Vector2f(-100.f, -100.f), float acel = 1.f);
 			Acelerador(const nlohmann::json& dados);

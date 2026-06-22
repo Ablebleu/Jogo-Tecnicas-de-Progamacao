@@ -316,11 +316,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="save.json">
-      <Filter>save</Filter>
-    </None>
     <None Include="temp" />
     <None Include="pontuacao.json">
+      <Filter>save</Filter>
+    </None>
+    <None Include="save.json">
       <Filter>save</Filter>
     </None>
   </ItemGroup>

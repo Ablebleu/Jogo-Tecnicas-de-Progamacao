@@ -9,7 +9,7 @@ Gerenciador::Gerenciador_Grafico* Jogo::GG = NULL;
 Gerenciador::Gerenciador_Evento * Jogo::GE = NULL;
 Gerenciador::Gerenciador_Colisoes* Jogo::GC = NULL;
 
-Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase(NULL), GEs(NULL) {
+Jogo::Jogo() : pJog1(NULL), pJog2(NULL), GEs(NULL) {
 
 	GG = Gerenciador::Gerenciador_Grafico::getGerenciador_Grafico();
 	GE = Gerenciador::Gerenciador_Evento::getGerenciador_Evento();
@@ -37,22 +37,8 @@ Jogo::Jogo() : pJog1(NULL), pJog2(NULL), fase(NULL), GEs(NULL) {
 		exit(1);
 	}
 
-	//Jogadores
-	/*pJog1 = new Entidades::Jogador(1);
-	if (!pJog1) {
-		std::cerr << "Erro ao criar Jogador" << std::endl;
-		exit(1);
-	}
-	pJog2 = new Entidades::Jogador(2);
-	if (!pJog2) {
-		std::cerr << "Erro ao criar Jogador" << std::endl;
-		exit(1);
-	}*/
-
 	//Seed baseada na execução normal do programa
 	srand((unsigned int)time(NULL));
-
-	/*Adicionar Menu depois*/ 
 	executar(); 
 }
 Jogo::~Jogo() {

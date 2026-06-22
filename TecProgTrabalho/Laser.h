@@ -9,7 +9,7 @@ namespace Entidades
 	{
 		class Laser : public Obstaculo {
 		private:
-			float altura;
+			const float altura;
 			int tempoAtivo; //frames
 		public:
 			Laser(sf::Vector2f p, float h, int t = 60);

@@ -20,11 +20,11 @@ namespace Menus {
 			sf::RectangleShape bg;
 		public:
 			Botao(std::string t = "", const sf::Font *fonte = NULL, int i = -1);
-			int getNum() const { return numBotao; }
+			int getNum() const;
 			void setPosition(sf::Vector2f pos);
 			void setSelected(bool s);
-			sf::Text& getText() { return text; }
-			sf::RectangleShape& getBg() { return bg; }
+			sf::Text& getText();
+			sf::RectangleShape& getBg();
 		};
 
 		int Selecionado;
