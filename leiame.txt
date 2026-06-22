@@ -1,0 +1,5 @@
+Sistema Operacional (S.O.): Windows 11
+Ambiente de Desenvolvimento: Microsoft Visual Studio 2026
+Compilador: MSVC (Microsoft C++ Build Tools - Conjunto de Ferramentas da Plataforma v145)
+Padrão da Linguagem: ISO C++17 (/std:c++17)
+Biblioteca Gráfica: SFML 3.1
