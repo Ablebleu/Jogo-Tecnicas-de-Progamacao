@@ -14,6 +14,7 @@ namespace Fases {
 
 	Fase_Primeira::Fase_Primeira(const nlohmann::json& dados) : Fase(dados),
 		maxUFOs(dados[0]["maxUFOs"]), maxAcel(dados[0]["maxAcel"]) {
+		/*Sprite original disponibilizado gratuitamente retirado de: https://ansimuz.itch.io/space-background */
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/blue-preview.png"));
 		pSprite->setScale(sf::Vector2f(1.5f, 1.45f));
 		pSprite->setPosition(sf::Vector2f(0.0f, 0.0f));

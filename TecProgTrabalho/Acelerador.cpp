@@ -7,6 +7,7 @@ namespace Entidades {
 	{
 		Acelerador::Acelerador(sf::Vector2f p, float acel) : Obstaculo(), aceleracao(acel) {
 			std::cout << "Criando acelerador: " << getId() << std::endl;
+			/*Sprite original disponibilizado gratuitamente retirado de: https://bdragon1727.itch.io/free-effect-and-bullet-16x16 */
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Acelerador.png"));
 			pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16,16 }));
 			pos = p;

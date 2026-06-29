@@ -6,6 +6,8 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+/* Menu Intermediário desenvido, apenas idealmente, com o auxílio de IA */
+
 namespace Menus {
 	class Menu_Intermediario : public Menu {
 	private:

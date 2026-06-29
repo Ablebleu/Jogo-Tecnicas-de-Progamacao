@@ -13,6 +13,7 @@ namespace Entidades {
 		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
 
 		//sprite
+		/*Sprite original disponibilizado gratuitamente retirado de: https://bdragon1727.itch.io/free-effect-and-bullet-16x16 */
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/projetil.png"));
 		pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 16, 12 }));
 		pSprite->setOrigin({ pSprite->getLocalBounds().size.x / 2.0f, pSprite->getLocalBounds().size.y / 2.0f });//origem -> centro do sprite

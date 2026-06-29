@@ -29,7 +29,8 @@ Menu_Inicial::Menu_Inicial() : Menu(), continuar(false) {
 	criarBotoes();
 	seletor = lbotoes.begin();
 
-
+	/*Sprite modificado pelos autores, sprite original disponibilizado gratuitamente retirado de: https://ansimuz.itch.io/space-background */
+	/*Sprite dos inimigos, jogador e projéteis citados em seus respectivos arquivos.*/
 	pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Background-fase-1/AventuraAlienada.png"));
 	pSprite->setScale(sf::Vector2f(5.f, 5.f));
 }

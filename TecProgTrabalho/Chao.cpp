@@ -3,6 +3,7 @@
 namespace Fases {
 	Chao::Chao(int l) : Ente(), comprimento(l) {
 		std::cout << "Criando chao da fase" << std::endl;
+		/*Sprite original disponibilizado gratuitamente retirado de: https://mattwalkden.itch.io/free-space-runner-pack */
 		pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/Chao.png", true));
 		setComprimento(l);
 		pSprite->setPosition(sf::Vector2f{ 0.0f, 600.0f });

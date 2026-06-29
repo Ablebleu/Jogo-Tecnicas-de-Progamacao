@@ -23,6 +23,7 @@ namespace Entidades {
 			corpo.setSize(sf::Vector2f(16.f, 16.f));
 			corpo.setScale(raio * sf::Vector2f(3.5f, 3.5f));
 			//sprite
+			/*Sprite original disponibilizado gratuitamente retirado de: https://skalding.itch.io/ufo-16x16-idle-sprite */
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien2.png"));
 			pSprite->setPosition(pos);
 			pSprite->setScale(raio * sf::Vector2f(3.5f, 3.5f));

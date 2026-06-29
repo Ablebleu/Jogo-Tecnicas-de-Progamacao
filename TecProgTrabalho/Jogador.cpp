@@ -28,6 +28,7 @@ namespace Entidades {
 
 			//sprite
 			hp.setScale(sf::Vector2f(2.f, 2.f));
+			/*Sprite original disponibilizado gratuitamente retirado de: https://mattwalkden.itch.io/free-space-runner-pack */
 			if (ordemJogador == 1)
 				pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Astronaut_Idle.png"));
 			else

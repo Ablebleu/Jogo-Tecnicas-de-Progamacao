@@ -22,6 +22,7 @@ namespace Entidades {
 			corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f });//origem -> centro da hitbox
 
 			//sprite
+			/*Sprite original disponibilizado gratuitamente retirado de: https://thetra00.itch.io/scifi-dungeontileset-thretra00 */
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Beholder.png"));
 			pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 32,32 }));
 			pSprite->setPosition(pos);

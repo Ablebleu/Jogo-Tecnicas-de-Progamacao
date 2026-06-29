@@ -13,6 +13,7 @@ namespace Entidades {
 			corpo.setScale({ 5.0f*h, 7.5f });
 
 			//sprite
+			/*Sprite modificado pelos autores, sprite original disponibilizado gratuitamente retirado de: https://bdragon1727.itch.io/platfrom-trap-and-weapon */
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/LaserCompleto.png"));
 			pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 18, 88 }));
 			pos = p;

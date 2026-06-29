@@ -8,6 +8,7 @@ namespace Entidades
     {
         Plataforma::Plataforma(sf::Vector2f p, float l) : Obstaculo(), comprimento(l) {
             std::cout << "Criando plataforma: " << getId() << std::endl;
+            /*Sprite original disponibilizado gratuitamente retirado de: https://atomicrealm.itch.io/industrial-tileset */
             pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/tiles/Plat_Tileset_1.png"));
             pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 64,32 }));
             pos = p;

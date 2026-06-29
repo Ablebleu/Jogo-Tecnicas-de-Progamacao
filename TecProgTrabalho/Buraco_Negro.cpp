@@ -12,6 +12,7 @@ namespace Entidades {
 		corpo.setOrigin({ corpo.getSize().x / 2.0f, corpo.getSize().y / 2.0f });//origem -> centro da hitbox
 
 		//sprite
+		/*Sprite original disponibilizado gratuitamente retirado de: https://bdragon1727.itch.io/free-effect-and-bullet-16x16 */
 		if(cor==1)
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro.png"));
 		else pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Buraco_Negro2.png"));

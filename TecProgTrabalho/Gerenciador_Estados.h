@@ -4,6 +4,9 @@
 #include <stack>
 using std::stack;
 
+/* Gerenciador de Estados desenvolvido com inspiração nos códigos do então monitor
+Giovane Limas Salvi de técnicas de programação. Github: https://github.com/Giovanenero */
+
 namespace Estados {
 	class Estado;
 }

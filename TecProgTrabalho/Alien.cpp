@@ -11,6 +11,7 @@ namespace Entidades {
 			corpo.setScale((float)tamanho * sf::Vector2f(3.5f, 3.5f));
 			corpo.setOrigin({ corpo.getSize().x / 2.0f , corpo.getSize().y / 2.0f });
 			//sprite
+			/*Sprite original disponibilizado gratuitamente retirado de: https://mattwalkden.itch.io/free-space-runner-pack */
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Alien_idle.png"));
 			pSprite->setTextureRect(sf::IntRect({ 0,0 }, { 12,18 }));
 			pSprite->setPosition(pos);

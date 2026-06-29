@@ -9,6 +9,7 @@ namespace Menus
 		seletor = lbotoes.begin();
 		if(fa)
 		{
+			/*Sprite modificado pelos autores, sprite original disponibilizado gratuitamente retirado de: https://ansimuz.itch.io/space-background */
 			pSprite = new sf::Sprite(*pGG->carregarTextura("assets/sprites/Background-fase-1/telaVitoria.png"));
 			pSprite->setScale(sf::Vector2f(5.f, 5.f));
 		}
