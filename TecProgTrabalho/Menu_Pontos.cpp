@@ -41,7 +41,7 @@ namespace Menus {
 				std::cerr << "Entrada invalida ignorada: " << e.what() << std::endl;
 			}
 		}
-		for (int i = 0; i < ranking.size(); i++) {
+		for (int i = 0; i < (int)ranking.size(); i++) {
 			rank[i].setString(std::to_string(i) + ": " + ranking[i].second + "; Pontos: " + std::to_string(ranking[i].first));
 			rank[i].setCharacterSize(36);
 			rank[i].setFillColor(sf::Color::Yellow);

@@ -126,7 +126,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-main-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-main-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -176,7 +176,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-main-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-main-d.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>
